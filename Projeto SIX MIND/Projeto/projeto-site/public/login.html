@@ -28,16 +28,23 @@
   <style>
 body{
   background-image: url("img/soja.jpg");
-  background-size: cover;
+  background-repeat: round; 
+  background-attachment: fixed;
 }
 .mb-3, .my-3{
   color: white;
+}
+.central{
+  margin-left: 35%;
+  margin-right: 35%;
+  width: 30%;
 }
   </style>
 
 </head>
 
 <body class="text-center">
+  <div class="central">
     <form class="form-signin" id="form_login" method="POST" onsubmit="return entrar()">
       <img class="mb-4" src="img/logo.png" alt="" width="200" height="200">
       <h1 class="h3 mb-3 font-weight-normal">Faça seu login</h1>
@@ -53,6 +60,7 @@ body{
       <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
       <p class="mt-5 mb-3 text-muted">© 2020</p>
     </form>
+  </div>
 </body>
 <script src="script/logar.js"></script>
 
