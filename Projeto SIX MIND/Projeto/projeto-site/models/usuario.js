@@ -15,37 +15,37 @@ module.exports = (sequelize, DataTypes) => {
 		},		
 		nome: {
 			field: 'nomeCliente',
-			type: DataTypes.VARCHAR,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		senha: {
 			field: 'senha',
-			type: DataTypes.TEXT,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		email: {
 			field: 'email',
-			type: DataTypes.TEXT,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		telefone: {
 			field: 'telefone',
-			type: DataTypes.CHAR,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		celular: {
 			field: 'celular',
-			type: DataTypes.CHAR,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
-		CPF: {
-			field: 'CPF',
-			type: DataTypes.CHAR,
+		cpf: {
+			field: 'cpf',
+			type: DataTypes.STRING,
 			allowNull: true
 		},
-		CNPJ: {
-			field: 'CNPJ',
-			type: DataTypes.CHAR,
+		cnpj: {
+			field: 'cnpj',
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 	}, 
