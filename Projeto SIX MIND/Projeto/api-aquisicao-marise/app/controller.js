@@ -75,55 +75,19 @@ router.get("/luminosity", (request, response, next) => {
 });
 
 router.get("/sendData", (request, response) => {
-  let total = 0
-   var presenca = ArduinoDataSwitch.List[ArduinoDataSwitch.List.length - 1];
-    var presenca1 = ArduinoDataSwitch.List[ArduinoDataSwitch.List.length - 2];
-    var presenca2 = ArduinoDataSwitch.List[ArduinoDataSwitch.List.length - 3];
-    var presenca3 = ArduinoDataSwitch.List[ArduinoDataSwitch.List.length - 4];
-
-let sorteio = (parseInt(Math.random()*3))
-if(sorteio==0){
-  let sorteio2 = parseInt(Math.random()*2)
-  if(sorteio2==0){
-    presenca=0
-    presenca1=0
-    presenca2=0
-    presenca3=0
-  }else{
-    presenca=1
-    presenca1=1
-    presenca2=1
-    presenca3=1
-  }
-}
-   
-    if(presenca==1){
-      total+=25
-    }
-    if(presenca1==1){
-      total+=25
-    }
-    if(presenca2==1){
-      total+=25
-    }
-    if(presenca3==1){
-      total+=25
-    }
-
-  
-
-
-
-
-  console.log(`${total}%`)
-
-  let randomescaninho = parseInt(Math.random() * 5 + 1)
-  console.log(`escaninho:${randomescaninho}`)
+    var temperaturaAr = ArduinoDataTemp.List[ArduinoDataTemp.List.length - 1];
+    var temperaturaSolo = ArduinoDataTemp.List[ArduinoDataTemp.List.length - 2];
+    var umidadeAr = ArduinoDataHumidity.List[ArduinoDataHumidity.List.length - 1];
+    var umidadeSolo = ArduinoDataHumidity.List[ArduinoDataHumidity.List.length - 2];
+let sorteio=parseInt(Math.random()*5+1);
+console.log(`sorteio=${sorteio}`);
   db.conectar()
     .then(() => {
       return db.sql.query(`
-    insert into historico(Situacao,fkEscaninho,DataeHora)
-        values (${total}, ${randomescaninho}, '${agora()}');`
+    insert into DadosSolo(fkSensor,temperatura,umidade,dadoTempo)
+        values (${sorteio},${temperaturaSolo}, ${umidadeSolo}, '${agora()}');
+    insert into DadosAr(fkSensor,temperatura,umidade,dadoTempo)
+    values (${sorteio},${temperaturaAr}, ${umidadeAr}, '${agora()}');`
       ).then(() => {
         console.log("Registro inserido com sucesso! \n");
       });;
