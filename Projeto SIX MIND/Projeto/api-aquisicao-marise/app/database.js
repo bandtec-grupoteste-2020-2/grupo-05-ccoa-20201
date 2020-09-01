@@ -1,8 +1,8 @@
 var configuracoes = {
-    server: "goats-server.database.windows.net",
+    server: "genusnostrum.database.windows.net",
     user: "adminlocal",
-    password: "Goats.12345",
-    database: "bdProjGOATS",
+    password: "$cesar268",
+    database: "GenusNostrum",
     options: {
       encrypt: true,
       enableArithAbort: true,
