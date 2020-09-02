@@ -144,6 +144,16 @@
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
+
+                    <button id="btn_dash_solo" style="display: none;"
+                        class="btn btn-primary" onclick="mudar_dash_p_atm()">
+                        Solo
+                    </button>
+                    <button id="btn_dash_atm" style="display: block;" class="btn btn-success"
+                        onclick="mudar_dash_p_solo()">
+                        Atmosfera
+                    </button>
+                    
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -156,14 +166,7 @@
 
 
 
-                        <button id="btn_dash_solo" style="display: block;" type="button" class="btn btn-primary"
-                            onclick="mudar_dash_p_solo()">
-                           Solo
-                        </button>
-                        <button id="btn_dash_atm" style="display: block;" type="button" class="btn btn-success"
-                            onclick="mudar_dash_p_solo()">
-                            Atmosfera
-                        </button>
+
                     </div>
                 </div>
 
@@ -313,22 +316,28 @@
 </body>
 
 <script>
-
-
     function mudar_dash_p_solo() {
-        // dash_solo.style.display = 'block';
-        // dash_atm.style.display = 'none';
-        btn_dash_solo = 'none';
-        btn_dash_atm = 'block';
+        let btn_dash_atm = document.getElementById("btn_dash_atm");
+        btn_dash_atm.style.display = 'none';
+        let btn_dash_solo = document.getElementById("btn_dash_solo");
+        btn_dash_solo.style.display = 'block';
 
+        let dash_solo = document.getElementById("dash_solo");
+        dash_solo.style.display = 'block';
+        let dash_atm = document.getElementById("dash_atm");
+        dash_atm.style.display = 'none';
     }
 
     function mudar_dash_p_atm() {
-        // dash_solo.style.display = 'none';
-        // dash_atm.style.display = 'block';
-        btn_dash_solo = 'block';
-        btn_dash_atm = 'none';
+        let btn_dash_solo = document.getElementById("btn_dash_solo");
+        btn_dash_solo.style.display = 'none';
+        let btn_dash_atm = document.getElementById("btn_dash_atm");
+        btn_dash_atm.style.display = 'block';
 
+        let dash_solo = document.getElementById("dash_solo");
+        dash_solo.style.display = 'none';
+        let dash_atm = document.getElementById("dash_atm");
+        dash_atm.style.display = 'block';
     }
 </script>
 
