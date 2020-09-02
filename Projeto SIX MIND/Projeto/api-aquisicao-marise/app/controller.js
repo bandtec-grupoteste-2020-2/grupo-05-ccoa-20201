@@ -81,6 +81,10 @@ router.get("/sendData", (request, response) => {
     var umidadeSolo = ArduinoDataHumidity.List[ArduinoDataHumidity.List.length - 2];
 let sorteio=parseInt(Math.random()*5+1);
 console.log(`sorteio=${sorteio}`);
+console.log(`temperatura do ar=${temperaturaAr.toFixed(2)}°C`);
+console.log(`umidade do ar=${umidadeAr}%`);
+console.log(`temperatura do solo=${temperaturaSolo.toFixed(2)}°C`);
+console.log(`umidade do solo=${umidadeSolo}%`);
   db.conectar()
     .then(() => {
       return db.sql.query(`
