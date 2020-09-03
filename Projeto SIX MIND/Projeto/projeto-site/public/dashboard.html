@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -163,24 +163,25 @@
         </div>
 
         <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
-        <div class="dash_atm">
+        <!-- -------------------------DASHBOARD DA ATMOSFERA------------------------- -->
+        <div id="dash_atm" >
+          <!-- GRAFICO PRINCIPAL DE ATMOSFERA -->
           <canvas class="my-4 w-100" id="myChart" width="900" height="290"></canvas>
-  
-  
+
+
           <div class="row">
+            <!-- GRAFICO DE ROSQUINHA (atm) -->
             <div class="col">
               <h5>Status dos sensores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas class="my-2 w-100" id="rosquinha" width="900" height="400" id="rosquinha" width="400"
-                height="150"></canvas>
+              <canvas class="my-2 w-100" id="rosquinha" width="400px" height="150"></canvas>
             </div>
-  
+            <!-- GRAFICO DE BARRAS (atm) -->
             <div class="col">
               <h5>Média dos setores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas id="setores" class="my-2 w-100" width="900" height="400"></canvas>
+              <canvas id="setores_atm" class="my-2 w-100" width="900px" max-height="400px"></canvas>
             </div>
-  
             <div class="col">
               <!-- <div class="row">
                 <h5  style="background-color: red">Maior Indice Registrado: <span id="maioregistro">-</span>%</h5>
@@ -190,48 +191,49 @@
                   <p>Máquina: <span id="maqmaior">-</span></p>
                 </div>
               </div> -->
-  
+              <!-- ALERTAS(atm) -->
               <div class="row">
                 <div class="col">
                   <h5>Menor Indice Registrado: <span id="maioregistro">-</span>%</h5>
                   <p>Setor: <span id="setmaior">-</span></p>
                   <p>Máquina: <span id="maqmaior">-</span></p>
-  
+
                 </div>
               </div>
-  
+
               <div class="row">
                 <div class="col">
                   <h5>Menor Indice Registrado: <span id="menoregistro">-</span>%</h5>
                   <p>Setor: <span id="setmenor">-</span></p>
                   <p>Máquina: <span id="maqmenor">-</span></p>
-  
+
                 </div>
               </div>
             </div>
+          </div>
         </div>
 
+        <!-- ------------------------------------ DASHBOARD DO SOLO --------------------------------->
+        <div id="dash_solo" style="display: none;">
+          <canvas class="my-4 w-100" id="myChartSolo" width="900" height="290"></canvas>
 
-        <div class="dash_solo" style="display: none">
-            <canvas class="my-4 w-100" id="myChart" width="900" height="290"></canvas>
-    
-    
-            <div class="row">
-              <div class="col">
-                <h5>Status dos sensores</h5>
-                <span class="description-box">Atualizado a cada 1 segundo</span>
-                <canvas class="my-2 w-100" id="rosquinha" width="900" height="400" id="rosquinha" width="400"
-                  height="150"></canvas>
-              </div>
-    
-              <div class="col">
-                <h5>Média dos setores</h5>
-                <span class="description-box">Atualizado a cada 1 segundo</span>
-                <canvas id="setores" class="my-2 w-100" width="900" height="400"></canvas>
-              </div>
-    
-              <div class="col">
-                <!-- <div class="row">
+
+          <div class="row">
+            <div class="col">
+              <!-- GRAFICO DE ROSCQUINHA (solo) -->
+              <h5>Status dos sensores</h5>
+              <span class="description-box">Atualizado a cada 1 segundo</span>
+              <canvas class="my-2 w-100" id="rosquinha_solo"  width="400" height="150"></canvas>
+            </div>
+            <!-- GRAFICO DE BARRAS (solo) -->
+            <div class="col">
+              <h5>Média dos setores</h5>
+              <span class="description-box">Atualizado a cada 1 segundo</span>
+              <canvas id="setores_solo" class="my-2 w-100" width="900px" max-height="400px"></canvas>
+            </div>
+
+            <div class="col">
+              <!-- <div class="row">
                   <h5  style="background-color: red">Maior Indice Registrado: <span id="maioregistro">-</span>%</h5>
                   <br>
                   <div style="background-color: green;" class="col mt-5">
@@ -239,25 +241,25 @@
                     <p>Máquina: <span id="maqmaior">-</span></p>
                   </div>
                 </div> -->
-    
-                <div class="row">
-                  <div class="col">
-                    <h5>Menor Indice Registrado: <span id="maioregistro">-</span>%</h5>
-                    <p>Setor: <span id="setmaior">-</span></p>
-                    <p>Máquina: <span id="maqmaior">-</span></p>
-    
-                  </div>
-                </div>
-    
-                <div class="row">
-                  <div class="col">
-                    <h5>Menor Indice Registrado: <span id="menoregistro">-</span>%</h5>
-                    <p>Setor: <span id="setmenor">-</span></p>
-                    <p>Máquina: <span id="maqmenor">-</span></p>
-    
-                  </div>
+              <!-- ALERTAS (solo) -->
+              <div class="row">
+                <div class="col">
+                  <h5>Menor Indice Registrado: <span id="maioregistro">-</span>%</h5>
+                  <p>Setor: <span id="setmaior">-</span></p>
+                  <p>Máquina: <span id="maqmaior">-</span></p>
+
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col">
+                  <h5>Menor Indice Registrado: <span id="menoregistro">-</span>%</h5>
+                  <p>Setor: <span id="setmenor">-</span></p>
+                  <p>Máquina: <span id="maqmenor">-</span></p>
+
+                </div>
+              </div>
+            </div>
           </div>
 
 
@@ -278,29 +280,29 @@
 <script src="script/setores.js"></script>
 
 <script>
-    function mudar_dash_p_solo() {
-        let btn_dash_atm = document.getElementById("btn_dash_atm");
-        btn_dash_atm.style.display = 'none';
-        let btn_dash_solo = document.getElementById("btn_dash_solo");
-        btn_dash_solo.style.display = 'block';
+  function mudar_dash_p_solo() {
+    // let btn_dash_atm = document.getElementById("btn_dash_atm");
+    btn_dash_atm.style.display = 'none';
+    // let btn_dash_solo = document.getElementById("btn_dash_solo");
+    btn_dash_solo.style.display = 'block';
 
-        let dash_solo = document.getElementById("dash_solo");
-        dash_solo.style.display = 'block';
-        let dash_atm = document.getElementById("dash_atm");
-        dash_atm.style.display = 'none';
-    }
+    // let dash_solo = document.getElementById("dash_solo");
+    dash_solo.style.display = 'block';
+    // let dash_atm = document.getElementById("dash_atm");
+    dash_atm.style.display = 'none';
+  }
 
-    function mudar_dash_p_atm() {
-        let btn_dash_solo = document.getElementById("btn_dash_solo");
-        btn_dash_solo.style.display = 'none';
-        let btn_dash_atm = document.getElementById("btn_dash_atm");
-        btn_dash_atm.style.display = 'block';
+  function mudar_dash_p_atm() {
+    // let btn_dash_solo = document.getElementById("btn_dash_solo");
+    btn_dash_solo.style.display = 'none';
+    // let btn_dash_atm = document.getElementById("btn_dash_atm");
+    btn_dash_atm.style.display = 'block';
 
-        let dash_solo = document.getElementById("dash_solo");
-        dash_solo.style.display = 'none';
-        let dash_atm = document.getElementById("dash_atm");
-        dash_atm.style.display = 'block';
-    }
+    // let dash_solo = document.getElementById("dash_solo");
+    dash_solo.style.display = 'none';
+    // let dash_atm = document.getElementById("dash_atm");
+    dash_atm.style.display = 'block';
+  }
 </script>
 
 <script>
@@ -324,6 +326,38 @@
         backgroundColor: 'blue',
         borderColor: 'blue',
         data: [10, 0, 15, 3, 5, 20, 45],
+        fill: false
+      }],
+    },
+    //Valmor invasor >:)
+    // Configuration options go here
+    options: {}
+  });
+</script>
+
+
+<script>
+  //-----------------------------------------MYCHARTSOLO ---------------------------------------
+  var ctx = document.getElementById('myChartSolo').getContext('2d');
+  var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [{
+        label: 'Temperatura',
+        backgroundColor: 'green',
+        borderColor: 'green',
+        data: [0, 25, 5, 2, 70, 30, 45],
+        fill: false
+      },
+      {
+        label: 'Umidade',
+        backgroundColor: 'yellow',
+        borderColor: 'yellow',
+        data: [10, 10, 15, 30, 5, 20, 45],
         fill: false
       }],
     },
