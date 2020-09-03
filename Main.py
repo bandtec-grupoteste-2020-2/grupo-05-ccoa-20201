@@ -33,6 +33,10 @@ while True:
     
     
     print("----------Proxima Leitura------------")
+    dia = datetime.date.today()
+    hora = datetime.datetime.now().time()
+    print("Data:",dia)
+    print("Hora:",hora)
     todos_os_discos= psutil.disk_partitions()
     for disco in todos_os_discos:
         Porcentagem=psutil.disk_usage(disco[0])[3]
