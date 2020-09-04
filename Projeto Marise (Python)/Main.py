@@ -12,6 +12,8 @@ print("Frequencia maxima:",frequencia[2])
 todos_os_discos= psutil.disk_partitions()
 print("Quantidade de discos identificados:",len(todos_os_discos))
 for disco in todos_os_discos:
+    if(disco[3]=="cdrom"):
+        break
     disco_total=psutil.disk_usage(disco[0])[0]/1024/1024/1024
     Usado=psutil.disk_usage(disco[0])[1]/1024/1024/1024
     Livre=psutil.disk_usage(disco[0])[2]/1024/1024/1024
@@ -39,6 +41,8 @@ while True:
     print("Hora:",hora)
     todos_os_discos= psutil.disk_partitions()
     for disco in todos_os_discos:
+        if(disco[3]=="cdrom"):
+            break
         Porcentagem=psutil.disk_usage(disco[0])[3]
         print("Disco {}: \t Porcentagem: {} %".format(disco[0],round(Porcentagem,2)))
     Disponivel=psutil.virtual_memory()[1]/1024/1024/1024
