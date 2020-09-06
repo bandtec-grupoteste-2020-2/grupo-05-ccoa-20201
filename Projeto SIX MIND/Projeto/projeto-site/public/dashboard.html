@@ -396,7 +396,7 @@
   var grafico1 = [];
   atualizarGrafico();
 
-  function plotarGrafico(contexto, dado1, dado2) {
+  function plotarGrafico(contexto, dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9,dado10) {
 
     if (grafico1 != undefined)
 
@@ -408,22 +408,24 @@
 
         data: {
 
-          labels: [`Area 1`],
+          labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],
 
           datasets: [{
             label: '°C',
-            backgroundColor: 'red',
+            backgroundColor: 'yellow',
             borderWidth: 1,
             data: [
-              dado1
+              dado1,dado2,dado3,dado4,dado5
             ]
           }, {
             label: '%',
             backgroundColor: 'blue',
             data: [
-              dado2
+            dado6,dado7,dado8,dado9,dado10
             ]
-          }],
+          }
+        ],
+        
         },
         options: {
 

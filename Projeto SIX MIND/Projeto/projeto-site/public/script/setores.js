@@ -170,24 +170,21 @@ function atualizarGrafico() {
                     const contexto = document.getElementById(`grafico`).getContext('2d');
 
 					var registro = resposta;
-					var largura = registro.length;
-					var mediatemp = 0
-					var mediaumi = 0
-					for (i=0;i<largura;i++){
-						mediatemp=mediatemp+registro[i].temp
-						mediaumi=mediaumi+registro[i].umidade
-					}
-					mediatemp=mediatemp/largura
-					mediaumi=mediaumi/largura
+				
+					var dado1=registro[0].temp
+					var dado2=registro[1].temp
+					var dado3=registro[2].temp
+					var dado4=registro[3].temp
+					var dado5=registro[4].temp
 
-					console.log(mediatemp)
-					console.log(mediaumi)
-                    const dado1 = mediatemp.toFixed(2);
-                    const dado2 = mediaumi.toFixed(2);
-
+					var dado6=registro[0].umidade
+					var dado7=registro[1].umidade
+					var dado8=registro[2].umidade
+					var dado9=registro[3].umidade
+					var dado10=registro[4].umidade
                     // document.getElementById(`numerodedentro${i}`).innerHTML = `${dado1}%`
 
-                    plotarGrafico(contexto, dado1, dado2);
+                    plotarGrafico(contexto, dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9,dado10);
                     // validargeladeira();
             })
         } else {
@@ -218,6 +215,8 @@ function atualizarGraficosolo() {
                     const contexto = document.getElementById(`graficosolo`).getContext('2d');
 
 					var registro = resposta;
+
+
 					var largura = registro.length;
 					var mediatemp = 0
 					var mediaumi = 0
