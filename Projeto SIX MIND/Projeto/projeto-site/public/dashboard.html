@@ -20,6 +20,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+  <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 
 
   <style>
@@ -164,7 +166,7 @@
 
         <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
         <!-- -------------------------DASHBOARD DA ATMOSFERA------------------------- -->
-        <div id="dash_atm" >
+        <div id="dash_atm">
           <!-- GRAFICO PRINCIPAL DE ATMOSFERA -->
           <canvas class="my-4 w-100" id="myChart" width="900" height="290"></canvas>
 
@@ -174,13 +176,17 @@
             <div class="col">
               <h5>Status dos sensores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas class="my-2 w-100" id="rosquinha" width="400px" height="150"></canvas>
+              <div>
+                <canvas id="rosquinha"></canvas>
+              </div>
             </div>
             <!-- GRAFICO DE BARRAS (atm) -->
             <div class="col">
               <h5>Média dos setores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas id="setores_atm" class="my-2 w-100" width="900px" max-height="400px"></canvas>
+              <div>
+                <canvas id="grafico"></canvas>
+              </div>
             </div>
             <div class="col">
               <!-- <div class="row">
@@ -223,13 +229,15 @@
               <!-- GRAFICO DE ROSCQUINHA (solo) -->
               <h5>Status dos sensores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas class="my-2 w-100" id="rosquinha_solo"  width="400" height="150"></canvas>
+              <canvas class="my-2 w-100" id="rosquinha_solo" width="400" height="150"></canvas>
             </div>
             <!-- GRAFICO DE BARRAS (solo) -->
             <div class="col">
               <h5>Média dos setores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas id="setores_solo" class="my-2 w-100" width="900px" max-height="400px"></canvas>
+              <div>
+                <canvas id="graficosolo"></canvas>
+              </div>
             </div>
 
             <div class="col">
@@ -384,6 +392,157 @@
     maqmaior.innerHTML = maquinamaior;
   }
     , 3200);
+
+  var grafico1 = [];
+  atualizarGrafico();
+
+  function plotarGrafico(contexto, dado1, dado2) {
+
+    if (grafico1 != undefined)
+
+      grafico1 = new Chart(contexto, {
+        // The type of chart we want to create
+        type: 'horizontalBar',
+
+        // The data for our dataset
+
+        data: {
+
+          labels: [`Area 1`],
+
+          datasets: [{
+            label: '°C',
+            backgroundColor: 'red',
+            borderWidth: 1,
+            data: [
+              dado1
+            ]
+          }, {
+            label: '%',
+            backgroundColor: 'blue',
+            data: [
+              dado2
+            ]
+          }],
+        },
+        options: {
+
+          scales: {
+
+            xAxes: [{
+              display: true,
+              ticks: {
+                beginAtZero: true,
+                steps: 10,
+                stepValue: 5,
+                max: 100
+              }
+            }]
+          },
+        }
+      });
+  }
+/*SOLO*/
+  var grafico2 = [];
+  atualizarGraficosolo();
+
+  function plotarGrafico2(contexto, dado1, dado2) {
+
+    if (grafico2 != undefined)
+
+      grafico2 = new Chart(contexto, {
+        // The type of chart we want to create
+        type: 'horizontalBar',
+
+        // The data for our dataset
+
+        data: {
+
+          labels: [`Area 1`],
+
+          datasets: [{
+            label: '°C',
+            backgroundColor: 'red',
+            borderWidth: 1,
+            data: [
+              dado1
+            ]
+          }, {
+            label: '%',
+            backgroundColor: 'blue',
+            data: [
+              dado2
+            ]
+          }],
+        },
+        options: {
+
+          scales: {
+
+            xAxes: [{
+              display: true,
+              ticks: {
+                beginAtZero: true,
+                steps: 10,
+                stepValue: 5,
+                max: 100
+              }
+            }]
+          },
+        }
+      });
+  }
+  var grafico3 = [];
+  atualizarRosca();
+
+  function plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal) {
+
+    if (grafico3 != undefined)
+
+      grafico3 = new Chart(contexto, {
+        // The type of chart we want to create
+        type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        critico,
+                        ideal,
+                        alerta,
+                        emergencial,
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.green,
+                        window.chartColors.blue,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    'Red',
+                    'Orange',
+                    'Yellow',
+                    'Green',
+                    'Blue'
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Doughnut Chart'
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+      });
+  }
 
 </script>
 

@@ -37,15 +37,11 @@ router.get('/tempo-real', function (req, res, next) {
 	
 	console.log(`Recuperando a última leitura`);
 
-	const instrucaoSql = `select top 1 IdEventos,
-						GrauLum, 
-						DataEvento,
-						FORMAT(DataEvento,'HH:mm:ss') as momento_grafico
-						from Eventos order by IdEventos desc`;
+	const instrucaoSql = `select temperatura as temp, umidade as umid from [dbo].[DadosAr] as a where a.idDadosAr in (select max(b.idDadosAr) from [dbo].[DadosAr] as b group by b.fkSensor) order by a.fkSensor;`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
-			res.json(resultado[0]);
+			res.json(resultado);
 		}).catch(erro => {
 			console.error(erro);
 			res.status(500).send(erro.message);
@@ -55,25 +51,36 @@ router.get('/tempo-real', function (req, res, next) {
 
 
 // estatísticas (max, min, média, mediana, quartis etc)
+
 router.get('/estatisticas', function (req, res, next) {
 	
 	console.log(`Recuperando as estatísticas atuais`);
 
-	const instrucaoSql = `select 
-							max(GrauLum) as lum_maxima, 
-							avg(GrauLum) as lum_média,
-							min(GrauLum) as lum_minima
-						from Eventos`;
-
+	const instrucaoSql = `select avg(temperatura) as 'temp',avg(umidade) as 'umidade' from DadosAr group by fksensor;`;
+	
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
-			res.json(resultado[0]);
+			res.json(resultado);
 		}).catch(erro => {
 			console.error(erro);
 			res.status(500).send(erro.message);
 		});
   
 });
+router.get('/estatisticas2', function (req, res, next) {
+	
+	console.log(`Recuperando as estatísticas atuais`);
 
+	const instrucaoSql = `select avg(temperatura) as 'temp',avg(umidade) as 'umidade' from DadosSolo group by fksensor;`;
+	
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+  
+});
 
 module.exports = router;
