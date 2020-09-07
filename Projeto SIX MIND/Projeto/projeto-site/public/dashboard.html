@@ -398,10 +398,10 @@
   var grafico1 = [];
   atualizarGrafico();
 
-  function plotarGrafico(contexto, dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9,dado10) {
+  function plotarGrafico(contexto, dado, dado2) {
 
-    if (grafico1 != undefined)
-
+    if (grafico1.length > 0)
+    grafico1.destroy();
       grafico1 = new Chart(contexto, {
         // The type of chart we want to create
         type: 'horizontalBar',
@@ -416,15 +416,15 @@
             label: '°C',
             backgroundColor: 'yellow',
             borderWidth: 1,
-            data: [
-              dado1,dado2,dado3,dado4,dado5
-            ]
+            data: 
+              dado
+            
           }, {
             label: '%',
             backgroundColor: 'blue',
-            data: [
-            dado6,dado7,dado8,dado9,dado10
-            ]
+            data: 
+            dado2
+            
           }
         ],
         
@@ -452,8 +452,8 @@
 
   function plotarGrafico2(contexto, dado1, dado2) {
 
-    if (grafico2 != undefined)
-
+    if (grafico2.length > 0)
+    grafico2.destroy();
       grafico2 = new Chart(contexto, {
         // The type of chart we want to create
         type: 'horizontalBar',
@@ -462,21 +462,21 @@
 
         data: {
 
-          labels: [`Area 1`],
+          labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],
 
           datasets: [{
             label: '°C',
             backgroundColor: 'red',
             borderWidth: 1,
-            data: [
+            data: 
               dado1
-            ]
+            
           }, {
             label: '%',
             backgroundColor: 'blue',
-            data: [
+            data: 
               dado2
-            ]
+            
           }],
         },
         options: {

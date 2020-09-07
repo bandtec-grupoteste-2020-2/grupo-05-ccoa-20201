@@ -169,22 +169,23 @@ function atualizarGrafico() {
 
                     const contexto = document.getElementById(`grafico`).getContext('2d');
 
-					var registro = resposta;
-				
-					var dado1=registro[0].temp
-					var dado2=registro[1].temp
-					var dado3=registro[2].temp
-					var dado4=registro[3].temp
-					var dado5=registro[4].temp
+                    var registro = resposta;
+                    var largura = registro.length
+                    var dado=[]
+                    var dado2=[]
+                for(i=0;i<largura;i++){
+                    dado.push(registro[i].temp)
 
-					var dado6=registro[0].umidade
-					var dado7=registro[1].umidade
-					var dado8=registro[2].umidade
-					var dado9=registro[3].umidade
-					var dado10=registro[4].umidade
+                }
+                for(i=0;i<largura;i++){
+                    dado2.push(registro[i].umidade)
+
+                }
+
+					
                     // document.getElementById(`numerodedentro${i}`).innerHTML = `${dado1}%`
 
-                    plotarGrafico(contexto, dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9,dado10);
+                    plotarGrafico(contexto, dado, dado2);
                     // validargeladeira();
             })
         } else {
@@ -216,25 +217,21 @@ function atualizarGraficosolo() {
 
 					var registro = resposta;
 
+                    var largura = registro.length
+                    var dado=[]
+                    var dado2=[]
+                for(i=0;i<largura;i++){
+                    dado.push(registro[i].temp)
 
-					var largura = registro.length;
-					var mediatemp = 0
-					var mediaumi = 0
-					for (i=0;i<largura;i++){
-						mediatemp=mediatemp+registro[i].temp
-						mediaumi=mediaumi+registro[i].umidade
-					}
-					mediatemp=mediatemp/largura
-					mediaumi=mediaumi/largura
+                }
+                for(i=0;i<largura;i++){
+                    dado2.push(registro[i].umidade)
 
-					console.log(mediatemp)
-					console.log(mediaumi)
-                    const dado1 = mediatemp.toFixed(2);
-                    const dado2 = mediaumi.toFixed(2);
+                }
 
                     // document.getElementById(`numerodedentro${i}`).innerHTML = `${dado1}%`
 
-                    plotarGrafico2(contexto, dado1, dado2);
+                    plotarGrafico2(contexto, dado, dado2);
                     // validargeladeira();
             })
         } else {

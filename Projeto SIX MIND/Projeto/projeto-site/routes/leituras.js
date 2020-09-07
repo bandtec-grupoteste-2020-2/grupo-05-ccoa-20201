@@ -71,7 +71,7 @@ router.get('/estatisticas', function (req, res, next) {
 	
 	console.log(`Recuperando as estatísticas atuais`);
 
-	const instrucaoSql = `select avg(temperatura) as 'temp',avg(umidade) as 'umidade' from DadosAr group by fksensor;`;
+	const instrucaoSql = `select temperatura as temp, umidade as umidade from [dbo].[DadosAr] as a where a.idDadosAr in (select max(b.idDadosAr) from [dbo].[DadosAr] as b group by b.fkSensor) order by a.fkSensor;`;
 	
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
@@ -86,7 +86,7 @@ router.get('/estatisticas2', function (req, res, next) {
 	
 	console.log(`Recuperando as estatísticas atuais`);
 
-	const instrucaoSql = `select avg(temperatura) as 'temp',avg(umidade) as 'umidade' from DadosSolo group by fksensor;`;
+	const instrucaoSql = `select temperatura as temp, umidade as umidade from [dbo].[DadosSolo] as a where a.idDadosSolo in (select max(b.idDadosSolo) from [dbo].[DadosSolo] as b group by b.fkSensor) order by a.fkSensor;`;
 	
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
