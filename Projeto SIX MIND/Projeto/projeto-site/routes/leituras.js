@@ -48,6 +48,21 @@ router.get('/tempo-real', function (req, res, next) {
 		});
   
 });
+router.get('/tempo-real1', function (req, res, next) {
+	
+	console.log(`Recuperando a última leitura`);
+
+	const instrucaoSql = `select temperatura as temp, umidade as umid from [dbo].[DadosSolo] as a where a.idDadosSolo in (select max(b.idDadosSolo) from [dbo].[DadosSolo] as b group by b.fkSensor) order by a.fkSensor;`;
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+  
+});
 
 
 // estatísticas (max, min, média, mediana, quartis etc)

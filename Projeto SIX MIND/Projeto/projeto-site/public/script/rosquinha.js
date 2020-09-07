@@ -165,10 +165,10 @@ function atualizarRosca() {
                     var largura = registro.length;
                     for(let x=0;x<largura;x++){
                         let sens=registro[x].temp
-                        if(sens<=15){
+                        if(sens<=19){
                             critico+=critico+1;
                         }
-                        else if(sens<=22){
+                        else if(sens<=20){
                             emergencial=emergencial+1;
                         }
                         else if(sens<=30){
@@ -180,11 +180,11 @@ function atualizarRosca() {
                     }
                     for(let x=0;x<largura;x++){
                         let sens=registro[x].umid;
-                        if(sens<=15){
+                        if(sens<=19){
                             critico=critico+1;
                             
                         }
-                        else if(sens<=22){
+                        else if(sens<=20){
                             emergencial=emergencial+1;
                         }
                         else if(sens<=30){
@@ -219,7 +219,7 @@ function atualizarRosca() {
 window.onload = atualizarRosca1;
 function atualizarRosca1() {
 
-    fetch('/leituras/tempo-real', { cache: 'no-store' }).then(function (response) {
+    fetch('/leituras/tempo-real1', { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
 
             response.json().then(function (resposta) {
@@ -231,7 +231,7 @@ function atualizarRosca1() {
                     var emergencial= 0;
             
 
-                    const contexto = document.getElementById(`rosquinha`).getContext('2d');
+                    const contexto = document.getElementById(`rosquinha_solo`).getContext('2d');
 
 					var registro = resposta;
 
@@ -242,10 +242,10 @@ function atualizarRosca1() {
                     var largura = registro.length;
                     for(let x=0;x<largura;x++){
                         let sens=registro[x].temp
-                        if(sens<=15){
+                        if(sens<=19){
                             critico+=critico+1;
                         }
-                        else if(sens<=22){
+                        else if(sens<=20){
                             emergencial=emergencial+1;
                         }
                         else if(sens<=30){
@@ -257,11 +257,11 @@ function atualizarRosca1() {
                     }
                     for(let x=0;x<largura;x++){
                         let sens=registro[x].umid;
-                        if(sens<=15){
+                        if(sens<=19){
                             critico=critico+1;
                             
                         }
-                        else if(sens<=22){
+                        else if(sens<=20){
                             emergencial=emergencial+1;
                         }
                         else if(sens<=30){
@@ -277,7 +277,7 @@ function atualizarRosca1() {
                     console.log(emergencial);
                     // document.getElementById(`numerodedentro${i}`).innerHTML = `${dado1}%`
 
-                    plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal);
+                    plotarGraficoRosca1(contexto, critico,emergencial,alerta,ideal);
                     // validargeladeira();
             })
         } else {
@@ -288,7 +288,7 @@ function atualizarRosca1() {
     });
 
     setTimeout(() => {
-        atualizarRosca();
+        atualizarRosca1();
 
     }, 30000);
 }

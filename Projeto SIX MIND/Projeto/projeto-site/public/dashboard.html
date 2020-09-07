@@ -229,7 +229,9 @@
               <!-- GRAFICO DE ROSCQUINHA (solo) -->
               <h5>Status dos sensores</h5>
               <span class="description-box">Atualizado a cada 1 segundo</span>
-              <canvas class="my-2 w-100" id="rosquinha_solo" width="400" height="150"></canvas>
+              <div>
+                <canvas id="rosquinha_solo"></canvas>
+              </div>
             </div>
             <!-- GRAFICO DE BARRAS (solo) -->
             <div class="col">
@@ -514,19 +516,17 @@
                     ],
                     backgroundColor: [
                         window.chartColors.red,
-                        window.chartColors.orange,
-                        window.chartColors.yellow,
                         window.chartColors.green,
-                        window.chartColors.blue,
+                        window.chartColors.yellow,
+                        window.chartColors.orange,
                     ],
                     label: 'Dataset 1'
                 }],
                 labels: [
-                    'Red',
-                    'Orange',
-                    'Yellow',
-                    'Green',
-                    'Blue'
+                    'Critico',
+                    'ideal',
+                    'alerta',
+                    'emergencial',
                 ]
             },
             options: {
@@ -544,6 +544,55 @@
                 }
             }
       });
+  }
+
+
+  var grafico4 = [];
+  atualizarRosca1();
+  function plotarGraficoRosca1(contexto, critico,emergencial,alerta,ideal) {
+  if (grafico4 != undefined)
+
+    grafico4 = new Chart(contexto, {
+      // The type of chart we want to create
+      type: 'doughnut',
+          data: {
+              datasets: [{
+                  data: [
+                      critico,
+                      ideal,
+                      alerta,
+                      emergencial,
+                  ],
+                  backgroundColor: [
+                      window.chartColors.red,
+                      window.chartColors.green,
+                      window.chartColors.yellow,
+                      window.chartColors.orange,
+                  ],
+                  label: 'Dataset 1'
+              }],
+              labels: [
+                  'Critico',
+                  'ideal',
+                  'alerta',
+                  'emergencial',
+              ]
+          },
+          options: {
+              responsive: true,
+              legend: {
+                  position: 'top',
+              },
+              title: {
+                  display: true,
+                  text: 'Chart.js Doughnut Chart'
+              },
+              animation: {
+                  animateScale: true,
+                  animateRotate: true
+              }
+          }
+    });
   }
 
 </script>
