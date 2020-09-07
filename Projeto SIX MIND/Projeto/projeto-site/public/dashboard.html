@@ -175,15 +175,15 @@
             <!-- GRAFICO DE ROSQUINHA (atm) -->
             <div class="col">
               <h5>Status dos sensores</h5>
-              <span class="description-box">Atualizado a cada 1 segundo</span>
+              <span class="description-box">Atualizado a cada 5 segundo</span>
               <div>
                 <canvas id="rosquinha"></canvas>
               </div>
             </div>
             <!-- GRAFICO DE BARRAS (atm) -->
             <div class="col">
-              <h5>Média dos setores</h5>
-              <span class="description-box">Atualizado a cada 1 segundo</span>
+              <h5>Últimas leituras:</h5>
+              <span class="description-box">Atualizado a cada 5 segundo</span>
               <div>
                 <canvas id="grafico"></canvas>
               </div>
@@ -228,15 +228,15 @@
             <div class="col">
               <!-- GRAFICO DE ROSCQUINHA (solo) -->
               <h5>Status dos sensores</h5>
-              <span class="description-box">Atualizado a cada 1 segundo</span>
+              <span class="description-box">Atualizado a cada 5 segundo</span>
               <div>
                 <canvas id="rosquinha_solo"></canvas>
               </div>
             </div>
             <!-- GRAFICO DE BARRAS (solo) -->
             <div class="col">
-              <h5>Média dos setores</h5>
-              <span class="description-box">Atualizado a cada 1 segundo</span>
+              <h5>Últimas leituras:</h5>
+              <span class="description-box">Atualizado a cada 5 segundo</span>
               <div>
                 <canvas id="graficosolo"></canvas>
               </div>
@@ -413,14 +413,14 @@
           labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],
 
           datasets: [{
-            label: '°C',
+            label: 'Temperatura °C',
             backgroundColor: 'yellow',
             borderWidth: 1,
             data: 
               dado
             
           }, {
-            label: '%',
+            label: 'Umidade %',
             backgroundColor: 'blue',
             data: 
             dado2
@@ -450,7 +450,7 @@
   var grafico2 = [];
   atualizarGraficosolo();
 
-  function plotarGrafico2(contexto, dado1, dado2) {
+  function plotarGrafico2(contexto, dado, dado2) {
 
     if (grafico2.length > 0)
     grafico2.destroy();
@@ -465,14 +465,14 @@
           labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],
 
           datasets: [{
-            label: '°C',
+            label: 'Temperatura °C',
             backgroundColor: 'red',
             borderWidth: 1,
             data: 
-              dado1
+              dado
             
           }, {
-            label: '%',
+            label: 'Umidade %',
             backgroundColor: 'blue',
             data: 
               dado2
@@ -501,8 +501,8 @@
 
   function plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal) {
 
-    if (grafico3 != undefined)
-
+    if (grafico3.length > 0)
+    grafico3.destroy();
       grafico3 = new Chart(contexto, {
         // The type of chart we want to create
         type: 'doughnut',
@@ -550,8 +550,8 @@
   var grafico4 = [];
   atualizarRosca1();
   function plotarGraficoRosca1(contexto, critico,emergencial,alerta,ideal) {
-  if (grafico4 != undefined)
-
+    if (grafico4.length > 0)
+    grafico4.destroy();
     grafico4 = new Chart(contexto, {
       // The type of chart we want to create
       type: 'doughnut',

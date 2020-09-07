@@ -213,7 +213,7 @@ function atualizarRosca() {
     setTimeout(() => {
         atualizarRosca();
 
-    }, 30000);
+    }, 5000);
 }
 //--------------------------------
 window.onload = atualizarRosca1;
@@ -290,7 +290,7 @@ function atualizarRosca1() {
     setTimeout(() => {
         atualizarRosca1();
 
-    }, 30000);
+    }, 5000);
 }
 
 

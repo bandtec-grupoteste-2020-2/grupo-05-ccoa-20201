@@ -198,7 +198,7 @@ function atualizarGrafico() {
     setTimeout(() => {
         atualizarGrafico();
 
-    }, 30000);
+    }, 5000);
 }
 /*SOLO */
 window.onload = atualizarGraficosolo;
@@ -242,9 +242,10 @@ function atualizarGraficosolo() {
     });
 
     setTimeout(() => {
-        atualizarGrafico();
+        atualizarGraficosolo();
 
-    }, 30000);
+    }, 5000);
+   
 }
 
 
