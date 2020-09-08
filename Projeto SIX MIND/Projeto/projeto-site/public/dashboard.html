@@ -199,18 +199,35 @@
               <!-- ALERTAS(atm) -->
               <div class="row">
                 <div class="col">
-                  <h5>Menor Indice Registrado: <span id="maioregistro">-</span>%</h5>
-                  <p>Setor: <span id="setmaior">-</span></p>
-                  <p>Máquina: <span id="maqmaior">-</span></p>
+                  <h5>Maior Indice de Temperatura: <span id="maiorTempertura">-</span>°C</h5>
+                  <p>Área: <span id="maiorTemperturaArea">-</span></p>
+                  
 
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <h5>Menor Indice Registrado: <span id="menoregistro">-</span>%</h5>
-                  <p>Setor: <span id="setmenor">-</span></p>
-                  <p>Máquina: <span id="maqmenor">-</span></p>
+                  <h5>Menor Indice de Temperatura: <span id="menorTempertura">-</span>°C</h5>
+                  <p>Área: <span id="menorTemperturaArea">-</span></p>
+          
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <h5>Maior Indice de Umidade: <span id="maiorUmidade">-</span>%</h5>
+                  <p>Área: <span id="maiorUmidadeArea">-</span></p>
+                  
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <h5>Menor Indice  de Umidade: <span id="menorUmidade">-</span>%</h5>
+                  <p>Área: <span id="menorUmidadeArea">-</span></p>
+          
 
                 </div>
               </div>
@@ -253,18 +270,38 @@
               <!-- ALERTAS (solo) -->
               <div class="row">
                 <div class="col">
-                  <h5>Menor Indice Registrado: <span id="maioregistro">-</span>%</h5>
-                  <p>Setor: <span id="setmaior">-</span></p>
-                  <p>Máquina: <span id="maqmaior">-</span></p>
+                  <h5>Maior Indice de Temperatura: <span id="maiorTemperturaSolo">-</span>°C</h5>
+                  <p>Área: <span id="maiorTemperturaAreaSolo">-</span></p>
+                  
 
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <h5>Menor Indice Registrado: <span id="menoregistro">-</span>%</h5>
-                  <p>Setor: <span id="setmenor">-</span></p>
-                  <p>Máquina: <span id="maqmenor">-</span></p>
+                  <h5>Menor Indice de Temperatura: <span id="menorTemperturaSolo">-</span>°C</h5>
+                  <p>Área: <span id="menorTemperturaAreaSolo">-</span></p>
+          
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <h5>Maior Indice de Umidade: <span id="maiorUmidadeSolo">-</span>%</h5>
+                  <p>Área: <span id="maiorUmidadeAreaSolo">-</span></p>
+                  
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <h5>Menor Indice  de Umidade: <span id="menorUmidadeSolo">-</span>%</h5>
+                  <p>Área: <span id="menorUmidadeAreaSolo">-</span></p>
+          
+
+                </div>
+              </div>
 
                 </div>
               </div>
@@ -347,35 +384,59 @@
 
 
 <script>
-  function atualizarGraficoGrande();
-  //-----------------------------------------MYCHARTSOLO ---------------------------------------
-  var ctx = document.getElementById('myChartSolo').getContext('2d');
-  var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-    datasets: [{ 
-    data: {
-    // The data for 
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'Temperatura',
-        backgroundColor: 'green',
-        borderColor: 'green',
-        data: [0, 25, 5, 2, 70, 30, 45],
-        fill: false
-      },
-      {
-        label: 'Umidade',
-        backgroundColor: 'yellow',
-        borderColor: 'yellow',
-        data: [10, 10, 15, 30, 5, 20, 45],
-        fill: false
-      }],
-    },
-    //Valmor invasor >:)
-    // Configuration options go here
-    options: {}
-  });
+  function AtualizarIndices(maiorTemp,menorTemp,maiorUmid,menorUmid){
+    maiorTempertura.innerHTML = maiorTemp[0]
+    maiorTemperturaArea.innerHTML = maiorTemp[1]
+    menorTempertura.innerHTML = menorTemp[0]
+    menorTemperturaArea.innerHTML = menorTemp[1]
+  
+    maiorUmidade.innerHTML = maiorUmid[0]
+    maiorUmidadeArea.innerHTML = maiorUmid[1]
+    menorUmidade.innerHTML = menorUmid[0]
+    menorUmidadeArea.innerHTML = menorUmid[1]
+
+  }
+  function AtualizarIndicesSolo(maiorTemp,menorTemp,maiorUmid,menorUmid){
+    maiorTemperturaSolo.innerHTML = maiorTemp[0]
+    maiorTemperturaAreaSolo.innerHTML = maiorTemp[1]
+    menorTemperturaSolo.innerHTML = menorTemp[0]
+    menorTemperturaAreaSolo.innerHTML = menorTemp[1]
+  
+    maiorUmidadeSolo.innerHTML = maiorUmid[0]
+    maiorUmidadeAreaSolo.innerHTML = maiorUmid[1]
+    menorUmidadeSolo.innerHTML = menorUmid[0]
+    menorUmidadeAreaSolo.innerHTML = menorUmid[1]
+
+  }
+  // function atualizarGraficoGrande();
+  // //-----------------------------------------MYCHARTSOLO ---------------------------------------
+  // var ctx = document.getElementById('myChartSolo').getContext('2d');
+  // var chart = new Chart(ctx, {
+  //   // The type of chart we want to create
+  //   type: 'line',
+  //   datasets: [{ 
+  //   data: {
+  //   // The data for 
+  //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  //     datasets: [{
+  //       label: 'Temperatura',
+  //       backgroundColor: 'green',
+  //       borderColor: 'green',
+  //       data: [0, 25, 5, 2, 70, 30, 45],
+  //       fill: false
+  //     },
+  //     {
+  //       label: 'Umidade',
+  //       backgroundColor: 'yellow',
+  //       borderColor: 'yellow',
+  //       data: [10, 10, 15, 30, 5, 20, 45],
+  //       fill: false
+  //     }],
+  //   },
+  //   //Valmor invasor >:)
+  //   // Configuration options go here
+  //   options: {}
+  // });
 </script>
 
 <script>
