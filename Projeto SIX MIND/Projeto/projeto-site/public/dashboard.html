@@ -479,14 +479,14 @@
 
           datasets: [{
             label: 'Temperatura °C',
-            backgroundColor: 'yellow',
+            backgroundColor: window.chartColors.yellow,
             borderWidth: 1,
             data: 
               dado
             
           }, {
             label: 'Umidade %',
-            backgroundColor: 'blue',
+            backgroundColor:  window.chartColors.blue,
             data: 
             dado2
             
@@ -536,14 +536,14 @@
 
           datasets: [{
             label: 'Temperatura °C',
-            backgroundColor: 'red',
+            backgroundColor: window.chartColors.yellow,
             borderWidth: 1,
             data: 
               dado
             
           }, {
             label: 'Umidade %',
-            backgroundColor: 'blue',
+            backgroundColor: window.chartColors.blue,
             data: 
               dado2
             
@@ -609,10 +609,7 @@
                 legend: {
                     position: 'top',
                 },
-                title: {
-                    display: true,
-                    text: 'Chart.js Doughnut Chart'
-                },
+                
                 animation: {
                     animateScale: true,
                     animateRotate: true
@@ -663,10 +660,7 @@
               legend: {
                   position: 'top',
               },
-              title: {
-                  display: true,
-                  text: 'Chart.js Doughnut Chart'
-              },
+              
               animation: {
                   animateScale: true,
                   animateRotate: true
