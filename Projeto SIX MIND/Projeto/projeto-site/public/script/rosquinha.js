@@ -158,10 +158,6 @@ function atualizarRosca() {
 
 					var registro = resposta;
 
-                    console.log(critico);
-                    console.log(alerta);
-                    console.log(ideal);
-                    console.log(emergencial);
                     var largura = registro.length;
                     for(let x=0;x<largura;x++){
                         let sens=registro[x].temp
@@ -184,7 +180,7 @@ function atualizarRosca() {
                             critico=critico+1;
                             
                         }
-                        else if(sens<=20){
+                        else if(sens<=20){ 
                             emergencial=emergencial+1;
                         }
                         else if(sens<=30){
@@ -194,10 +190,7 @@ function atualizarRosca() {
                             alerta=alerta+1;
                         }
                     }
-                    console.log(critico);
-                    console.log(alerta);
-                    console.log(ideal);
-                    console.log(emergencial);
+        
                     // document.getElementById(`numerodedentro${i}`).innerHTML = `${dado1}%`
 
                     plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal);

@@ -97,5 +97,21 @@ router.get('/estatisticas2', function (req, res, next) {
 		});
   
 });
+//---GRAFICO PARA ATM
+router.get('/graficosao1', function (req, res, next) {
+	
+	console.log(`Recuperando as estatísticas atuais`);
+
+	const instrucaoSql = `select datepart(month,dadoTempo) as mes,avg(temperatura) as med_temp, avg(umidade) as med_umid from [dbo].[DadosAr] group by datepart(month,dadoTempo);`;
+	
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+  
+});
 
 module.exports = router;

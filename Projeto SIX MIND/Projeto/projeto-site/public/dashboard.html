@@ -168,8 +168,7 @@
         <!-- -------------------------DASHBOARD DA ATMOSFERA------------------------- -->
         <div id="dash_atm">
           <!-- GRAFICO PRINCIPAL DE ATMOSFERA -->
-          <canvas class="my-4 w-100" id="myChart" width="900" height="290"></canvas>
-
+          <canvas class="my-4 w-100" id="myChart"  width="900" height="290"></canvas>
 
           <div class="row">
             <!-- GRAFICO DE ROSQUINHA (atm) -->
@@ -288,6 +287,7 @@
 <script src="dashboard.js"></script>
 <script src="script/rosquinha.js"></script>
 <script src="script/setores.js"></script>
+<script src="script/grafico_grande.js"></script>
 
 <script>
   function mudar_dash_p_solo() {
@@ -347,14 +347,15 @@
 
 
 <script>
+  function atualizarGraficoGrande();
   //-----------------------------------------MYCHARTSOLO ---------------------------------------
   var ctx = document.getElementById('myChartSolo').getContext('2d');
   var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
-
-    // The data for our dataset
+    datasets: [{ 
     data: {
+    // The data for 
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [{
         label: 'Temperatura',
@@ -395,13 +396,16 @@
   }
     , 3200);
 
-  var grafico1 = [];
+  var grafico1=[] ;
+  var teste=0;
   atualizarGrafico();
 
   function plotarGrafico(contexto, dado, dado2) {
 
-    if (grafico1.length > 0)
-    grafico1.destroy();
+    if (teste >= 1){
+      grafico1.destroy();
+      teste=0;
+    }
       grafico1 = new Chart(contexto, {
         // The type of chart we want to create
         type: 'horizontalBar',
@@ -445,15 +449,20 @@
           },
         }
       });
+      teste++;
   }
 /*SOLO*/
   var grafico2 = [];
+  var teste2=0;
   atualizarGraficosolo();
 
   function plotarGrafico2(contexto, dado, dado2) {
 
-    if (grafico2.length > 0)
-    grafico2.destroy();
+    if (teste2 >= 1){
+      grafico2.destroy();
+      teste2=0;
+    }
+    
       grafico2 = new Chart(contexto, {
         // The type of chart we want to create
         type: 'horizontalBar',
@@ -495,14 +504,19 @@
           },
         }
       });
+      teste2++;
   }
   var grafico3 = [];
+  var teste3=0;
   atualizarRosca();
 
   function plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal) {
 
-    if (grafico3.length > 0)
-    grafico3.destroy();
+    if (teste3 >= 1){
+      grafico3.destroy();
+      teste3=0;
+    }
+    
       grafico3 = new Chart(contexto, {
         // The type of chart we want to create
         type: 'doughnut',
@@ -544,14 +558,19 @@
                 }
             }
       });
+      teste3++;
   }
 
 
   var grafico4 = [];
+  var teste4=0;
   atualizarRosca1();
   function plotarGraficoRosca1(contexto, critico,emergencial,alerta,ideal) {
-    if (grafico4.length > 0)
-    grafico4.destroy();
+    if (teste4 >= 1){
+      grafico4.destroy();
+      teste4=0;
+    }
+    
     grafico4 = new Chart(contexto, {
       // The type of chart we want to create
       type: 'doughnut',
@@ -593,6 +612,7 @@
               }
           }
     });
+    teste4++;
   }
 
 </script>
