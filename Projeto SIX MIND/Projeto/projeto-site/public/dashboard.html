@@ -356,37 +356,6 @@
 </script>
 
 <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'Temperatura',
-        backgroundColor: 'red',
-        borderColor: 'red',
-        data: [0, 10, 5, 2, 20, 30, 45],
-        fill: false
-      },
-      {
-        label: 'Umidade',
-        backgroundColor: 'blue',
-        borderColor: 'blue',
-        data: [10, 0, 15, 3, 5, 20, 45],
-        fill: false
-      }],
-    },
-    //Valmor invasor >:)
-    // Configuration options go here
-    options: {}
-  });
-</script>
-
-
-<script>
   function AtualizarIndices(maiorTemp,menorTemp,maiorUmid,menorUmid){
     maiorTempertura.innerHTML = maiorTemp[0]
     maiorTemperturaArea.innerHTML = maiorTemp[1]
@@ -411,54 +380,37 @@
     menorUmidadeAreaSolo.innerHTML = menorUmid[1]
 
   }
-  // function atualizarGraficoGrande();
-  // //-----------------------------------------MYCHARTSOLO ---------------------------------------
-  // var ctx = document.getElementById('myChartSolo').getContext('2d');
-  // var chart = new Chart(ctx, {
-  //   // The type of chart we want to create
-  //   type: 'line',
-  //   datasets: [{ 
-  //   data: {
-  //   // The data for 
-  //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  //     datasets: [{
-  //       label: 'Temperatura',
-  //       backgroundColor: 'green',
-  //       borderColor: 'green',
-  //       data: [0, 25, 5, 2, 70, 30, 45],
-  //       fill: false
-  //     },
-  //     {
-  //       label: 'Umidade',
-  //       backgroundColor: 'yellow',
-  //       borderColor: 'yellow',
-  //       data: [10, 10, 15, 30, 5, 20, 45],
-  //       fill: false
-  //     }],
-  //   },
-  //   //Valmor invasor >:)
-  //   // Configuration options go here
-  //   options: {}
-  // });
+</script>
+<script>
+  atualizarGraficoGrande();
+  // //-----------------------------------------MYCHART ---------------------------------------
+  function plotarGraficoGrande(contexto, dadoMesTemp, dadoMesUmid){
+    var chart = new Chart(contexto , {
+      type: 'line',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [{  
+          label: 'Temperatura',
+          backgroundColor: 'green',
+          borderColor: 'green',
+          data: dadoMesTemp,
+          fill: false
+        },
+        {
+          label: 'Umidade',
+          backgroundColor: 'yellow',
+          borderColor: 'yellow',
+          data: dadoMesUmid,
+          fill: false
+        }],
+      },
+
+      options: {}
+    });
+  }// testa tudo ve se ta funcionando normal se tiver ja da um commit oi? aonde?
 </script>
 
 <script>
-
-  setInterval(function () {
-    var maior = parseInt(Math.random() * (19 + 1) + 55);
-    var menor = parseInt(Math.random() * (9 + 1) + 35);
-    var setormenor = parseInt(Math.random() * 10 + 1);
-    var setormaior = parseInt(Math.random() * 10 + 1);
-    var maquinamenor = parseInt(Math.random() * 10 + 1);
-    var maquinamaior = parseInt(Math.random() * 10 + 1);
-    maioregistro.innerHTML = maior;
-    menoregistro.innerHTML = menor;
-    setmenor.innerHTML = setormenor;
-    setmaior.innerHTML = setormaior;
-    maqmenor.innerHTML = maquinamenor;
-    maqmaior.innerHTML = maquinamaior;
-  }
-    , 3200);
 
   var grafico1=[] ;
   var teste=0;
@@ -471,11 +423,7 @@
       teste=0;
     }
       grafico1 = new Chart(contexto, {
-        // The type of chart we want to create
         type: 'horizontalBar',
-
-        // The data for our dataset
-
         data: {
 
           labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],

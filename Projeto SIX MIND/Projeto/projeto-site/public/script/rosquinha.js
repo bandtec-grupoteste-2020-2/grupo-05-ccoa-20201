@@ -139,7 +139,7 @@
 
 //-------------------------geração de dados ------------------------------------------------
 
-window.onload = atualizarRosca;
+window.onload = atualizarRosca();
 function atualizarRosca() {
 
     fetch('/leituras/tempo-real', { cache: 'no-store' }).then(function (response) {
@@ -209,7 +209,7 @@ function atualizarRosca() {
     }, 5000);
 }
 //--------------------------------
-window.onload = atualizarRosca1;
+window.onload = atualizarRosca1();
 function atualizarRosca1() {
 
     fetch('/leituras/tempo-real1', { cache: 'no-store' }).then(function (response) {

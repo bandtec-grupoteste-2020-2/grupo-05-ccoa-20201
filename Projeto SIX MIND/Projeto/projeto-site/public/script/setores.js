@@ -1,5 +1,5 @@
 
-window.onload = atualizarGrafico;
+window.onload = atualizarGrafico();
 function atualizarGrafico() {
 
     fetch('/leituras/estatisticas', { cache: 'no-store' }).then(function (response) {
@@ -21,9 +21,10 @@ function atualizarGrafico() {
                     var menorTemperatura=[]
                     var maiorUmidade=[]
                     var menorUmidade=[]
+                    //essas variaveis aqui com []
                 for(i=0;i<largura;i++){
                     dado.push(registro[i].temp)
-
+                   
                     if(i==0){
                         maiorTemperatura.push(registro[i].temp)
                         maiorTemperatura.push(i+1)
@@ -85,7 +86,7 @@ function atualizarGrafico() {
     }, 5000);
 }
 /*SOLO */
-window.onload = atualizarGraficosolo;
+window.onload = atualizarGraficosolo();
 function atualizarGraficosolo() {
 
     fetch('/leituras/estatisticas2', { cache: 'no-store' }).then(function (response) {
