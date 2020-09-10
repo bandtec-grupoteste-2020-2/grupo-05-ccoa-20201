@@ -20,7 +20,7 @@ create table DiscosLeitura(
 	idLeituraDisco int primary key auto_increment,
     discoNome varchar(45),
     discoPercentual varchar(45),
-    tempoLeitua varchar(45),
+    tempoLeitura varchar(45),
     fkMaquina int,
     foreign key(fkMaquina) references Maquina(idMaquina)
 );

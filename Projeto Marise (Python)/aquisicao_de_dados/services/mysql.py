@@ -64,7 +64,7 @@ class Mysql:
         for key in data[0]:
 
             query = (
-                "INSERT INTO `DiscosLeitura`(discoNome, discoPercentual, tempoLeitua, fkMaquina)"
+                "INSERT INTO `DiscosLeitura`(discoNome, discoPercentual, tempoLeitura, fkMaquina)"
                 "VALUES (%s, %s, %s, %s)"    
             )    
             #O data[0] ainda não há certeza, 

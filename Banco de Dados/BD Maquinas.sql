@@ -42,5 +42,13 @@ insert into Maquina values
 select * from Maquina;
 select * from RamLeituras;
 select * from CPULeituras;
+select * from DiscosLeitura;
+
+truncate RamLeituras;
+truncate DiscosLeitura;
+truncate CPULeituras;
+
+
+
 
 
