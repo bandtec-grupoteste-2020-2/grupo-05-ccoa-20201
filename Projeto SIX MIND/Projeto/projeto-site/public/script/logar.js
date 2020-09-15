@@ -11,6 +11,7 @@ function entrar() {
                 // Modificar
                 sessionStorage.login_usuario_meuapp = json.Email;
                 sessionStorage.senha_usuario_meuapp = json.Senha;
+                
                 window.location.href = 'dashboard.html';
             });
 
