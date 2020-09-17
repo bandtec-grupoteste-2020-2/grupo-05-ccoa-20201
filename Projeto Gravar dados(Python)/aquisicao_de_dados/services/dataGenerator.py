@@ -3,6 +3,7 @@ from datetime import datetime
 from random import randint
 import requests
 import json
+URL = 'https://hooks.slack.com/services/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'
 dici={'text':''}
 def geranumeroaleatorio():
     tipomaquina=randint(1, 3)
@@ -69,7 +70,7 @@ def get_data_disco(numerogerado):
 
 def enviar(numerogerado,values_ram,values_cpu,values_disco):
     verficarMaquina(numerogerado,values_ram,values_cpu,values_disco)
-    response = requests.post('https://hooks.slack.com/services/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',json = dici)#link para conectar o bot, o url tem q colocar sempre, pois sempre q postado no git para de funcionar.
+    response = requests.post(URL,json = dici)#link para conectar o bot, o url tem q colocar sempre, pois sempre q postado no git para de funcionar.
     print(dici,response)
     dici['text']=''
     return response
@@ -91,6 +92,14 @@ def verficarMaquina(numerogerado,values_ram,values_cpu,values_disco):
         else:
             dici['text']+=("O processador do IOT está utilizando {}% . Está em emergência.".format(values_cpu[3]))
 
+
+        if psutil.disk_usage(disco[1])[3]<=30.0:
+            dici['text']+=("O processador do IOT está utilizando {}% . Está tudo certo.".format(values_disco[3]))
+        elif psutil.disk_usage(disco[1])[3]<=60.0:
+            dici['text']+=("O processador do IOT está utilizando {}% . Melhor ficar alerta.".format(values_disco[3]))
+        else:
+            dici['text']+=("O processador do IOT está utilizando {}% . Está em emergência.".format(values_disco[3]))
+
  #MAQUINA 2 Usuario
     if numerogerado==2:
         if values_ram[0] <= 40.0:
@@ -99,7 +108,15 @@ def verficarMaquina(numerogerado,values_ram,values_cpu,values_disco):
             dici['text']+=("A memória da máquina do Usuário está utilizando {}% {} GB. Melhor ficar alerta".format(values_ram[0], values_ram[1]))
         else:
             dici['text']+=("A memória da máquina do Usuário está utilizando {}% {} GB. Está em emergência".format(values_ram[0], values_ram[1]))
- #MAQUINA 2 Servidor
+        
+        if values_cpu[3]<=45.0:
+            dici['text']+=("O processador do Usuário está utilizando {}% . Está tudo certo.".format(values_cpu[3]))
+        elif values_cpu[3]<=65.0:
+            dici['text']+=("O processador do Usuário está utilizando {}% . Melhor ficar alerta.".format(values_cpu[3]))
+        else:
+            dici['text']+=("O processador do Usuário está utilizando {}% . Está em emergência.".format(values_cpu[3]))
+            
+ #MAQUINA 3 Servidor
     if numerogerado==3:
         if values_ram[0] <= 70.0:
             dici['text']+=("A memória da máquina do servidor está utilizando {}% {} GB. Está tudo certo".format(values_ram[0], values_ram[1]))
@@ -107,5 +124,13 @@ def verficarMaquina(numerogerado,values_ram,values_cpu,values_disco):
             dici['text']+=("A memória da máquina do servidor está utilizando {}% {} GB. Melhor ficar alerta".format(values_ram[0], values_ram[1]))
         else:
             dici['text']+=("A memória da máquina do servidor está utilizando {}% {} GB. Está em emergência".format(values_ram[0], values_ram[1]))
+        
+        if values_cpu[3]<=60.0:
+            dici['text']+=("O processador do Servidor está utilizando {}% . Está tudo certo.".format(values_cpu[3]))
+        elif values_cpu[3]<=85.0:
+            dici['text']+=("O processador do Servidor está utilizando {}% . Melhor ficar alerta.".format(values_cpu[3]))
+        else:
+            dici['text']+=("O processador do Servidor está utilizando {}% . Está em emergência.".format(values_cpu[3]))
+        
 
 
