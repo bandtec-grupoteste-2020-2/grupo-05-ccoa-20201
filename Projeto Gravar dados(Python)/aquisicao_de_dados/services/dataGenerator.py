@@ -8,8 +8,7 @@ def get_data_cpu():
     datetime_now = datetime.now()
     print("\nColetando dados por nucleo...")
     print("Data e hora da leitura:", datetime_now)
-    # print("Data:", datetime.date.today())
-    # print("Hora:", datetime.datetime.now().time())
+
     number_cpu = 0
     per_cpu = psutil.cpu_percent(interval=1, percpu=True)
     for i in per_cpu:
@@ -26,8 +25,7 @@ def get_data_cpu():
 
     
 def get_data_ram():
-    # print("Data:", datetime.date.today())
-    # print("Hora:", datetime.date.now().time())
+
     datetime_now = datetime.now()
     print("\nColetando dados por RAM...")
     print("Data e hora da leitura:", datetime_now)
@@ -61,8 +59,10 @@ def get_data_disco():
     data_disco = (dict_per_disco, datetime_now, randint(1, 3))
     # print(data_disco)
     return data_disco
-def arroz():
-    joao={'text':'eu estou tentando ne'}
-    response = requests.post('https://hooks.slack.com/services/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',json= joao)
+
+def enviar():
+    dici={'text':'teste'}#Informação que enviaremos
+    response = requests.post('https://hooks.slack.com/services/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',json = dici)#link para conectar o bot, o url tem q colocar sempre, pois sempre q postado no git para de funcionar.
+    print(dici,response)
     return response
 
