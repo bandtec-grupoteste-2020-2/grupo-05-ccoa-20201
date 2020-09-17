@@ -1,32 +1,8 @@
 import psutil
 from datetime import datetime
 from random import randint
-
-# def getData():
-#     cpu_info = {
-#     'cpu': 0,
-#     'memory': 0,
-#     'disk': 0
-#     }
-#     cpu = psutil.cpu_percent(interval=1, percpu=True)
-#     cpu_media = sum(cpu)/len(cpu)
-#     memory = (psutil.virtual_memory().used >> 30)
-#     memory_percent = (psutil.virtual_memory().percent)
-#     disk = psutil.disk_usage('/').percent
-
-#     cpu_info['cpu'] = round(cpu_media,1)
-#     cpu_info['memory'] = memory
-#     cpu_info['memory_percent'] = memory_percent
-#     cpu_info['disk'] = disk
-
-#     #Objeto para visualização só
-#     print(cpu_info)
-#     #lista para envio no banco
-#     data = (round(cpu_media,1), memory, memory_percent, disk)
-
-#     return data
-
-
+import requests
+import json
 
 def get_data_cpu():
     datetime_now = datetime.now()
@@ -81,12 +57,12 @@ def get_data_disco():
         if(disco[3]!="cdrom"):
             dict_per_disco[str(disco[1])] = psutil.disk_usage(disco[1])[3]
             print(disco[1], psutil.disk_usage(disco[1])[3], "%")
-            # porcentagem=psutil.disk_usage(disco[0])[3]
-            # print("Disco {}: \t porcentagem: {}%".format(disco[0],round(porcentagem,2)))
 
     data_disco = (dict_per_disco, datetime_now, randint(1, 3))
     # print(data_disco)
     return data_disco
-
-
+def arroz():
+    joao={'text':'eu estou tentando ne'}
+    response = requests.post('https://hooks.slack.com/services/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',json= joao)
+    return response
 

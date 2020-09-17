@@ -2,7 +2,7 @@ from services.mysql import Mysql
 from services.dataGenerator import get_data_cpu
 from services.dataGenerator import get_data_ram
 from services.dataGenerator import get_data_disco
-
+from services.dataGenerator import arroz
 import time
 
 #Inserir user, password, host, database
@@ -23,6 +23,7 @@ while True:
 
     values_disco = get_data_disco()
     mysql.insert_disco(values_disco)
-    # time.sleep(5)
-    # # mysql.insert(values_cpu)
+
+    feijao = arroz()
+    
     time.sleep(5)
