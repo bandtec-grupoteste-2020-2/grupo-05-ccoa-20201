@@ -73,6 +73,8 @@ insert into Maquina values
     (null,"8", "4","Usuário","16000","Windows",1),
     (null,"16", "8","Servidor","16000","Windows",1);
    
+select * from Empresa;
+select * from Usuario;
 select * from Maquina;
 select * from RamLeituras;
 select * from CPULeituras;
