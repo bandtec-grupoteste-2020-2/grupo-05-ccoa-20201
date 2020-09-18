@@ -6,7 +6,7 @@ create table Empresa(
     nomeEmpresa varchar(45),
     cep varchar(45),
     cnpj varchar(45)
-)
+);
 
 create table Usuario(
     idUsuario int primary key auto_increment,
@@ -15,7 +15,7 @@ create table Usuario(
     cpf varchar(45) not null,
     Empresa_idEmpresa int,
     foreign key(Empresa_idEmpresa) references Empresa(idEmpresa)
-)
+);
 
 
 create table Maquina(
