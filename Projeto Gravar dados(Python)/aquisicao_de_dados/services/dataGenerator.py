@@ -53,14 +53,14 @@ def get_data_disco(numerogerado):
     print("\nColetando dados dos Disco...")
     print("Data e hora da leitura:", datetime_now)
     #Apresenta os dados
-    todos_os_discos= psutil.disk_partitions()
-    print("Quantidade de discos identificados:", len(todos_os_discos))
+    todos_os_discos= psutil.disk_partitions('/mnt/')
+    print("Quantidade de partições de disco identificados:", len(todos_os_discos))
 
     dict_per_disco = {}
 
-
+# disco[3]!="iso9660" and
     for disco in todos_os_discos:
-        if(disco[3]!="cdrom"):
+        if(disco[3]!="cdrom" and  disco[2]=="drvfs" or disco[3]=="rw,fixed"):
             dict_per_disco[str(disco[1])] = psutil.disk_usage(disco[1])[3]
             print(disco[1], psutil.disk_usage(disco[1])[3], "%")
 
