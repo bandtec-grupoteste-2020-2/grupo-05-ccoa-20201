@@ -1,10 +1,32 @@
 create database MAQUINAS;
 use MAQUINAS;
 
+create table Empresa(
+    idEmpresa int primary key auto_increment,
+    nomeEmpresa varchar(45),
+    cep varchar(45),
+    cnpj varchar(45)
+);
+
+create table Usuario(
+    idUsuario int primary key auto_increment,
+    nomeUsuario varchar(45),
+    cargo varchar(45),
+    cpf varchar(45) not null,
+    Empresa_idEmpresa int,
+    foreign key(Empresa_idEmpresa) references Empresa(idEmpresa)
+);
+
+
 create table Maquina(
 	idMaquina int primary key auto_increment,
     ramTotal varchar(45),
-    numeroNucleos varchar(45)
+    numeroNucleos varchar(45),
+    tipoMaquina varchar(45),
+    numeroSerial varchar(45),
+    sistemaOperacional varchar(45)
+    Usuario_idUsuario int,
+    foreign key(Usuario_idUsuario) references Usuario(id_Usuario)
 );
 
 create table RamLeituras(
@@ -44,6 +66,6 @@ select * from RamLeituras;
 select * from CPULeituras;
 select * from DiscosLeitura;
 
-
-
-
+truncate RamLeituras;
+truncate DiscosLeitura;
+truncate CPULeituras;
