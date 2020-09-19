@@ -3,7 +3,7 @@ from datetime import datetime
 from random import randint
 import requests
 import json
-URL = 'https://hooks.slack.com/services/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'
+URL = 'https://hooks.slack.com/services/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'
 dici={'text':''}
 def geranumeroaleatorio():
     tipomaquina=randint(1, 3)
@@ -58,7 +58,7 @@ def get_data_disco(numerogerado):
 
     dict_per_disco = {}
 
-# disco[3]!="iso9660" and
+
     for disco in todos_os_discos:
         if(disco[3]!="cdrom" and  disco[2]=="drvfs" or disco[3]=="rw,fixed"):
             dict_per_disco[str(disco[1])] = psutil.disk_usage(disco[1])[3]
@@ -70,7 +70,7 @@ def get_data_disco(numerogerado):
 
 def enviar(numerogerado,values_ram,values_cpu,values_disco):
     verficarMaquina(numerogerado,values_ram,values_cpu,values_disco)
-    response = requests.post(URL,json = dici)#link para conectar o bot, o url tem q colocar sempre, pois sempre q postado no git para de funcionar.
+    response = requests.post(URL,json = dici)#link para conectar o bot, o url tem q na linha 6
     print(dici,response)
     dici['text']=''
     return response
