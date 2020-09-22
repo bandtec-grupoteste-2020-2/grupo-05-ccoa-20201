@@ -30,32 +30,30 @@ create table Maquina(
     foreign key(Usuario_idUsuario) references Usuario(idUsuario)
 );
 
-create table RamLeituras(
-	idLeituraRam int primary key auto_increment,
-    ramPorcentagem varchar(45),
-    ramUsadaGb int,
-    tempoLeitura varchar(45),
-    fkMaquina int,
-    foreign key(fkMaquina) references Maquina(idMaquina)
+create table Componente(
+	idComponente int primary key auto_increment,
+    nomeComponente varchar(45),
+    metrica varchar(45)
 );
 
-create table DiscosLeitura(
-	idLeituraDisco int primary key auto_increment,
-    discoNome varchar(45),
-    discoPercentual varchar(45),
-    tempoLeitura varchar(45),
+
+create table Leitura(
+	idLeitura int primary key auto_increment,
     fkMaquina int,
-    foreign key(fkMaquina) references Maquina(idMaquina)
+    foreign key(fkMaquina) references Maquina(idMaquina),
+    fkComponente int,
+    foreign key(fkComponente) references Componente(idComponente),
+    descricao varchar(45),
+    valor decimal(4,2),
+    tempoLeitura datetime,
+    estado varchar(45)
 );
 
-create table CPULeituras(
-	idLeituraCPU int primary key auto_increment,
-    nomeCPU varchar(45),
-    CPUPorcentagem varchar(45),
-    tempoLeitura varchar(45),
-    fkMaquina int,
-    foreign key(fkMaquina) references Maquina(idMaquina)
-);
+insert into Componente(nomeComponente, metrica) values
+	("CPU","%"),
+    ("Disco","%"),
+    ("Memória","%"),
+    ("MemóriaGB","GB");
 
 insert into Empresa values
 	(null,'SixMinds','09505050','45646494161');
@@ -76,10 +74,5 @@ insert into Maquina values
 select * from Empresa;
 select * from Usuario;
 select * from Maquina;
-select * from RamLeituras;
-select * from CPULeituras;
-select * from DiscosLeitura;
-
-truncate RamLeituras;
-truncate DiscosLeitura;
-truncate CPULeituras;
+select * from Componente;
+select * from leitura;
