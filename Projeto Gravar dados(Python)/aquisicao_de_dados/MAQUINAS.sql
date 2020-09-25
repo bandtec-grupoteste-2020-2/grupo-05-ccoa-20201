@@ -1,4 +1,4 @@
-drop database MAQUINAS;
+-- drop database MAQUINAS;
 create database MAQUINAS;
 use MAQUINAS;
 
@@ -43,17 +43,16 @@ create table Leitura(
     foreign key(fkMaquina) references Maquina(idMaquina),
     fkComponente int,
     foreign key(fkComponente) references Componente(idComponente),
-    descricao varchar(45),
     valor decimal(4,2),
     tempoLeitura datetime,
     estado varchar(45)
 );
 
 insert into Componente(nomeComponente, metrica) values
-	("CPU","%"),
-    ("Disco","%"),
-    ("Memória","%"),
-    ("MemóriaGB","GB");
+	("CPU", "%"),
+    ("Disco", "%"),
+    ("Memória", "%"),
+    ("MemóriaGB", "GB");
 
 insert into Empresa values
 	(null,'SixMinds','09505050','45646494161');
@@ -63,9 +62,6 @@ insert into Usuario values
     (null,'Joana','Analista','50xxxxxx','1'),
     (null,'Yuiti','Gerente','50xxxxxx','1');
     
-
-
-
 insert into Maquina values
 	(null,"4", "4","IOT","15000","Windows",1),
     (null,"8", "4","Usuário","16000","Windows",1),

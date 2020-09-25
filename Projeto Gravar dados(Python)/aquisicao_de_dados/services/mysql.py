@@ -22,64 +22,93 @@ class Mysql:
             print(err)
             raise
 
-    def insert_ram(self, data):
+    def insert(self, data):
+     
         query = (
-            "INSERT INTO `RamLeituras`(ramPorcentagem, ramUsadaGb, tempoLeitura, fkMaquina)"
-            "VALUES (%s, %s, %s, %s)"    
-        )    
-        values = data
-        try:
-            # print('Inserindo Valores')
-            self.cursor.execute(query,values)
-            self.mysql.commit()
-        except Exception as err:
-            print(err)
-            self.mysql.rollback()
-            self.close()
+            "INSERT INTO `Leitura` (fkMaquina, fkComponente, valor, tempoLeitura)"
+            "VALUES ()"    
+        )      
+        # query = (
+        #     "INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura)"
+        #     "VALUES (%s, %s, %s, %s)"    
+        # )      
+
+        # query = ("INSERT INTO `CPULeituras`(nomeCPU, CPUPorcentagem, tempoLeitura, fkMaquina) VALUES (%s)")
 
 
+        for lista in data:
 
-    def insert_cpu(self, data):
+            values = lista
 
-        for k in range(len(data[0])):
-
-            query = (
-                "INSERT INTO `CPULeituras`(nomeCPU, CPUPorcentagem, tempoLeitura, fkMaquina)"
-                "VALUES (%s, %s, %s, %s)"    
-            )    
-
-            values = ("CPU_{}".format(k), data[0]["CPU_{}".format(k)], data[1], data[2])
             try:
-                # for cpu in values:
                 # print('Inserindo Valores')
-                self.cursor.execute(query,values)
+                self.cursor.execute(query, values)
                 self.mysql.commit()
             except Exception as err:
                 print(err)
                 self.mysql.rollback()
-                self.close()          
+                self.close()
 
-    def insert_disco(self, data):
 
-        for key in data[0]:
-
-            query = (
-                "INSERT INTO `DiscosLeitura`(discoNome, discoPercentual, tempoLeitura, fkMaquina)"
-                "VALUES (%s, %s, %s, %s)"    
-            )    
-            #O data[0] ainda não há certeza, 
-            #mas se leva a crer que esteja correto. Obs.:César
             
-            values = (key, data[0][key], data[1], data[2])
-            try:
-                # for cpu in values:
-                # print('Inserindo Valores')
-                self.cursor.execute(query,values)
-                self.mysql.commit()
-            except Exception as err:
-                print(err)
-                self.mysql.rollback()
-                self.close()  
+    # def insert_ram(self, data):
+    #     query = (
+    #         "INSERT INTO `RamLeituras`(ramPorcentagem, ramUsadaGb, tempoLeitura, fkMaquina)"
+    #         "VALUES (%s, %s, %s, %s)"    
+    #     )    
+    #     values = data
+    #     try:
+    #         # print('Inserindo Valores')
+    #         self.cursor.execute(query,values)
+    #         self.mysql.commit()
+    #     except Exception as err:
+    #         print(err)
+    #         self.mysql.rollback()
+    #         self.close()
+
+
+
+    # def insert_cpu(self, data):
+
+    #     for k in range(len(data[0])):
+
+    #         query = (
+    #             "INSERT INTO `CPULeituras`(nomeCPU, CPUPorcentagem, tempoLeitura, fkMaquina)"
+    #             "VALUES (%s, %s, %s, %s)"    
+    #         )    
+
+    #         values = ("CPU_{}".format(k), data[0]["CPU_{}".format(k)], data[1], data[2])
+    #         try:
+    #             # for cpu in values:
+    #             # print('Inserindo Valores')
+    #             self.cursor.execute(query,values)
+    #             self.mysql.commit()
+    #         except Exception as err:
+    #             print(err)
+    #             self.mysql.rollback()
+    #             self.close()          
+
+    # def insert_disco(self, data):
+
+    #     for key in data[0]:
+
+    #         query = (
+    #             "INSERT INTO `DiscosLeitura`(discoNome, discoPercentual, tempoLeitura, fkMaquina)"
+    #             "VALUES (%s, %s, %s, %s)"    
+    #         )    
+    #         #O data[0] ainda não há certeza, 
+    #         #mas se leva a crer que esteja correto. Obs.:César
+            
+    #         values = (key, data[0][key], data[1], data[2])
+    #         try:
+    #             # for cpu in values:
+    #             # print('Inserindo Valores')
+    #             self.cursor.execute(query,values)
+    #             self.mysql.commit()
+    #         except Exception as err:
+    #             print(err)
+    #             self.mysql.rollback()
+    #             self.close()  
     
     # Fechando conexão
     def close(self):

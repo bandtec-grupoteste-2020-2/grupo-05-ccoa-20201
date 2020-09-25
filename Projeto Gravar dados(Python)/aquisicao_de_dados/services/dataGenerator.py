@@ -9,73 +9,69 @@ def geranumeroaleatorio():
     tipomaquina=randint(1, 3)
     return tipomaquina
 
-def get_data_cpu(numerogerado):
+def get_data_cpu():
     datetime_now = datetime.now()
-    print("\nColetando dados por nucleo...")
-    print("Data e hora da leitura:", datetime_now)
+    # print("\nColetando dados por nucleo...")
+    # print("Data e hora da leitura:", datetime_now)
 
-    number_cpu = 0
-    mediacpu= psutil.cpu_percent()
-    per_cpu = psutil.cpu_percent(interval=1, percpu=True)
-    for i in per_cpu:
-        print("CPU",number_cpu,":", i, "%")
-        number_cpu += 1
+    # number_cpu = 0
+    # mediacpu = psutil.cpu_percent()
+    cpu_geral = psutil.cpu_percent()
+    # per_cpu = psutil.cpu_percent(interval=1, percpu=True)
+    # for i in per_cpu:
+    #     print("CPU",number_cpu,":", i, "%")
+    #     number_cpu += 1
    
-    dict_per_cpu = {}
+    # dict_per_cpu = {}
 
-    for cpu in range(psutil.cpu_count()):
-        dict_per_cpu["CPU_{}".format(cpu)] = per_cpu[cpu] 
+    # for cpu in range(psutil.cpu_count()):
+    #     dict_per_cpu["CPU_{}".format(cpu)] = per_cpu[cpu] 
                 
-    data_cpu = (dict_per_cpu, datetime.now(),numerogerado,mediacpu)
+    data_cpu = (cpu_geral, datetime_now)
     return data_cpu
 
-    
-
-def get_data_ram(numerogerado):
+def get_data_ram():
 
     datetime_now = datetime.now()
-    print("\nColetando dados por RAM...")
-    print("Data e hora da leitura:", datetime_now)
+    # print("\nColetando dados por RAM...")
+    # print("Data e hora da leitura:", datetime_now)
 # OBS: Ta mostrando a qtd USADA, pode trocar para LIVRE
-    per_ram = psutil.virtual_memory()[2]
-    ram_usada_Gb = round(psutil.virtual_memory()[1]/1024/1024/1024, 1)
-    print("RAM usada %: ", per_ram, "%")
-    print("RAM usada GB: ", ram_usada_Gb, "GB")
+    ram_por = psutil.virtual_memory()[2]
+    ram_gb = round(psutil.virtual_memory()[1]/1024/1024/1024, 2)
+    # print("RAM usada %: ", per_ram, "%")
+    # print("RAM usada GB: ", ram_usada_Gb, "GB")
 
-    data_ram = (per_ram, round(ram_usada_Gb), datetime_now,numerogerado)
-
+    data_ram = (ram_por, ram_gb, datetime_now)
     return data_ram
 
 
+# def get_data_disco(numerogerado):
+#     datetime_now = datetime.now()
+#     print("\nColetando dados dos Disco...")
+#     print("Data e hora da leitura:", datetime_now)
+#     #Apresenta os dados
+#     todos_os_discos= psutil.disk_partitions('/mnt/')
+#     print("Quantidade de partições de disco identificados:", len(todos_os_discos))
 
-def get_data_disco(numerogerado):
-    datetime_now = datetime.now()
-    print("\nColetando dados dos Disco...")
-    print("Data e hora da leitura:", datetime_now)
-    #Apresenta os dados
-    todos_os_discos= psutil.disk_partitions('/mnt/')
-    print("Quantidade de partições de disco identificados:", len(todos_os_discos))
+#     dict_per_disco = {}
 
-    dict_per_disco = {}
+#     for disco in todos_os_discos:
+#         if(disco[3]!="cdrom" and  disco[2]=="drvfs" or disco[3]=="rw,fixed"):
+#             dict_per_disco[str(disco[1])] = psutil.disk_usage(disco[1])[3]
+#             print(disco[1], psutil.disk_usage(disco[1])[3], "%")
 
-
-    for disco in todos_os_discos:
-        if(disco[3]!="cdrom" and  disco[2]=="drvfs" or disco[3]=="rw,fixed"):
-            dict_per_disco[str(disco[1])] = psutil.disk_usage(disco[1])[3]
-            print(disco[1], psutil.disk_usage(disco[1])[3], "%")
-
-    data_disco = (dict_per_disco, datetime_now, numerogerado)
-    # print(data_disco)
-    return data_disco
+#     data_disco = (dict_per_disco, datetime_now, numerogerado)
+#     # print(data_disco)
+#     return data_disco
 
 def enviar(numerogerado,values_ram,values_cpu,values_disco):
-    verficarMaquina(numerogerado,values_ram,values_cpu,values_disco)
+    verificarMaquina(numerogerado,values_ram,values_cpu,values_disco)
     response = requests.post(URL,json = dici)#link para conectar o bot, o url tem q na linha 6
     print(dici,response)
     dici['text']=''
     return response
 
-def verficarMaquina(numerogerado,values_ram,values_cpu,values_disco):
+def verificarMaquina(numerogerado,values_ram,values_cpu,values_disco):
     #MAQUINA 1 IOT
     erro=0
     if numerogerado==1:
