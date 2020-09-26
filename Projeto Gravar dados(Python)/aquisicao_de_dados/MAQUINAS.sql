@@ -71,4 +71,6 @@ select * from Empresa;
 select * from Usuario;
 select * from Maquina;
 select * from Componente;
-select * from leitura order by desc;
+select * from leitura order by idLeitura desc;
+select * from componente, leitura where idLeitura=idComponente;
+truncate leitura;

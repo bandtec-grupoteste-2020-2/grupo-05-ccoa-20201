@@ -26,26 +26,17 @@ while True:
     # values_disco = get_data_disco(fk_maquina)
     # mysql.insert_disco(values_disco)
 
-
-
     dataset_componentes = [
-        [fk_maquina, 1, values_cpu[0], datetime.now()],
-        [fk_maquina, 3, values_ram[0], datetime.now()],
-        [fk_maquina, 4, values_ram[1], datetime.now()]         
+        [fk_maquina, 1, values_cpu[0], values_cpu[1]],
+        [fk_maquina, 3, values_ram[0], values_ram[2]],
+        [fk_maquina, 4, values_ram[1], values_ram[2]]         
     ]
 
-   
-
-    for componente in dataset_componentes:
-        # print(componente)        
+    print("-"*20 ,"INSERT", "-"*20)
+    for componente in dataset_componentes:        
+        print(componente)
         mysql.insert_comp(componente)
-        # time.sleep(10)
-
-        # mysql.insert(componente)
-        
-
-    # dataset_insert = [fk_maquina, values_cpu, values_ram[0], values_ram[1]]
-    # mysql.insert(dataset_insert)
+        print()        
 
     # enviar(fk_maquina,values_ram,values_cpu,values_disco)
     

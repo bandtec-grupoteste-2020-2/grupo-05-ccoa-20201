@@ -24,21 +24,13 @@ class Mysql:
 
     def insert_comp(self, data):
                   
-        # for lista in data:
-        query = ("INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura) VALUES(%s ,%s, %s, %s)")
-        # query = (
-        # "INSERT INTO `Leitura` (fkMaquina, fkComponente, valor, tempoLeitura)"
-        # "VALUES(1 ,1, 11.2, '2020/05/14')"
-        # )
-
-        print(data)
-        # values = lista
-        # print("\n", values, "\n")
-
+        query = ("INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura)"
+        "VALUES(%s ,%s, %s, %s)")
+        
         try:
-            print('\nInserindo Valores\n')
             self.cursor.execute(query, data)
             self.mysql.commit()
+
         except Exception as err:
             print(err)
             self.mysql.rollback()
