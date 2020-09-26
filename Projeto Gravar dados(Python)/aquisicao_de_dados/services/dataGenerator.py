@@ -68,110 +68,198 @@ def get_data_disco():
     return data_disco
 
 def enviar(numerogerado,values_ram,values_cpu,values_disco):
-    verificarMaquina(numerogerado,values_ram,values_cpu,values_disco)
+    # verificarMaquina(numerogerado,values_ram,values_cpu,values_disco)
     response = requests.post(URL,json = dici)#link para conectar o bot, o url tem q na linha 6
     print(dici,response)
     dici['text']=''
     return response
 
-def verificarMaquina(numerogerado,values_ram,values_cpu,values_disco):
+def verificarMaquina(componente_maquina):
     #MAQUINA 1 IOT
-    erro=0
-    if numerogerado==1:
-        # VALORES DA MEMORIA RAM
-        dici['text']+="A máquina de IOT está utilizando:\n"
-        if values_ram[0] <= 25.0:
-            pass
-        elif values_ram[0] <= 50.0:
-            dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(values_ram[0], values_ram[1]))
-            erro+=1
-        else:
-            dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(values_ram[0], values_ram[1]))
-            erro+=1
-        # VALORES DA CPU
-        if values_cpu[3]<=30.0:
-            pass
-        elif values_cpu[3]<=60.0:
-            dici['text']+=("Processador {}% . Melhor ficar alerta.\n".format(values_cpu[3]))
-            erro+=1
-        else:
-            dici['text']+=("Processador {}% . Está em emergência.\n".format(values_cpu[3]))
-            erro+=1
-        # VALORES DO DISCO
-        for z in values_disco[0]:
-            if values_disco[0][z]<=40.0:
-                pass
-            elif values_disco[0][z]<=65.0:
-                dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(z, values_disco[0][z]))
-                erro+=1
-            else:
-                dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(z, values_disco[0][z]))
-                erro+=1
-       
 
- #MAQUINA 2 Usuario
-    if numerogerado==2:
-        dici['text']+="A máquina do Usuário está utilizando:\n"
-        # VALORES RAM
-        if values_ram[0] <= 40.0:
-            pass
-        elif values_ram[0] <= 70.0:
-            dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta\n".format(values_ram[0], values_ram[1]))
-            erro+=1
-        else:
-            dici['text']+=("Memória {}% -- {} GB. Está em emergência\n".format(values_ram[0], values_ram[1]))
-            erro+=1
-        # VALORES DA CPU
-        if values_cpu[3]<=45.0:
-            pass
-        elif values_cpu[3]<=65.0:
-            dici['text']+=("Processador{}% . Melhor ficar alerta.\n".format(values_cpu[3]))
-            erro+=1
-        else:
-            dici['text']+=("Processador{}% . Está em emergência.\n".format(values_cpu[3]))
-            erro+=1
-        # VALORES DO DISCO
-        for z in values_disco[0]:
-            if values_disco[0][z]<=50.0:
-                pass
-            elif values_disco[0][z]<=70.0:
-                dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(z, values_disco[0][z]))
-                erro+=1
-            else:
-                dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(z, values_disco[0][z]))
-                erro+=1
+    novo_dataset_com_status= componente_maquina
+
+    for i in novo_dataset_com_status:
+
+        erro=0
+        if i[0]==1:
+            # VALORES DA MEMORIA RAM   3=ram%
+            dici['text']+="A máquina de IOT está utilizando:\n"
+            if i[1]==3:
+                if i[2] <= 25.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2] <= 50.0:
+                    dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(i[2], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(i[2], i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
 
 
- #MAQUINA 3 Servidor
-    if numerogerado==3:
-        # VALORES RAM
-        dici['text']+="A máquina do Servidor está utilizando:\n"
-        if values_ram[0] <= 70.0:
-            pass
-        elif values_ram[0] <= 85.0:
-            dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta\n".format(values_ram[0], values_ram[1]))
-            erro+=1
-        else:
-            dici['text']+=("Memória {}% -- {} GB. Está em emergência\n".format(values_ram[0], values_ram[1]))
-            erro+=1
-        # VALORES DA CPU
-        if values_cpu[3]<=60.0:
-            pass
-        elif values_cpu[3]<=85.0:
-            dici['text']+=("Processador {}% . Melhor ficar alerta.\n".format(values_cpu[3]))
-            erro+=1
-        else:
-            dici['text']+=("Processador {}% . Está em emergência.\n".format(values_cpu[3]))
-            erro+=1
-        # VALORES DO DISCO
-        for z in values_disco[0]:
-            if values_disco[0][z]<=65.0:
-                pass
-            elif values_disco[0][z]<=85.0:
-                dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(z, values_disco[0][z]))
-                erro+=1
-            else:
-                dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(z, values_disco[0][z]))
-                erro+=1
-    if erro==0:
-        dici['text']=''
+            # VALORES DA MEMORIA RAM   4=ramGb
+                    
+            
+            elif i[1]==4:
+                if i[2] <= 25.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2] <= 50.0:
+                    dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(i[2], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(i[2], i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+
+
+            # VALORES DA CPU    cpu=1    
+            elif i[1]==1:
+                if i[2]<=30.0:
+                    i.append("BOM!")                    
+                    pass
+                elif i[2]<=60.0:
+                    dici['text']+=("Processador {}% . Melhor ficar alerta.\n".format(i[2]))
+                    i.append("ALERTA!")
+                    erro+=1                    
+                else:
+                    dici['text']+=("Processador {}% . Está em emergência.\n".format(i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DO DISCO    disco=2
+            
+            # for z in values_disco[0]:
+            if i[1]==2:
+                if i[2]<=40.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2]<=65.0:
+                    dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
+                    i.append("EMERGÊNCIA")
+                    erro+=1
+        
+
+    # MAQUINA 2 Usuario
+        if i[0]==2:
+            # VALORES DA MEMORIA RAM   3=ram%
+            dici['text']+="A máquina de Usuario está utilizando:\n"
+            if i[1]==3:
+                if i[2] <= 50.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2] <= 60.0:
+                    dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(i[2], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(i[2], i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DA MEMORIA RAM   4=ramGb
+            elif i[1]==4:
+                if i[2] <= 50.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2] <= 60.0:
+                    dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(i[2], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(i[2], i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DA CPU    cpu=1    
+            elif i[1]==1:
+                if i[2]<=50.0:
+                    i.append("BOM!")                    
+                    pass
+                elif i[2]<=65.0:
+                    dici['text']+=("Processador {}% . Melhor ficar alerta.\n".format(i[2]))
+                    i.append("ALERTA!")
+                    erro+=1                    
+                else:
+                    dici['text']+=("Processador {}% . Está em emergência.\n".format(i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DO DISCO    disco=2
+            # for z in values_disco[0]:
+            if i[1]==2:
+                if i[2]<=50.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2]<=75.0:
+                    dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
+                    i.append("EMERGÊNCIA")
+                    erro+=1
+
+    #MAQUINA 3 Servidor
+        if i[0]==3:
+            # VALORES DA MEMORIA RAM   3=ram%
+            dici['text']+="A máquina de Servidor está utilizando:\n"
+            if i[1]==3:
+                if i[2] <= 75.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2] <= 80.0:
+                    dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(i[2], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(i[2], i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DA MEMORIA RAM   4=ramGb
+            elif i[1]==4:
+                if i[2] <= 75.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2] <= 80.0:
+                    dici['text']+=("Memória {}% -- {} GB. Melhor ficar alerta.\n".format(i[2], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("Memória {}% -- {} GB. Está em emergência.\n".format(i[2], i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DA CPU    cpu=1    
+            elif i[1]==1:
+                if i[2]<=75.0:
+                    i.append("BOM!")                    
+                    pass
+                elif i[2]<=90.0:
+                    dici['text']+=("Processador {}% . Melhor ficar alerta.\n".format(i[2]))
+                    i.append("ALERTA!")
+                    erro+=1                    
+                else:
+                    dici['text']+=("Processador {}% . Está em emergência.\n".format(i[2]))
+                    i.append("EMERGÊNCIA!")
+                    erro+=1
+            # VALORES DO DISCO    disco=2
+            # for z in values_disco[0]:
+            if i[1]==2:
+                if i[2]<=70.0:
+                    i.append("BOM!")
+                    pass
+                elif i[2]<=90.0:
+                    dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
+                    i.append("ALERTA!")
+                    erro+=1
+                else:
+                    dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
+                    i.append("EMERGÊNCIA")
+                    erro+=1
+        if erro==0:
+            dici['text']=''
+
+    return novo_dataset_com_status

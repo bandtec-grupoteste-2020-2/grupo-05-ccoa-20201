@@ -24,9 +24,9 @@ class Mysql:
 
     def insert_comp(self, data):
                   
-        query = ("INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura, descricao)"
-        "VALUES(%s ,%s, %s, %s, %s)")
-        
+        query = ("INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura, descricao, estado)"
+        "VALUES(%s ,%s, %s, %s, %s, %s)"
+        )
         values = data
         try:
             self.cursor.execute(query, values)

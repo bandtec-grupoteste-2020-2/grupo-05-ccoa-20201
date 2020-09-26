@@ -4,6 +4,7 @@ from services.dataGenerator import get_data_ram
 from services.dataGenerator import get_data_disco
 # from services.dataGenerator import enviar
 from services.dataGenerator import geranumeroaleatorio
+from services.dataGenerator import verificarMaquina
 import time
 
 from datetime import datetime
@@ -27,8 +28,8 @@ while True:
     # print(values_disco)
 
     dataset_componentes = [
-        [fk_maquina, 3, values_ram[0], values_ram[2], 'ram_por'],
-        [fk_maquina, 4, values_ram[1], values_ram[2], 'ram_gb']
+        [fk_maquina, 3, values_ram[0], values_ram[-1], 'ram_por'],
+        [fk_maquina, 4, values_ram[1], values_ram[-1], 'ram_gb']
     ]
     
     for cpu in values_cpu[0]:
@@ -40,6 +41,10 @@ while True:
         dataset_componentes.append(cada_disco)
 
     # print(dataset_componentes)
+
+    # for elemento in dataset_componentes:
+        # verificarMaquina(elemento)
+    dataset_componentes = verificarMaquina(dataset_componentes)
 
     print("-"*20 ,"INSERT", "-"*20)
     for componente in dataset_componentes:        
