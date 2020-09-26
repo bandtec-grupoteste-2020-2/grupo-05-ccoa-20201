@@ -16,18 +16,18 @@ def get_data_cpu():
 
     # number_cpu = 0
     # mediacpu = psutil.cpu_percent()
-    cpu_geral = psutil.cpu_percent()
-    # per_cpu = psutil.cpu_percent(interval=1, percpu=True)
+    # cpu_geral = psutil.cpu_percent()
+    per_cpu = psutil.cpu_percent(interval=1, percpu=True)
     # for i in per_cpu:
     #     print("CPU",number_cpu,":", i, "%")
     #     number_cpu += 1
    
-    # dict_per_cpu = {}
+    dict_per_cpu = {}
 
-    # for cpu in range(psutil.cpu_count()):
-    #     dict_per_cpu["CPU_{}".format(cpu)] = per_cpu[cpu] 
+    for cpu in range(psutil.cpu_count()):
+        dict_per_cpu["CPU_{}".format(cpu)] = per_cpu[cpu] 
                 
-    data_cpu = (cpu_geral, datetime_now)
+    data_cpu = (dict_per_cpu, datetime_now)
     return data_cpu
 
 def get_data_ram():
@@ -45,24 +45,27 @@ def get_data_ram():
     return data_ram
 
 
-# def get_data_disco(numerogerado):
-#     datetime_now = datetime.now()
-#     print("\nColetando dados dos Disco...")
-#     print("Data e hora da leitura:", datetime_now)
-#     #Apresenta os dados
-#     todos_os_discos= psutil.disk_partitions('/mnt/')
-#     print("Quantidade de partições de disco identificados:", len(todos_os_discos))
+def get_data_disco():
+    datetime_now = datetime.now()
+    # print("\nColetando dados dos Disco...")
+    # print("Data e hora da leitura:", datetime_now) 
+    # #Apresenta os dados
+    todos_os_discos= psutil.disk_partitions('/mnt/')
+    # print("Quantidade de partições de disco identificados:", len(todos_os_discos))
 
-#     dict_per_disco = {}
+    dict_per_disco = {}
 
-#     for disco in todos_os_discos:
-#         if(disco[3]!="cdrom" and  disco[2]=="drvfs" or disco[3]=="rw,fixed"):
-#             dict_per_disco[str(disco[1])] = psutil.disk_usage(disco[1])[3]
-#             print(disco[1], psutil.disk_usage(disco[1])[3], "%")
-
-#     data_disco = (dict_per_disco, datetime_now, numerogerado)
-#     # print(data_disco)
-#     return data_disco
+    for disco in todos_os_discos:
+        if(disco[3]!="cdrom" and  disco[2]=="drvfs" or disco[3]=="rw,fixed"):
+            dict_per_disco[disco[1]] = psutil.disk_usage(disco[1])[3]
+            # list_per_disco.append(psutil.disk_usage(disco[1])[3])
+            # print(disco[1], psutil.disk_usage(disco[1])[3], "%")
+    
+    # print(list_per_disco)
+    # list_per_disco.append(datetime_now)
+    data_disco = (dict_per_disco, datetime_now)
+    # print(data_disco)
+    return data_disco
 
 def enviar(numerogerado,values_ram,values_cpu,values_disco):
     verificarMaquina(numerogerado,values_ram,values_cpu,values_disco)
