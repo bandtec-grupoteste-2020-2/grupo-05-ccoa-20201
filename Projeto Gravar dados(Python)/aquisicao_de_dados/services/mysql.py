@@ -22,32 +22,27 @@ class Mysql:
             print(err)
             raise
 
-    def insert(self, data):
-     
-        query = (
-            "INSERT INTO `Leitura` (fkMaquina, fkComponente, valor, tempoLeitura)"
-            "VALUES ()"    
-        )      
+    def insert_comp(self, data):
+                  
+        # for lista in data:
+        query = ("INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura) VALUES(%s ,%s, %s, %s)")
         # query = (
-        #     "INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura)"
-        #     "VALUES (%s, %s, %s, %s)"    
-        # )      
+        # "INSERT INTO `Leitura` (fkMaquina, fkComponente, valor, tempoLeitura)"
+        # "VALUES(1 ,1, 11.2, '2020/05/14')"
+        # )
 
-        # query = ("INSERT INTO `CPULeituras`(nomeCPU, CPUPorcentagem, tempoLeitura, fkMaquina) VALUES (%s)")
+        print(data)
+        # values = lista
+        # print("\n", values, "\n")
 
-
-        for lista in data:
-
-            values = lista
-
-            try:
-                # print('Inserindo Valores')
-                self.cursor.execute(query, values)
-                self.mysql.commit()
-            except Exception as err:
-                print(err)
-                self.mysql.rollback()
-                self.close()
+        try:
+            print('\nInserindo Valores\n')
+            self.cursor.execute(query, data)
+            self.mysql.commit()
+        except Exception as err:
+            print(err)
+            self.mysql.rollback()
+            self.close()
 
 
             

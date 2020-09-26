@@ -71,4 +71,4 @@ select * from Empresa;
 select * from Usuario;
 select * from Maquina;
 select * from Componente;
-select * from leitura;
+select * from leitura order by desc;
