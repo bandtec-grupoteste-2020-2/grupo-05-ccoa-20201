@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Maquina</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="script/rosquinha2.js"></script>
+<script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row" >
+          <div class="col" style="background-color: red;">
+            <div class="row">
+            <div class="col" style="background-color: palegoldenrod;">
+                <h4>Arooz</h4>
+                <div>
+                    <canvas id="rosquinha"></canvas>
+                  </div>
+            
+            </div>
+            <div class="col" style="background-color: palegreen;">
+                <h5>arroz:</h5>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+                <h5>arroz:</h5>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+                <h5>arroz:</h5>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+                  
+            </div>
+            </div>
+          </div>
+          <div class="col" style="background-color: red;">
+            <div class="row">
+                <div class="col" style="background-color: palegoldenrod;">
+                    <h4>Arooz</h4>
+                    <div>
+                        <canvas id="rosquinha_solo"></canvas>
+                      </div>
+                
+                </div>
+                <div class="col" style="background-color: palegreen;">
+                    <h5>arroz:</h5>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                      </div>
+                    <h5>arroz:</h5>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                      </div>
+                    <h5>arroz:</h5>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                      </div>
+                      
+                </div>
+                </div>
+          </div>
+      
+     
+        </div>
+      </div>
+</body>
+</html>
+
+<script>
+atualizarRosca();
+
+function plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal) {
+    var grafico3 = [];
+  var teste3=0;
+  if (teste3 >= 1){
+    grafico3.destroy();
+    teste3=0;
+  }
+  
+    grafico3 = new Chart(contexto, {
+      // The type of chart we want to create
+      type: 'doughnut',
+          data: {
+              datasets: [{
+                  data: [
+                     75,25
+                  ],
+                  backgroundColor: [
+                      window.chartColors.red,
+                      window.chartColors.green,
+                      window.chartColors.yellow,
+                      window.chartColors.orange,
+                  ],
+                  label: 'Dataset 1'
+              }],
+              labels: [
+                  'Consumindo %',
+                  'Livre %',
+               
+              ]
+          },
+          options: {
+              responsive: true,
+              circumference: 1.5 * Math.PI,
+                rotation: .5 * Math.PI,
+                cutoutPercentage: 80,
+              legend: {
+                  position: 'top',
+                  
+              },
+              
+              animation: {
+                  animateScale: true,
+                  animateRotate: true
+              }
+          }
+    });
+    teste3++;
+}
+
+var grafico4 = [];
+  var teste4=0;
+  atualizarRosca1();
+  function plotarGraficoRosca1(contexto, critico,emergencial,alerta,ideal) {
+    if (teste4 >= 1){
+      grafico4.destroy();
+      teste4=0;
+    }
+    
+    grafico4 = new Chart(contexto, {
+      // The type of chart we want to create
+      type: 'doughnut',
+          data: {
+              datasets: [{
+                  data: [
+                     25,75
+                  ],
+                  backgroundColor: [
+                      window.chartColors.red,
+                      window.chartColors.green,
+                      window.chartColors.yellow,
+                      window.chartColors.orange,
+                  ],
+                  label: 'Dataset 1'
+              }],
+              labels: [
+              'Consumindo %',
+                  'Livre %',
+              ]
+          },
+          options: {
+              responsive: true,
+              circumference: 1.5 * Math.PI,
+                rotation: .5 * Math.PI,
+                cutoutPercentage: 80,
+              legend: {
+                  position: 'top',
+                  
+              },
+              
+              animation: {
+                  animateScale: true,
+                  animateRotate: true
+              }
+          }
+    });
+    teste4++;
+  }
+
+</script>
