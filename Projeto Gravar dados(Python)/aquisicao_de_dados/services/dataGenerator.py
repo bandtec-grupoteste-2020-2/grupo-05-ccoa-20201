@@ -3,7 +3,7 @@ from datetime import datetime
 from random import randint
 import requests
 import json
-URL = 'https://hooks.slack.com/services/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'
+URL = 'https://hooks.slack.com/services/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'
 dici={'text':''}
 def geranumeroaleatorio():
     tipomaquina=randint(1, 3)
@@ -67,10 +67,10 @@ def get_data_disco():
     # print(data_disco)
     return data_disco
 
-def enviar(numerogerado,values_ram,values_cpu,values_disco):
-    # verificarMaquina(numerogerado,values_ram,values_cpu,values_disco)
+def enviar(dataset_leituras):
+    verificarMaquina(dataset_leituras)
     response = requests.post(URL,json = dici)#link para conectar o bot, o url tem q na linha 6
-    print(dici,response)
+    print(dici, response)
     dici['text']=''
     return response
 
