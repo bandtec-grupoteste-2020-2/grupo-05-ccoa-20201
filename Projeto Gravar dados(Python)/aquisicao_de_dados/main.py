@@ -1,4 +1,5 @@
 from services.mysql import Mysql
+from services.component import Cpu
 from services.dataGenerator import get_data_cpu
 from services.dataGenerator import get_data_ram
 from services.dataGenerator import get_data_disco
@@ -11,6 +12,8 @@ from datetime import datetime
 
 #Inserir user, password, host, database
 mysql = Mysql('urubu100', 'urubu100', 'localhost', 'MAQUINAS')
+
+# component_cpu = Cpu(75.45, 'ALERTA')
 
 mysql.connect()
  
@@ -40,10 +43,12 @@ while True:
         cada_disco = [fk_maquina, 2, values_disco[0][disco], values_disco[-1], disco]
         dataset_componentes.append(cada_disco)
 
+
     # print(dataset_componentes)
 
-    # for elemento in dataset_componentes:
-        # verificarMaquina(elemento)
+    for elemento in dataset_componentes:
+        verificarMaquina(elemento)
+
     dataset_componentes = verificarMaquina(dataset_componentes)
 
     print("-"*20 ,"INSERT", "-"*20)
@@ -53,5 +58,17 @@ while True:
         print()        
 
     enviar(dataset_componentes)
+
+    # print(component_cpu.template_phrase)
+    # print(component_cpu.value)
+    # print(component_cpu.status, "\n")
+
+    # # print(cpu)
+    # print(component_cpu.createString())
+    # print(component_cpu.chinelo)
+
+    # print(component_cpu.mostra_chinelo())
+
+    # print(component_cpu.chinelo)
     
     time.sleep(5)
