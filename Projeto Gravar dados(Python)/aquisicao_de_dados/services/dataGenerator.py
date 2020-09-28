@@ -137,11 +137,11 @@ def verificarMaquina(componente_maquina):
                     i.append("BOM!")
                     pass
                 elif i[2]<=65.0:
-                    dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
+                    dici['text']+=("Disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
                     i.append("ALERTA!")
                     erro+=1
                 else:
-                    dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
+                    dici['text']+=("Disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
                     i.append("EMERGÊNCIA")
                     erro+=1
         
@@ -188,18 +188,18 @@ def verificarMaquina(componente_maquina):
                     dici['text']+=("Processador {}% . Está em emergência.\n".format(i[2]))
                     i.append("EMERGÊNCIA!")
                     erro+=1
-            # VALORES DO DISCO    disco=2
+            # VALORES do disco    disco=2
             # for z in values_disco[0]:
             if i[1]==2:
                 if i[2]<=50.0:
                     i.append("BOM!")
                     pass
                 elif i[2]<=75.0:
-                    dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
+                    dici['text']+=("Disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
                     i.append("ALERTA!")
                     erro+=1
                 else:
-                    dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
+                    dici['text']+=("Disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
                     i.append("EMERGÊNCIA")
                     erro+=1
 
@@ -245,18 +245,18 @@ def verificarMaquina(componente_maquina):
                     dici['text']+=("Processador {}% . Está em emergência.\n".format(i[2]))
                     i.append("EMERGÊNCIA!")
                     erro+=1
-            # VALORES DO DISCO    disco=2
+            # VALORES do disco    disco=2
             # for z in values_disco[0]:
             if i[1]==2:
                 if i[2]<=70.0:
                     i.append("BOM!")
                     pass
                 elif i[2]<=90.0:
-                    dici['text']+=("O disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
+                    dici['text']+=("Disco {} -- {}% . Melhor ficar alerta.\n".format(i[-1], i[2]))
                     i.append("ALERTA!")
                     erro+=1
                 else:
-                    dici['text']+=("O disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
+                    dici['text']+=("Disco {} -- {}% . Está em emergência.\n".format(i[-1], i[2]))
                     i.append("EMERGÊNCIA")
                     erro+=1
         if erro==0:
