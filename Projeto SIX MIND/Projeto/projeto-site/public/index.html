@@ -34,7 +34,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="dark-mode.css">
   <!-- Icone na aba do navegador -->
   <link rel="shortcut icon" href="img/arvore.png">
 
@@ -69,7 +69,10 @@
 <body>
 
   <header>
-    
+  
+
+
+    </div>
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light mb-5">
       <a class="navbar-brand" href="#">
         <img src="https://image.flaticon.com/icons/svg/789/789394.svg" width="40" height="40" alt="">
@@ -93,7 +96,16 @@
             <a class="nav-link" href="#contato">Contato</a>
           </li>
         </ul>
+     
 
+          <div class="custom-control custom-switch" style="margin-right: 5%;">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+          </div>
+          <script src="dark-mode-switch.min.js"></script>
+
+
+  
         <!-- <<<<<<< HEAD -->
         <a href="cadastro/cadastro.html" class="btn btn-outline-success mr-1">Cadastrar</a>
         <!-- ======= -->
@@ -107,6 +119,11 @@
       </div>
     </nav>
   </header>
+  
+
+  
+
+
 
   <main role="main">
 

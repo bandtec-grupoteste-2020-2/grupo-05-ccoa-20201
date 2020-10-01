@@ -26,6 +26,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
   <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+  <link rel="stylesheet" href="dark-mode.css">
 
 
   <style>
@@ -50,6 +51,16 @@
 </head>
 
 <body>
+  <div class="nav-link">
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkSwitch">
+      <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
+    <script src="dark-mode-switch.min.js"></script>
+
+
+  </div>
   <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"

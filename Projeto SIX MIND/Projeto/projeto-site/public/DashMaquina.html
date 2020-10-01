@@ -21,10 +21,14 @@
     <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="dark-mode.css">
 
 </head>
 
 <body>
+  
+       
+    
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
@@ -40,7 +44,16 @@
             </button>
         </nav>
     </div>
+ <div class="nav-link">
 
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+          </div>
+          <script src="dark-mode-switch.min.js"></script>
+
+
+        </div>
     </div>
     <!-- container geral-->
 
@@ -62,8 +75,9 @@
                     </div>
                     <div class="col-1"></div>
                     <div class="col  ">
+                        <br>
                         <!-- Segunda da  coluna da CPU-->
-                        <h5>Temperatura:</h5>
+                        <h5> Temperatura:</h5>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width:60%; background-color: red;"
                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60°C</div>
@@ -75,11 +89,7 @@
                                 aria-valuemin="0" aria-valuemax="3000">3000MHz</div>
                         </div>
                         <br>
-                        <h5>Ventilador:</h5>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 100%; background-color: gray;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Null</div>
-                        </div>
+                    
                         <br>
                         <div class="d-flex justify-content-center">
                             <button id="botaomostrar" onclick="MostraNucleos()" type="button"
@@ -107,6 +117,7 @@
             </div>
 
         </div>
+        <br>
         <div class="row">
             <div class="col"></div>
             <div id="todososnúcleos" style="display: none;" class="col border rounded-lg">
@@ -230,7 +241,7 @@
             grafico3.destroy();
             teste3 = 0;
         }
-
+     
         grafico3 = new Chart(contexto, {
             // The type of chart we want to create
             type: 'doughnut',
@@ -245,6 +256,7 @@
                         window.chartColors.yellow,
                         window.chartColors.orange,
                     ],
+                   
                     label: 'Dataset 1'
                 }],
                 labels: [
@@ -260,6 +272,10 @@
                 cutoutPercentage: 80,
                 legend: {
                     position: 'top',
+                    labels: {
+                    
+                    fontSize: 18
+                }
 
                 },
 
