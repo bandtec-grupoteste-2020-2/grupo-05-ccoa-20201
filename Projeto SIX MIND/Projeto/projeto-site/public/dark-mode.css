@@ -8,7 +8,7 @@
 }
 
 [data-theme="dark"] .bg-white {
-  background-color: #000 !important;
+  background-color: #111 !important;
 }
 
 [data-theme="dark"] .bg-black {
@@ -40,4 +40,19 @@
   color: rgb(255, 0, 234)!important;
   border-color: #eee;
   
+}
+
+[data-theme="dark"] .card  {
+  background-color: #111 !important;
+  color: #c12f2f;
+}
+
+[data-theme="dark"] .modal-content{
+  background-color: #111 !important;
+  
+}
+
+[data-theme="dark"] #close{
+  color: #fff !important;
+
 }
