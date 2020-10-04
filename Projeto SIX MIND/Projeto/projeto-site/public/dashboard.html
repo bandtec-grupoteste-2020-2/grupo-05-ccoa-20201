@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="css/stylesheet.css">
   <script type="text/javascript" src="funcoes.js"></script>
 
-   <!-- Icone na aba do navegador -->
-   <link rel="shortcut icon" href="img/arvore.png">
+  <!-- Icone na aba do navegador -->
+  <link rel="shortcut icon" href="img/arvore.png">
 
 
   <!-- Linha referêncial boostrap -->
@@ -151,6 +151,48 @@
               </a>
             </li>
           </ul>
+
+          <hr>
+
+          <div class="container">
+
+
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-transparent border-success text-center">Chamado de Emergência</div>
+              <div class="card-body text-success">
+
+                <form id="myForm" method="POST" action="/slack">
+
+                  <div class="form-group">
+                    <label for="input_subject">Assunto</label>
+                    <input type="text" class="form-control bg-secondary text-light" id="input_subject"
+                      name="input_subject">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="textarea_description">Descrição</label>
+                    <textarea class="form-control bg-secondary text-light" id="textarea_description"
+                      name="textarea_description" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="input_email">E-mail de Contato</label>
+                    <input type="email" class="form-control bg-secondary text-light" id="input_email" name="input_email"
+                      aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar esse email com
+                      ninguém.</small>
+                  </div>
+
+                  <button type="submit" class="btn btn-success mx-auto">Enviar</button>
+
+                </form>
+
+              </div>
+              <!-- <div class="card-footer bg-transparent border-success">Footer</div> -->
+            </div>
+
+          </div>
+
         </div>
       </nav>
 
@@ -183,7 +225,7 @@
         <!-- -------------------------DASHBOARD DA ATMOSFERA------------------------- -->
         <div id="dash_atm">
           <!-- GRAFICO PRINCIPAL DE ATMOSFERA -->
-          <canvas class="my-4 w-100" id="myChart"  width="900" height="290"></canvas>
+          <canvas class="my-4 w-100" id="myChart" width="900" height="290"></canvas>
 
           <div class="row">
             <!-- GRAFICO DE ROSQUINHA (atm) -->
@@ -216,7 +258,7 @@
                 <div class="col">
                   <h5>Maior Indice de Temperatura: <span id="maiorTempertura">-</span>°C</h5>
                   <p>Área: <span id="maiorTemperturaArea">-</span></p>
-                  
+
 
                 </div>
               </div>
@@ -225,7 +267,7 @@
                 <div class="col">
                   <h5>Menor Indice de Temperatura: <span id="menorTempertura">-</span>°C</h5>
                   <p>Área: <span id="menorTemperturaArea">-</span></p>
-          
+
 
                 </div>
               </div>
@@ -233,16 +275,16 @@
                 <div class="col">
                   <h5>Maior Indice de Umidade: <span id="maiorUmidade">-</span>%</h5>
                   <p>Área: <span id="maiorUmidadeArea">-</span></p>
-                  
+
 
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <h5>Menor Indice  de Umidade: <span id="menorUmidade">-</span>%</h5>
+                  <h5>Menor Indice de Umidade: <span id="menorUmidade">-</span>%</h5>
                   <p>Área: <span id="menorUmidadeArea">-</span></p>
-          
+
 
                 </div>
               </div>
@@ -287,7 +329,7 @@
                 <div class="col">
                   <h5>Maior Indice de Temperatura: <span id="maiorTemperturaSolo">-</span>°C</h5>
                   <p>Área: <span id="maiorTemperturaAreaSolo">-</span></p>
-                  
+
 
                 </div>
               </div>
@@ -296,7 +338,7 @@
                 <div class="col">
                   <h5>Menor Indice de Temperatura: <span id="menorTemperturaSolo">-</span>°C</h5>
                   <p>Área: <span id="menorTemperturaAreaSolo">-</span></p>
-          
+
 
                 </div>
               </div>
@@ -304,31 +346,31 @@
                 <div class="col">
                   <h5>Maior Indice de Umidade: <span id="maiorUmidadeSolo">-</span>%</h5>
                   <p>Área: <span id="maiorUmidadeAreaSolo">-</span></p>
-                  
+
 
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <h5>Menor Indice  de Umidade: <span id="menorUmidadeSolo">-</span>%</h5>
+                  <h5>Menor Indice de Umidade: <span id="menorUmidadeSolo">-</span>%</h5>
                   <p>Área: <span id="menorUmidadeAreaSolo">-</span></p>
-          
+
 
                 </div>
               </div>
 
-                </div>
-              </div>
             </div>
           </div>
-
-
-
-
         </div>
-      </main>
     </div>
+
+
+
+
+  </div>
+  </main>
+  </div>
   </div>
 </body>
 
@@ -343,7 +385,7 @@
 
 <script>
 
-verificar_autenticacao();
+  verificar_autenticacao();
 
 
   function mudar_dash_p_solo() {
@@ -361,7 +403,7 @@ verificar_autenticacao();
   function mudar_dash_p_atm() {
     // let btn_dash_solo = document.getElementById ("btn_dash_solo");
     btn_dash_solo.style.display = 'none';
-    // let btn_dash_atm = document.getElementById ("btn_dash_atm");  
+    // let btn_dash_atm = document.getElementById ("btn_dash_atm");
     btn_dash_atm.style.display = 'block';
 
     // let dash_solo = document.getElementById("dash_solo");
@@ -372,24 +414,24 @@ verificar_autenticacao();
 </script>
 
 <script>
-  function AtualizarIndices(maiorTemp,menorTemp,maiorUmid,menorUmid){
+  function AtualizarIndices(maiorTemp, menorTemp, maiorUmid, menorUmid) {
     maiorTempertura.innerHTML = maiorTemp[0]
     maiorTemperturaArea.innerHTML = maiorTemp[1]
     menorTempertura.innerHTML = menorTemp[0]
     menorTemperturaArea.innerHTML = menorTemp[1]
-  
+
     maiorUmidade.innerHTML = maiorUmid[0]
     maiorUmidadeArea.innerHTML = maiorUmid[1]
     menorUmidade.innerHTML = menorUmid[0]
     menorUmidadeArea.innerHTML = menorUmid[1]
 
   }
-  function AtualizarIndicesSolo(maiorTemp,menorTemp,maiorUmid,menorUmid){
+  function AtualizarIndicesSolo(maiorTemp, menorTemp, maiorUmid, menorUmid) {
     maiorTemperturaSolo.innerHTML = maiorTemp[0]
     maiorTemperturaAreaSolo.innerHTML = maiorTemp[1]
     menorTemperturaSolo.innerHTML = menorTemp[0]
     menorTemperturaAreaSolo.innerHTML = menorTemp[1]
-  
+
     maiorUmidadeSolo.innerHTML = maiorUmid[0]
     maiorUmidadeAreaSolo.innerHTML = maiorUmid[1]
     menorUmidadeSolo.innerHTML = menorUmid[0]
@@ -400,12 +442,12 @@ verificar_autenticacao();
 <script>
   atualizarGraficoGrande();
   // //-----------------------------------------MYCHART ---------------------------------------
-  function plotarGraficoGrande(contexto, dadoMesTemp, dadoMesUmid){
-    var chart = new Chart(contexto , {
+  function plotarGraficoGrande(contexto, dadoMesTemp, dadoMesUmid) {
+    var chart = new Chart(contexto, {
       type: 'line',
       data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        datasets: [{  
+        datasets: [{
           label: 'Temperatura',
           backgroundColor: 'green',
           borderColor: 'green',
@@ -428,215 +470,214 @@ verificar_autenticacao();
 
 <script>
 
-  var grafico1=[] ;
-  var teste=0;
+  var grafico1 = [];
+  var teste = 0;
   atualizarGrafico();
 
   function plotarGrafico(contexto, dado, dado2) {
 
-    if (teste >= 1){
+    if (teste >= 1) {
       grafico1.destroy();
-      teste=0;
+      teste = 0;
     }
-      grafico1 = new Chart(contexto, {
-        type: 'horizontalBar',
-        data: {
+    grafico1 = new Chart(contexto, {
+      type: 'horizontalBar',
+      data: {
 
-          labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],
+        labels: [`Área 1`, `Área 2`, `Área 3`, `Área 4`, `Área 5`],
 
-          datasets: [{
-            label: 'Temperatura °C',
-            backgroundColor: window.chartColors.yellow,
-            borderWidth: 1,
-            data: 
-              dado
-            
-          }, {
-            label: 'Umidade %',
-            backgroundColor:  window.chartColors.blue,
-            data: 
+        datasets: [{
+          label: 'Temperatura °C',
+          backgroundColor: window.chartColors.yellow,
+          borderWidth: 1,
+          data:
+            dado
+
+        }, {
+          label: 'Umidade %',
+          backgroundColor: window.chartColors.blue,
+          data:
             dado2
-            
-          }
-        ],
-        
-        },
-        options: {
 
-          scales: {
-
-            xAxes: [{
-              display: true,
-              ticks: {
-                beginAtZero: true,
-                steps: 10,
-                stepValue: 5,
-                max: 100
-              }
-            }]
-          },
         }
-      });
-      teste++;
+        ],
+
+      },
+      options: {
+
+        scales: {
+
+          xAxes: [{
+            display: true,
+            ticks: {
+              beginAtZero: true,
+              steps: 10,
+              stepValue: 5,
+              max: 100
+            }
+          }]
+        },
+      }
+    });
+    teste++;
   }
-/*SOLO*/
+  /*SOLO*/
   var grafico2 = [];
-  var teste2=0;
+  var teste2 = 0;
   atualizarGraficosolo();
 
   function plotarGrafico2(contexto, dado, dado2) {
 
-    if (teste2 >= 1){
+    if (teste2 >= 1) {
       grafico2.destroy();
-      teste2=0;
+      teste2 = 0;
     }
-    
-      grafico2 = new Chart(contexto, {
-        // The type of chart we want to create
-        type: 'horizontalBar',
 
-        // The data for our dataset
+    grafico2 = new Chart(contexto, {
+      // The type of chart we want to create
+      type: 'horizontalBar',
 
-        data: {
+      // The data for our dataset
 
-          labels: [`Área 1`,`Área 2`,`Área 3`,`Área 4`,`Área 5`],
+      data: {
 
-          datasets: [{
-            label: 'Temperatura °C',
-            backgroundColor: window.chartColors.yellow,
-            borderWidth: 1,
-            data: 
-              dado
-            
-          }, {
-            label: 'Umidade %',
-            backgroundColor: window.chartColors.blue,
-            data: 
-              dado2
-            
-          }],
+        labels: [`Área 1`, `Área 2`, `Área 3`, `Área 4`, `Área 5`],
+
+        datasets: [{
+          label: 'Temperatura °C',
+          backgroundColor: window.chartColors.yellow,
+          borderWidth: 1,
+          data:
+            dado
+
+        }, {
+          label: 'Umidade %',
+          backgroundColor: window.chartColors.blue,
+          data:
+            dado2
+
+        }],
+      },
+      options: {
+
+        scales: {
+
+          xAxes: [{
+            display: true,
+            ticks: {
+              beginAtZero: true,
+              steps: 10,
+              stepValue: 5,
+              max: 100
+            }
+          }]
         },
-        options: {
-
-          scales: {
-
-            xAxes: [{
-              display: true,
-              ticks: {
-                beginAtZero: true,
-                steps: 10,
-                stepValue: 5,
-                max: 100
-              }
-            }]
-          },
-        }
-      });
-      teste2++;
+      }
+    });
+    teste2++;
   }
   var grafico3 = [];
-  var teste3=0;
+  var teste3 = 0;
   atualizarRosca();
 
-  function plotarGraficoRosca(contexto, critico,emergencial,alerta,ideal) {
+  function plotarGraficoRosca(contexto, critico, emergencial, alerta, ideal) {
 
-    if (teste3 >= 1){
+    if (teste3 >= 1) {
       grafico3.destroy();
-      teste3=0;
+      teste3 = 0;
     }
-    
-      grafico3 = new Chart(contexto, {
-        // The type of chart we want to create
-        type: 'doughnut',
-            data: {
-                datasets: [{
-                    data: [
-                        critico,
-                        ideal,
-                        alerta,
-                        emergencial,
-                    ],
-                    backgroundColor: [
-                        window.chartColors.red,
-                        window.chartColors.green,
-                        window.chartColors.yellow,
-                        window.chartColors.orange,
-                    ],
-                    label: 'Dataset 1'
-                }],
-                labels: [
-                    'Critico',
-                    'ideal',
-                    'alerta',
-                    'emergencial',
-                ]
-            },
-            options: {
-                responsive: true,
-                legend: {
-                    position: 'top',
-                },
-                
-                animation: {
-                    animateScale: true,
-                    animateRotate: true
-                }
-            }
-      });
-      teste3++;
+
+    grafico3 = new Chart(contexto, {
+      // The type of chart we want to create
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [
+            critico,
+            ideal,
+            alerta,
+            emergencial,
+          ],
+          backgroundColor: [
+            window.chartColors.red,
+            window.chartColors.green,
+            window.chartColors.yellow,
+            window.chartColors.orange,
+          ],
+          label: 'Dataset 1'
+        }],
+        labels: [
+          'Critico',
+          'ideal',
+          'alerta',
+          'emergencial',
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: 'top',
+        },
+
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        }
+      }
+    });
+    teste3++;
   }
 
 
   var grafico4 = [];
-  var teste4=0;
+  var teste4 = 0;
   atualizarRosca1();
-  function plotarGraficoRosca1(contexto, critico,emergencial,alerta,ideal) {
-    if (teste4 >= 1){
+  function plotarGraficoRosca1(contexto, critico, emergencial, alerta, ideal) {
+    if (teste4 >= 1) {
       grafico4.destroy();
-      teste4=0;
+      teste4 = 0;
     }
-    
+
     grafico4 = new Chart(contexto, {
       // The type of chart we want to create
       type: 'doughnut',
-          data: {
-              datasets: [{
-                  data: [
-                      critico,
-                      ideal,
-                      alerta,
-                      emergencial,
-                  ],
-                  backgroundColor: [
-                      window.chartColors.red,
-                      window.chartColors.green,
-                      window.chartColors.yellow,
-                      window.chartColors.orange,
-                  ],
-                  label: 'Dataset 1'
-              }],
-              labels: [
-                  'Critico',
-                  'ideal',
-                  'alerta',
-                  'emergencial',
-              ]
-          },
-          options: {
-              responsive: true,
-              legend: {
-                  position: 'top',
-              },
-              
-              animation: {
-                  animateScale: true,
-                  animateRotate: true
-              }
-          }
+      data: {
+        datasets: [{
+          data: [
+            critico,
+            ideal,
+            alerta,
+            emergencial,
+          ],
+          backgroundColor: [
+            window.chartColors.red,
+            window.chartColors.green,
+            window.chartColors.yellow,
+            window.chartColors.orange,
+          ],
+          label: 'Dataset 1'
+        }],
+        labels: [
+          'Critico',
+          'ideal',
+          'alerta',
+          'emergencial',
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: 'top',
+        },
+
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        }
+      }
     });
     teste4++;
   }
 
 </script>
-
 </html>
