@@ -42,16 +42,9 @@
   
 }
 
-[data-theme="dark"] .card  {
-  background-color: #111 !important;
-  color: #c12f2f;
+[data-theme="dark"] input .bg-light{
+    background-color: #eee;
 }
-
-[data-theme="dark"] .modal-content{
-  background-color: #111 !important;
-  
-}
-
 [data-theme="dark"] #close{
   color: #fff !important;
 
