@@ -13,7 +13,7 @@
 
 
 [data-theme="dark"] .bg-white {
-  background-color: #000 !important;
+  background-color: #111 !important;
 }
 
 [data-theme="dark"] .bg-black {
@@ -45,4 +45,12 @@
   color: rgb(255, 0, 234)!important;
   border-color: #eee;
   
+}
+
+[data-theme="dark"] input .bg-light{
+    background-color: #eee;
+}
+[data-theme="dark"] #close{
+  color: #fff !important;
+
 }
