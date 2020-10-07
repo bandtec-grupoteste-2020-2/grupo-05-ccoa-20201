@@ -504,7 +504,12 @@
 <script>
   atualizarGraficoGrande();
   // //-----------------------------------------MYCHART ---------------------------------------
+  var teste10 = 0;
   function plotarGraficoGrande(contexto, dadoMesTemp, dadoMesUmid) {
+    if (teste10 >= 1) {
+      chart.destroy();
+      teste10 = 0;
+    }
     var chart = new Chart(contexto, {
       type: 'line',
       data: {
@@ -527,6 +532,7 @@
 
       options: {}
     });
+    teste10++;
   }// testa tudo ve se ta funcionando normal se tiver ja da um commit oi? aonde?
 </script>
 
