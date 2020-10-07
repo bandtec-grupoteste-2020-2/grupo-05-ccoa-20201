@@ -119,13 +119,13 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th  style=" background-color: #17a2b8;" scope="row">Memória</th>
-                                <td style="background-color: #17a2b8;"><i style="color: #343a40;" class="fas fa-check"></i></td>
+                                <th id="tab1lin1" style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                <td id="tab1lin2" style="background-color: #17a2b8;"><i id="icone11" style="color: #343a40;" class="fas fa-check"></i></td>
                                 
                             </tr>
                             <tr>
                                 <th  style=" background-color: #FF6384;" scope="row">CPU</th>
-                                <td style=" background-color: #FF6384; "><i style="color: #343a40;" class="fas fa-skull"></i></td>
+                                <td style=" background-color: #FF6384; "><i id="icone12" style="color: #343a40;" class="fas fa-skull"></i></td>
                                 
                                 <!-- <td>20GB(10%)</td> -->
                             </tr>
@@ -427,4 +427,35 @@
         }
         
     }
+
+    //--------ESBOÇO PARA TROCAR OS ICONES E CORES---------------
+    var contadorzinho=0;
+    setInterval(atualizarTable,5000);
+    function atualizarTable(){
+        contadorzinho++;
+        if(contadorzinho==1){
+            tab1lin1.style.backgroundColor="#FFCE56";
+            tab1lin2.style.backgroundColor="#FFCE56";
+            icone11.className ="fas fa-exclamation-circle";
+        }
+        else if(contadorzinho==2){
+            tab1lin1.style.backgroundColor="#FF6384";
+            tab1lin2.style.backgroundColor="#FF6384";
+            icone11.className ="fas fa-skull";
+        }
+        else{
+            tab1lin1.style.backgroundColor="#17a2b8";
+            tab1lin2.style.backgroundColor="#17a2b8";
+            icone11.className ="fas fa-check";
+            contadorzinho=0;
+        }
+    }
+
+    //-----PISCAR EM CASO DE CAVEIRA-----------------------------
+    setInterval(Perigo,1000);
+    function Perigo(){
+        icone12.style.display="none";
+        setTimeout("icone12.style.display='inline-block'",450);
+        
+     }
 </script>
