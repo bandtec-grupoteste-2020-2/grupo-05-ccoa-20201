@@ -1,4 +1,4 @@
-drop database MAQUINAS;
+
 create database MAQUINAS;
 use MAQUINAS;
 
@@ -72,7 +72,13 @@ insert into Maquina values
 select * from Empresa;
 select * from Usuario;
 select * from Maquina;
+desc maquina;
 select * from Componente;
-select * from leitura order by idLeitura desc;
+select * from leitura order by idLeitura desc limit 1;
+
 select * from componente, leitura where fkComponente=idComponente;
+select * from leitura where descricao = "CPU_0" order by idleitura desc limit 1;
+select count(distinct(descricao)) from leitura where descricao like "CPU%";
+select * from leitura ;
+
 truncate leitura;

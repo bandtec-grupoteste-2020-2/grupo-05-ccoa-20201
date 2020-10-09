@@ -46,8 +46,8 @@ while True:
 
     # print(dataset_componentes)
 
-    for elemento in dataset_componentes:
-        verificarMaquina(elemento)
+    # for elemento in dataset_componentes:
+    #     verificarMaquina(elemento)
 
     dataset_componentes = verificarMaquina(dataset_componentes)
 
