@@ -1,9 +1,10 @@
 import requests
 import json
+# import psutil
 
 class CrawlerOpenHardwareMonitor:
     def __init__(self):
-        self.url = 'http://192.168.0.8:9000/data.json'
+        self.url = 'http://192.168.0.121:8085/data.json'
         self.data = None
     
     def getJsonData(self):
@@ -21,7 +22,10 @@ class CrawlerOpenHardwareMonitor:
                 "Use": None,
                 'Available': None
             },
-            "Disco":[]
+            "Disk": {
+                "Load": None,
+                "Temperature": None
+            }
         }
 
         clocks = []
@@ -33,10 +37,10 @@ class CrawlerOpenHardwareMonitor:
         for i in data['Children']:
             info['Desktop'] = i['Text']
             for desktop in i['Children']:
-                if desktop['id'] <= 2:
-                    info['MotherBoard'] = desktop['Text']
-                if desktop['Text'].find('Generic Hard Disk') < 0:
-                    info['AllDevices'].append(desktop['Text'])
+                # if desktop['id'] <= 2:
+                #     info['MotherBoard'] = desktop['Text']
+                # if desktop['Text'].find('Generic Hard Disk') < 0:
+                #     info['AllDevices'].append(desktop['Text'])
                 #CPU
                 if desktop['Text'].find('Intel') >= 0 or desktop['Text'].find('AMD') >= 0:
                     for cpu_metrics in desktop['Children']:
@@ -70,7 +74,18 @@ class CrawlerOpenHardwareMonitor:
                                     info['Memory']['Use'] = memory['Value']
                                 if memory['Text'] == 'Available Memory':
                                     info['Memory']['Available'] = memory['Value']
+                # Disk
+                if desktop['Text'].find('HD') >= 0 or desktop['Text'].find('SSD') >= 0:
+                    for disk_metrics in desktop["Children"]:
+                        # Load
+                        if disk_metrics["Text"] == "Load":
+                            for disk in disk_metrics["Children"]:
+                                info["Disk"]["Load"] = disk["Value"]
 
+                        # Temperature
+                        if disk_metrics["Text"] == "Temperatures":
+                            for disk in disk_metrics["Children"]:
+                                    info["Disk"]["Temperature"] = disk["Value"]
             for index, itens in enumerate(clocks):
                 cpu = {
                     'Name': f'Core {index + 1}',

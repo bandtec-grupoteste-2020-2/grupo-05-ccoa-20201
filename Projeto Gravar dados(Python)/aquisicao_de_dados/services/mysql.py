@@ -17,9 +17,11 @@ class Mysql:
             user=self.user, password=self.password, host=self.host, database=self.database, auth_plugin='mysql_native_password')
             #Criando cursor para manipulação do banco.
             print(self.mysql)
+            print("\033[32m", "Conexao ao Banco Estabelecida", "\033[0;0m")
             self.cursor = self.mysql.cursor()
         except Exception as err:
             print(err)
+            print("\033[31m", "Erro na Conexão ao Banco", "\033[0;0m")
             raise
 
     def insert_comp(self, data):

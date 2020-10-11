@@ -1,7 +1,6 @@
-
-create database MAQUINAS;
+CREATE DATABASE MAQUINAS;
 use MAQUINAS;
-
+-- drop database Maquinas;
 create table Empresa(
     idEmpresa int primary key auto_increment,
     nomeEmpresa varchar(45),
@@ -53,11 +52,19 @@ create table Leitura(
     tempoLeitura datetime
 );
 
+
 insert into Componente(nomeComponente, metrica) values
-	("CPU", "%"),
-    ("Disco", "%"),
-    ("Memória", "%"),
-    ("MemóriaGB", "GB");
+	("CPU_uso", "%"),
+	("CPU_temperatura", "°C"),
+	("CPU_clock", "MHz"),
+    -- ("CPU_potencia", "W"),
+    ("Disco_uso", "%"),
+    ("Disco_temperatura", "°C"),
+    -- ("Disco", "%"),
+    ("Memória_uso", "%"),
+    ("Memória_uso_gb", "GB"),
+    ("Memória_livre_gb", "GB");
+    -- ("MemóriaGB", "GB");
 
 
 insert into Empresa values
