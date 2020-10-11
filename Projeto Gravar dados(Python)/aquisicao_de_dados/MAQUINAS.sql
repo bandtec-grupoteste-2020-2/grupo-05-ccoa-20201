@@ -5,15 +5,15 @@ use MAQUINAS;
 create table Empresa(
     idEmpresa int primary key auto_increment,
     nomeEmpresa varchar(45),
-    cep varchar(45),
-    cnpj varchar(45)
+    cep char(8),
+    cnpj char(14)
 );
 
 create table Usuario(
     idUsuario int primary key auto_increment,
     nomeUsuario varchar(45),
     cargo varchar(45),
-    cpf varchar(45) not null,
+    cpf char(11) not null,
     Empresa_idEmpresa int,
     foreign key(Empresa_idEmpresa) references Empresa(idEmpresa)
 );
@@ -21,7 +21,7 @@ create table Usuario(
 
 create table Maquina(
 	idMaquina int primary key auto_increment,
-    ramTotal varchar(45),
+    ramTotal decimal(5,2),
     numeroNucleos varchar(45),
     tipoMaquina varchar(45),
     numeroSerial varchar(45),
@@ -36,17 +36,21 @@ create table Componente(
     metrica varchar(45)
 );
 
+create table MaquinaComponente(
+	idMaquinaComponente int primary key auto_increment,
+    fkMaquina int,
+    foreign key (fkMaquina) references Maquina (idMaquina),
+    fkComponente int,
+    foreign key (fkComponente) references Componente (idComponente)
+);
 
 create table Leitura(
 	idLeitura int primary key auto_increment,
-    fkMaquina int,
-    foreign key(fkMaquina) references Maquina(idMaquina),
-    fkComponente int,
-    foreign key(fkComponente) references Componente(idComponente),
+    fkMaquinaComponente int,
+    foreign key(fkMaquinaComponente) references MaquinaComponente (idMaquinaComponente),
     descricao varchar(45),
-    valor decimal(4,2),
-    tempoLeitura datetime,
-    estado varchar(45)
+    valor decimal(6,2),
+    tempoLeitura datetime
 );
 
 insert into Componente(nomeComponente, metrica) values
@@ -76,7 +80,7 @@ desc maquina;
 select * from Componente;
 select * from leitura order by idLeitura desc limit 1;
 
-select * from componente, leitura where fkComponente=idComponente;
+
 select * from leitura where descricao = "CPU_0" order by idleitura desc limit 1;
 select count(distinct(descricao)) from leitura where descricao like "CPU%";
 select * from leitura ;
