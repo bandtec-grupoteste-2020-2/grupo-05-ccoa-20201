@@ -1,21 +1,43 @@
 import requests
 import json
+from datetime import datetime
+from random import randint
 # import psutil
 
 class CrawlerOpenHardwareMonitor:
     def __init__(self):
-        self.url = 'http://192.168.0.121:8085/data.json'
+        self.url = 'http://192.168.15.6:8085/data.json'
         self.data = None
     
     def getJsonData(self):
         response = requests.get(self.url)
         data = json_data = response.json()
         self.data = data
+
+    def getComponente(self, data):
+        fk_maquina=randint(1, 3)
+        dataset_componentes = [
+        [fk_maquina,data['Memory']['Load'].split()[0].replace(",", "."), datetime.now(), 'Memoria uso %'],
+        [fk_maquina,data['Memory']['Use'].split()[0].replace(",", "."), datetime.now(), 'Memoria uso GB'],
+        [fk_maquina,data['Memory']['Available'].split()[0].replace(",", "."), datetime.now(), 'Memoria livre GB'],
+        [fk_maquina,data['Disk']['Load'].split()[0].replace(",", "."), datetime.now(), 'Disco uso %'],
+        [fk_maquina,data['Disk']['Temperature'].split()[0].replace(",", "."), datetime.now(), 'Disco temperatura'],
+        ]
+        for k in data['CPU']:
+            lista_Clock = [fk_maquina,k['Clock'].split()[0].replace(",", "."), datetime.now(), k['Name']]
+            lista_Temperature = [fk_maquina,k['Temperature'].split()[0].replace(",", "."), datetime.now(), k['Name']]
+            lista_Load = [fk_maquina,k['Load'].split()[0].replace(",", "."), datetime.now(), k['Name']]
+
+            dataset_componentes.append(lista_Clock)
+            dataset_componentes.append(lista_Temperature)
+            dataset_componentes.append(lista_Load)
+        
+        return dataset_componentes
     
     def getInfo(self):
         self.getJsonData()
         info = {
-            "Desktop": None,
+            # "Desktop": None,
             "CPU": [],
             "Memory": {
                 "Load": None,
@@ -35,7 +57,7 @@ class CrawlerOpenHardwareMonitor:
         data = self.data
 
         for i in data['Children']:
-            info['Desktop'] = i['Text']
+            # info['Desktop'] = i['Text']
             for desktop in i['Children']:
                 # if desktop['id'] <= 2:
                 #     info['MotherBoard'] = desktop['Text']
@@ -97,10 +119,10 @@ class CrawlerOpenHardwareMonitor:
             return info
 
 
-if __name__ == "__main__":
-    teste =  CrawlerOpenHardwareMonitor()
-    teste.getInfo()
+# if __name__ == "__main__":
+#     teste =  CrawlerOpenHardwareMonitor()
+#     teste.getInfo()
 
-    dataset = teste.getInfo()
-    for k in dataset:
-        print(k, dataset[k])
+#     dataset = teste.getInfo()
+#     for k in dataset:
+#         print(k, dataset[k])

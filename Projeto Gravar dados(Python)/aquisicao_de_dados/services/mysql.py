@@ -30,9 +30,10 @@ class Mysql:
         # data[2]=str(data[2])
         # data[2]=data[2].split()[0]
         # data[2]=float(data[2])
-        # print(data[2])     
-        query = ("INSERT INTO `Leitura`(fkMaquina, fkComponente, valor, tempoLeitura, descricao,estado)"
-        "VALUES(%s ,%s, %s, %s, %s,%s)"
+        # print(data[2]) 
+        print(data)    
+        query = ("INSERT INTO `Leitura`(fkMaquinaComponente, valor, tempoLeitura, descricao)"
+        "VALUES(%s ,%s, %s, %s)"
         )
         # print(data)
      

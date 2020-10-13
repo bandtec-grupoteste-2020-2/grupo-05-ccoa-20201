@@ -1,6 +1,7 @@
 from services.mysql import Mysql
 from services.pythohms import CrawlerOpenHardwareMonitor
 from services.dataGenerator import geranumeroaleatorio
+import time
 
 
 
@@ -8,13 +9,14 @@ mysql = Mysql('urubu100', 'urubu100', 'localhost', 'MAQUINAS')
 mysql.connect()
 
 teste =  CrawlerOpenHardwareMonitor()
-# teste.getInfo()
 
 while True:
-    fk_maquina = geranumeroaleatorio()
-    dataset = teste.getInfo()
+    dataset = teste.getComponente(teste.getInfo())
     print(dataset)
-    # mysql.insert_comp(dataset)
+    for i in dataset:        
+        # print(i)
+        mysql.insert_comp(i)
+    time.sleep(5)
 # for k in dataset:
 #     print(k, dataset[k])
 

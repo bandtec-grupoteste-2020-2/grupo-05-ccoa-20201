@@ -47,9 +47,9 @@ create table Leitura(
 	idLeitura int primary key auto_increment,
     fkMaquinaComponente int,
     foreign key(fkMaquinaComponente) references MaquinaComponente (idMaquinaComponente),
-    descricao varchar(45),
     valor decimal(6,2),
-    tempoLeitura datetime
+    tempoLeitura datetime,
+    descricao varchar(45)
 );
 
 
@@ -85,11 +85,16 @@ select * from Usuario;
 select * from Maquina;
 desc maquina;
 select * from Componente;
+select * from MaquinaComponente;
 select * from leitura order by idLeitura desc limit 1;
 
 
 select * from leitura where descricao = "CPU_0" order by idleitura desc limit 1;
 select count(distinct(descricao)) from leitura where descricao like "CPU%";
-select * from leitura ;
+select * from leitura;
 
+insert into MaquinaComponente values
+(null, 1, 1),
+(null, 1, 2),
+(null, 1, 3);
 truncate leitura;
