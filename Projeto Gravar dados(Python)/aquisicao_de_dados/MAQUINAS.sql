@@ -93,7 +93,7 @@ select * from leitura order by idLeitura desc limit 1;
 select * from leitura where descricao = "CPU_0" order by idleitura desc limit 1;
 select count(distinct(descricao)) from leitura where descricao like "CPU%";
 select * from leitura;
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, leitura.tempoLeitura from maquina, leitura, componente, maquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente order by idLeitura; 
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor,componente.metrica, leitura.tempoLeitura from maquina, leitura, componente, maquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente order by idLeitura; 
 
 insert into maquinacomponente (fkmaquina,fkcomponente)values
 (1,1),
