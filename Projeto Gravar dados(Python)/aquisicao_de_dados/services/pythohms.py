@@ -17,16 +17,16 @@ class CrawlerOpenHardwareMonitor:
     def getComponente(self, data):
         fk_maquina=randint(1, 3)
         dataset_componentes = [
-        [fk_maquina,data['Memory']['Load'].split()[0].replace(",", "."), datetime.now(), 'Memoria uso %'],
-        [fk_maquina,data['Memory']['Use'].split()[0].replace(",", "."), datetime.now(), 'Memoria uso GB'],
-        [fk_maquina,data['Memory']['Available'].split()[0].replace(",", "."), datetime.now(), 'Memoria livre GB'],
-        [fk_maquina,data['Disk']['Load'].split()[0].replace(",", "."), datetime.now(), 'Disco uso %'],
-        [fk_maquina,data['Disk']['Temperature'].split()[0].replace(",", "."), datetime.now(), 'Disco temperatura'],
+        [6 ,data['Memory']['Load'].split()[0].replace(",", "."), datetime.now(), 'Memoria uso %'],
+        [7 ,data['Memory']['Use'].split()[0].replace(",", "."), datetime.now(), 'Memoria uso GB'],
+        [8 ,data['Memory']['Available'].split()[0].replace(",", "."), datetime.now(), 'Memoria livre GB'],
+        [4 ,data['Disk']['Load'].split()[0].replace(",", "."), datetime.now(), 'Disco uso %'],
+        [5 ,data['Disk']['Temperature'].split()[0].replace(",", "."), datetime.now(), 'Disco temperatura'],
         ]
         for k in data['CPU']:
-            lista_Clock = [fk_maquina,k['Clock'].split()[0].replace(",", "."), datetime.now(), k['Name']]
-            lista_Temperature = [fk_maquina,k['Temperature'].split()[0].replace(",", "."), datetime.now(), k['Name']]
-            lista_Load = [fk_maquina,k['Load'].split()[0].replace(",", "."), datetime.now(), k['Name']]
+            lista_Clock = [3 ,k['Clock'].split()[0].replace(",", "."), datetime.now(), k['Name']]
+            lista_Temperature = [2 ,k['Temperature'].split()[0].replace(",", "."), datetime.now(), k['Name']]
+            lista_Load = [1 ,k['Load'].split()[0].replace(",", "."), datetime.now(), k['Name']]
 
             dataset_componentes.append(lista_Clock)
             dataset_componentes.append(lista_Temperature)
