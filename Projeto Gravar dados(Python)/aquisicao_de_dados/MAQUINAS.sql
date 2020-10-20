@@ -1,3 +1,4 @@
+
 CREATE DATABASE MAQUINAS;
 use MAQUINAS;
 -- drop database Maquinas;
@@ -11,6 +12,8 @@ create table Empresa(
 create table Usuario(
     idUsuario int primary key auto_increment,
     nomeUsuario varchar(45),
+    email varchar(45),
+    senha varchar(45),
     cargo varchar(45),
     cpf char(11) not null,
     Empresa_idEmpresa int,
@@ -71,9 +74,9 @@ insert into Empresa values
 	(null,'SixMinds','09505050','45646494161');
  
 insert into Usuario values
-	(null,'João','Analista','50xxxxxx','1'),
-    (null,'Joana','Analista','50xxxxxx','1'),
-    (null,'Yuiti','Gerente','50xxxxxx','1');
+    (null,'João','joão@joão.com','123','Analista','50xxxxxx','1'),
+    (null,'Joana','joana@ig.com','123','Analista','50xxxxxx','1'),
+    (null,'Yuiti','thiago@japao.com','123','Gerente','50xxxxxx','1');
     
 insert into Maquina values
 	(null,"4", "4","IOT","15000","Windows",1),
@@ -89,11 +92,20 @@ select * from MaquinaComponente;
 
 select * from leitura order by idLeitura desc limit 1;
 
-
-select * from leitura where descricao = "CPU_0" order by idleitura desc limit 1;
+alter table maquinacomponente add column ativado bit;
+update MaquinaComponente set ativado = 1 where idmaquinacomponente>=1;
+update  maquina set numeroNucleos=6 where idmaquina=2;
+update  maquina set ramTotal=16 where idmaquina=2;
+select * from leitura where descricao like "CPU%" order by idleitura desc limit 6;
 select count(distinct(descricao)) from leitura where descricao like "CPU%";
 select * from leitura;
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor,componente.metrica, leitura.tempoLeitura from maquina, leitura, componente, maquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente order by idLeitura; 
+select count(distinct(descricao)) as nucleos from leitura where descricao like "Core%";
+select * from leitura where descricao like "Core%" order by idleitura desc limit 6;
+
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, leitura.tempoLeitura 
+from maquina, leitura, componente, maquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
+order by idLeitura desc; 
 
 insert into maquinacomponente (fkmaquina,fkcomponente)values
 (1,1),
