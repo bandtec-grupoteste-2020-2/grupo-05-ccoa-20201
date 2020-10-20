@@ -29,8 +29,10 @@ public class Tela extends javax.swing.JFrame {
         lbMemoriaTotal = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lbNumeroNucleos = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        pbCPU = new javax.swing.JProgressBar();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +83,10 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel7.setText("CPU");
 
+        jLabel8.setText("0%");
+
+        jLabel9.setText("100%");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,13 +122,18 @@ public class Tela extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(lbNumeroNucleos, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lbMemoriaTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addComponent(jLabel7))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9))
+                                .addComponent(pbCPU, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel7)))
                 .addGap(30, 188, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,26 +166,30 @@ public class Tela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMemoriaTotal)
                     .addComponent(lbNumeroNucleos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel7)
-                .addGap(16, 16, 16)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pbCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMaquina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina1ActionPerformed
-    conexao1.conectar(1,lbIdMaquina,lbTipoMaquina,lbSistemaOperacional,lbMemoriaTotal,lbNumeroNucleos);
+    conexao1.conectar(1,lbIdMaquina,lbTipoMaquina,lbSistemaOperacional,lbMemoriaTotal,lbNumeroNucleos,pbCPU);
     }//GEN-LAST:event_btnMaquina1ActionPerformed
 
     private void btnMaquina2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina2ActionPerformed
-    conexao1.conectar(2,lbIdMaquina,lbTipoMaquina,lbSistemaOperacional,lbMemoriaTotal,lbNumeroNucleos);
+    conexao1.conectar(2,lbIdMaquina,lbTipoMaquina,lbSistemaOperacional,lbMemoriaTotal,lbNumeroNucleos,pbCPU);
     }//GEN-LAST:event_btnMaquina2ActionPerformed
 
     private void btnMaquina3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina3ActionPerformed
-    conexao1.conectar(3,lbIdMaquina,lbTipoMaquina,lbSistemaOperacional,lbMemoriaTotal,lbNumeroNucleos);
+    conexao1.conectar(3,lbIdMaquina,lbTipoMaquina,lbSistemaOperacional,lbMemoriaTotal,lbNumeroNucleos,pbCPU);
     }//GEN-LAST:event_btnMaquina3ActionPerformed
 
     /**
@@ -224,11 +239,13 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbIdMaquina;
     private javax.swing.JLabel lbMemoriaTotal;
     private javax.swing.JLabel lbNumeroNucleos;
     private javax.swing.JLabel lbSistemaOperacional;
     private javax.swing.JLabel lbTipoMaquina;
+    private javax.swing.JProgressBar pbCPU;
     // End of variables declaration//GEN-END:variables
 }

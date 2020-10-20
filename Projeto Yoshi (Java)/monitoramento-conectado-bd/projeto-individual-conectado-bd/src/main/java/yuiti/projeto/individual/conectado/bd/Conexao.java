@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 public class Conexao {
    InformarMaquina informandoMaquina = new InformarMaquina();
-   void conectar(Integer valorMaquina,JLabel lbidmaquina,JLabel lbtipoMaquina,JLabel lbsistemaOperacional,JLabel lbmeoriaTotal,JLabel lbNumeroNucleos){
+   void conectar(Integer valorMaquina,JLabel lbidmaquina,JLabel lbtipoMaquina,JLabel lbsistemaOperacional,JLabel lbmeoriaTotal,JLabel lbNumeroNucleos,JProgressBar barraCpu){
      BasicDataSource dataSource = new BasicDataSource();
    
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
@@ -25,8 +25,8 @@ public class Conexao {
         dataSource.setPassword("urubu100");
  
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        informandoMaquina.mostrarDadosDaMaquina(jdbcTemplate,valorMaquina,lbidmaquina,lbtipoMaquina,lbsistemaOperacional,lbmeoriaTotal,lbNumeroNucleos);
-        informandoMaquina.pegarUsoCpu(jdbcTemplate, valorMaquina);
+        informandoMaquina.mostrarDadosDaMaquina(jdbcTemplate,valorMaquina,lbidmaquina,lbtipoMaquina,lbsistemaOperacional,lbmeoriaTotal,lbNumeroNucleos,barraCpu);
+      
 
   
    
