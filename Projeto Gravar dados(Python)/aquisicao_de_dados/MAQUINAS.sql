@@ -12,6 +12,8 @@ create table Empresa(
 create table Usuario(
     idUsuario int primary key auto_increment,
     nomeUsuario varchar(45),
+    email varchar(45),
+    senha varchar(45),
     cargo varchar(45),
     cpf char(11) not null,
     Empresa_idEmpresa int,
@@ -72,9 +74,9 @@ insert into Empresa values
 	(null,'SixMinds','09505050','45646494161');
  
 insert into Usuario values
-	(null,'João','Analista','50xxxxxx','1'),
-    (null,'Joana','Analista','50xxxxxx','1'),
-    (null,'Yuiti','Gerente','50xxxxxx','1');
+    (null,'João','joão@joão.com','123','Analista','50xxxxxx','1'),
+    (null,'Joana','joana@ig.com','123','Analista','50xxxxxx','1'),
+    (null,'Yuiti','thiago@japao.com','123','Gerente','50xxxxxx','1');
     
 insert into Maquina values
 	(null,"4", "4","IOT","15000","Windows",1),

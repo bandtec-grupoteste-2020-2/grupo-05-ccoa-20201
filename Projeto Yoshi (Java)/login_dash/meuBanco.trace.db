@@ -1,0 +1,21 @@
+2020-10-20 16:15:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] EMPRESA"; expected "identifier"; SQL statement:
+delete table EMPRESA [42001-200]
+2020-10-20 16:15:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] USUARIO"; expected "identifier"; SQL statement:
+delete table USUARIO [42001-200]
+2020-10-20 16:16:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*][42001-200] USUARIO"; expected "identifier"; SQL statement:
+delete table[42001-200] USUARIO [42001-200]
+2020-10-20 16:16:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] 42001-200"; expected "identifier"; SQL statement:
+delete table 42001-200 [42001-200]
+2020-10-20 16:16:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] 42001-200"; expected "identifier"; SQL statement:
+delete table 42001-200 [42001-200]
+2020-10-20 16:16:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] 42001-200"; expected "identifier"; SQL statement:
+delete table 42001-200 [42001-200]
+2020-10-20 16:20:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement ")[*]"; SQL statement:
+) [42000-200]
