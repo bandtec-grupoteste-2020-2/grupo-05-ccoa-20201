@@ -16,19 +16,22 @@ public class InformarMaquina {
         List<Maquina> informacaoMaquina = template.query(
                 "select * from Maquina where idmaquina=?;", new BeanPropertyRowMapper(Maquina.class),valorMaquina);
         
-   
+  
         for (Maquina maquina : informacaoMaquina) {
             lbidmaquina.setText(String.valueOf(maquina.getIdMaquina()));
             lbmeoriaTotal.setText(String.valueOf(maquina.getRamTotal()));
             lbNumeroNucleos.setText(String.valueOf(maquina.getNumeroNucleos()));
+            Integer numeroDeNucleos = maquina.getNumeroNucleos();
             lbtipoMaquina.setText(String.valueOf(maquina.getTipoMaquina()));
             lbsistemaOperacional.setText(String.valueOf(maquina.getSistemaOperacional()));
             
+            
+            pegarUsoCpu(template, valorMaquina,numeroDeNucleos);
         }
         
      
     }
-    void pegarUsoCpu(JdbcTemplate template,Integer valorMaquina){
+    void pegarUsoCpu(JdbcTemplate template,Integer valorMaquina,Integer numeroNucleos){
      
         List<Leitura> leituras = template.query(
                 "select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, leitura.tempoLeitura"
