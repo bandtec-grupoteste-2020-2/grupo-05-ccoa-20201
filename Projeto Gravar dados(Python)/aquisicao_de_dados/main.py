@@ -31,16 +31,16 @@ while True:
     # print(values_disco)
 
     dataset_componentes = [
-        [fk_maquina, 3, values_ram[0], values_ram[-1], 'ram_por'],
-        [fk_maquina, 4, values_ram[1], values_ram[-1], 'ram_gb']
+        [6, values_ram[0], values_ram[-1], 'ram_por'],
+        [7, values_ram[1], values_ram[-1], 'ram_gb']
     ]
     
     for cpu in values_cpu[0]:
-        cada_cpu = [fk_maquina, 1, values_cpu[0][cpu], values_cpu[-1], cpu]
+        cada_cpu = [1, values_cpu[0][cpu], values_cpu[-1], cpu]
         dataset_componentes.append(cada_cpu)
 
     for disco in values_disco[0]:
-        cada_disco = [fk_maquina, 2, values_disco[0][disco], values_disco[-1], disco]
+        cada_disco = [4, values_disco[0][disco], values_disco[-1], disco]
         dataset_componentes.append(cada_disco)
 
 
@@ -49,7 +49,7 @@ while True:
     # for elemento in dataset_componentes:
     #     verificarMaquina(elemento)
 
-    dataset_componentes = verificarMaquina(dataset_componentes)
+    #dataset_componentes = verificarMaquina(dataset_componentes)
 
     print("-"*20 ,"INSERT", "-"*20)
     for componente in dataset_componentes:        
