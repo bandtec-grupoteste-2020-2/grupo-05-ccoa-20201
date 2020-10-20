@@ -1,3 +1,4 @@
+
 CREATE DATABASE MAQUINAS;
 use MAQUINAS;
 -- drop database Maquinas;
@@ -89,11 +90,20 @@ select * from MaquinaComponente;
 
 select * from leitura order by idLeitura desc limit 1;
 
-
-select * from leitura where descricao = "CPU_0" order by idleitura desc limit 1;
+alter table maquinacomponente add column ativado bit;
+update MaquinaComponente set ativado = 1 where idmaquinacomponente>=1;
+update  maquina set numeroNucleos=6 where idmaquina=2;
+update  maquina set ramTotal=16 where idmaquina=2;
+select * from leitura where descricao like "CPU%" order by idleitura desc limit 6;
 select count(distinct(descricao)) from leitura where descricao like "CPU%";
 select * from leitura;
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor,componente.metrica, leitura.tempoLeitura from maquina, leitura, componente, maquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente order by idLeitura; 
+select count(distinct(descricao)) as nucleos from leitura where descricao like "Core%";
+select * from leitura where descricao like "Core%" order by idleitura desc limit 6;
+
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, leitura.tempoLeitura 
+from maquina, leitura, componente, maquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
+order by idLeitura desc; 
 
 insert into maquinacomponente (fkmaquina,fkcomponente)values
 (1,1),
