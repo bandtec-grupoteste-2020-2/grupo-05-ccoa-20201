@@ -47,6 +47,22 @@ class Mysql:
             self.mysql.rollback()
             self.close()
 
+    def insert_comp2(self, data):
+    
+        print(data)    
+        query = ("INSERT INTO `Clima`(dia, minimo, maximo)"
+        "VALUES(%s ,%s, %s)"
+        )
+     
+        values = data
+        try:
+            self.cursor.execute(query, values)
+            self.mysql.commit()
+
+        except Exception as err:
+            print(err)
+            self.mysql.rollback()
+            self.close()
 
             
     # def insert_ram(self, data):

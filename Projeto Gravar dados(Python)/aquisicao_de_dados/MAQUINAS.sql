@@ -103,7 +103,18 @@ select * from leitura where descricao like "Core%" order by idleitura desc limit
 select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, leitura.tempoLeitura 
 from maquina, leitura, componente, maquinaComponente 
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
-order by idLeitura desc; 
+order by idLeitura desc limit 4; 
+
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, round(avg(leitura.valor),2) as media, componente.metrica, leitura.tempoLeitura 
+from maquina, leitura, componente, maquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
+group by DATE(tempoLeitura); 
+
+select valor as media
+from maquina, leitura, componente, maquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
+order by idLeitura desc ;
+
 
 insert into maquinacomponente (fkmaquina,fkcomponente)values
 (1,1),
@@ -131,3 +142,13 @@ insert into maquinacomponente (fkmaquina,fkcomponente)values
 (3,7),
 (3,8);
 truncate leitura;
+
+
+create table Clima (
+idclima int primary key auto_increment,
+dia date,
+minimo int,
+maximo int
+);
+
+select * from  Clima;
