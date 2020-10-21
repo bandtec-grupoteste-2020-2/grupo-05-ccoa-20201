@@ -99,16 +99,26 @@ select count(distinct(descricao)) from leitura where descricao like "CPU%";
 select * from leitura;
 select count(distinct(descricao)) as nucleos from leitura where descricao like "Core%";
 select * from leitura where descricao like "Core%" order by idleitura desc limit 6;
-
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, leitura.tempoLeitura 
+-- todas as leituras
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica
 from maquina, leitura, componente, maquinaComponente 
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
-order by idLeitura desc limit 4; 
-
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, round(avg(leitura.valor),2) as media, componente.metrica, leitura.tempoLeitura 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente
+order by idLeitura ; 
+-- leituras apenas dos núcleos, e da máquina 1
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica
 from maquina, leitura, componente, maquinaComponente 
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
-group by DATE(tempoLeitura); 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1 and descricao like "Core%" and metrica = '%'
+order by idLeitura ; 
+-- leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia.
+select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
+from maquina, leitura, componente, maquinaComponente ,clima
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%' and dia=CAST(tempoleitura AS DATE)
+order by idLeitura ; 
+-- faz uma média das leitura do dia, 
+select  maquina.tipoMaquina, leitura.descricao, round(avg(leitura.valor),2) as media, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
+from maquina, leitura, componente, maquinaComponente,clima
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1 and descricao like "Core%" and metrica = '%' and dia=CAST(tempoleitura AS DATE)
+group by CAST(tempoleitura AS DATE); 
 
 select valor as media
 from maquina, leitura, componente, maquinaComponente 
