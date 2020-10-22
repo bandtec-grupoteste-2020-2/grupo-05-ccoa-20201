@@ -1,369 +1,760 @@
-idLeitura,tipoMaquina,descricao,valor,metrica,tempoLeitura
-977,Servidor,"Memoria uso %",52.60,%,"2020-10-20 14:03:36"
-978,Servidor,"Memoria uso GB",8.40,GB,"2020-10-20 14:03:36"
-979,Servidor,"Memoria livre GB",7.60,GB,"2020-10-20 14:03:36"
-980,Servidor,"Disco uso %",57.20,%,"2020-10-20 14:03:36"
-981,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 14:03:36"
-982,Servidor,"Core 1",3905.40,MHz,"2020-10-20 14:03:36"
-983,Servidor,"Core 1",50.00,°C,"2020-10-20 14:03:36"
-984,Servidor,"Core 1",8.60,%,"2020-10-20 14:03:36"
-985,Servidor,"Core 2",3905.40,MHz,"2020-10-20 14:03:36"
-986,Servidor,"Core 2",47.00,°C,"2020-10-20 14:03:36"
-987,Servidor,"Core 2",17.20,%,"2020-10-20 14:03:36"
-988,Servidor,"Core 3",3905.40,MHz,"2020-10-20 14:03:36"
-989,Servidor,"Core 3",45.00,°C,"2020-10-20 14:03:36"
-990,Servidor,"Core 3",9.40,%,"2020-10-20 14:03:36"
-991,Servidor,"Core 4",3905.40,MHz,"2020-10-20 14:03:36"
-992,Servidor,"Core 4",46.00,°C,"2020-10-20 14:03:36"
-993,Servidor,"Core 4",0.00,%,"2020-10-20 14:03:36"
-994,Servidor,"Core 5",3905.40,MHz,"2020-10-20 14:03:36"
-995,Servidor,"Core 5",44.00,°C,"2020-10-20 14:03:36"
-996,Servidor,"Core 5",6.30,%,"2020-10-20 14:03:36"
-997,Servidor,"Core 6",3905.40,MHz,"2020-10-20 14:03:36"
-998,Servidor,"Core 6",47.00,°C,"2020-10-20 14:03:36"
-999,Servidor,"Core 6",7.80,%,"2020-10-20 14:03:36"
-1161,Servidor,"Memoria uso %",52.50,%,"2020-10-20 14:03:57"
-1162,Servidor,"Memoria uso GB",8.40,GB,"2020-10-20 14:03:57"
-1163,Servidor,"Memoria livre GB",7.60,GB,"2020-10-20 14:03:57"
-1164,Servidor,"Disco uso %",57.20,%,"2020-10-20 14:03:57"
-1165,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 14:03:57"
-1166,Servidor,"Core 1",3905.40,MHz,"2020-10-20 14:03:57"
-1167,Servidor,"Core 1",50.00,°C,"2020-10-20 14:03:57"
-1168,Servidor,"Core 1",18.50,%,"2020-10-20 14:03:57"
-1169,Servidor,"Core 2",3905.40,MHz,"2020-10-20 14:03:57"
-1170,Servidor,"Core 2",50.00,°C,"2020-10-20 14:03:57"
-1171,Servidor,"Core 2",31.30,%,"2020-10-20 14:03:57"
-1172,Servidor,"Core 3",3905.40,MHz,"2020-10-20 14:03:57"
-1173,Servidor,"Core 3",49.00,°C,"2020-10-20 14:03:57"
-1174,Servidor,"Core 3",17.20,%,"2020-10-20 14:03:57"
-1175,Servidor,"Core 4",3905.40,MHz,"2020-10-20 14:03:57"
-1176,Servidor,"Core 4",48.00,°C,"2020-10-20 14:03:57"
-1177,Servidor,"Core 4",14.10,%,"2020-10-20 14:03:57"
-1178,Servidor,"Core 5",3905.40,MHz,"2020-10-20 14:03:57"
-1179,Servidor,"Core 5",46.00,°C,"2020-10-20 14:03:57"
-1180,Servidor,"Core 5",18.80,%,"2020-10-20 14:03:57"
-1181,Servidor,"Core 6",3905.40,MHz,"2020-10-20 14:03:57"
-1182,Servidor,"Core 6",47.00,°C,"2020-10-20 14:03:57"
-1183,Servidor,"Core 6",10.90,%,"2020-10-20 14:03:57"
-1529,Servidor,"Memoria uso %",51.50,%,"2020-10-20 14:04:38"
-1530,Servidor,"Memoria uso GB",8.20,GB,"2020-10-20 14:04:38"
-1531,Servidor,"Memoria livre GB",7.70,GB,"2020-10-20 14:04:38"
-1532,Servidor,"Disco uso %",57.20,%,"2020-10-20 14:04:38"
-1533,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 14:04:38"
-1534,Servidor,"Core 1",3905.40,MHz,"2020-10-20 14:04:38"
-1535,Servidor,"Core 1",51.00,°C,"2020-10-20 14:04:38"
-1536,Servidor,"Core 1",12.80,%,"2020-10-20 14:04:38"
-1537,Servidor,"Core 2",3905.40,MHz,"2020-10-20 14:04:38"
-1538,Servidor,"Core 2",48.00,°C,"2020-10-20 14:04:38"
-1539,Servidor,"Core 2",21.90,%,"2020-10-20 14:04:38"
-1540,Servidor,"Core 3",3905.40,MHz,"2020-10-20 14:04:38"
-1541,Servidor,"Core 3",48.00,°C,"2020-10-20 14:04:38"
-1542,Servidor,"Core 3",9.40,%,"2020-10-20 14:04:38"
-1543,Servidor,"Core 4",3905.40,MHz,"2020-10-20 14:04:38"
-1544,Servidor,"Core 4",46.00,°C,"2020-10-20 14:04:38"
-1545,Servidor,"Core 4",12.50,%,"2020-10-20 14:04:38"
-1546,Servidor,"Core 5",3905.40,MHz,"2020-10-20 14:04:38"
-1547,Servidor,"Core 5",45.00,°C,"2020-10-20 14:04:38"
-1548,Servidor,"Core 5",9.40,%,"2020-10-20 14:04:38"
-1549,Servidor,"Core 6",3905.40,MHz,"2020-10-20 14:04:38"
-1550,Servidor,"Core 6",47.00,°C,"2020-10-20 14:04:38"
-1551,Servidor,"Core 6",6.30,%,"2020-10-20 14:04:38"
-1621,Servidor,"Memoria uso %",51.60,%,"2020-10-20 14:04:48"
-1622,Servidor,"Memoria uso GB",8.20,GB,"2020-10-20 14:04:48"
-1623,Servidor,"Memoria livre GB",7.70,GB,"2020-10-20 14:04:48"
-1624,Servidor,"Disco uso %",57.20,%,"2020-10-20 14:04:48"
-1625,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 14:04:48"
-1626,Servidor,"Core 1",3905.40,MHz,"2020-10-20 14:04:48"
-1627,Servidor,"Core 1",47.00,°C,"2020-10-20 14:04:48"
-1628,Servidor,"Core 1",17.40,%,"2020-10-20 14:04:48"
-1629,Servidor,"Core 2",3905.40,MHz,"2020-10-20 14:04:48"
-1630,Servidor,"Core 2",48.00,°C,"2020-10-20 14:04:48"
-1631,Servidor,"Core 2",23.40,%,"2020-10-20 14:04:48"
-1632,Servidor,"Core 3",3905.40,MHz,"2020-10-20 14:04:48"
-1633,Servidor,"Core 3",49.00,°C,"2020-10-20 14:04:48"
-1634,Servidor,"Core 3",14.10,%,"2020-10-20 14:04:48"
-1635,Servidor,"Core 4",3905.40,MHz,"2020-10-20 14:04:48"
-1636,Servidor,"Core 4",45.00,°C,"2020-10-20 14:04:48"
-1637,Servidor,"Core 4",14.10,%,"2020-10-20 14:04:48"
-1638,Servidor,"Core 5",3905.40,MHz,"2020-10-20 14:04:48"
-1639,Servidor,"Core 5",45.00,°C,"2020-10-20 14:04:48"
-1640,Servidor,"Core 5",17.20,%,"2020-10-20 14:04:48"
-1641,Servidor,"Core 6",3905.40,MHz,"2020-10-20 14:04:48"
-1642,Servidor,"Core 6",47.00,°C,"2020-10-20 14:04:48"
-1643,Servidor,"Core 6",14.10,%,"2020-10-20 14:04:48"
-1667,Servidor,"Memoria uso %",51.60,%,"2020-10-20 14:04:53"
-1668,Servidor,"Memoria uso GB",8.20,GB,"2020-10-20 14:04:53"
-1669,Servidor,"Memoria livre GB",7.70,GB,"2020-10-20 14:04:53"
-1670,Servidor,"Disco uso %",57.20,%,"2020-10-20 14:04:53"
-1671,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 14:04:53"
-1672,Servidor,"Core 1",3905.40,MHz,"2020-10-20 14:04:53"
-1673,Servidor,"Core 1",47.00,°C,"2020-10-20 14:04:53"
-1674,Servidor,"Core 1",14.30,%,"2020-10-20 14:04:53"
-1675,Servidor,"Core 2",3905.40,MHz,"2020-10-20 14:04:53"
-1676,Servidor,"Core 2",47.00,°C,"2020-10-20 14:04:53"
-1677,Servidor,"Core 2",28.10,%,"2020-10-20 14:04:53"
-1678,Servidor,"Core 3",3905.40,MHz,"2020-10-20 14:04:53"
-1679,Servidor,"Core 3",45.00,°C,"2020-10-20 14:04:53"
-1680,Servidor,"Core 3",10.90,%,"2020-10-20 14:04:53"
-1681,Servidor,"Core 4",3905.40,MHz,"2020-10-20 14:04:53"
-1682,Servidor,"Core 4",45.00,°C,"2020-10-20 14:04:53"
-1683,Servidor,"Core 4",4.70,%,"2020-10-20 14:04:53"
-1684,Servidor,"Core 5",3905.40,MHz,"2020-10-20 14:04:53"
-1685,Servidor,"Core 5",44.00,°C,"2020-10-20 14:04:53"
-1686,Servidor,"Core 5",14.10,%,"2020-10-20 14:04:53"
-1687,Servidor,"Core 6",3905.40,MHz,"2020-10-20 14:04:53"
-1688,Servidor,"Core 6",48.00,°C,"2020-10-20 14:04:53"
-1689,Servidor,"Core 6",6.30,%,"2020-10-20 14:04:53"
-1759,Servidor,"Memoria uso %",51.70,%,"2020-10-20 14:05:03"
-1760,Servidor,"Memoria uso GB",8.20,GB,"2020-10-20 14:05:03"
-1761,Servidor,"Memoria livre GB",7.70,GB,"2020-10-20 14:05:03"
-1762,Servidor,"Disco uso %",57.20,%,"2020-10-20 14:05:03"
-1763,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 14:05:03"
-1764,Servidor,"Core 1",3905.40,MHz,"2020-10-20 14:05:03"
-1765,Servidor,"Core 1",50.00,°C,"2020-10-20 14:05:03"
-1766,Servidor,"Core 1",19.30,%,"2020-10-20 14:05:03"
-1767,Servidor,"Core 2",3905.40,MHz,"2020-10-20 14:05:03"
-1768,Servidor,"Core 2",50.00,°C,"2020-10-20 14:05:03"
-1769,Servidor,"Core 2",20.30,%,"2020-10-20 14:05:03"
-1770,Servidor,"Core 3",3905.40,MHz,"2020-10-20 14:05:03"
-1771,Servidor,"Core 3",50.00,°C,"2020-10-20 14:05:03"
-1772,Servidor,"Core 3",26.60,%,"2020-10-20 14:05:03"
-1773,Servidor,"Core 4",3905.40,MHz,"2020-10-20 14:05:03"
-1774,Servidor,"Core 4",48.00,°C,"2020-10-20 14:05:03"
-1775,Servidor,"Core 4",7.80,%,"2020-10-20 14:05:03"
-1776,Servidor,"Core 5",3905.40,MHz,"2020-10-20 14:05:03"
-1777,Servidor,"Core 5",47.00,°C,"2020-10-20 14:05:03"
-1778,Servidor,"Core 5",23.40,%,"2020-10-20 14:05:03"
-1779,Servidor,"Core 6",3905.40,MHz,"2020-10-20 14:05:03"
-1780,Servidor,"Core 6",48.00,°C,"2020-10-20 14:05:03"
-1781,Servidor,"Core 6",10.90,%,"2020-10-20 14:05:03"
-21470,Servidor,"Memoria uso %",55.40,%,"2020-10-20 18:03:54"
-21471,Servidor,"Memoria uso GB",8.80,GB,"2020-10-20 18:03:54"
-21472,Servidor,"Memoria livre GB",7.10,GB,"2020-10-20 18:03:54"
-21473,Servidor,"Disco uso %",57.20,%,"2020-10-20 18:03:54"
-21474,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 18:03:54"
-21475,Servidor,"Core 1",3905.40,MHz,"2020-10-20 18:03:54"
-21476,Servidor,"Core 1",46.00,°C,"2020-10-20 18:03:54"
-21477,Servidor,"Core 1",13.00,%,"2020-10-20 18:03:54"
-21478,Servidor,"Core 2",3905.40,MHz,"2020-10-20 18:03:54"
-21479,Servidor,"Core 2",47.00,°C,"2020-10-20 18:03:54"
-21480,Servidor,"Core 2",23.40,%,"2020-10-20 18:03:54"
-21481,Servidor,"Core 3",3905.40,MHz,"2020-10-20 18:03:54"
-21482,Servidor,"Core 3",45.00,°C,"2020-10-20 18:03:54"
-21483,Servidor,"Core 3",20.30,%,"2020-10-20 18:03:54"
-21484,Servidor,"Core 4",3905.40,MHz,"2020-10-20 18:03:54"
-21485,Servidor,"Core 4",44.00,°C,"2020-10-20 18:03:54"
-21486,Servidor,"Core 4",9.40,%,"2020-10-20 18:03:54"
-21487,Servidor,"Core 5",3905.40,MHz,"2020-10-20 18:03:54"
-21488,Servidor,"Core 5",43.00,°C,"2020-10-20 18:03:54"
-21489,Servidor,"Core 5",4.70,%,"2020-10-20 18:03:54"
-21490,Servidor,"Core 6",3905.40,MHz,"2020-10-20 18:03:54"
-21491,Servidor,"Core 6",45.00,°C,"2020-10-20 18:03:54"
-21492,Servidor,"Core 6",12.50,%,"2020-10-20 18:03:54"
-21493,Servidor,"Memoria uso %",55.40,%,"2020-10-20 18:03:59"
-21494,Servidor,"Memoria uso GB",8.80,GB,"2020-10-20 18:03:59"
-21495,Servidor,"Memoria livre GB",7.10,GB,"2020-10-20 18:03:59"
-21496,Servidor,"Disco uso %",57.20,%,"2020-10-20 18:03:59"
-21497,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 18:03:59"
-21498,Servidor,"Core 1",3905.40,MHz,"2020-10-20 18:03:59"
-21499,Servidor,"Core 1",46.00,°C,"2020-10-20 18:03:59"
-21500,Servidor,"Core 1",13.00,%,"2020-10-20 18:03:59"
-21501,Servidor,"Core 2",3905.40,MHz,"2020-10-20 18:03:59"
-21502,Servidor,"Core 2",46.00,°C,"2020-10-20 18:03:59"
-21503,Servidor,"Core 2",12.50,%,"2020-10-20 18:03:59"
-21504,Servidor,"Core 3",3905.40,MHz,"2020-10-20 18:03:59"
-21505,Servidor,"Core 3",45.00,°C,"2020-10-20 18:03:59"
-21506,Servidor,"Core 3",14.10,%,"2020-10-20 18:03:59"
-21507,Servidor,"Core 4",3905.40,MHz,"2020-10-20 18:03:59"
-21508,Servidor,"Core 4",44.00,°C,"2020-10-20 18:03:59"
-21509,Servidor,"Core 4",6.30,%,"2020-10-20 18:03:59"
-21510,Servidor,"Core 5",3905.40,MHz,"2020-10-20 18:03:59"
-21511,Servidor,"Core 5",45.00,°C,"2020-10-20 18:03:59"
-21512,Servidor,"Core 5",9.40,%,"2020-10-20 18:03:59"
-21513,Servidor,"Core 6",3905.40,MHz,"2020-10-20 18:03:59"
-21514,Servidor,"Core 6",45.00,°C,"2020-10-20 18:03:59"
-21515,Servidor,"Core 6",18.80,%,"2020-10-20 18:03:59"
-21539,Servidor,"Memoria uso %",55.50,%,"2020-10-20 18:04:10"
-21540,Servidor,"Memoria uso GB",8.80,GB,"2020-10-20 18:04:10"
-21541,Servidor,"Memoria livre GB",7.10,GB,"2020-10-20 18:04:10"
-21542,Servidor,"Disco uso %",57.20,%,"2020-10-20 18:04:10"
-21543,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 18:04:10"
-21544,Servidor,"Core 1",3905.40,MHz,"2020-10-20 18:04:10"
-21545,Servidor,"Core 1",47.00,°C,"2020-10-20 18:04:10"
-21546,Servidor,"Core 1",17.70,%,"2020-10-20 18:04:10"
-21547,Servidor,"Core 2",3905.40,MHz,"2020-10-20 18:04:10"
-21548,Servidor,"Core 2",47.00,°C,"2020-10-20 18:04:10"
-21549,Servidor,"Core 2",31.30,%,"2020-10-20 18:04:10"
-21550,Servidor,"Core 3",3905.40,MHz,"2020-10-20 18:04:10"
-21551,Servidor,"Core 3",45.00,°C,"2020-10-20 18:04:10"
-21552,Servidor,"Core 3",20.30,%,"2020-10-20 18:04:10"
-21553,Servidor,"Core 4",3905.40,MHz,"2020-10-20 18:04:10"
-21554,Servidor,"Core 4",45.00,°C,"2020-10-20 18:04:10"
-21555,Servidor,"Core 4",9.40,%,"2020-10-20 18:04:10"
-21556,Servidor,"Core 5",3905.40,MHz,"2020-10-20 18:04:10"
-21557,Servidor,"Core 5",46.00,°C,"2020-10-20 18:04:10"
-21558,Servidor,"Core 5",9.40,%,"2020-10-20 18:04:10"
-21559,Servidor,"Core 6",3905.40,MHz,"2020-10-20 18:04:10"
-21560,Servidor,"Core 6",46.00,°C,"2020-10-20 18:04:10"
-21561,Servidor,"Core 6",15.60,%,"2020-10-20 18:04:10"
-21562,Servidor,"Memoria uso %",58.40,%,"2020-10-20 18:04:15"
-21563,Servidor,"Memoria uso GB",9.30,GB,"2020-10-20 18:04:15"
-21564,Servidor,"Memoria livre GB",6.60,GB,"2020-10-20 18:04:15"
-21565,Servidor,"Disco uso %",57.20,%,"2020-10-20 18:04:15"
-21566,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 18:04:15"
-21567,Servidor,"Core 1",3905.40,MHz,"2020-10-20 18:04:15"
-21568,Servidor,"Core 1",51.00,°C,"2020-10-20 18:04:15"
-21569,Servidor,"Core 1",56.30,%,"2020-10-20 18:04:15"
-21570,Servidor,"Core 2",3905.40,MHz,"2020-10-20 18:04:15"
-21571,Servidor,"Core 2",59.00,°C,"2020-10-20 18:04:15"
-21572,Servidor,"Core 2",53.10,%,"2020-10-20 18:04:15"
-21573,Servidor,"Core 3",3905.40,MHz,"2020-10-20 18:04:15"
-21574,Servidor,"Core 3",55.00,°C,"2020-10-20 18:04:15"
-21575,Servidor,"Core 3",67.20,%,"2020-10-20 18:04:15"
-21576,Servidor,"Core 4",3905.40,MHz,"2020-10-20 18:04:15"
-21577,Servidor,"Core 4",51.00,°C,"2020-10-20 18:04:15"
-21578,Servidor,"Core 4",70.30,%,"2020-10-20 18:04:15"
-21579,Servidor,"Core 5",3905.40,MHz,"2020-10-20 18:04:15"
-21580,Servidor,"Core 5",49.00,°C,"2020-10-20 18:04:15"
-21581,Servidor,"Core 5",43.80,%,"2020-10-20 18:04:15"
-21582,Servidor,"Core 6",3905.40,MHz,"2020-10-20 18:04:15"
-21583,Servidor,"Core 6",50.00,°C,"2020-10-20 18:04:15"
-21584,Servidor,"Core 6",56.30,%,"2020-10-20 18:04:15"
-21631,Servidor,"Memoria uso %",58.50,%,"2020-10-20 18:04:30"
-21632,Servidor,"Memoria uso GB",9.30,GB,"2020-10-20 18:04:30"
-21633,Servidor,"Memoria livre GB",6.60,GB,"2020-10-20 18:04:30"
-21634,Servidor,"Disco uso %",57.20,%,"2020-10-20 18:04:30"
-21635,Servidor,"Disco temperatura",33.00,°C,"2020-10-20 18:04:30"
-21636,Servidor,"Core 1",3905.40,MHz,"2020-10-20 18:04:30"
-21637,Servidor,"Core 1",47.00,°C,"2020-10-20 18:04:30"
-21638,Servidor,"Core 1",22.10,%,"2020-10-20 18:04:30"
-21639,Servidor,"Core 2",3905.40,MHz,"2020-10-20 18:04:30"
-21640,Servidor,"Core 2",48.00,°C,"2020-10-20 18:04:30"
-21641,Servidor,"Core 2",28.10,%,"2020-10-20 18:04:30"
-21642,Servidor,"Core 3",3905.40,MHz,"2020-10-20 18:04:30"
-21643,Servidor,"Core 3",47.00,°C,"2020-10-20 18:04:30"
-21644,Servidor,"Core 3",26.60,%,"2020-10-20 18:04:30"
-21645,Servidor,"Core 4",3905.40,MHz,"2020-10-20 18:04:30"
-21646,Servidor,"Core 4",45.00,°C,"2020-10-20 18:04:30"
-21647,Servidor,"Core 4",20.30,%,"2020-10-20 18:04:30"
-21648,Servidor,"Core 5",3905.40,MHz,"2020-10-20 18:04:30"
-21649,Servidor,"Core 5",46.00,°C,"2020-10-20 18:04:30"
-21650,Servidor,"Core 5",18.80,%,"2020-10-20 18:04:30"
-21651,Servidor,"Core 6",3905.40,MHz,"2020-10-20 18:04:30"
-21652,Servidor,"Core 6",48.00,°C,"2020-10-20 18:04:30"
-21653,Servidor,"Core 6",20.30,%,"2020-10-20 18:04:30"
-21654,Servidor,"Memoria uso %",41.30,%,"2020-10-21 17:25:48"
-21655,Servidor,"Memoria uso GB",6.60,GB,"2020-10-21 17:25:48"
-21656,Servidor,"Memoria livre GB",9.40,GB,"2020-10-21 17:25:48"
-21657,Servidor,"Disco uso %",56.90,%,"2020-10-21 17:25:48"
-21658,Servidor,"Disco temperatura",33.00,°C,"2020-10-21 17:25:48"
-21659,Servidor,"Core 1",3905.40,MHz,"2020-10-21 17:25:48"
-21660,Servidor,"Core 1",39.00,°C,"2020-10-21 17:25:48"
-21661,Servidor,"Core 1",2.30,%,"2020-10-21 17:25:48"
-21662,Servidor,"Core 2",4005.50,MHz,"2020-10-21 17:25:48"
-21663,Servidor,"Core 2",40.00,°C,"2020-10-21 17:25:48"
-21664,Servidor,"Core 2",4.70,%,"2020-10-21 17:25:48"
-21665,Servidor,"Core 3",3905.40,MHz,"2020-10-21 17:25:48"
-21666,Servidor,"Core 3",40.00,°C,"2020-10-21 17:25:48"
-21667,Servidor,"Core 3",1.60,%,"2020-10-21 17:25:48"
-21668,Servidor,"Core 4",3905.40,MHz,"2020-10-21 17:25:48"
-21669,Servidor,"Core 4",37.00,°C,"2020-10-21 17:25:48"
-21670,Servidor,"Core 4",1.60,%,"2020-10-21 17:25:48"
-21671,Servidor,"Core 5",3905.40,MHz,"2020-10-21 17:25:48"
-21672,Servidor,"Core 5",38.00,°C,"2020-10-21 17:25:48"
-21673,Servidor,"Core 5",1.60,%,"2020-10-21 17:25:48"
-21674,Servidor,"Core 6",3905.40,MHz,"2020-10-21 17:25:48"
-21675,Servidor,"Core 6",40.00,°C,"2020-10-21 17:25:48"
-21676,Servidor,"Core 6",0.00,%,"2020-10-21 17:25:48"
-21700,Servidor,"Memoria uso %",41.40,%,"2020-10-21 17:25:58"
-21701,Servidor,"Memoria uso GB",6.60,GB,"2020-10-21 17:25:58"
-21702,Servidor,"Memoria livre GB",9.30,GB,"2020-10-21 17:25:58"
-21703,Servidor,"Disco uso %",56.90,%,"2020-10-21 17:25:58"
-21704,Servidor,"Disco temperatura",33.00,°C,"2020-10-21 17:25:58"
-21705,Servidor,"Core 1",4005.50,MHz,"2020-10-21 17:25:58"
-21706,Servidor,"Core 1",39.00,°C,"2020-10-21 17:25:58"
-21707,Servidor,"Core 1",1.60,%,"2020-10-21 17:25:58"
-21708,Servidor,"Core 2",3905.40,MHz,"2020-10-21 17:25:58"
-21709,Servidor,"Core 2",40.00,°C,"2020-10-21 17:25:58"
-21710,Servidor,"Core 2",0.00,%,"2020-10-21 17:25:58"
-21711,Servidor,"Core 3",3905.40,MHz,"2020-10-21 17:25:58"
-21712,Servidor,"Core 3",39.00,°C,"2020-10-21 17:25:58"
-21713,Servidor,"Core 3",1.60,%,"2020-10-21 17:25:58"
-21714,Servidor,"Core 4",3905.40,MHz,"2020-10-21 17:25:58"
-21715,Servidor,"Core 4",37.00,°C,"2020-10-21 17:25:58"
-21716,Servidor,"Core 4",3.10,%,"2020-10-21 17:25:58"
-21717,Servidor,"Core 5",3905.40,MHz,"2020-10-21 17:25:58"
-21718,Servidor,"Core 5",37.00,°C,"2020-10-21 17:25:58"
-21719,Servidor,"Core 5",0.00,%,"2020-10-21 17:25:58"
-21720,Servidor,"Core 6",3905.40,MHz,"2020-10-21 17:25:58"
-21721,Servidor,"Core 6",40.00,°C,"2020-10-21 17:25:58"
-21722,Servidor,"Core 6",1.60,%,"2020-10-21 17:25:58"
-21723,Servidor,"Memoria uso %",41.40,%,"2020-10-21 17:26:03"
-21724,Servidor,"Memoria uso GB",6.60,GB,"2020-10-21 17:26:03"
-21725,Servidor,"Memoria livre GB",9.30,GB,"2020-10-21 17:26:03"
-21726,Servidor,"Disco uso %",56.90,%,"2020-10-21 17:26:03"
-21727,Servidor,"Disco temperatura",33.00,°C,"2020-10-21 17:26:03"
-21728,Servidor,"Core 1",4005.50,MHz,"2020-10-21 17:26:03"
-21729,Servidor,"Core 1",40.00,°C,"2020-10-21 17:26:03"
-21730,Servidor,"Core 1",0.80,%,"2020-10-21 17:26:03"
-21731,Servidor,"Core 2",4005.50,MHz,"2020-10-21 17:26:03"
-21732,Servidor,"Core 2",40.00,°C,"2020-10-21 17:26:03"
-21733,Servidor,"Core 2",3.10,%,"2020-10-21 17:26:03"
-21734,Servidor,"Core 3",3905.40,MHz,"2020-10-21 17:26:03"
-21735,Servidor,"Core 3",39.00,°C,"2020-10-21 17:26:03"
-21736,Servidor,"Core 3",0.00,%,"2020-10-21 17:26:03"
-21737,Servidor,"Core 4",3905.40,MHz,"2020-10-21 17:26:03"
-21738,Servidor,"Core 4",37.00,°C,"2020-10-21 17:26:03"
-21739,Servidor,"Core 4",0.00,%,"2020-10-21 17:26:03"
-21740,Servidor,"Core 5",3905.40,MHz,"2020-10-21 17:26:03"
-21741,Servidor,"Core 5",37.00,°C,"2020-10-21 17:26:03"
-21742,Servidor,"Core 5",0.00,%,"2020-10-21 17:26:03"
-21743,Servidor,"Core 6",3905.40,MHz,"2020-10-21 17:26:03"
-21744,Servidor,"Core 6",39.00,°C,"2020-10-21 17:26:03"
-21745,Servidor,"Core 6",1.60,%,"2020-10-21 17:26:03"
-21930,Servidor,"Memoria uso %",41.40,%,"2020-10-21 17:26:49"
-21931,Servidor,"Memoria uso GB",6.60,GB,"2020-10-21 17:26:49"
-21932,Servidor,"Memoria livre GB",9.30,GB,"2020-10-21 17:26:49"
-21933,Servidor,"Disco uso %",56.90,%,"2020-10-21 17:26:49"
-21934,Servidor,"Disco temperatura",33.00,°C,"2020-10-21 17:26:49"
-21935,Servidor,"Core 1",3905.40,MHz,"2020-10-21 17:26:49"
-21936,Servidor,"Core 1",38.00,°C,"2020-10-21 17:26:49"
-21937,Servidor,"Core 1",1.60,%,"2020-10-21 17:26:49"
-21938,Servidor,"Core 2",4005.50,MHz,"2020-10-21 17:26:49"
-21939,Servidor,"Core 2",40.00,°C,"2020-10-21 17:26:49"
-21940,Servidor,"Core 2",1.60,%,"2020-10-21 17:26:49"
-21941,Servidor,"Core 3",3905.40,MHz,"2020-10-21 17:26:49"
-21942,Servidor,"Core 3",39.00,°C,"2020-10-21 17:26:49"
-21943,Servidor,"Core 3",1.60,%,"2020-10-21 17:26:49"
-21944,Servidor,"Core 4",3905.40,MHz,"2020-10-21 17:26:49"
-21945,Servidor,"Core 4",37.00,°C,"2020-10-21 17:26:49"
-21946,Servidor,"Core 4",0.00,%,"2020-10-21 17:26:49"
-21947,Servidor,"Core 5",4005.50,MHz,"2020-10-21 17:26:49"
-21948,Servidor,"Core 5",37.00,°C,"2020-10-21 17:26:49"
-21949,Servidor,"Core 5",1.60,%,"2020-10-21 17:26:49"
-21950,Servidor,"Core 6",3905.40,MHz,"2020-10-21 17:26:49"
-21951,Servidor,"Core 6",38.00,°C,"2020-10-21 17:26:49"
-21952,Servidor,"Core 6",3.10,%,"2020-10-21 17:26:49"
-21953,Servidor,"Memoria uso %",41.40,%,"2020-10-21 17:26:55"
-21954,Servidor,"Memoria uso GB",6.60,GB,"2020-10-21 17:26:55"
-21955,Servidor,"Memoria livre GB",9.30,GB,"2020-10-21 17:26:55"
-21956,Servidor,"Disco uso %",56.90,%,"2020-10-21 17:26:55"
-21957,Servidor,"Disco temperatura",33.00,°C,"2020-10-21 17:26:55"
-21958,Servidor,"Core 1",3905.40,MHz,"2020-10-21 17:26:55"
-21959,Servidor,"Core 1",40.00,°C,"2020-10-21 17:26:55"
-21960,Servidor,"Core 1",12.20,%,"2020-10-21 17:26:55"
-21961,Servidor,"Core 2",3905.40,MHz,"2020-10-21 17:26:55"
-21962,Servidor,"Core 2",41.00,°C,"2020-10-21 17:26:55"
-21963,Servidor,"Core 2",17.20,%,"2020-10-21 17:26:55"
-21964,Servidor,"Core 3",3905.40,MHz,"2020-10-21 17:26:55"
-21965,Servidor,"Core 3",40.00,°C,"2020-10-21 17:26:55"
-21966,Servidor,"Core 3",15.60,%,"2020-10-21 17:26:55"
-21967,Servidor,"Core 4",3905.40,MHz,"2020-10-21 17:26:55"
-21968,Servidor,"Core 4",38.00,°C,"2020-10-21 17:26:55"
-21969,Servidor,"Core 4",6.30,%,"2020-10-21 17:26:55"
-21970,Servidor,"Core 5",3905.40,MHz,"2020-10-21 17:26:55"
-21971,Servidor,"Core 5",39.00,°C,"2020-10-21 17:26:55"
-21972,Servidor,"Core 5",9.40,%,"2020-10-21 17:26:55"
-21973,Servidor,"Core 6",3905.40,MHz,"2020-10-21 17:26:55"
-21974,Servidor,"Core 6",41.00,°C,"2020-10-21 17:26:55"
-21975,Servidor,"Core 6",9.40,%,"2020-10-21 17:26:55"
+idLeitura,tipoMaquina,descricao,valor,metrica
+977,Servidor,"Memoria uso %",52.60,%
+978,Servidor,"Memoria uso GB",8.40,GB
+979,Servidor,"Memoria livre GB",7.60,GB
+980,Servidor,"Disco uso %",57.20,%
+981,Servidor,"Disco temperatura",33.00,°C
+982,Servidor,"Core 1",3905.40,MHz
+983,Servidor,"Core 1",50.00,°C
+984,Servidor,"Core 1",8.60,%
+985,Servidor,"Core 2",3905.40,MHz
+986,Servidor,"Core 2",47.00,°C
+987,Servidor,"Core 2",17.20,%
+988,Servidor,"Core 3",3905.40,MHz
+989,Servidor,"Core 3",45.00,°C
+990,Servidor,"Core 3",9.40,%
+991,Servidor,"Core 4",3905.40,MHz
+992,Servidor,"Core 4",46.00,°C
+993,Servidor,"Core 4",0.00,%
+994,Servidor,"Core 5",3905.40,MHz
+995,Servidor,"Core 5",44.00,°C
+996,Servidor,"Core 5",6.30,%
+997,Servidor,"Core 6",3905.40,MHz
+998,Servidor,"Core 6",47.00,°C
+999,Servidor,"Core 6",7.80,%
+1161,Servidor,"Memoria uso %",52.50,%
+1162,Servidor,"Memoria uso GB",8.40,GB
+1163,Servidor,"Memoria livre GB",7.60,GB
+1164,Servidor,"Disco uso %",57.20,%
+1165,Servidor,"Disco temperatura",33.00,°C
+1166,Servidor,"Core 1",3905.40,MHz
+1167,Servidor,"Core 1",50.00,°C
+1168,Servidor,"Core 1",18.50,%
+1169,Servidor,"Core 2",3905.40,MHz
+1170,Servidor,"Core 2",50.00,°C
+1171,Servidor,"Core 2",31.30,%
+1172,Servidor,"Core 3",3905.40,MHz
+1173,Servidor,"Core 3",49.00,°C
+1174,Servidor,"Core 3",17.20,%
+1175,Servidor,"Core 4",3905.40,MHz
+1176,Servidor,"Core 4",48.00,°C
+1177,Servidor,"Core 4",14.10,%
+1178,Servidor,"Core 5",3905.40,MHz
+1179,Servidor,"Core 5",46.00,°C
+1180,Servidor,"Core 5",18.80,%
+1181,Servidor,"Core 6",3905.40,MHz
+1182,Servidor,"Core 6",47.00,°C
+1183,Servidor,"Core 6",10.90,%
+1529,Servidor,"Memoria uso %",51.50,%
+1530,Servidor,"Memoria uso GB",8.20,GB
+1531,Servidor,"Memoria livre GB",7.70,GB
+1532,Servidor,"Disco uso %",57.20,%
+1533,Servidor,"Disco temperatura",33.00,°C
+1534,Servidor,"Core 1",3905.40,MHz
+1535,Servidor,"Core 1",51.00,°C
+1536,Servidor,"Core 1",12.80,%
+1537,Servidor,"Core 2",3905.40,MHz
+1538,Servidor,"Core 2",48.00,°C
+1539,Servidor,"Core 2",21.90,%
+1540,Servidor,"Core 3",3905.40,MHz
+1541,Servidor,"Core 3",48.00,°C
+1542,Servidor,"Core 3",9.40,%
+1543,Servidor,"Core 4",3905.40,MHz
+1544,Servidor,"Core 4",46.00,°C
+1545,Servidor,"Core 4",12.50,%
+1546,Servidor,"Core 5",3905.40,MHz
+1547,Servidor,"Core 5",45.00,°C
+1548,Servidor,"Core 5",9.40,%
+1549,Servidor,"Core 6",3905.40,MHz
+1550,Servidor,"Core 6",47.00,°C
+1551,Servidor,"Core 6",6.30,%
+1621,Servidor,"Memoria uso %",51.60,%
+1622,Servidor,"Memoria uso GB",8.20,GB
+1623,Servidor,"Memoria livre GB",7.70,GB
+1624,Servidor,"Disco uso %",57.20,%
+1625,Servidor,"Disco temperatura",33.00,°C
+1626,Servidor,"Core 1",3905.40,MHz
+1627,Servidor,"Core 1",47.00,°C
+1628,Servidor,"Core 1",17.40,%
+1629,Servidor,"Core 2",3905.40,MHz
+1630,Servidor,"Core 2",48.00,°C
+1631,Servidor,"Core 2",23.40,%
+1632,Servidor,"Core 3",3905.40,MHz
+1633,Servidor,"Core 3",49.00,°C
+1634,Servidor,"Core 3",14.10,%
+1635,Servidor,"Core 4",3905.40,MHz
+1636,Servidor,"Core 4",45.00,°C
+1637,Servidor,"Core 4",14.10,%
+1638,Servidor,"Core 5",3905.40,MHz
+1639,Servidor,"Core 5",45.00,°C
+1640,Servidor,"Core 5",17.20,%
+1641,Servidor,"Core 6",3905.40,MHz
+1642,Servidor,"Core 6",47.00,°C
+1643,Servidor,"Core 6",14.10,%
+1667,Servidor,"Memoria uso %",51.60,%
+1668,Servidor,"Memoria uso GB",8.20,GB
+1669,Servidor,"Memoria livre GB",7.70,GB
+1670,Servidor,"Disco uso %",57.20,%
+1671,Servidor,"Disco temperatura",33.00,°C
+1672,Servidor,"Core 1",3905.40,MHz
+1673,Servidor,"Core 1",47.00,°C
+1674,Servidor,"Core 1",14.30,%
+1675,Servidor,"Core 2",3905.40,MHz
+1676,Servidor,"Core 2",47.00,°C
+1677,Servidor,"Core 2",28.10,%
+1678,Servidor,"Core 3",3905.40,MHz
+1679,Servidor,"Core 3",45.00,°C
+1680,Servidor,"Core 3",10.90,%
+1681,Servidor,"Core 4",3905.40,MHz
+1682,Servidor,"Core 4",45.00,°C
+1683,Servidor,"Core 4",4.70,%
+1684,Servidor,"Core 5",3905.40,MHz
+1685,Servidor,"Core 5",44.00,°C
+1686,Servidor,"Core 5",14.10,%
+1687,Servidor,"Core 6",3905.40,MHz
+1688,Servidor,"Core 6",48.00,°C
+1689,Servidor,"Core 6",6.30,%
+1759,Servidor,"Memoria uso %",51.70,%
+1760,Servidor,"Memoria uso GB",8.20,GB
+1761,Servidor,"Memoria livre GB",7.70,GB
+1762,Servidor,"Disco uso %",57.20,%
+1763,Servidor,"Disco temperatura",33.00,°C
+1764,Servidor,"Core 1",3905.40,MHz
+1765,Servidor,"Core 1",50.00,°C
+1766,Servidor,"Core 1",19.30,%
+1767,Servidor,"Core 2",3905.40,MHz
+1768,Servidor,"Core 2",50.00,°C
+1769,Servidor,"Core 2",20.30,%
+1770,Servidor,"Core 3",3905.40,MHz
+1771,Servidor,"Core 3",50.00,°C
+1772,Servidor,"Core 3",26.60,%
+1773,Servidor,"Core 4",3905.40,MHz
+1774,Servidor,"Core 4",48.00,°C
+1775,Servidor,"Core 4",7.80,%
+1776,Servidor,"Core 5",3905.40,MHz
+1777,Servidor,"Core 5",47.00,°C
+1778,Servidor,"Core 5",23.40,%
+1779,Servidor,"Core 6",3905.40,MHz
+1780,Servidor,"Core 6",48.00,°C
+1781,Servidor,"Core 6",10.90,%
+21470,Servidor,"Memoria uso %",55.40,%
+21471,Servidor,"Memoria uso GB",8.80,GB
+21472,Servidor,"Memoria livre GB",7.10,GB
+21473,Servidor,"Disco uso %",57.20,%
+21474,Servidor,"Disco temperatura",33.00,°C
+21475,Servidor,"Core 1",3905.40,MHz
+21476,Servidor,"Core 1",46.00,°C
+21477,Servidor,"Core 1",13.00,%
+21478,Servidor,"Core 2",3905.40,MHz
+21479,Servidor,"Core 2",47.00,°C
+21480,Servidor,"Core 2",23.40,%
+21481,Servidor,"Core 3",3905.40,MHz
+21482,Servidor,"Core 3",45.00,°C
+21483,Servidor,"Core 3",20.30,%
+21484,Servidor,"Core 4",3905.40,MHz
+21485,Servidor,"Core 4",44.00,°C
+21486,Servidor,"Core 4",9.40,%
+21487,Servidor,"Core 5",3905.40,MHz
+21488,Servidor,"Core 5",43.00,°C
+21489,Servidor,"Core 5",4.70,%
+21490,Servidor,"Core 6",3905.40,MHz
+21491,Servidor,"Core 6",45.00,°C
+21492,Servidor,"Core 6",12.50,%
+21493,Servidor,"Memoria uso %",55.40,%
+21494,Servidor,"Memoria uso GB",8.80,GB
+21495,Servidor,"Memoria livre GB",7.10,GB
+21496,Servidor,"Disco uso %",57.20,%
+21497,Servidor,"Disco temperatura",33.00,°C
+21498,Servidor,"Core 1",3905.40,MHz
+21499,Servidor,"Core 1",46.00,°C
+21500,Servidor,"Core 1",13.00,%
+21501,Servidor,"Core 2",3905.40,MHz
+21502,Servidor,"Core 2",46.00,°C
+21503,Servidor,"Core 2",12.50,%
+21504,Servidor,"Core 3",3905.40,MHz
+21505,Servidor,"Core 3",45.00,°C
+21506,Servidor,"Core 3",14.10,%
+21507,Servidor,"Core 4",3905.40,MHz
+21508,Servidor,"Core 4",44.00,°C
+21509,Servidor,"Core 4",6.30,%
+21510,Servidor,"Core 5",3905.40,MHz
+21511,Servidor,"Core 5",45.00,°C
+21512,Servidor,"Core 5",9.40,%
+21513,Servidor,"Core 6",3905.40,MHz
+21514,Servidor,"Core 6",45.00,°C
+21515,Servidor,"Core 6",18.80,%
+21539,Servidor,"Memoria uso %",55.50,%
+21540,Servidor,"Memoria uso GB",8.80,GB
+21541,Servidor,"Memoria livre GB",7.10,GB
+21542,Servidor,"Disco uso %",57.20,%
+21543,Servidor,"Disco temperatura",33.00,°C
+21544,Servidor,"Core 1",3905.40,MHz
+21545,Servidor,"Core 1",47.00,°C
+21546,Servidor,"Core 1",17.70,%
+21547,Servidor,"Core 2",3905.40,MHz
+21548,Servidor,"Core 2",47.00,°C
+21549,Servidor,"Core 2",31.30,%
+21550,Servidor,"Core 3",3905.40,MHz
+21551,Servidor,"Core 3",45.00,°C
+21552,Servidor,"Core 3",20.30,%
+21553,Servidor,"Core 4",3905.40,MHz
+21554,Servidor,"Core 4",45.00,°C
+21555,Servidor,"Core 4",9.40,%
+21556,Servidor,"Core 5",3905.40,MHz
+21557,Servidor,"Core 5",46.00,°C
+21558,Servidor,"Core 5",9.40,%
+21559,Servidor,"Core 6",3905.40,MHz
+21560,Servidor,"Core 6",46.00,°C
+21561,Servidor,"Core 6",15.60,%
+21562,Servidor,"Memoria uso %",58.40,%
+21563,Servidor,"Memoria uso GB",9.30,GB
+21564,Servidor,"Memoria livre GB",6.60,GB
+21565,Servidor,"Disco uso %",57.20,%
+21566,Servidor,"Disco temperatura",33.00,°C
+21567,Servidor,"Core 1",3905.40,MHz
+21568,Servidor,"Core 1",51.00,°C
+21569,Servidor,"Core 1",56.30,%
+21570,Servidor,"Core 2",3905.40,MHz
+21571,Servidor,"Core 2",59.00,°C
+21572,Servidor,"Core 2",53.10,%
+21573,Servidor,"Core 3",3905.40,MHz
+21574,Servidor,"Core 3",55.00,°C
+21575,Servidor,"Core 3",67.20,%
+21576,Servidor,"Core 4",3905.40,MHz
+21577,Servidor,"Core 4",51.00,°C
+21578,Servidor,"Core 4",70.30,%
+21579,Servidor,"Core 5",3905.40,MHz
+21580,Servidor,"Core 5",49.00,°C
+21581,Servidor,"Core 5",43.80,%
+21582,Servidor,"Core 6",3905.40,MHz
+21583,Servidor,"Core 6",50.00,°C
+21584,Servidor,"Core 6",56.30,%
+21631,Servidor,"Memoria uso %",58.50,%
+21632,Servidor,"Memoria uso GB",9.30,GB
+21633,Servidor,"Memoria livre GB",6.60,GB
+21634,Servidor,"Disco uso %",57.20,%
+21635,Servidor,"Disco temperatura",33.00,°C
+21636,Servidor,"Core 1",3905.40,MHz
+21637,Servidor,"Core 1",47.00,°C
+21638,Servidor,"Core 1",22.10,%
+21639,Servidor,"Core 2",3905.40,MHz
+21640,Servidor,"Core 2",48.00,°C
+21641,Servidor,"Core 2",28.10,%
+21642,Servidor,"Core 3",3905.40,MHz
+21643,Servidor,"Core 3",47.00,°C
+21644,Servidor,"Core 3",26.60,%
+21645,Servidor,"Core 4",3905.40,MHz
+21646,Servidor,"Core 4",45.00,°C
+21647,Servidor,"Core 4",20.30,%
+21648,Servidor,"Core 5",3905.40,MHz
+21649,Servidor,"Core 5",46.00,°C
+21650,Servidor,"Core 5",18.80,%
+21651,Servidor,"Core 6",3905.40,MHz
+21652,Servidor,"Core 6",48.00,°C
+21653,Servidor,"Core 6",20.30,%
+21654,Servidor,"Memoria uso %",41.30,%
+21655,Servidor,"Memoria uso GB",6.60,GB
+21656,Servidor,"Memoria livre GB",9.40,GB
+21657,Servidor,"Disco uso %",56.90,%
+21658,Servidor,"Disco temperatura",33.00,°C
+21659,Servidor,"Core 1",3905.40,MHz
+21660,Servidor,"Core 1",39.00,°C
+21661,Servidor,"Core 1",2.30,%
+21662,Servidor,"Core 2",4005.50,MHz
+21663,Servidor,"Core 2",40.00,°C
+21664,Servidor,"Core 2",4.70,%
+21665,Servidor,"Core 3",3905.40,MHz
+21666,Servidor,"Core 3",40.00,°C
+21667,Servidor,"Core 3",1.60,%
+21668,Servidor,"Core 4",3905.40,MHz
+21669,Servidor,"Core 4",37.00,°C
+21670,Servidor,"Core 4",1.60,%
+21671,Servidor,"Core 5",3905.40,MHz
+21672,Servidor,"Core 5",38.00,°C
+21673,Servidor,"Core 5",1.60,%
+21674,Servidor,"Core 6",3905.40,MHz
+21675,Servidor,"Core 6",40.00,°C
+21676,Servidor,"Core 6",0.00,%
+21700,Servidor,"Memoria uso %",41.40,%
+21701,Servidor,"Memoria uso GB",6.60,GB
+21702,Servidor,"Memoria livre GB",9.30,GB
+21703,Servidor,"Disco uso %",56.90,%
+21704,Servidor,"Disco temperatura",33.00,°C
+21705,Servidor,"Core 1",4005.50,MHz
+21706,Servidor,"Core 1",39.00,°C
+21707,Servidor,"Core 1",1.60,%
+21708,Servidor,"Core 2",3905.40,MHz
+21709,Servidor,"Core 2",40.00,°C
+21710,Servidor,"Core 2",0.00,%
+21711,Servidor,"Core 3",3905.40,MHz
+21712,Servidor,"Core 3",39.00,°C
+21713,Servidor,"Core 3",1.60,%
+21714,Servidor,"Core 4",3905.40,MHz
+21715,Servidor,"Core 4",37.00,°C
+21716,Servidor,"Core 4",3.10,%
+21717,Servidor,"Core 5",3905.40,MHz
+21718,Servidor,"Core 5",37.00,°C
+21719,Servidor,"Core 5",0.00,%
+21720,Servidor,"Core 6",3905.40,MHz
+21721,Servidor,"Core 6",40.00,°C
+21722,Servidor,"Core 6",1.60,%
+21723,Servidor,"Memoria uso %",41.40,%
+21724,Servidor,"Memoria uso GB",6.60,GB
+21725,Servidor,"Memoria livre GB",9.30,GB
+21726,Servidor,"Disco uso %",56.90,%
+21727,Servidor,"Disco temperatura",33.00,°C
+21728,Servidor,"Core 1",4005.50,MHz
+21729,Servidor,"Core 1",40.00,°C
+21730,Servidor,"Core 1",0.80,%
+21731,Servidor,"Core 2",4005.50,MHz
+21732,Servidor,"Core 2",40.00,°C
+21733,Servidor,"Core 2",3.10,%
+21734,Servidor,"Core 3",3905.40,MHz
+21735,Servidor,"Core 3",39.00,°C
+21736,Servidor,"Core 3",0.00,%
+21737,Servidor,"Core 4",3905.40,MHz
+21738,Servidor,"Core 4",37.00,°C
+21739,Servidor,"Core 4",0.00,%
+21740,Servidor,"Core 5",3905.40,MHz
+21741,Servidor,"Core 5",37.00,°C
+21742,Servidor,"Core 5",0.00,%
+21743,Servidor,"Core 6",3905.40,MHz
+21744,Servidor,"Core 6",39.00,°C
+21745,Servidor,"Core 6",1.60,%
+21930,Servidor,"Memoria uso %",41.40,%
+21931,Servidor,"Memoria uso GB",6.60,GB
+21932,Servidor,"Memoria livre GB",9.30,GB
+21933,Servidor,"Disco uso %",56.90,%
+21934,Servidor,"Disco temperatura",33.00,°C
+21935,Servidor,"Core 1",3905.40,MHz
+21936,Servidor,"Core 1",38.00,°C
+21937,Servidor,"Core 1",1.60,%
+21938,Servidor,"Core 2",4005.50,MHz
+21939,Servidor,"Core 2",40.00,°C
+21940,Servidor,"Core 2",1.60,%
+21941,Servidor,"Core 3",3905.40,MHz
+21942,Servidor,"Core 3",39.00,°C
+21943,Servidor,"Core 3",1.60,%
+21944,Servidor,"Core 4",3905.40,MHz
+21945,Servidor,"Core 4",37.00,°C
+21946,Servidor,"Core 4",0.00,%
+21947,Servidor,"Core 5",4005.50,MHz
+21948,Servidor,"Core 5",37.00,°C
+21949,Servidor,"Core 5",1.60,%
+21950,Servidor,"Core 6",3905.40,MHz
+21951,Servidor,"Core 6",38.00,°C
+21952,Servidor,"Core 6",3.10,%
+21953,Servidor,"Memoria uso %",41.40,%
+21954,Servidor,"Memoria uso GB",6.60,GB
+21955,Servidor,"Memoria livre GB",9.30,GB
+21956,Servidor,"Disco uso %",56.90,%
+21957,Servidor,"Disco temperatura",33.00,°C
+21958,Servidor,"Core 1",3905.40,MHz
+21959,Servidor,"Core 1",40.00,°C
+21960,Servidor,"Core 1",12.20,%
+21961,Servidor,"Core 2",3905.40,MHz
+21962,Servidor,"Core 2",41.00,°C
+21963,Servidor,"Core 2",17.20,%
+21964,Servidor,"Core 3",3905.40,MHz
+21965,Servidor,"Core 3",40.00,°C
+21966,Servidor,"Core 3",15.60,%
+21967,Servidor,"Core 4",3905.40,MHz
+21968,Servidor,"Core 4",38.00,°C
+21969,Servidor,"Core 4",6.30,%
+21970,Servidor,"Core 5",3905.40,MHz
+21971,Servidor,"Core 5",39.00,°C
+21972,Servidor,"Core 5",9.40,%
+21973,Servidor,"Core 6",3905.40,MHz
+21974,Servidor,"Core 6",41.00,°C
+21975,Servidor,"Core 6",9.40,%
+22141,Servidor,"Memoria uso %",47.80,%
+22142,Servidor,"Memoria uso GB",7.60,GB
+22143,Servidor,"Memoria livre GB",8.30,GB
+22144,Servidor,"Disco uso %",57.10,%
+22145,Servidor,"Disco temperatura",33.00,°C
+22146,Servidor,"Core 1",3905.40,MHz
+22147,Servidor,"Core 1",44.00,°C
+22148,Servidor,"Core 1",7.80,%
+22149,Servidor,"Core 2",3905.40,MHz
+22150,Servidor,"Core 2",45.00,°C
+22151,Servidor,"Core 2",12.50,%
+22152,Servidor,"Core 3",3905.40,MHz
+22153,Servidor,"Core 3",44.00,°C
+22154,Servidor,"Core 3",6.30,%
+22155,Servidor,"Core 4",3905.40,MHz
+22156,Servidor,"Core 4",42.00,°C
+22157,Servidor,"Core 4",1.60,%
+22158,Servidor,"Core 5",3905.40,MHz
+22159,Servidor,"Core 5",42.00,°C
+22160,Servidor,"Core 5",1.60,%
+22161,Servidor,"Core 6",3905.40,MHz
+22162,Servidor,"Core 6",47.00,°C
+22163,Servidor,"Core 6",17.20,%
+22243,Servidor,"Memoria uso %",29.40,%
+22244,Servidor,"Memoria uso GB",4.70,GB
+22245,Servidor,"Memoria livre GB",11.20,GB
+22246,Servidor,"Disco uso %",57.50,%
+22247,Servidor,"Disco temperatura",33.00,°C
+22248,Servidor,"Core 1",3905.40,MHz
+22249,Servidor,"Core 1",42.00,°C
+22250,Servidor,"Core 1",3.10,%
+22251,Servidor,"Core 2",3905.40,MHz
+22252,Servidor,"Core 2",45.00,°C
+22253,Servidor,"Core 2",7.80,%
+22254,Servidor,"Core 3",3905.40,MHz
+22255,Servidor,"Core 3",42.00,°C
+22256,Servidor,"Core 3",1.60,%
+22257,Servidor,"Core 4",3905.40,MHz
+22258,Servidor,"Core 4",40.00,°C
+22259,Servidor,"Core 4",0.00,%
+22260,Servidor,"Core 5",3905.40,MHz
+22261,Servidor,"Core 5",41.00,°C
+22262,Servidor,"Core 5",1.60,%
+22263,Servidor,"Core 6",3905.40,MHz
+22264,Servidor,"Core 6",47.00,°C
+22265,Servidor,"Core 6",4.70,%
+22358,Servidor,"Memoria uso %",29.50,%
+22359,Servidor,"Memoria uso GB",4.70,GB
+22360,Servidor,"Memoria livre GB",11.20,GB
+22361,Servidor,"Disco uso %",57.50,%
+22362,Servidor,"Disco temperatura",33.00,°C
+22363,Servidor,"Core 1",3905.40,MHz
+22364,Servidor,"Core 1",43.00,°C
+22365,Servidor,"Core 1",3.90,%
+22366,Servidor,"Core 2",3905.40,MHz
+22367,Servidor,"Core 2",44.00,°C
+22368,Servidor,"Core 2",7.80,%
+22369,Servidor,"Core 3",3905.40,MHz
+22370,Servidor,"Core 3",42.00,°C
+22371,Servidor,"Core 3",0.00,%
+22372,Servidor,"Core 4",3905.40,MHz
+22373,Servidor,"Core 4",40.00,°C
+22374,Servidor,"Core 4",4.70,%
+22375,Servidor,"Core 5",4005.50,MHz
+22376,Servidor,"Core 5",40.00,°C
+22377,Servidor,"Core 5",1.60,%
+22378,Servidor,"Core 6",4005.50,MHz
+22379,Servidor,"Core 6",42.00,°C
+22380,Servidor,"Core 6",4.70,%
+22450,Servidor,"Memoria uso %",29.50,%
+22451,Servidor,"Memoria uso GB",4.70,GB
+22452,Servidor,"Memoria livre GB",11.20,GB
+22453,Servidor,"Disco uso %",57.50,%
+22454,Servidor,"Disco temperatura",33.00,°C
+22455,Servidor,"Core 1",3905.40,MHz
+22456,Servidor,"Core 1",42.00,°C
+22457,Servidor,"Core 1",3.40,%
+22458,Servidor,"Core 2",3905.40,MHz
+22459,Servidor,"Core 2",43.00,°C
+22460,Servidor,"Core 2",6.30,%
+22461,Servidor,"Core 3",3905.40,MHz
+22462,Servidor,"Core 3",41.00,°C
+22463,Servidor,"Core 3",0.00,%
+22464,Servidor,"Core 4",3905.40,MHz
+22465,Servidor,"Core 4",39.00,°C
+22466,Servidor,"Core 4",1.60,%
+22467,Servidor,"Core 5",4005.50,MHz
+22468,Servidor,"Core 5",40.00,°C
+22469,Servidor,"Core 5",4.70,%
+22470,Servidor,"Core 6",3905.40,MHz
+22471,Servidor,"Core 6",41.00,°C
+22472,Servidor,"Core 6",4.70,%
+22473,Servidor,"Memoria uso %",29.50,%
+22474,Servidor,"Memoria uso GB",4.70,GB
+22475,Servidor,"Memoria livre GB",11.20,GB
+22476,Servidor,"Disco uso %",57.50,%
+22477,Servidor,"Disco temperatura",33.00,°C
+22478,Servidor,"Core 1",3905.40,MHz
+22479,Servidor,"Core 1",42.00,°C
+22480,Servidor,"Core 1",3.90,%
+22481,Servidor,"Core 2",3905.40,MHz
+22482,Servidor,"Core 2",42.00,°C
+22483,Servidor,"Core 2",7.80,%
+22484,Servidor,"Core 3",3905.40,MHz
+22485,Servidor,"Core 3",41.00,°C
+22486,Servidor,"Core 3",3.10,%
+22487,Servidor,"Core 4",3905.40,MHz
+22488,Servidor,"Core 4",39.00,°C
+22489,Servidor,"Core 4",1.60,%
+22490,Servidor,"Core 5",3905.40,MHz
+22491,Servidor,"Core 5",40.00,°C
+22492,Servidor,"Core 5",1.60,%
+22493,Servidor,"Core 6",3905.40,MHz
+22494,Servidor,"Core 6",41.00,°C
+22495,Servidor,"Core 6",3.10,%
+22519,Servidor,"Memoria uso %",29.60,%
+22520,Servidor,"Memoria uso GB",4.70,GB
+22521,Servidor,"Memoria livre GB",11.20,GB
+22522,Servidor,"Disco uso %",57.50,%
+22523,Servidor,"Disco temperatura",33.00,°C
+22524,Servidor,"Core 1",3905.40,MHz
+22525,Servidor,"Core 1",42.00,°C
+22526,Servidor,"Core 1",6.30,%
+22527,Servidor,"Core 2",3905.40,MHz
+22528,Servidor,"Core 2",43.00,°C
+22529,Servidor,"Core 2",12.50,%
+22530,Servidor,"Core 3",3905.40,MHz
+22531,Servidor,"Core 3",42.00,°C
+22532,Servidor,"Core 3",4.70,%
+22533,Servidor,"Core 4",3905.40,MHz
+22534,Servidor,"Core 4",39.00,°C
+22535,Servidor,"Core 4",4.70,%
+22536,Servidor,"Core 5",3905.40,MHz
+22537,Servidor,"Core 5",40.00,°C
+22538,Servidor,"Core 5",4.70,%
+22539,Servidor,"Core 6",3905.40,MHz
+22540,Servidor,"Core 6",41.00,°C
+22541,Servidor,"Core 6",4.70,%
+22542,Servidor,"Memoria uso %",29.60,%
+22543,Servidor,"Memoria uso GB",4.70,GB
+22544,Servidor,"Memoria livre GB",11.20,GB
+22545,Servidor,"Disco uso %",57.50,%
+22546,Servidor,"Disco temperatura",33.00,°C
+22547,Servidor,"Core 1",3905.40,MHz
+22548,Servidor,"Core 1",42.00,°C
+22549,Servidor,"Core 1",2.60,%
+22550,Servidor,"Core 2",4005.50,MHz
+22551,Servidor,"Core 2",43.00,°C
+22552,Servidor,"Core 2",9.40,%
+22553,Servidor,"Core 3",3905.40,MHz
+22554,Servidor,"Core 3",41.00,°C
+22555,Servidor,"Core 3",1.60,%
+22556,Servidor,"Core 4",3905.40,MHz
+22557,Servidor,"Core 4",38.00,°C
+22558,Servidor,"Core 4",0.00,%
+22559,Servidor,"Core 5",3905.40,MHz
+22560,Servidor,"Core 5",40.00,°C
+22561,Servidor,"Core 5",0.00,%
+22562,Servidor,"Core 6",3905.40,MHz
+22563,Servidor,"Core 6",42.00,°C
+22564,Servidor,"Core 6",3.10,%
+22565,Servidor,"Memoria uso %",29.60,%
+22566,Servidor,"Memoria uso GB",4.70,GB
+22567,Servidor,"Memoria livre GB",11.20,GB
+22568,Servidor,"Disco uso %",57.50,%
+22569,Servidor,"Disco temperatura",33.00,°C
+22570,Servidor,"Core 1",3905.40,MHz
+22571,Servidor,"Core 1",41.00,°C
+22572,Servidor,"Core 1",3.40,%
+22573,Servidor,"Core 2",4005.50,MHz
+22574,Servidor,"Core 2",43.00,°C
+22575,Servidor,"Core 2",3.10,%
+22576,Servidor,"Core 3",4005.50,MHz
+22577,Servidor,"Core 3",41.00,°C
+22578,Servidor,"Core 3",4.70,%
+22579,Servidor,"Core 4",3905.40,MHz
+22580,Servidor,"Core 4",38.00,°C
+22581,Servidor,"Core 4",0.00,%
+22582,Servidor,"Core 5",4005.50,MHz
+22583,Servidor,"Core 5",40.00,°C
+22584,Servidor,"Core 5",4.70,%
+22585,Servidor,"Core 6",3905.40,MHz
+22586,Servidor,"Core 6",41.00,°C
+22587,Servidor,"Core 6",3.10,%
+22680,Servidor,"Memoria uso %",34.50,%
+22681,Servidor,"Memoria uso GB",5.50,GB
+22682,Servidor,"Memoria livre GB",10.40,GB
+22683,Servidor,"Disco uso %",57.50,%
+22684,Servidor,"Disco temperatura",33.00,°C
+22685,Servidor,"Core 1",3905.40,MHz
+22686,Servidor,"Core 1",48.00,°C
+22687,Servidor,"Core 1",15.90,%
+22688,Servidor,"Core 2",3905.40,MHz
+22689,Servidor,"Core 2",47.00,°C
+22690,Servidor,"Core 2",20.30,%
+22691,Servidor,"Core 3",3905.40,MHz
+22692,Servidor,"Core 3",45.00,°C
+22693,Servidor,"Core 3",15.60,%
+22694,Servidor,"Core 4",3905.40,MHz
+22695,Servidor,"Core 4",45.00,°C
+22696,Servidor,"Core 4",12.50,%
+22697,Servidor,"Core 5",3905.40,MHz
+22698,Servidor,"Core 5",45.00,°C
+22699,Servidor,"Core 5",10.90,%
+22700,Servidor,"Core 6",3905.40,MHz
+22701,Servidor,"Core 6",47.00,°C
+22702,Servidor,"Core 6",12.50,%
+22703,Servidor,"Memoria uso %",35.20,%
+22704,Servidor,"Memoria uso GB",5.60,GB
+22705,Servidor,"Memoria livre GB",10.30,GB
+22706,Servidor,"Disco uso %",57.50,%
+22707,Servidor,"Disco temperatura",33.00,°C
+22708,Servidor,"Core 1",3905.40,MHz
+22709,Servidor,"Core 1",55.00,°C
+22710,Servidor,"Core 1",23.40,%
+22711,Servidor,"Core 2",3905.40,MHz
+22712,Servidor,"Core 2",48.00,°C
+22713,Servidor,"Core 2",18.80,%
+22714,Servidor,"Core 3",3905.40,MHz
+22715,Servidor,"Core 3",45.00,°C
+22716,Servidor,"Core 3",21.90,%
+22717,Servidor,"Core 4",3905.40,MHz
+22718,Servidor,"Core 4",44.00,°C
+22719,Servidor,"Core 4",15.60,%
+22720,Servidor,"Core 5",3905.40,MHz
+22721,Servidor,"Core 5",45.00,°C
+22722,Servidor,"Core 5",18.80,%
+22723,Servidor,"Core 6",3905.40,MHz
+22724,Servidor,"Core 6",48.00,°C
+22725,Servidor,"Core 6",14.10,%
+22818,Servidor,"Memoria uso %",30.20,%
+22819,Servidor,"Memoria uso GB",4.80,GB
+22820,Servidor,"Memoria livre GB",11.10,GB
+22821,Servidor,"Disco uso %",57.50,%
+22822,Servidor,"Disco temperatura",33.00,°C
+22823,Servidor,"Core 1",3905.40,MHz
+22824,Servidor,"Core 1",47.00,°C
+22825,Servidor,"Core 1",6.80,%
+22826,Servidor,"Core 2",4005.50,MHz
+22827,Servidor,"Core 2",47.00,°C
+22828,Servidor,"Core 2",7.80,%
+22829,Servidor,"Core 3",3905.40,MHz
+22830,Servidor,"Core 3",46.00,°C
+22831,Servidor,"Core 3",6.30,%
+22832,Servidor,"Core 4",3905.40,MHz
+22833,Servidor,"Core 4",44.00,°C
+22834,Servidor,"Core 4",10.90,%
+22835,Servidor,"Core 5",3905.40,MHz
+22836,Servidor,"Core 5",44.00,°C
+22837,Servidor,"Core 5",3.10,%
+22838,Servidor,"Core 6",3905.40,MHz
+22839,Servidor,"Core 6",46.00,°C
+22840,Servidor,"Core 6",4.70,%
+22933,Servidor,"Memoria uso %",35.50,%
+22934,Servidor,"Memoria uso GB",5.70,GB
+22935,Servidor,"Memoria livre GB",10.30,GB
+22936,Servidor,"Disco uso %",57.60,%
+22937,Servidor,"Disco temperatura",33.00,°C
+22938,Servidor,"Core 1",3905.40,MHz
+22939,Servidor,"Core 1",40.00,°C
+22940,Servidor,"Core 1",10.40,%
+22941,Servidor,"Core 2",3905.40,MHz
+22942,Servidor,"Core 2",42.00,°C
+22943,Servidor,"Core 2",14.10,%
+22944,Servidor,"Core 3",4005.50,MHz
+22945,Servidor,"Core 3",40.00,°C
+22946,Servidor,"Core 3",18.80,%
+22947,Servidor,"Core 4",4005.50,MHz
+22948,Servidor,"Core 4",39.00,°C
+22949,Servidor,"Core 4",6.30,%
+22950,Servidor,"Core 5",3905.40,MHz
+22951,Servidor,"Core 5",38.00,°C
+22952,Servidor,"Core 5",4.70,%
+22953,Servidor,"Core 6",3905.40,MHz
+22954,Servidor,"Core 6",40.00,°C
+22955,Servidor,"Core 6",1.60,%
+23140,Servidor,"Memoria uso %",35.00,%
+23141,Servidor,"Memoria uso GB",5.60,GB
+23142,Servidor,"Memoria livre GB",10.40,GB
+23143,Servidor,"Disco uso %",57.50,%
+23144,Servidor,"Disco temperatura",33.00,°C
+23145,Servidor,"Core 1",3905.40,MHz
+23146,Servidor,"Core 1",40.00,°C
+23147,Servidor,"Core 1",5.70,%
+23148,Servidor,"Core 2",3905.40,MHz
+23149,Servidor,"Core 2",42.00,°C
+23150,Servidor,"Core 2",12.50,%
+23151,Servidor,"Core 3",3905.40,MHz
+23152,Servidor,"Core 3",40.00,°C
+23153,Servidor,"Core 3",3.10,%
+23154,Servidor,"Core 4",3905.40,MHz
+23155,Servidor,"Core 4",37.00,°C
+23156,Servidor,"Core 4",4.70,%
+23157,Servidor,"Core 5",3905.40,MHz
+23158,Servidor,"Core 5",38.00,°C
+23159,Servidor,"Core 5",1.60,%
+23160,Servidor,"Core 6",3905.40,MHz
+23161,Servidor,"Core 6",39.00,°C
+23162,Servidor,"Core 6",4.70,%
+23163,Servidor,"Memoria uso %",35.00,%
+23164,Servidor,"Memoria uso GB",5.60,GB
+23165,Servidor,"Memoria livre GB",10.40,GB
+23166,Servidor,"Disco uso %",57.50,%
+23167,Servidor,"Disco temperatura",33.00,°C
+23168,Servidor,"Core 1",3905.40,MHz
+23169,Servidor,"Core 1",40.00,°C
+23170,Servidor,"Core 1",14.10,%
+23171,Servidor,"Core 2",3905.40,MHz
+23172,Servidor,"Core 2",41.00,°C
+23173,Servidor,"Core 2",6.30,%
+23174,Servidor,"Core 3",3905.40,MHz
+23175,Servidor,"Core 3",40.00,°C
+23176,Servidor,"Core 3",31.30,%
+23177,Servidor,"Core 4",3905.40,MHz
+23178,Servidor,"Core 4",38.00,°C
+23179,Servidor,"Core 4",15.60,%
+23180,Servidor,"Core 5",3905.40,MHz
+23181,Servidor,"Core 5",38.00,°C
+23182,Servidor,"Core 5",6.30,%
+23183,Servidor,"Core 6",3905.40,MHz
+23184,Servidor,"Core 6",39.00,°C
+23185,Servidor,"Core 6",1.60,%
+23186,Servidor,"Memoria uso %",35.00,%
+23187,Servidor,"Memoria uso GB",5.60,GB
+23188,Servidor,"Memoria livre GB",10.40,GB
+23189,Servidor,"Disco uso %",57.50,%
+23190,Servidor,"Disco temperatura",33.00,°C
+23191,Servidor,"Core 1",4005.50,MHz
+23192,Servidor,"Core 1",40.00,°C
+23193,Servidor,"Core 1",2.30,%
+23194,Servidor,"Core 2",3905.40,MHz
+23195,Servidor,"Core 2",41.00,°C
+23196,Servidor,"Core 2",0.00,%
+23197,Servidor,"Core 3",3905.40,MHz
+23198,Servidor,"Core 3",39.00,°C
+23199,Servidor,"Core 3",0.00,%
+23200,Servidor,"Core 4",3905.40,MHz
+23201,Servidor,"Core 4",37.00,°C
+23202,Servidor,"Core 4",1.60,%
+23203,Servidor,"Core 5",3905.40,MHz
+23204,Servidor,"Core 5",38.00,°C
+23205,Servidor,"Core 5",3.10,%
+23206,Servidor,"Core 6",3905.40,MHz
+23207,Servidor,"Core 6",39.00,°C
+23208,Servidor,"Core 6",1.60,%
+23255,Servidor,"Memoria uso %",34.30,%
+23256,Servidor,"Memoria uso GB",5.50,GB
+23257,Servidor,"Memoria livre GB",10.50,GB
+23258,Servidor,"Disco uso %",57.60,%
+23259,Servidor,"Disco temperatura",33.00,°C
+23260,Servidor,"Core 1",3905.40,MHz
+23261,Servidor,"Core 1",43.00,°C
+23262,Servidor,"Core 1",4.40,%
+23263,Servidor,"Core 2",3905.40,MHz
+23264,Servidor,"Core 2",44.00,°C
+23265,Servidor,"Core 2",10.90,%
+23266,Servidor,"Core 3",3905.40,MHz
+23267,Servidor,"Core 3",42.00,°C
+23268,Servidor,"Core 3",4.70,%
+23269,Servidor,"Core 4",3905.40,MHz
+23270,Servidor,"Core 4",40.00,°C
+23271,Servidor,"Core 4",1.60,%
+23272,Servidor,"Core 5",3905.40,MHz
+23273,Servidor,"Core 5",39.00,°C
+23274,Servidor,"Core 5",3.10,%
+23275,Servidor,"Core 6",3905.40,MHz
+23276,Servidor,"Core 6",40.00,°C
+23277,Servidor,"Core 6",3.10,%
+23278,Servidor,"Memoria uso %",34.50,%
+23279,Servidor,"Memoria uso GB",5.50,GB
+23280,Servidor,"Memoria livre GB",10.40,GB
+23281,Servidor,"Disco uso %",57.60,%
+23282,Servidor,"Disco temperatura",33.00,°C
+23283,Servidor,"Core 1",3905.40,MHz
+23284,Servidor,"Core 1",42.00,°C
+23285,Servidor,"Core 1",3.10,%
+23286,Servidor,"Core 2",3905.40,MHz
+23287,Servidor,"Core 2",42.00,°C
+23288,Servidor,"Core 2",4.70,%
+23289,Servidor,"Core 3",3905.40,MHz
+23290,Servidor,"Core 3",43.00,°C
+23291,Servidor,"Core 3",3.10,%
+23292,Servidor,"Core 4",3905.40,MHz
+23293,Servidor,"Core 4",39.00,°C
+23294,Servidor,"Core 4",3.10,%
+23295,Servidor,"Core 5",3905.40,MHz
+23296,Servidor,"Core 5",39.00,°C
+23297,Servidor,"Core 5",4.70,%
+23298,Servidor,"Core 6",3905.40,MHz
+23299,Servidor,"Core 6",42.00,°C
+23300,Servidor,"Core 6",0.00,%
