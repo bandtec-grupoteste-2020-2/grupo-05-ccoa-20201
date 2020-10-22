@@ -26,18 +26,18 @@
     <!-- Icone na amba do navegador -->
     <link rel="shortcut icon" href="img/arvore.png">
 
-    
+
 
 </head>
 
 <style>
-    #menu{
+    #menu {
         box-shadow: 0px 1px 1px #cccccc;
     }
 </style>
 
 
-<body style="background-color: #f7f7f7;" >
+<body style="background-color: #f7f7f7;">
 
 
 
@@ -47,7 +47,6 @@
                 <!-- Chamado de Emergência -->
                 <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
                     data-whatever="@mdo">Chamado de Emergência</button>
-
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -60,18 +59,15 @@
                             </div>
                             <div class="modal-body text-success">
                                 <form id="myForm" method="POST" action="/slack">
-
                                     <div class="form-group">
                                         <label for="input_subject">Assunto</label>
                                         <input type="text" class="form-control" id="input_subject" name="input_subject">
                                     </div>
-
                                     <div class="form-group">
                                         <label for="textarea_description">Descrição</label>
                                         <textarea class="form-control" id="textarea_description"
                                             name="textarea_description" rows="3"></textarea>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="input_email">E-mail de Contato</label>
                                         <input type="email" class="form-control" id="input_email" name="input_email"
@@ -80,9 +76,7 @@
                                             esse email com
                                             ninguém.</small>
                                     </div>
-
                                     <button type="submit" class="btn btn-success mx-auto">Enviar</button>
-
                                 </form>
                             </div>
                             <div class="modal-footer">
@@ -100,163 +94,313 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav> -->
-                <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand text-warning" href="#">SixMinds</a>
-                  
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">CPU <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Memoria</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Disco</a>
-                          </li>
-                        <li class="nav-item">
-                            <!-- Chamado de Emergência -->
-                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
-                data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
-                        </li>
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand text-warning" href="#">SixMinds</a>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    
+                    <li class="nav-item">
+                        <!-- Chamado de Emergência -->
+                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+                            data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
+                    </li>
 
 
-                <!-- MODAL - Chamado de Emergencia -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-danger" id="exampleModalLabel">Chamado de Emergência</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span id="close" aria-hidden="true" class="text-dark">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body text-success">
-                            <form id="myForm" method="POST" action="/slack">
-
-                                <div class="form-group">
-                                    <label for="input_subject">Assunto</label>
-                                    <input autofocus placeholder="Ex: Tela azul" type="text" class="form-control" id="input_subject" name="input_subject">
+                    <!-- MODAL - Chamado de Emergencia -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="exampleModalLabel">Chamado de Emergência
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span id="close" aria-hidden="true" class="text-dark">&times;</span>
+                                    </button>
                                 </div>
+                                <div class="modal-body text-success">
+                                    <form id="myForm" method="POST" action="/slack">
 
-                                <div class="form-group">
-                                    <label for="textarea_description">Descrição</label>
-                                    <textarea placeholder="Ex: A maquina não responde aos meus comandos" class="form-control" id="textarea_description"
-                                        name="textarea_description" rows="3"></textarea>
+                                        <div class="form-group">
+                                            <label for="input_subject">Assunto</label>
+                                            <input autofocus placeholder="Ex: Tela azul" type="text"
+                                                class="form-control" id="input_subject" name="input_subject">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="textarea_description">Descrição</label>
+                                            <textarea placeholder="Ex: A maquina não responde aos meus comandos"
+                                                class="form-control" id="textarea_description"
+                                                name="textarea_description" rows="3"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="input_email">E-mail de Contato</label>
+                                            <input placeholder="nomeusuario@dominio.com.br" type="email"
+                                                class="form-control" id="input_email" name="input_email"
+                                                aria-describedby="emailHelp">
+                                            <small id="emailHelp" class="form-text text-muted">Nós não iremos
+                                                compartilhar
+                                                esse email com
+                                                ninguém.</small>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-success mx-auto">Enviar <i
+                                                class="fas fa-envelope"></i></button>
+
+                                    </form>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="input_email">E-mail de Contato</label>
-                                    <input placeholder="nomeusuario@dominio.com.br" type="email" class="form-control" id="input_email" name="input_email"
-                                        aria-describedby="emailHelp">
-                                    <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar
-                                        esse email com
-                                        ninguém.</small>
+                                <div class="modal-footer">
                                 </div>
-
-                                <button type="submit" class="btn btn-success mx-auto">Enviar <i class="fas fa-envelope"></i></button>
-
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                          
-                        </li>
-                      </ul>
-                      <form class="form-inline my-2 my-lg-0">
-                        
-                        <div class="border btn-outline-dark border-primary rounded my-2 my-sm-0 nav-link mr-3">
-
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="darkSwitch">
-                                <label class="custom-control-label fontSize 10px" for="darkSwitch">Modo escuro</label>
                             </div>
-                            <script src="dark-mode-switch.min.js"></script>
-                    
-                    
                         </div>
-
-                        <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html" onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
-                       
-                      </form>
                     </div>
-                  </nav>
+
+
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+
+                    <div class="border btn-outline-dark border-primary rounded my-2 my-sm-0 nav-link mr-3">
+
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                            <label class="custom-control-label fontSize 10px" for="darkSwitch">Modo escuro</label>
+                        </div>
+                        <script src="dark-mode-switch.min.js"></script>
+
+
+                    </div>
+
+                    <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html"
+                        onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
+
+                </form>
+            </div>
+        </nav>
     </div>
-    
+
     </div>
     <!-- container geral-->
 
-    <div class="container">
-
-        <br>
+    <!-- <div class="row"> -->
+    <div class="container-fluid">
         <div class="row">
+            <div class="col-3 bg-danger">
+                <ul class="nav flex-column">
+                    <li onclick="showCPUSection()" class="nav-item border-bottom-dark">
+                        <a class="nav-link active " href="#">CPU</a>
+                    </li>
+                    <li onclick="showMemorySection()" class="nav-item">
+                        <a class="nav-link" href="#">Memória</a>
+                    </li>
+                    <li onclick="showDiskSection()" class="nav-item">
+                        <a class="nav-link" href="#">Disco</a>
+                    </li>
+                    <li onclick="showNetworkSection()" class="nav-item">
+                        <a class="nav-link" href="#">Rede</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col bg-success">
+                <div class="container">
 
-            <div class="col">
-                <div class="row border rounded-lg shadow p-3 mb-5 bg-white rounded">
-                    <!-- primeira coluna da CPU-->
-                    <div class="col  ">
-                        <h3 class="d-flex justify-content-left">CPU</h3>
-                        <div>
-                            <canvas id="rosquinha"></canvas>
-                            <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span>
+
+                    <div id="div_cpu_section" style="display: none">
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <!--CPU-->
+                            <div class="row">
+                                <h3 class="d-flex justify-content-left">CPU</h3>
+                                <div class="container">
+                                    <div style="height: 100px">
+
+                                        <!-- <canvas style="height: 100px; width: 300px" id="canvas"></canvas> -->
+                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
 
+                            <div class="col">
+                                <h5> Temperatura:</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width:60%; background-color: red;" aria-valuenow="25" aria-valuemin="0"
+                                        aria-valuemax="100">60°C</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h5>Clock:</h5>
+                                <div class="progress">
+                                    <div class="progress-bar w-100" role="progressbar" style="width: 3000%;"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="3000">3000MHz</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-1"></div>
-                    <div class="col  ">
-                        <br>
-                        <!-- Segunda da  coluna da CPU-->
-                        <h5> Temperatura:</h5>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width:60%; background-color: red;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60°C</div>
-                        </div>
-                        <br>
-                        <h5>Clock:</h5>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 3000%;" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="3000">3000MHz</div>
-                        </div>
-                        <br>
+                </div>
+                <div class="container">
+                    <div id="div_memory_section" style="display: block">
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <div class="row">
+                                <h3 class="d-flex justify-content-left">Memória</h3>
 
-                        <br>
-                        <div class="d-flex justify-content-center">
-                            <button id="botaomostrar" onclick="MostraNucleos()" type="button"
-                                class="btn btn-outline-dark">Mostrar
-                                todos os núcleos</button>
-                            <button style="display: none;" id="botaoesconder" onclick="EsconderNucleos()" type="button"
-                                class="btn btn-outline-dark">Esconder todos os núcleos</button>
-                            <script>
-                                function MostraNucleos() {
-                                    todososnúcleos.style.display = 'block'
-                                    botaomostrar.style.display = 'none'
-                                    botaoesconder.style.display = 'block'
-                                }
-                                function EsconderNucleos() {
-                                    todososnúcleos.style.display = 'none'
-                                    botaomostrar.style.display = 'block'
-                                    botaoesconder.style.display = 'none'
-                                }
+                                <div>
+                                    <canvas id="rosquinha"></canvas>
+                                    <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                </div>
 
-                            </script>
+                            </div>
+                        </div>
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+
+
                         </div>
                     </div>
 
                 </div>
+                <div class="container">
+                    <div id="div_disk_section" style="display: none">
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <div class="row">
+                                <h3 class="d-flex justify-content-left">Disco</h3>
+                                <div class="container">
+                                    <div>
+                                        <canvas id="rosquinha"></canvas>
+                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <table class="table table-striped table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">nº</th>
+                                        <th scope="col">Discos</th>
+                                        <th scope="col">Usado (%)</th>
+                                        <th scope="col">Usado (GB)</th>
+                                        <th scope="col">Tamanho (GB/TB)</th>
+                                        <th scope="col">Temperatura (°C)</th>
+                                        <!-- <th scope="col">Disponível</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>C:</td>
+                                        <td>40%</td>
+                                        <td>400GB</td>
+                                        <td>1TB</td>
+                                        <td>43°C</td>
+                                        <!-- <td>600GB(60%)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>F:</td>
+                                        <td style=" background-color: brown;">90%</td>
+                                        <td>180GB</td>
+                                        <td>200GB</td>
+                                        <td>80°C</td>
+                                        <!-- <td>20GB(10%)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>E:</td>
+                                        <td>20%</td>
+                                        <td>100GB</td>
+                                        <td>500GB</td>
+                                        <td>30°C</td>
+                                        <!-- <td>400GB(80%)</td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="div_network_section" style="display: none">
+
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <div class="row">
+                                <h3 class="d-flex justify-content-left">Rede</h3>
+                                <div class="container">
+                                    <div>
+                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row border rounded-lg shadow p-3 my-1 bg-white rounded">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <!--Memoria-->
+
+                <!--Disco-->
+
+                <!--Rede-->
+
+
             </div>
 
+
         </div>
-        <br>
-        <div class="row">
-            <div class="col"></div>
+
+    </div>
+    <!-- <div class="row"> -->
+    <!-- Segunda da  coluna da CPU-->
+
+
+    <!-- Todos os núcleos -->
+    <!-- <div class="d-flex justify-content-center">
+                        <button id="botaomostrar" onclick="MostraNucleos()" type="button"
+                            class="btn btn-outline-dark">Mostrar
+                            todos os núcleos</button>
+                        <button style="display: none;" id="botaoesconder" onclick="EsconderNucleos()" type="button"
+                            class="btn btn-outline-dark">Esconder todos os núcleos</button>
+                        <script>
+                            function MostraNucleos() {
+                                todososnúcleos.style.display = 'block'
+                                botaomostrar.style.display = 'none'
+                                botaoesconder.style.display = 'block'
+                            }
+                            function EsconderNucleos() {
+                                todososnúcleos.style.display = 'none'
+                                botaomostrar.style.display = 'block'
+                                botaoesconder.style.display = 'none'
+                            }
+                        </script>
+                    </div>
+                </div>
+            -->
+    <!-- </div> -->
+
+    <!-- </div>
+    </div> -->
+
+    <div class="col">
+        <div class="row">            
             <div id="todososnúcleos" style="display: none;" class="col border rounded-lg">
                 <h5>Uso por Núcleo:</h5>
                 <h5>Núcleo 1:</h5>
@@ -291,10 +435,10 @@
                 </div>
 
             </div>
-            <div class="col "></div>
-        </div>
-        <br>
-        <div class="row">
+           
+        </div>        
+        <!-- Bloco Memória -->
+        <!-- <div class="row">
             <div class="col"></div>
             <div class="col border rounded-lg shadow p-3 mb-5 bg-white rounded">
                 <h5 class="d-flex justify-content-left">Memória</h5>
@@ -302,81 +446,30 @@
                 <span style="position: absolute;bottom: 5%;left: 42%;font-size: 30px;">25%</span>
             </div>
             <div class="col "></div>
+            <! --Área Teste-->
 
-
-
-            <!---Área Teste-->
-
-
-            <div class="col border rounded-lg shadow p-3 mb-5 bg-white rounded"  style="width: 150%;">
-
-                <h5 style="float: left;">Rede</h5>
-                <br>
-                <div class="d-flex justify-content-end align-items-center">
-                    <span style="font-size: 35px;">0kb/s <i class="fas fa-long-arrow-alt-up"></i></span>
-
-                </div>
-
-                <br>
-                <div class="d-flex justify-content-end align-items-center">
-                    <span style="font-size: 35px;">0kb/s <i class="fas fa-long-arrow-alt-down"></i></span><br>
-
-                </div>
+        <!-- <div class="col border rounded-lg shadow p-3  bg-white rounded">
+            <h5 style="float: left;">Rede</h5>
+            <br>
+            <div class="d-flex justify-content-end align-items-center">
+                <span style="font-size: 35px;">0kb/s <i class="fas fa-long-arrow-alt-up"></i></span>
             </div>
-            <div class="col "></div>
-        </div>
-        <br>
-        <!-- TABELA DE LISTAGEM DE DISCO -->
-        <div class="row">
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">nº</th>
-                        <th scope="col">Discos</th>
-                        <th scope="col">Usado (%)</th>
-                        <th scope="col">Usado (GB)</th>
-                        <th scope="col">Tamanho (GB/TB)</th>
-                        <th scope="col">Temperatura (°C)</th>
-                        <!-- <th scope="col">Disponível</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>C:</td>
-                        <td>40%</td>
-                        <td>400GB</td>
-                        <td>1TB</td>
-                        <td>43°C</td>
-                        <!-- <td>600GB(60%)</td> -->
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>F:</td>
-                        <td style=" background-color: brown;">90%</td>
-                        <td>180GB</td>
-                        <td>200GB</td>
-                        <td>80°C</td>
-                        <!-- <td>20GB(10%)</td> -->
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>E:</td>
-                        <td>20%</td>
-                        <td>100GB</td>
-                        <td>500GB</td>
-                        <td>30°C</td>
-                        <!-- <td>400GB(80%)</td> -->
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <br>
+            <div class="d-flex justify-content-end align-items-center">
+                <span style="font-size: 35px;">0kb/s <i class="fas fa-long-arrow-alt-down"></i></span><br>
+            </div>
+        </div> -->
     </div>
+    <!-- TABELA DE LISTAGEM DE DISCO -->
+    
 </body>
 
 </html>
-
+<!-- <script src="./script/grafico_grande.js"></script> -->
 <script src="funcoes.js"></script>
+<script src="script/DashMaquina_Alternando.js"></script>
+
+<!-- <script src="dashboard.js"></script> -->
 
 <script>
     var teste3 = 0;
