@@ -21,13 +21,13 @@ public class Login extends javax.swing.JFrame {
         //Configurando a conexão com banco de dados
         BasicDataSource dataSource=new BasicDataSource();
         //Iniciando a classe do Driver de Banco
-        dataSource.setDriverClassName("org.h2.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         //Iniciando a url do banco
-        dataSource.setUrl("jdbc:h2:file:./login");
+        dataSource.setUrl("jdbc:mysql://localhost/maquinas?useTimezone=true&serverTimezone=UTC");
         
         //login e senha para entrar no banco
-        dataSource.setUsername("sa");
-        dataSource.setPassword("");
+        dataSource.setUsername("urubu100");
+        dataSource.setPassword("urubu100");
         
         
         jdbcTemplate = new  JdbcTemplate(dataSource);
@@ -139,16 +139,25 @@ public class Login extends javax.swing.JFrame {
         String senhaDigitada=tfSenha.getText();
         List<Usuario> consultaUsuario=jdbcTemplate.query("select*from Usuario where email=? and senha=?",new BeanPropertyRowMapper(Usuario.class),loginDigitado,senhaDigitada);
         
+        String profi="";
         for (Usuario consulta : consultaUsuario) {
             lbResultado.setText(String.format("Bem vindo "+consulta.getNomeUsuario()));
+            profi=consulta.getCargo();
         }
         if (consultaUsuario.isEmpty()) {
            lbResultado.setText("login recusado");
         }
         else{
-            Dash tela2=new Dash();
-            tela2.show();
-            dispose();
+            if (profi.equals("Analista")) {
+                Dash tela2=new Dash();
+                tela2.show();
+                dispose();
+            }
+            else{
+                DashGerente tela3=new DashGerente();
+                tela3.show();
+                dispose();
+            }
         }
         
         
