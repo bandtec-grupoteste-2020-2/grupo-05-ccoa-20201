@@ -6,7 +6,7 @@ from random import randint
 
 class CrawlerOpenHardwareMonitor:
     def __init__(self):
-        self.url = 'http://192.168.0.8:9000/data.json'
+        self.url = 'http://192.168.1.41:8085/data.json'
         self.data = None
     
     def getJsonData(self):
@@ -97,7 +97,7 @@ class CrawlerOpenHardwareMonitor:
                                 if memory['Text'] == 'Available Memory':
                                     info['Memory']['Available'] = memory['Value']
                 # Disk
-                if desktop['Text'].find('HD') >= 0 or desktop['Text'].find('SSD') >= 0:
+                if desktop['Text'].find('HD') >= 0 or desktop['Text'].find('SSD') >= 0 or desktop['Text'].find('ST1000DM003-1CH162') >= 0:
                     for disk_metrics in desktop["Children"]:
                         # Load
                         if disk_metrics["Text"] == "Load":

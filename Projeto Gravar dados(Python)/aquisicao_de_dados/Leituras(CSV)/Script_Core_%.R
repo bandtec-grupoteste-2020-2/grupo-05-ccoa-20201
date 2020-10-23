@@ -1,7 +1,9 @@
-if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
+if (Maquina_IOT >= 1 ) {
   nome_tabela=Maquina_IOT
 } 
-
+if ( Maquina.IOT >= 1) {
+  nome_tabela=Maquina.IOT
+}
 #Criação dos subconjuntos
 {
   cpu_core1_uso_perc=subset(subset(nome_tabela,descricao=='Core 1'),metrica=='%')
