@@ -1,16 +1,31 @@
-nome_tabela=Maquina.IOT
+if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
+  nome_tabela=Maquina_IOT
+} 
 
-Memoria_percent=subset(nome_tabela,descricao=='Memoria uso %',metrica='%')
-plot(as.Date(Memoria_percent$tempoLeitura),Memoria_percent$valor,main = 'Memória usada em %',xlab ="Tempo",ylab = "%" )
-hist(Memoria_percent$valor,main = 'Memória usada em %',xlab ='Valor da memória usada em %',ylab = 'Frequência' )
+#Criação dos subconjuntos
+{
+  Memoria_percent=subset(nome_tabela,descricao=='Memoria uso %',metrica='%')
+  Memoria_uso=subset(nome_tabela,descricao=='Memoria uso GB',metrica='GB')
+  Memoria_livre=subset(nome_tabela,descricao=='Memoria livre GB',metrica='GB')
+}
+
+#Criação dos plot
+{
+  par(mfrow=c(2,2), mar=c(4,4,3.5,0.5))
+  plot(as.Date(Memoria_percent$tempoLeitura),Memoria_percent$valor,main = 'Memória usada em %',xlab ="Tempo",ylab = "%" )
+  plot(as.Date(Memoria_uso$tempoLeitura),Memoria_uso$valor,main = 'Memória usada em GB',xlab ="Tempo",ylab = "GB" )
+  plot(as.Date(Memoria_livre$tempoLeitura),Memoria_livre$valor,main = 'Memória Livre em GB',xlab ="Tempo",ylab = "GB" )
+}
+
+#Criação dos Hist
+{
+  par(mfrow=c(2,2), mar=c(2.5,4,3.5,0.5))
+  hist(Memoria_percent$valor,main = 'Memória usada em %',xlab ='Valor da memória usada em %',ylab = 'Frequência' )
+  hist(Memoria_uso$valor,main = 'Memoria uso GB',xlab ='Valor da memória usada em GB',ylab = 'Frequência' )
+  hist(Memoria_livre$valor,main = 'Memoria livre GB',xlab ='Valor da memória usada em GB',ylab = 'Frequência' )
+}
+
+#Criação dos summary
 summary(Memoria_percent$valor)
-
-Memoria_uso=subset(nome_tabela,descricao=='Memoria uso GB',metrica='GB')
-plot(as.Date(Memoria_uso$tempoLeitura),Memoria_uso$valor,main = 'Memória usada em GB',xlab ="Tempo",ylab = "GB" )
-hist(Memoria_uso$valor,main = 'Memoria uso GB',xlab ='Valor da memória usada em GB',ylab = 'Frequência')
 summary(Memoria_uso$valor)
-
-Memoria_livre=subset(nome_tabela,descricao=='Memoria livre GB',metrica='GB')
-plot(as.Date(Memoria_livre$tempoLeitura),Memoria_livre$valor,main = 'Memória Livre em GB',xlab ="Tempo",ylab = "GB" )
-hist(Memoria_livre$valor,main = 'Memoria livre GB',xlab ='Valor da memória usada em GB',ylab = 'Frequência')
 summary(Memoria_livre$valor)
