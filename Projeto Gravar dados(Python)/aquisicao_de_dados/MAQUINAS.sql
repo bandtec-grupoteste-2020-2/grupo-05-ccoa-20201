@@ -83,12 +83,14 @@ insert into Maquina values
    
 select * from Empresa;
 select * from Usuario;
+update Usuario set email = 'thiago@japao.com' where idUsuario=3	;
+
 select * from Maquina;
 desc maquina;
 select * from Componente;
 select * from MaquinaComponente;
 
-select * from leitura order by idLeitura desc limit 1;
+select * from leitura order by idLeitura desc ;
 
 alter table maquinacomponente add column ativado bit;
 update MaquinaComponente set ativado = 1 where idmaquinacomponente>=1;
@@ -102,17 +104,17 @@ select * from leitura where descricao like "Core%" order by idleitura desc limit
 -- todas as leituras
 select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica
 from maquina, leitura, componente, maquinaComponente 
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=3
 order by idLeitura ; 
 -- leituras apenas dos núcleos, e da máquina 1
 select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica
 from maquina, leitura, componente, maquinaComponente 
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1 and descricao like "Core%" and metrica = '%'
 order by idLeitura ; 
--- leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia.
+-- leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia. Esse é o que usado para criar os CSV
 select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
 from maquina, leitura, componente, maquinaComponente ,clima
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%' and dia=CAST(tempoleitura AS DATE)
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=3  and dia=CAST(tempoleitura AS DATE)
 order by idLeitura ; 
 -- faz uma média das leitura do dia, 
 select  maquina.tipoMaquina, leitura.descricao, round(avg(leitura.valor),2) as media, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
