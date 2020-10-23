@@ -12,9 +12,9 @@ if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
 #Criação dos plot
 {
   par(mfrow=c(2,2), mar=c(4,4,3.5,0.5))
-  plot(as.Date(Memoria_percent$tempoLeitura),Memoria_percent$valor,main = 'Memória usada em %',xlab ="Tempo",ylab = "%" )
-  plot(as.Date(Memoria_uso$tempoLeitura),Memoria_uso$valor,main = 'Memória usada em GB',xlab ="Tempo",ylab = "GB" )
-  plot(as.Date(Memoria_livre$tempoLeitura),Memoria_livre$valor,main = 'Memória Livre em GB',xlab ="Tempo",ylab = "GB" )
+  plot(as.Date(Memoria_percent$dataleitura),Memoria_percent$valor,main = 'Memória usada em %',xlab ="Tempo",ylab = "%" )
+  plot(as.Date(Memoria_uso$dataleitura),Memoria_uso$valor,main = 'Memória usada em GB',xlab ="Tempo",ylab = "GB" )
+  plot(as.Date(Memoria_livre$dataleitura),Memoria_livre$valor,main = 'Memória Livre em GB',xlab ="Tempo",ylab = "GB" )
 }
 
 #Criação dos Hist

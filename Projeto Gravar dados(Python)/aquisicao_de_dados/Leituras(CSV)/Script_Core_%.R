@@ -13,10 +13,10 @@ if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
 #Criação de cada plot (dias da semana)
 {
   par(mfrow=c(2,2), mar=c(4,4,3.5,0.5))
-  plot(as.Date(cpu_core1_uso_perc$tempoLeitura),cpu_core1_uso_perc$valor,main = 'Uso da core 1 %/tempo',xlab ="Tempo",ylab = "%" )
-  plot(as.Date(cpu_core2_uso_perc$tempoLeitura),cpu_core2_uso_perc$valor,main = 'Uso da core 2 %/tempo',xlab ="Tempo",ylab = "%" ) 
-  plot(as.Date(cpu_core3_uso_perc$tempoLeitura),cpu_core3_uso_perc$valor,main = 'Uso da core 3 %/tempo',xlab ="Tempo",ylab = "%" )
-  plot(as.Date(cpu_core4_uso_perc$tempoLeitura),cpu_core4_uso_perc$valor,main = 'Uso da core 4 %/tempo',xlab ="Tempo",ylab = "%" )
+  plot(as.Date(cpu_core1_uso_perc$dataleitura),cpu_core1_uso_perc$valor,main = 'Uso da core 1 %/tempo',xlab ="Tempo",ylab = "%" )
+  plot(as.Date(cpu_core2_uso_perc$dataleitura),cpu_core2_uso_perc$valor,main = 'Uso da core 2 %/tempo',xlab ="Tempo",ylab = "%" ) 
+  plot(as.Date(cpu_core3_uso_perc$dataleitura),cpu_core3_uso_perc$valor,main = 'Uso da core 3 %/tempo',xlab ="Tempo",ylab = "%" )
+  plot(as.Date(cpu_core4_uso_perc$dataleitura),cpu_core4_uso_perc$valor,main = 'Uso da core 4 %/tempo',xlab ="Tempo",ylab = "%" )
 }
 
 #Criação de cada plot (ordenado por Id)
