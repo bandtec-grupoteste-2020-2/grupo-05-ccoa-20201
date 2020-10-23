@@ -34,7 +34,53 @@ if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
   hist(cpu_core2_uso_perc$valor,main = 'Uso da core 2 em Freq / %',xlab ='Valor da CPU usada em %',ylab = 'Frequência' )
   hist(cpu_core3_uso_perc$valor,main = 'Uso da core 3 em Freq / %',xlab ='Valor da CPU usada em %',ylab = 'Frequência' )
   hist(cpu_core4_uso_perc$valor,main = 'Uso da core 4 em Freq / %',xlab ='Valor da CPU usada em %',ylab = 'Frequência' )
+  
+  #Estado em que o core da CPU se encontra
+  #CPU CORE 1 %
+  if (nrow(cpu_core1_uso_perc[cpu_core1_uso_perc$valor <= 30,]) > floor(nrow(cpu_core1_uso_perc)* 0.5)){
+    print("CPU Core1 se encontra em estado BOM!")
+    
+  } else if(nrow(cpu_core1_uso_perc[cpu_core1_uso_perc$valor <= 60,]) > floor(nrow(cpu_core1_uso_perc)* 0.5)){
+    print("CPU Core1 se encontra em estado de ALERTA!")
+    
+  } else {
+    print("CPU Core1 se encontra em estado de EMERGÊNCIA!")
+  }
+  
+  #CPU CORE 2 %
+  if (nrow(cpu_core2_uso_perc[cpu_core2_uso_perc$valor <= 30,]) > floor(nrow(cpu_core2_uso_perc)* 0.5)){
+    print("CPU Core2 se encontra em estado BOM!")
+    
+  } else if(nrow(cpu_core2_uso_perc[cpu_core2_uso_perc$valor <= 60,]) > floor(nrow(cpu_core2_uso_perc)* 0.5)){
+    print("CPU Core2 se encontra em estado de ALERTA!")
+    
+  } else {
+    print("CPU Core2 se encontra em estado de EMERGÊNCIA!")
+  }
+  
+  #CPU CORE 3 %
+  if (nrow(cpu_core3_uso_perc[cpu_core3_uso_perc$valor <= 30,]) > floor(nrow(cpu_core3_uso_perc)* 0.5)){
+    print("CPU Core3 se encontra em estado BOM!")
+    
+  } else if(nrow(cpu_core3_uso_perc[cpu_core3_uso_perc$valor <= 60,]) > floor(nrow(cpu_core3_uso_perc)* 0.5)){
+    print("CPU Core3  se encontra em estado de ALERTA!")
+    
+  } else {
+    print("CPU Core3  se encontra em estado de EMERGÊNCIA!")
+  }
+  
+  #CPU CORE 4 %
+  if (nrow(cpu_core4_uso_perc[cpu_core4_uso_perc$valor <= 30,]) > floor(nrow(cpu_core4_uso_perc)* 0.5)){
+    print("CPU Core4 se encontra em estado BOM!")
+    
+  } else if(nrow(cpu_core4_uso_perc[cpu_core4_uso_perc$valor <= 60,]) > floor(nrow(cpu_core4_uso_perc)* 0.5)){
+    print("CPU Core4 se encontra em estado de ALERTA!")
+    
+  } else {
+    print("CPU Core4 se encontra em estado de EMERGÊNCIA!")
+  }
 }
+
 
 #Criação dos summary
 
