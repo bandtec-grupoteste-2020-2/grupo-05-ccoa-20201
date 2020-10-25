@@ -26,7 +26,8 @@
     <!-- Icone na amba do navegador -->
     <link rel="shortcut icon" href="img/arvore.png">
 
-
+    <script data-jsd-embedded data-key="2e6cfa70-127d-4fe6-8d96-db19dba3fb7b"
+      data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
 
 </head>
 
@@ -154,7 +155,7 @@
                         </div>
                     </div>
 
-                   
+
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
 
@@ -183,7 +184,7 @@
     <!-- <div class="row"> -->
     <div class="container-fluid">
 
-<!-- 
+<!--
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
@@ -192,20 +193,20 @@
             </div>
         </nav>
 
-        
-        
-        
+
+
+
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><div id="div_cpu_section">
                 <div class="border rounded-lg shadow py-3 my-1 bg-white rounded">
-                 
+
                     <div class="col">
                         <div class="container">
                             <h3 class="d-flex justify-content-left">CPU</h3>
-                 
+
                                 <canvas class="my-100" id="cpu_use_chart"></canvas>
-                 
-                 
+
+
                         </div>
                     </div>
                 </div>
@@ -230,8 +231,8 @@
             </div></div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><div id="div_memory_section">
                 <div class="border rounded-lg shadow p-3 my-1 bg-white rounded">
-                 
-                        
+
+
                         <div class="col">
                             <div class="container">
                                 <h3 class="d-flex justify-content-left">Memória</h3>
@@ -249,7 +250,7 @@
             </div></div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><div id="div_disk_section">
                 <div class="border rounded-lg shadow p-3 my-1 bg-white rounded">
-                
+
                     <div class="col">
                         <div class="container">
                             <h3 class="d-flex justify-content-left">Disco</h3>
@@ -257,7 +258,7 @@
                             </div>
                         </div>
 
-                
+
                 </div>
                 <div class="border rounded-lg shadow p-3 my-1 bg-white rounded">
                     <table class="table table-striped table-dark">
@@ -298,7 +299,7 @@
                                 <td>100GB</td>
                                 <td>500GB</td>
                                 <td>30°C</td>
-  
+
                             </tr>
                         </tbody>
                     </table>
@@ -306,9 +307,9 @@
             </div></div>
         </div> -->
 
-                
+
     <div class="row mt-3">
-            
+
 
 
 
@@ -320,7 +321,7 @@
                       <a class="nav-link" id="v-pills-disk-tab" data-toggle="pill" href="#v-pills-disk" role="tab" aria-controls="v-pills-disk" aria-selected="false">Disco</a>
                       <a class="nav-link" id="v-pills-network-tab" data-toggle="pill" href="#v-pills-network" role="tab" aria-controls="v-pills-network" aria-selected="false">Rede</a>
 
-                    </div>                    
+                    </div>
                 </div>
 
                 <ul class="nav justify-content-center mt-3">
@@ -371,13 +372,13 @@
                     <div id="div_memory_section">
                         <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
                             <!-- <div class="row"> -->
-                                
+
                                 <div class="col">
                                     <div class="container">
                                         <h3 class="d-flex justify-content-left">Memória</h3>
                                         <canvas id="memory_use_chart"></canvas>
                                     </div>
-                                    
+
                                     <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
                                     <!-- <canvas id="rosquinha"></canvas> -->
                                 </div>
@@ -393,7 +394,7 @@
                 <div class="tab-pane fade" id="v-pills-disk" role="tabpanel" aria-labelledby="v-pills-disk-tab">
                     <div id="div_disk_section">
                         <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
-                        
+
                             <div class="col">
                                 <div class="container">
                                     <h3 class="d-flex justify-content-left">Disco</h3>
@@ -403,7 +404,7 @@
                                     </div>
                                 </div>
 
-                        
+
                         </div>
                         <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
                             <table class="table table-striped table-dark">
@@ -455,7 +456,7 @@
                     <div id="div_network_section">
 
                     <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
-                        
+
                         <div class="col">
                             <div class="container">
                                 <h3 class="d-flex justify-content-left">Rede</h3>
@@ -464,7 +465,7 @@
                                 </div>
 
                             </div>
-                        
+
                     </div>
                     <!-- <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
 
@@ -764,7 +765,7 @@ var myChart = new Chart(ctx, {
                 }]
             }
         }
-    }); 
+    });
 </script>
 <script>
     var ctx = document.getElementById('network_use_chart').getContext('2d');
