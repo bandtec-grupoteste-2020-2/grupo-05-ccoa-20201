@@ -21,13 +21,13 @@ public class Login extends javax.swing.JFrame {
         //Configurando a conexão com banco de dados
         BasicDataSource dataSource=new BasicDataSource();
         //Iniciando a classe do Driver de Banco
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setDriverClassName("org.h2.Driver");
         //Iniciando a url do banco
-        dataSource.setUrl("jdbc:mysql://localhost/maquinas?useTimezone=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:h2:file:./login");
         
         //login e senha para entrar no banco
-        dataSource.setUsername("urubu100");
-        dataSource.setPassword("urubu100");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("");
         
         
         jdbcTemplate = new  JdbcTemplate(dataSource);
