@@ -36,16 +36,16 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="tfSenha" max="32767" attributes="0"/>
-                          <Component id="tfLogin" pref="80" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="tfLogin" min="-2" pref="155" max="-2" attributes="0"/>
+                          <Component id="tfSenha" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" pref="73" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lbResultado" pref="189" max="32767" attributes="0"/>
+                      <Component id="lbResultado" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -104,6 +104,13 @@
     <Component class="javax.swing.JTextField" name="tfSenha">
     </Component>
     <Component class="javax.swing.JTextField" name="tfLogin">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Exemplo@dominio.com"/>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

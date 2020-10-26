@@ -1,0 +1,12 @@
+NO WINDOWS
+Abra o CMD ou chegue com o cmd até essa pasta
+java -jar login_dash-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+NO LINUX
+sudo apt install curl
+curl -s “https://get.sdkman.io” | bash
+source “$HOME/.sdkman/bin/sdkman-init.sh”
+sdk install java 8.0.265.j9-adpt
+
+Após isso
+java -jar login_dash-1.0-SNAPSHOT-jar-with-dependencies.jar

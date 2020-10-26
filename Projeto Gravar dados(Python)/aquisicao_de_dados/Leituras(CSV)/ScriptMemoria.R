@@ -1,5 +1,5 @@
 if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
-  nome_tabela=Maquina_IOT
+  nome_tabela=Maquina_IOT || nome_tabela =Maquina.IOT
 } 
 
 #Criação dos subconjuntos
@@ -29,3 +29,10 @@ if (Maquina_IOT >= 1 || Maquina.IOT >= 1) {
 summary(Memoria_percent$valor)
 summary(Memoria_uso$valor)
 summary(Memoria_livre$valor)
+
+#Criação dos plot em linear model 
+  par(mfrow=c(2,2), mar=c(4,4,3.5,0.5))
+  plot(lm(Memoria_percent$valor~Memoria_percent$idLeitura))
+  plot(lm(Memoria_uso$valor~Memoria_uso$idLeitura))
+  plot(lm(Memoria_livre$valor~Memoria_livre$idLeitura))
+  
