@@ -3,9 +3,10 @@ from services.component import Cpu
 from services.dataGenerator import get_data_cpu
 from services.dataGenerator import get_data_ram
 from services.dataGenerator import get_data_disco
-from services.dataGenerator import enviar
 from services.dataGenerator import geranumeroaleatorio
-from services.dataGenerator import verificarMaquina
+from services.slackBot import verificarMaquina
+from services.slackBot import enviar
+
 import time
 
 from datetime import datetime
