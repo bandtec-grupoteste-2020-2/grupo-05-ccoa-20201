@@ -1,0 +1,45 @@
+Isso levando em conta que você já criou a instancia e o volume necessário.
+No site AWS
+Na página Volume
+Attach Volume
+	Device=/dev/sda1
+Na página de instância iniciar a instância
+	Vai em conectar>Cliente SSH> e copia o exemplo ssh -i......
+
+Ir na pasta onde tem a chave que criou anteriormente 
+abrir o git bash
+e colar o ssh -i...
+
+1°Vez que entrar 
+	sudo passwd ubuntu
+		bota uma senha fácil eu coloquei urubu100
+	sudo apt update && sudo apt upgrade
+	sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
+
+	sudo nano /etc/xrdp/xrdp.ini
+		procura onde tem esse max_bpp em baixo e altera para 16
+		max_bpp=16
+
+	sudo nano /etc/X11/Xwrapper.config
+		procura onde tem esse Allowed_users e altera para ubuntu
+		Allowed_users=ubuntu
+
+Esse comando toda vez que iniciar o ubuntu utilizar para criar a interface gráfica
+	service xrdp start
+
+Após iniciar vai em instancias na pagina do aws educate
+e pega o ipv4 publico
+
+Abra o conexão de area de trabalho remota no seu computador
+e cole o ipv4
+Pronto abrirá 
+
+O meu já baixei nosso repositorio então provavel que utilizemos da minhas instancia
+com meu volume. 
+
+Dentro abra o terminal:
+e vá até a pasta target
+cd /home/ubuntu/Downloads/grupo-05-ccoa-20201-master/"Projeto Yoshi (Java)"/login_dash/target
+E execute o java
+com java -jar  login_dash-1.0-SNAPSHOT-jar-with-dependencies.jar
+e pronto
