@@ -144,11 +144,11 @@ order by idLeitura ;
 -- leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia. Esse é o que usado para criar os CSV
 select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
 from maquina, leitura, componente, maquinaComponente ,clima
-<<<<<<< HEAD
+
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente  and dia=CAST(tempoleitura AS DATE)
-=======
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1  and dia=CAST(tempoleitura AS DATE)
->>>>>>> 13d02fc58c5c9be65b6f3553af18e50a9b95ca04
+
+-- where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1  and dia=CAST(tempoleitura AS DATE)
+
 order by idLeitura ; 
 -- faz uma média das leitura do dia, 
 select  maquina.tipoMaquina, leitura.descricao, round(avg(leitura.valor),2) as media, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
