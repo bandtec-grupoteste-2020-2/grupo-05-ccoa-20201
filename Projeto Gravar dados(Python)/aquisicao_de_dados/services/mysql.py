@@ -21,21 +21,15 @@ class Mysql:
             self.cursor = self.mysql.cursor()
         except Exception as err:
             print(err)
-            print("\033[31m", "Erro na Conexão ao Banco", "\033[0;0m")
+            print("\033[31m", "Erro na Conexão ao Banco", "\033[0;0m")                                                                                  
             raise
 
     def insert_comp(self, data):
-        # print(data[2])
-        # data[2]="22.0 °C"
-        # data[2]=str(data[2])
-        # data[2]=data[2].split()[0]
-        # data[2]=float(data[2])
-        # print(data[2]) 
-        print(data)    
+        # print(data)
+                
         query = ("INSERT INTO Leitura (fkMaquinaComponente, valor, tempoLeitura, descricao)"
         "VALUES(%s ,%s, %s, %s)"
         )
-        # print(data)
      
         values = data
         try:
@@ -49,7 +43,7 @@ class Mysql:
 
     def insert_comp2(self, data):
     
-        print(data)    
+        # print(data)    
         query = ("INSERT INTO `Clima`(dia, minimo, maximo)"
         "VALUES(%s ,%s, %s)"
         )
@@ -80,7 +74,24 @@ class Mysql:
     #         self.mysql.rollback()
     #         self.close()
 
+    def verificar_ativado_componente(self):
 
+        query = "SELECT idMaquinaComponente, nomeComponente, fkMaquina, ativado FROM MaquinaComponente, Componente WHERE idComponente=fkComponente order by idMaquinaComponente;"
+
+        try:
+            self.cursor.execute(query)
+            select_result = self.cursor.fetchall()
+
+            # for x in select_result:
+            #     print(x)
+
+            return select_result
+
+
+        except Exception as err:
+            print(err)
+            self.mysql.rollback()
+            self.close()
 
     # def insert_cpu(self, data):
 

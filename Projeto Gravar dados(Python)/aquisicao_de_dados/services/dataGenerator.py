@@ -4,6 +4,9 @@ from random import randint
 import requests
 import json
 dici={'text':''}
+
+
+
 def geranumeroaleatorio():
     tipomaquina=randint(1, 3)
     return tipomaquina

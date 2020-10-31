@@ -41,7 +41,8 @@ while True:
         dataset_componentes.append(cada_cpu)
 
     for disco in values_disco[0]:
-        cada_disco = [4, values_disco[0][disco], values_disco[-1], disco]
+
+        cada_disco = [4, values_disco[0][disco], values_disco[-1], disco]    
         dataset_componentes.append(cada_disco)
 
 
@@ -50,15 +51,32 @@ while True:
     # for elemento in dataset_componentes:
     #     verificarMaquina(elemento)
 
-    #dataset_componentes = verificarMaquina(dataset_componentes)
+    # dataset_componentes = verificarMaquina(dataset_componentes)
 
-    print("-"*20 ,"INSERT", "-"*20)
-    for componente in dataset_componentes:        
+    select_maquina_componente_result = mysql.verificar_ativado_componente()
+
+    print("\033[034m","-"*20 ,"INSERT", "-"*20, "\033[0;0m")
+    for componente in dataset_componentes:      
         print(componente)
-        mysql.insert_comp(componente)
+
+        for registro in select_maquina_componente_result:
+
+            if registro[0] == componente[0] and registro[-1] == 1 :
+                mysql.insert_comp(componente)
+                print("O componente", registro[1], 'esta \033[032m ATIVADO \033[0;0m para a maquina', registro[-2])
+                break
+            
+            elif registro[0] == componente[0] and registro[-1] == 0:
+                print("O componente", registro[1], 'esta \033[031m DESATIVADO \033[0;0m para a maquina', registro[-2])
+                    
         print()        
 
-    enviar(dataset_componentes)
+
+
+
+    # enviar(dataset_componentes)
+
+
 
     # print(component_cpu.template_phrase)
     # print(component_cpu.value)
