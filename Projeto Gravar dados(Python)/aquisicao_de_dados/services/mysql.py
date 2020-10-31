@@ -32,7 +32,7 @@ class Mysql:
         # data[2]=float(data[2])
         # print(data[2]) 
         print(data)    
-        query = ("INSERT INTO `Leitura`(fkMaquinaComponente, valor, tempoLeitura, descricao)"
+        query = ("INSERT INTO Leitura (fkMaquinaComponente, valor, tempoLeitura, descricao)"
         "VALUES(%s ,%s, %s, %s)"
         )
         # print(data)

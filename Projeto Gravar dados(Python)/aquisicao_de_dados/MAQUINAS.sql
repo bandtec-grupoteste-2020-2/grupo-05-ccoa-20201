@@ -55,7 +55,7 @@ create table Leitura(
 );
 
 create table Clima (
-idclima int primary key auto_increment,
+idClima int primary key auto_increment,
 dia date,
 minimo int,
 maximo int
@@ -89,7 +89,7 @@ insert into Maquina values
     (null,"8", "4","Usuário","16000","Windows",1),
     (null,"16", "8","Servidor","16000","Windows",1);
 
-insert into maquinacomponente (fkmaquina,fkcomponente)values
+insert into MaquinaComponente (fkMaquina,fkComponente)values
 (1,1),
 (1,2),
 (1,3),
@@ -118,43 +118,43 @@ insert into maquinacomponente (fkmaquina,fkcomponente)values
 select * from Empresa;
 select * from Usuario;
 select * from Maquina;
-desc maquina;
+desc Maquina;
 select * from Componente;
 select * from MaquinaComponente;
-select * from leitura order by idLeitura desc ;
-alter table maquinacomponente add column ativado bit;
-update MaquinaComponente set ativado = 1 where idmaquinacomponente>=1;
-update  maquina set numeroNucleos=6 where idmaquina=2;
-update  maquina set ramTotal=16 where idmaquina=2;
-select * from leitura where descricao like "CPU%" order by idleitura desc limit 6;
-select count(distinct(descricao)) from leitura where descricao like "CPU%";
-select * from leitura;
-select count(distinct(descricao)) as nucleos from leitura where descricao like "Core%";
-select * from leitura where descricao like "Core%" order by idleitura desc limit 6;
--- todas as leituras
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica
-from maquina, leitura, componente, maquinaComponente 
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=3
+select * from Leitura order by idLeitura desc ;
+alter table MaquinaComponente add column ativado bit;
+update MaquinaComponente set ativado = 1 where idMaquinaComponente>=1;
+update  Maquina set numeroNucleos=6 where idMaquina=2;
+update  Maquina set ramTotal=16 where idMaquina=2;
+select * from Leitura where descricao like "CPU%" order by idLeitura desc limit 6;
+select count(distinct(descricao)) from Leitura where descricao like "CPU%";
+select * from Leitura;
+select count(distinct(descricao)) as nucleos from Leitura where descricao like "Core%";
+select * from Leitura where descricao like "Core%" order by idLeitura desc limit 6;
+-- todas as Leituras
+select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica
+from Maquina, Leitura, Componente, MaquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3
 order by idLeitura ; 
--- leituras apenas dos núcleos, e da máquina 1
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica
-from maquina, leitura, componente, maquinaComponente 
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1 and descricao like "Core%" and metrica = '%'
+-- Leituras apenas dos núcleos, e da máquina 1
+select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica
+from Maquina, Leitura, Componente, MaquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=1 and descricao like "Core%" and metrica = '%'
 order by idLeitura ; 
--- leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia. Esse é o que usado para criar os CSV
-select leitura.idLeitura, maquina.tipoMaquina, leitura.descricao, leitura.valor, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
-from maquina, leitura, componente, maquinaComponente ,clima
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente  and dia=CAST(tempoleitura AS DATE)
+-- Leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia. Esse é o que usado para criar os CSV
+select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica, CAST(tempoLeitura AS DATE) as dataLeitura,minimo,maximo
+from Maquina, Leitura, Componente, MaquinaComponente, Clima
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente  and dia=CAST(tempoLeitura AS DATE)
 order by idLeitura ; 
--- faz uma média das leitura do dia, 
-select  maquina.tipoMaquina, leitura.descricao, round(avg(leitura.valor),2) as media, componente.metrica, CAST(tempoleitura AS DATE) as dataleitura,minimo,maximo
-from maquina, leitura, componente, maquinaComponente,clima
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=1 and descricao like "Core%" and metrica = '%' and dia=CAST(tempoleitura AS DATE)
-group by CAST(tempoleitura AS DATE); 
+-- faz uma média das Leitura do dia, 
+select  Maquina.tipoMaquina, Leitura.descricao, round(avg(Leitura.valor),2) as media, Componente.metrica, CAST(tempoLeitura AS DATE) as dataLeitura,minimo,maximo
+from Maquina, Leitura, Componente, MaquinaComponente, Clima
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=1 and descricao like "Core%" and metrica = '%' and dia=CAST(tempoLeitura AS DATE)
+group by CAST(tempoLeitura AS DATE); 
 select valor as media
-from maquina, leitura, componente, maquinaComponente 
-where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idmaquina=2 and descricao like "Core%" and metrica = '%'
+from Maquina, Leitura, Componente, MaquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=2 and descricao like "Core%" and metrica = '%'
 order by idLeitura desc ;
-truncate leitura;
+-- truncate Leitura;
 select * from  Clima;
 select * from Componente;
