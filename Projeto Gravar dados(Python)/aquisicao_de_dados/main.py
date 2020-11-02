@@ -3,7 +3,6 @@ from services.component import Cpu
 from services.dataGenerator import get_data_cpu
 from services.dataGenerator import get_data_ram
 from services.dataGenerator import get_data_disco
-from services.dataGenerator import geranumeroaleatorio
 from services.slackBot import verificarMaquina
 from services.slackBot import enviar
 
@@ -20,7 +19,6 @@ mysql = Mysql('urubu100', 'urubu100', 'localhost', 'MAQUINAS')
 mysql.connect()
  
 while True:
-    fk_maquina = geranumeroaleatorio()
 
     # dataset_componentes = []
 
