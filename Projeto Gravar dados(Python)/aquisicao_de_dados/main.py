@@ -8,6 +8,7 @@ from services.slackBot import verificarMaquina
 from services.slackBot import enviar
 
 import time
+from random import randint
 
 from datetime import datetime
 
@@ -30,19 +31,19 @@ while True:
     # print(values_ram)
     # print(values_cpu)
     # print(values_disco)
-
+    fk_maquina = randint(0, 2)*8
     dataset_componentes = [
-        [6, values_ram[0], values_ram[-1], 'ram_por'],
-        [7, values_ram[1], values_ram[-1], 'ram_gb']
+        [6 + fk_maquina, values_ram[0], values_ram[-1], 'ram_por'],
+        [7 + fk_maquina, values_ram[1], values_ram[-1], 'ram_gb']
     ]
     
     for cpu in values_cpu[0]:
-        cada_cpu = [1, values_cpu[0][cpu], values_cpu[-1], cpu]
+        cada_cpu = [1 + fk_maquina, values_cpu[0][cpu], values_cpu[-1], cpu]
         dataset_componentes.append(cada_cpu)
 
     for disco in values_disco[0]:
 
-        cada_disco = [4, values_disco[0][disco], values_disco[-1], disco]    
+        cada_disco = [4 + fk_maquina, values_disco[0][disco], values_disco[-1], disco]    
         dataset_componentes.append(cada_disco)
 
 
