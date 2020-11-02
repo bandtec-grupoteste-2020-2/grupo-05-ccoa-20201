@@ -1,4 +1,5 @@
 
+DROP DATABASE IF EXISTS MAQUINAS;
 CREATE DATABASE MAQUINAS;
 use MAQUINAS;
 -- drop database Maquinas;
@@ -42,7 +43,8 @@ create table MaquinaComponente(
     fkMaquina int,
     foreign key (fkMaquina) references Maquina (idMaquina),
     fkComponente int,
-    foreign key (fkComponente) references Componente (idComponente)
+    foreign key (fkComponente) references Componente (idComponente),
+    ativado bit
 );
 
 create table Leitura(
@@ -89,31 +91,31 @@ insert into Maquina values
     (null,"8", "4","Usuário","16000","Windows",1),
     (null,"16", "8","Servidor","16000","Windows",1);
 
-insert into MaquinaComponente (fkMaquina,fkComponente)values
-(1,1),
-(1,2),
-(1,3),
-(1,4),
-(1,5),
-(1,6),
-(1,7),
-(1,8),
-(2,1),
-(2,2),
-(2,3),
-(2,4),
-(2,5),
-(2,6),
-(2,7),
-(2,8),
-(3,1),
-(3,2),
-(3,3),
-(3,4),
-(3,5),
-(3,6),
-(3,7),
-(3,8);
+insert into MaquinaComponente (fkMaquina,fkComponente, ativado) values
+(1,1,0),
+(1,2,0),
+(1,3,0),
+(1,4,1),
+(1,5,1),
+(1,6,1),
+(1,7,1),
+(1,8,1),
+(2,1,1),
+(2,2,1),
+(2,3,1),
+(2,4,0),
+(2,5,0),
+(2,6,1),
+(2,7,1),
+(2,8,1),
+(3,1,1),
+(3,2,1),
+(3,3,1),
+(3,4,1),
+(3,5,1),
+(3,6,0),
+(3,7,0),
+(3,8,0);
 
 select * from Empresa;
 select * from Usuario;
@@ -122,8 +124,8 @@ desc Maquina;
 select * from Componente;
 select * from MaquinaComponente;
 select * from Leitura order by idLeitura desc ;
-alter table MaquinaComponente add column ativado bit;
-update MaquinaComponente set ativado = 1 where idMaquinaComponente>=1;
+-- alter table MaquinaComponente add column ativado bit;
+-- update MaquinaComponente set ativado = 1 where idMaquinaComponente>=1;
 update  Maquina set numeroNucleos=6 where idMaquina=2;
 update  Maquina set ramTotal=16 where idMaquina=2;
 select * from Leitura where descricao like "CPU%" order by idLeitura desc limit 6;

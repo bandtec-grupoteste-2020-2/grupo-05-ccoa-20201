@@ -76,7 +76,7 @@ class Mysql:
 
     def verificar_ativado_componente(self):
 
-        query = "SELECT idMaquinaComponente, nomeComponente, fkMaquina, ativado FROM MaquinaComponente, Componente WHERE idComponente=fkComponente order by idMaquinaComponente;"
+        query = "SELECT idMaquinaComponente, nomeComponente, fkMaquina, ativado FROM MaquinaComponente, Componente WHERE idComponente=fkComponente;"
 
         try:
             self.cursor.execute(query)
