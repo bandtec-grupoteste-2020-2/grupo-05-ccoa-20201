@@ -457,13 +457,13 @@
                                             var linhasalteradas = resposta.affectedRows;
                                             if (linhasalteradas == 0) {
                                                 fetch(`http://localhost:5000/api/criar/${maquina}/${componente}/${ativado}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
-                                    if (response.ok) {
-                                        console.log("Alterado com sucesso")
-                                    } else {
-                                        console.error('Nenhum dado encontrado ou erro na API');
-                                    }
-                                    return false;
-                                });
+                                                    if (response.ok) {
+                                                        console.log("Alterado com sucesso")
+                                                    } else {
+                                                        console.error('Nenhum dado encontrado ou erro na API');
+                                                    }
+                                                    return false;
+                                                });
 
                                             }
 
