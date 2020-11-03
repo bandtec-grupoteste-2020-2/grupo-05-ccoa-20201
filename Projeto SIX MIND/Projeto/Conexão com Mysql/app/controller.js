@@ -53,5 +53,19 @@ router.post('/enviar/:maquina/:componente/:ativado', (request, response) => {
    
 });
 
+router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
+    let maquina = request.params.maquina;
+	let componente = request.params.componente;
+	let ativado = request.params.ativado;
+    var sql = `insert into maquinacomponente(fkMaquina,fkComponente,ativado) values 
+    (${maquina},${componente},${ativado}); `;
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
 module.exports = router;
 
