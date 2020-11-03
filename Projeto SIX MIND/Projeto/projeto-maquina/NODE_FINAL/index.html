@@ -7,6 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+
 	<style>
 		canvas {
 			-moz-user-select: none;
@@ -17,6 +18,121 @@
 </head>
 
 <body>
+<div>
+	<form onsubmit="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value);return false" id="divselect">
+		Maquina
+		<!-- <input type="number" name="" id="maquina_valor">
+		<input type="number" name="" id="componente">
+		<input type="number" name="" id="ativado_valor"> -->
+
+		<select name="" id="maquina_valor"> 
+
+		</select>
+
+		<select name="" id="componente_valor"> 
+
+		</select>
+
+		<select name="" id="ativado_valor"> 
+			<option type="number" value="0">Desligar</option>
+			<option type="number" value="1">Ligar</option>
+
+		</select>
+		
+
+		<button type="submit">Atualizar</button>
+	</form>
+
+	</div>
+	<script>
+		atualizar_Maquinas();
+function atualizar_Maquinas() {
+
+fetch('http://localhost:3000/api/recebermaquinas', { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+
+		response.json().then(function (resposta) {
+
+			console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+			for (i = 0; i < resposta.length; i++) {
+
+				
+				var registro = resposta[i];
+				const tipodaMaquina = registro.tipoMaquina;
+				const iddaMaquina = registro.idMaquina;
+				
+				var option = new Option( tipodaMaquina,iddaMaquina);
+    			var select = document.getElementById("maquina_valor");
+    			select.add(option);
+
+				
+				
+			}
+		})
+	} else {
+		console.error('Nenhum dado encontrado ou erro na API');
+	}
+}).catch(function (error) {
+	console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+});
+
+}
+///////////////////////////
+atualizar_Componentes();
+function atualizar_Componentes() {
+
+fetch('http://localhost:3000/api/recebercomponentes', { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+
+		response.json().then(function (resposta) {
+
+			console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+			for (i = 0; i < resposta.length; i++) {
+
+				
+				var registro = resposta[i];
+				const nomeComponente = registro.nomeComponente;
+				const idComponente = registro.idComponente;
+				
+				var option = new Option( nomeComponente,idComponente);
+    			var select = document.getElementById("componente_valor");
+    			select.add(option);
+
+				
+				
+			}
+		})
+	} else {
+		console.error('Nenhum dado encontrado ou erro na API');
+	}
+}).catch(function (error) {
+	console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+});
+
+}
+
+	
+		function atualizar_banco(maquina,componente,ativado) {
+			maquina = parseInt(maquina)
+			componente = parseInt(componente)
+			ativado = parseInt(ativado)
+			console.log(maquina)
+			console.log(componente)
+			console.log(ativado)
+			
+fetch(`http://localhost:3000/api/enviar/${maquina}/${componente}/${ativado}`,{method:"POST"}, { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+		console.log("Alterado com sucesso")
+	} else {
+		console.error('Nenhum dado encontrado ou erro na API');
+	}
+	return false;
+});
+}
+	</script>
+
 	<div>
 		<h1>Sensor LM35 - Temperatura</h1>
 			<section>
