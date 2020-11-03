@@ -18,6 +18,11 @@
     "request": "^2.88.2",
     "require": "^2.4.20",
     "sequelize": "^5.21.2",
-    "tedious": "^6.6.0"
+    "tedious": "^6.6.0",
+    
+    "body-parser": "^1.18.2",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
+    "serialport": "^6.0.4"
   }
 }

@@ -1,38 +1,71 @@
-'use strict';
+const express = require('express');
+// const { ArduinoDataTemp } = require('./newserial')
+const db = require('./database')
+const router = express.Router();
 
-var fs        = require('fs');
-var path      = require('path');
-var Sequelize = require('sequelize');
-var basename  = path.basename(__filename);
-var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.js')[env];
-var db        = {};
+let jason={};
 
-console.warn(`\n===> env: ${env}\n`);
+console.log('Chegou onde eu qr');
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    var model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+router.get('/', (request, response, next) => {
+    response.send("Funcionou");
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+router.get('/sendData', (request, response) => {
+    var sql = "SELECT * FROM Usuario";
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+router.get('/recebermaquinas', (request, response) => {
+    var sql = "SELECT * FROM Maquina";
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+router.get('/recebercomponentes', (request, response) => {
+    var sql = "SELECT * FROM Componente";
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
 
-module.exports = db;
+router.post('/enviar/:maquina/:componente/:ativado', (request, response) => {
+    let maquina = request.params.maquina;
+	let componente = request.params.componente;
+	let ativado = request.params.ativado;
+    var sql = `update maquinacomponente set ativado = ${ativado}
+	where fkmaquina = ${maquina} and fkcomponente= '${componente}'; `;
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
+router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
+    let maquina = request.params.maquina;
+	let componente = request.params.componente;
+	let ativado = request.params.ativado;
+    var sql = `insert into maquinacomponente(fkMaquina,fkComponente,ativado) values 
+    (${maquina},${componente},${ativado}); `;
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
+module.exports = router;
+
