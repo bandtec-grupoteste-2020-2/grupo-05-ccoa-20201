@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const axios = require("axios");
-let url_bot = 'https://hooks.slack.com/services/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';
+let url_bot = 'https://hooks.slack.com/services/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';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
