@@ -1,5 +1,6 @@
 package br.com.bandtec.login_dash;
 
+import java.util.ArrayList;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
@@ -32,15 +33,19 @@ public class Configuracao extends javax.swing.JFrame {
         new BeanPropertyRowMapper(Componentes.class));
 //        EM MANUTENÇÃO
         System.out.println(dadosComponentes);
-        Object[] item =dadosComponentes.toArray();
-        DefaultComboBoxModel modelo1 = new DefaultComboBoxModel(item);
-        cbComponente.setModel(modelo1);
+
+        List<String> apenasTipo = new ArrayList<String>();
+
         for (Componentes comp : dadosComponentes) {
             System.out.println(comp.getIdcomponente());
             System.out.println(comp.getNomecomponente());
             System.out.println("-----------------------------------------------");
+            apenasTipo.add(comp.getNomecomponente());
         }
-        System.out.println(item);
+         Object[] item =apenasTipo.toArray();
+        DefaultComboBoxModel modelo1 = new DefaultComboBoxModel(item);
+        cbComponente.setModel(modelo1);
+        System.out.println(apenasTipo);
     }
 
     @SuppressWarnings("unchecked")
