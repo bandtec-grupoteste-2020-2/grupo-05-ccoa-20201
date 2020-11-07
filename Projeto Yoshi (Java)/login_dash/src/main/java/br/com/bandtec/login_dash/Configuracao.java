@@ -21,11 +21,13 @@ public class Configuracao extends javax.swing.JFrame {
     public Configuracao(JdbcTemplate jdbcTemplate) {
         initComponents();
         List<Maquina> dadosMaquinas = jdbcTemplate.query(
-        "select * from Maquina",
+        "select idmaquina,tipomaquina from Maquina;",
         new BeanPropertyRowMapper(Maquina.class));
         System.out.println(dadosMaquinas);
         for (Maquina maq : dadosMaquinas) {
-            System.out.println(maq);
+            System.out.println(maq.getTipoMaquina());
+            System.out.println(maq.getIdMaquina());
+            System.out.println("-----------------------------------------------");
         }
     }
 

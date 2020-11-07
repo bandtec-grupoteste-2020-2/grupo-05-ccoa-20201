@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.bandtec.login_dash;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -137,7 +132,7 @@ public class Login extends javax.swing.JFrame {
         List<Usuario> consultaUsuario=jdbcTemplate.query(
         "select*from Usuario where email=? and senha=?",
         new BeanPropertyRowMapper(Usuario.class),loginDigitado,senhaDigitada);
-        
+         
         String profi="";
         for (Usuario consulta : consultaUsuario) {
             lbResultado.setText(String.format("Bem vindo "+consulta.getNomeUsuario()));
