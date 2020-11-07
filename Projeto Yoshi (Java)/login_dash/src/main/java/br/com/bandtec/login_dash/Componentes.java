@@ -12,8 +12,16 @@ public class Componentes {
         return idcomponente;
     }
 
+    public void setIdcomponente(Integer idcomponente) {
+        this.idcomponente = idcomponente;
+    }
+
     public String getNomecomponente() {
         return nomecomponente;
     }
-    
+
+    public void setNomecomponente(String nomecomponente) {
+        this.nomecomponente = nomecomponente;
+    }
+
 }

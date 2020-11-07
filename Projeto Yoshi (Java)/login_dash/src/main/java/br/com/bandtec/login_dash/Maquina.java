@@ -24,5 +24,4 @@ public class Maquina {
         this.tipoMaquina = tipoMaquina;
     }
 
-    
 }

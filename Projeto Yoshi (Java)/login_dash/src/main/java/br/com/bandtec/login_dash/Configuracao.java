@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.bandtec.login_dash;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -20,6 +15,7 @@ public class Configuracao extends javax.swing.JFrame {
      */
     public Configuracao(JdbcTemplate jdbcTemplate) {
         initComponents();
+//        Para Máquinas
         List<Maquina> dadosMaquinas = jdbcTemplate.query(
         "select idmaquina,tipomaquina from Maquina;",
         new BeanPropertyRowMapper(Maquina.class));
@@ -27,6 +23,16 @@ public class Configuracao extends javax.swing.JFrame {
         for (Maquina maq : dadosMaquinas) {
             System.out.println(maq.getTipoMaquina());
             System.out.println(maq.getIdMaquina());
+            System.out.println("-----------------------------------------------");
+        }
+//        Para Componentes
+        List<Componentes> dadosComponentes = jdbcTemplate.query(
+        "select idComponente,nomeComponente from Componente;",
+        new BeanPropertyRowMapper(Componentes.class));
+        System.out.println(dadosComponentes);
+        for (Componentes comp : dadosComponentes) {
+            System.out.println(comp.getIdcomponente());
+            System.out.println(comp.getNomecomponente());
             System.out.println("-----------------------------------------------");
         }
     }
