@@ -167,8 +167,7 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                         <div>
-                            Configuração de leitura do componente:
-
+                            <h6 class="text-muted" style="font-size: small;">Configuração de leitura do componente:</h6>
                             <form
                                 onsubmit="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value);return false"
                                 id="divselect">
@@ -203,7 +202,7 @@
                                         aria-describedby="basic-addon1">
                                     </select>
                                 </div>
-                                
+
                                 <!-- Ativo -->
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -223,9 +222,11 @@
                                     </select>
                                 </div>
                                 <br>
-                                <button type="submit">Atualizar</button>
+                                <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" style="width: 100%;">
+                                    Atualizar
+                                  </button>
                             </form>
-
+                            
                         </div>
                         <script>
                             atualizar_Maquinas();
