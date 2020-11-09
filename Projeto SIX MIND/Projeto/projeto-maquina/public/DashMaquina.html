@@ -185,232 +185,131 @@
                                         data-parent="#accordionExample">
                                         <div class="card-body">
                                             <form
-                    onsubmit="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value);return false"
-                    id="divselect">
-                    <!-- Máquina -->
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><svg width="1em" height="1em"
-                                    viewBox="0 0 16 16" class="bi bi-display" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z" />
-                                    <path fill-rule="evenodd"
-                                        d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
-                                </svg></span>
-                        </div>
-                        <select name="" id="maquina_valor" class="form-control" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                        </select>
-                    </div>
+                                                onsubmit="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value);return false"
+                                                id="divselect">
+                                                <!-- Máquina -->
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><svg
+                                                                width="1em" height="1em" viewBox="0 0 16 16"
+                                                                class="bi bi-display" fill="currentColor"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
+                                                            </svg></span>
+                                                    </div>
+                                                    <select name="" id="maquina_valor" class="form-control"
+                                                        aria-label="Username" aria-describedby="basic-addon1">
+                                                    </select>
+                                                </div>
 
-                    <!-- Componente -->
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><svg width="1em" height="1em"
-                                    viewBox="0 0 16 16" class="bi bi-gear-fill" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z" />
-                                </svg></span>
-                        </div>
-                        <select id="componente_valor" class="form-control" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                        </select>
-                    </div>
+                                                <!-- Componente -->
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><svg
+                                                                width="1em" height="1em" viewBox="0 0 16 16"
+                                                                class="bi bi-gear-fill" fill="currentColor"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z" />
+                                                            </svg></span>
+                                                    </div>
+                                                    <select id="componente_valor" class="form-control"
+                                                        aria-label="Username" aria-describedby="basic-addon1">
+                                                    </select>
+                                                </div>
 
-                    <!-- Ativo -->
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><svg width="1em" height="1em"
-                                    viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
-                                    <path
-                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z" />
-                                </svg></span>
-                        </div>
-                        <select id="ativado_valor" class="form-control" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                            <option type="number" value="0">Desligar</option>
-                            <option type="number" value="1">Ligar</option>
-                        </select>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false"
-                        style="width: 100%;">
-                        Atualizar
-                    </button>
-                </form>
+                                                <!-- Ativo -->
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><svg
+                                                                width="1em" height="1em" viewBox="0 0 16 16"
+                                                                class="bi bi-link-45deg" fill="currentColor"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                                                <path
+                                                                    d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z" />
+                                                            </svg></span>
+                                                    </div>
+                                                    <select id="ativado_valor" class="form-control"
+                                                        aria-label="Username" aria-describedby="basic-addon1">
+                                                        <option type="number" value="0">Desligar</option>
+                                                        <option type="number" value="1">Ligar</option>
+                                                    </select>
+                                                </div>
+                                                <br>
+                                                <button type="submit" class="btn btn-primary" data-toggle="button"
+                                                    aria-pressed="false" style="width: 100%;">
+                                                    Atualizar
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-            </div>
-            <script>
-                atualizar_Maquinas();
-                function atualizar_Maquinas() {
-
-                    fetch('http://localhost:3000/leituras/recebermaquinas', { cache: 'no-store' }).then(function (response) {
-                        if (response.ok) {
-
-                            response.json().then(function (resposta) {
-
-                                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                                for (i = 0; i < resposta.length; i++) {
-
-
-                                    var registro = resposta[i];
-                                    const tipodaMaquina = registro.tipoMaquina;
-                                    const iddaMaquina = registro.idMaquina;
-
-                                    var option = new Option(tipodaMaquina, iddaMaquina);
-                                    var select = document.getElementById("maquina_valor");
-                                    select.add(option);
-
-
-                                }
-                            })
-                        } else {
-                            console.error('Nenhum dado encontrado ou erro na leituras');
-                        }
-                    }).catch(function (error) {
-                        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                    });
-
-                }
-                ///////////////////////////
-                atualizar_Componentes();
-                function atualizar_Componentes() {
-
-                    fetch('http://localhost:3000/leituras/recebercomponentes', { cache: 'no-store' }).then(function (response) {
-                        if (response.ok) {
-
-                            response.json().then(function (resposta) {
-
-                                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                                for (i = 0; i < resposta.length; i++) {
-
-
-                                    var registro = resposta[i];
-                                    const nomeComponente = registro.nomeComponente;
-                                    const idComponente = registro.idComponente;
-
-                                    var option = new Option(nomeComponente, idComponente);
-                                    var select = document.getElementById("componente_valor");
-                                    select.add(option);
-
-
-
-                                }
-                            })
-                        } else {
-                            console.error('Nenhum dado encontrado ou erro na leituras');
-                        }
-                    }).catch(function (error) {
-                        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                    });
-
-                }
-
-
-                function atualizar_banco(maquina, componente, ativado) {
-                    maquina = parseInt(maquina)
-                    componente = parseInt(componente)
-                    ativado = parseInt(ativado)
-                    console.log(maquina)
-                    console.log(componente)
-                    console.log(ativado)
-
-                    fetch(`http://localhost:3000/leituras/enviar/${maquina}/${componente}/${ativado}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
-                        if (response.ok) {
-                            response.json().then(function (resposta) {
-
-                                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-
-                                var linhasalteradas = resposta.affectedRows;
-                                if (linhasalteradas == 0) {
-                                    fetch(`http://localhost:3000/leituras/criar/${maquina}/${componente}/${ativado}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
-                                        if (response.ok) {
-                                            console.log("Alterado com sucesso")
-                                        } else {
-                                            console.error('Nenhum dado encontrado ou erro na leituras');
-                                        }
-                                        return false;
-                                    });
-
-                                }
-
-                            })
-
-                            console.log("Alterado com sucesso")
-                        } else {
-                            console.error('Nenhum dado encontrado ou erro na leituras');
-                        }
-                        return false;
-                    });
-                }
-            </script>
-        </div>
-    </div>
-    </div>
-
-    <div class="col-9">
-        <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-cpu" role="tabpanel" aria-labelledby="v-pills-cpu-tab">
-                <div id="div_cpu_section">
-                    <div class="rounded-lg shadow py-3 my-1 bg-white rounded">
-                        <!--CPU-->
-                        <div class="col">
-                            <div class="container">
-                                <h3 class="d-flex justify-content-left">CPU</h3>
-                                <!-- <div class="px-5"> -->
-                                <canvas class="my-100" id="cpu_use_chart"></canvas>
-                                <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
-                                <!-- </div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-lg shadow p-3 my-2 bg-white rounded">
-
-                        <div class="col">
-                            <h5> Temperatura:</h5>
-                            <div class="progress" id="bar_temperatura">
-                                <!-- <div class="progress-bar" role="progressbar"
-                                            style="width:60%; background-color: red;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100">60°C</div> -->
-                            </div>
                         </div>
                         <script>
-                            atualizar_temperatura();
-                            function atualizar_temperatura() {
+                            atualizar_Maquinas();
+                            function atualizar_Maquinas() {
 
-                                fetch('http://localhost:3000/leituras/pegarumaleituradetemperatura', { cache: 'no-store' }).then(function (response) {
+                                fetch('http://localhost:3000/leituras/recebermaquinas', { cache: 'no-store' }).then(function (response) {
                                     if (response.ok) {
 
                                         response.json().then(function (resposta) {
 
                                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-
-                                            var registro = resposta;
-                                            console.log(registro)
-                                            const valor_temperatura = registro[0].valor;
-                                            console.log(valor_temperatura)
-
-                                            bar_temperatura.innerHTML = `
-                                                        <div class="progress-bar" role="progressbar"
-                                            style="width:${valor_temperatura}%; background-color: red;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100">${valor_temperatura}°C</div>
-                                                        `
+                                            for (i = 0; i < resposta.length; i++) {
 
 
+                                                var registro = resposta[i];
+                                                const tipodaMaquina = registro.tipoMaquina;
+                                                const iddaMaquina = registro.idMaquina;
 
+                                                var option = new Option(tipodaMaquina, iddaMaquina);
+                                                var select = document.getElementById("maquina_valor");
+                                                select.add(option);
+
+
+                                            }
+                                        })
+                                    } else {
+                                        console.error('Nenhum dado encontrado ou erro na leituras');
+                                    }
+                                }).catch(function (error) {
+                                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                                });
+
+                            }
+                            ///////////////////////////
+                            atualizar_Componentes();
+                            function atualizar_Componentes() {
+
+                                fetch('http://localhost:3000/leituras/recebercomponentes', { cache: 'no-store' }).then(function (response) {
+                                    if (response.ok) {
+
+                                        response.json().then(function (resposta) {
+
+                                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                                            for (i = 0; i < resposta.length; i++) {
+
+
+                                                var registro = resposta[i];
+                                                const nomeComponente = registro.nomeComponente;
+                                                const idComponente = registro.idComponente;
+
+                                                var option = new Option(nomeComponente, idComponente);
+                                                var select = document.getElementById("componente_valor");
+                                                select.add(option);
+
+
+
+                                            }
                                         })
                                     } else {
                                         console.error('Nenhum dado encontrado ou erro na leituras');
@@ -422,126 +321,232 @@
                             }
 
 
+                            function atualizar_banco(maquina, componente, ativado) {
+                                maquina = parseInt(maquina)
+                                componente = parseInt(componente)
+                                ativado = parseInt(ativado)
+                                console.log(maquina)
+                                console.log(componente)
+                                console.log(ativado)
+
+                                fetch(`http://localhost:3000/leituras/enviar/${maquina}/${componente}/${ativado}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
+                                    if (response.ok) {
+                                        response.json().then(function (resposta) {
+
+                                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+
+                                            var linhasalteradas = resposta.affectedRows;
+                                            if (linhasalteradas == 0) {
+                                                fetch(`http://localhost:3000/leituras/criar/${maquina}/${componente}/${ativado}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
+                                                    if (response.ok) {
+                                                        console.log("Alterado com sucesso")
+                                                    } else {
+                                                        console.error('Nenhum dado encontrado ou erro na leituras');
+                                                    }
+                                                    return false;
+                                                });
+
+                                            }
+
+                                        })
+
+                                        console.log("Alterado com sucesso")
+                                    } else {
+                                        console.error('Nenhum dado encontrado ou erro na leituras');
+                                    }
+                                    return false;
+                                });
+                            }
                         </script>
-                        <div class="col">
-                            <h5>Clock:</h5>
-                            <div class="progress">
-                                <div class="progress-bar w-100" role="progressbar" style="width: 3000%;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="3000">3000MHz</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="v-pills-memory" role="tabpanel" aria-labelledby="v-pills-memory-tab">
-                <div id="div_memory_section">
-                    <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
-                        <!-- <div class="row"> -->
 
-                        <div class="col">
-                            <div class="container">
-                                <h3 class="d-flex justify-content-left">Memória</h3>
-                                <canvas id="memory_use_chart"></canvas>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-cpu" role="tabpanel"
+                        aria-labelledby="v-pills-cpu-tab">
+                        <div id="div_cpu_section">
+                            <div class="rounded-lg shadow py-3 my-1 bg-white rounded">
+                                <!--CPU-->
+                                <div class="col">
+                                    <div class="container">
+                                        <h3 class="d-flex justify-content-left">CPU</h3>
+                                        <!-- <div class="px-5"> -->
+                                        <canvas class="my-100" id="cpu_use_chart"></canvas>
+                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
                             </div>
+                            <div class="rounded-lg shadow p-3 my-2 bg-white rounded">
 
-                            <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
-                            <!-- <canvas id="rosquinha"></canvas> -->
+                                <div class="col">
+                                    <h5> Temperatura:</h5>
+                                    <div class="progress" id="bar_temperatura">
+                                        <!-- <div class="progress-bar" role="progressbar"
+                                            style="width:60%; background-color: red;" aria-valuenow="25"
+                                            aria-valuemin="0" aria-valuemax="100">60°C</div> -->
+                                    </div>
+                                </div>
+                                <script>
+                                    atualizar_temperatura();
+                                    function atualizar_temperatura() {
+
+                                        fetch('http://localhost:3000/leituras/pegarumaleituradetemperatura', { cache: 'no-store' }).then(function (response) {
+                                            if (response.ok) {
+
+                                                response.json().then(function (resposta) {
+
+                                                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+
+                                                    var registro = resposta;
+                                                    console.log(registro)
+                                                    const valor_temperatura = registro[0].valor;
+                                                    console.log(valor_temperatura)
+
+                                                    bar_temperatura.innerHTML = `
+                                                        <div class="progress-bar" role="progressbar"
+                                            style="width:${valor_temperatura}%; background-color: red;" aria-valuenow="25"
+                                            aria-valuemin="0" aria-valuemax="100">${valor_temperatura}°C</div>
+                                                        `
+
+
+
+                                                })
+                                            } else {
+                                                console.error('Nenhum dado encontrado ou erro na leituras');
+                                            }
+                                        }).catch(function (error) {
+                                            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                                        });
+
+                                    }
+
+
+                                </script>
+                                <div class="col">
+                                    <h5>Clock:</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar w-100" role="progressbar" style="width: 3000%;"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="3000">3000MHz</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- </div> -->
                     </div>
-                    <!-- <div class="border rounded-lg shadow p-3 my-1 bg-white rounded">
+                    <div class="tab-pane fade" id="v-pills-memory" role="tabpanel" aria-labelledby="v-pills-memory-tab">
+                        <div id="div_memory_section">
+                            <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                                <!-- <div class="row"> -->
+
+                                <div class="col">
+                                    <div class="container">
+                                        <h3 class="d-flex justify-content-left">Memória</h3>
+                                        <canvas id="memory_use_chart"></canvas>
+                                    </div>
+
+                                    <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                    <!-- <canvas id="rosquinha"></canvas> -->
+                                </div>
+
+                                <!-- </div> -->
+                            </div>
+                            <!-- <div class="border rounded-lg shadow p-3 my-1 bg-white rounded">
 
 
                         </div> -->
-                </div>
-            </div>
-            <div class="tab-pane fade" id="v-pills-disk" role="tabpanel" aria-labelledby="v-pills-disk-tab">
-                <div id="div_disk_section">
-                    <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-disk" role="tabpanel" aria-labelledby="v-pills-disk-tab">
+                        <div id="div_disk_section">
+                            <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
 
-                        <div class="col">
-                            <div class="container">
-                                <h3 class="d-flex justify-content-left">Disco</h3>
-                                <!-- <canvas id="rosquinha"></canvas> -->
-                                <canvas id="disk_use_chart"></canvas>
-                                <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                <div class="col">
+                                    <div class="container">
+                                        <h3 class="d-flex justify-content-left">Disco</h3>
+                                        <!-- <canvas id="rosquinha"></canvas> -->
+                                        <canvas id="disk_use_chart"></canvas>
+                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                                <table class="table table-striped table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">nº</th>
+                                            <th scope="col">Discos</th>
+                                            <th scope="col">Usado (%)</th>
+                                            <th scope="col">Usado (GB)</th>
+                                            <th scope="col">Tamanho (GB/TB)</th>
+                                            <th scope="col">Temperatura (°C)</th>
+                                            <!-- <th scope="col">Disponível</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>C:</td>
+                                            <td>40%</td>
+                                            <td>400GB</td>
+                                            <td>1TB</td>
+                                            <td>43°C</td>
+                                            <!-- <td>600GB(60%)</td> -->
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>F:</td>
+                                            <td style=" background-color: brown;">90%</td>
+                                            <td>180GB</td>
+                                            <td>200GB</td>
+                                            <td>80°C</td>
+                                            <!-- <td>20GB(10%)</td> -->
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>E:</td>
+                                            <td>20%</td>
+                                            <td>100GB</td>
+                                            <td>500GB</td>
+                                            <td>30°C</td>
+                                            <!-- <td>400GB(80%)</td> -->
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
-
                     </div>
-                    <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
-                        <table class="table table-striped table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">nº</th>
-                                    <th scope="col">Discos</th>
-                                    <th scope="col">Usado (%)</th>
-                                    <th scope="col">Usado (GB)</th>
-                                    <th scope="col">Tamanho (GB/TB)</th>
-                                    <th scope="col">Temperatura (°C)</th>
-                                    <!-- <th scope="col">Disponível</th> -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>C:</td>
-                                    <td>40%</td>
-                                    <td>400GB</td>
-                                    <td>1TB</td>
-                                    <td>43°C</td>
-                                    <!-- <td>600GB(60%)</td> -->
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>F:</td>
-                                    <td style=" background-color: brown;">90%</td>
-                                    <td>180GB</td>
-                                    <td>200GB</td>
-                                    <td>80°C</td>
-                                    <!-- <td>20GB(10%)</td> -->
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>E:</td>
-                                    <td>20%</td>
-                                    <td>100GB</td>
-                                    <td>500GB</td>
-                                    <td>30°C</td>
-                                    <!-- <td>400GB(80%)</td> -->
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="v-pills-network" role="tabpanel" aria-labelledby="v-pills-network-tab">
-                <div id="div_network_section">
+                    <div class="tab-pane fade" id="v-pills-network" role="tabpanel"
+                        aria-labelledby="v-pills-network-tab">
+                        <div id="div_network_section">
 
-                    <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
 
-                        <div class="col">
-                            <div class="container">
-                                <h3 class="d-flex justify-content-left">Rede</h3>
-                                <canvas id="network_use_chart"></canvas>
-                                <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                <div class="col">
+                                    <div class="container">
+                                        <h3 class="d-flex justify-content-left">Rede</h3>
+                                        <canvas id="network_use_chart"></canvas>
+                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
+                                    </div>
+
+                                </div>
+
                             </div>
-
-                        </div>
-
-                    </div>
-                    <!-- <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <!-- <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
 
                     </div> -->
 
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
     </div>
 
