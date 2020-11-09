@@ -17,6 +17,8 @@ public class Configuracao extends javax.swing.JFrame {
     
     List<Integer> Idmaq;
     List<Integer> Idcomp;
+    List<String> Nomemaq;
+    List<String> Nomecomp;
     public Configuracao(JdbcTemplate jdbcTemplate) {
         initComponents();
         jdbcTemplate1=jdbcTemplate;
@@ -47,6 +49,7 @@ public class Configuracao extends javax.swing.JFrame {
             apenasIdComp.add(comp.getIdcomponente());
         }
         Idcomp=apenasIdComp;
+        Nomecomp=apenasNome;
         Object[] item =apenasNome.toArray();
         DefaultComboBoxModel modelo1 = new DefaultComboBoxModel(item);
         cbComponente.setModel(modelo1);
@@ -70,6 +73,7 @@ public class Configuracao extends javax.swing.JFrame {
             apenasIdMaq.add(maq.getIdMaquina());
         }
         Idmaq=apenasIdMaq;
+        Nomemaq=apenasTipo;
         Object[] item1 =apenasTipo.toArray();
         DefaultComboBoxModel modelo2 = new DefaultComboBoxModel(item1);
         cbMaquina.setModel(modelo2);
@@ -141,30 +145,29 @@ public class Configuracao extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                                 .addComponent(btFechar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbComponente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbComponente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lbResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(lbResultado)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,9 +189,9 @@ public class Configuracao extends javax.swing.JFrame {
                     .addComponent(cbMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbComponente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(lbResultado)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbResultado, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -205,6 +208,9 @@ public class Configuracao extends javax.swing.JFrame {
     }//GEN-LAST:event_btFecharActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nomeC=Nomecomp.get(0);
+        String nomeM=Nomemaq.get(0);
+        
         Integer IndexMaquina= cbMaquina.getSelectedIndex();
         String idMaquina= Idmaq.get(IndexMaquina).toString();
         System.out.println("maquina:");
@@ -217,12 +223,15 @@ public class Configuracao extends javax.swing.JFrame {
         System.out.println(idComponente);
         
         Integer esta= cbEstado.getSelectedIndex();
+        String estad;
         Boolean estado;
         if (esta==0) {
             estado=Boolean.FALSE;
+            estad="Desativado";
         }
         else{
             estado=Boolean.TRUE;
+            estad="Ativado";
         }
         System.out.println("estado:");
         System.out.println(estado);
@@ -231,13 +240,13 @@ public class Configuracao extends javax.swing.JFrame {
         int inserir=jdbcTemplate1.update("insert into maquinacomponente(fkMaquina,fkComponente,ativado) values (?,?,?)",idMaquina,idComponente,estado);
         
             if(inserir==0){
-                lbResultado.setText("Dado inserido não foi inserido com sucesso");
+                lbResultado.setText(String.format("Dado inserido não foi inserido com sucesso"));
             }
             else{
-                lbResultado.setText("Dado inserido com sucesso");
+                lbResultado.setText(String.format("Componente: %s na maquina: %s foi INSERIDO com sucesso, está: %s",nomeC,nomeM,estad));
             }
         }else{
-            lbResultado.setText("Dado atualizado com sucesso");
+            lbResultado.setText(String.format("Componente: %s na maquina: %s foi ATUALIZADO para: %s",nomeC,nomeM,estad));
         }
         System.out.println(update);
       
