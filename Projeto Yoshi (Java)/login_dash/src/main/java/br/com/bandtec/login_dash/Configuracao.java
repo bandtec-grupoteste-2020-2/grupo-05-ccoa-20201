@@ -227,8 +227,20 @@ public class Configuracao extends javax.swing.JFrame {
         System.out.println("estado:");
         System.out.println(estado);
         int update=jdbcTemplate1.update("update maquinacomponente set ativado = ? where fkmaquina = ? and fkcomponente= ?",estado,idMaquina,idComponente);
+        if(update==0){
+        int inserir=jdbcTemplate1.update("insert into maquinacomponente(fkMaquina,fkComponente,ativado) values (?,?,?)",idMaquina,idComponente,estado);
+        
+            if(inserir==0){
+                lbResultado.setText("Dado inserido não foi inserido com sucesso");
+            }
+            else{
+                lbResultado.setText("Dado inserido com sucesso");
+            }
+        }else{
+            lbResultado.setText("Dado atualizado com sucesso");
+        }
         System.out.println(update);
-        lbResultado.setText(String.format("", args));
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
