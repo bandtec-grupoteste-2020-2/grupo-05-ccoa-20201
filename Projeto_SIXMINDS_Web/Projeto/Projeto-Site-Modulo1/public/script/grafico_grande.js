@@ -1,3 +1,36 @@
+  atualizarGraficoGrande();
+  // //-----------------------------------------MYCHART ---------------------------------------
+  var teste10 = 0;
+  function plotarGraficoGrande(contexto, dadoMesTemp, dadoMesUmid) {
+    if (teste10 >= 1) {
+      chart.destroy();
+      teste10 = 0;
+    }
+    var chart = new Chart(contexto, {
+      type: 'line',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [{
+          label: 'Temperatura',
+          backgroundColor: 'green',
+          borderColor: 'green',
+          data: dadoMesTemp,
+          fill: false
+        },
+        {
+          label: 'Umidade',
+          backgroundColor: 'yellow',
+          borderColor: 'yellow',
+          data: dadoMesUmid,
+          fill: false
+        }],
+      },
+
+      options: {}
+    });
+    teste10++;
+  }
+
 window.onload = atualizarGraficoGrande();
 function atualizarGraficoGrande() {
     fetch('/leituras/graficosao1', { cache: 'no-store' }).then(function (response) {
