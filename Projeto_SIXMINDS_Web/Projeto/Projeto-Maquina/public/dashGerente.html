@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SixMinds - Dashboard Geral</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!-- <script src="script/rosquinha2.js"></script> -->
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="dark-mode.css">
+    <!-- Icone na aba do navegador -->
+    <link rel="shortcut icon" href="img/arvore.png">
+
+</head>
+
+<style>
+    
+</style>
+
+
+<body style="background-color: #f7f7f7;">
+
+    
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <!-- Chamado de Emergência -->
+                <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@mdo">Chamado de Emergência</button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="exampleModalLabel">Chamado de Emergência</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span id="close" aria-hidden="true" class="text-dark">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-success">
+                                <form id="myForm" method="POST" action="/slack">
+
+                                    <div class="form-group">
+                                        <label for="input_subject">Assunto</label>
+                                        <input type="text" class="form-control" id="input_subject" name="input_subject">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="textarea_description">Descrição</label>
+                                        <textarea class="form-control" id="textarea_description"
+                                            name="textarea_description" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="input_email">E-mail de Contato</label>
+                                        <input type="email" class="form-control" id="input_email" name="input_email"
+                                            aria-describedby="emailHelp">
+                                        <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar
+                                            esse email com
+                                            ninguém.</small>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success mx-auto">Enviar</button>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+        <!-- <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav> -->
+                <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand text-warning" href="#">SixMinds</a>
+                  
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <!-- <li class="nav-item active">
+                          <a class="nav-link" href="#">CPU <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="#">Memoria</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Disco</a>
+                          </li> -->
+                        <li class="nav-item">
+                            <!-- Chamado de Emergência -->
+                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+                data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
+                        </li>
+                        
+
+                <!-- MODAL - Chamado de Emergencia -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-danger" id="exampleModalLabel">Chamado de Emergência</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span id="close" aria-hidden="true" class="text-dark">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-success">
+                            <form id="myForm" method="POST" action="/slack">
+
+                                <div class="form-group">
+                                    <label for="input_subject">Assunto</label>
+                                    <input autofocus placeholder="Ex: Tela azul" type="text" class="form-control" id="input_subject" name="input_subject">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="textarea_description">Descrição</label>
+                                    <textarea placeholder="Ex: A maquina não responde aos meus comandos" class="form-control" id="textarea_description"
+                                        name="textarea_description" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input_email">E-mail de Contato</label>
+                                    <input placeholder="nomeusuario@dominio.com.br" type="email" class="form-control" id="input_email" name="input_email"
+                                        aria-describedby="emailHelp">
+                                    <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar
+                                        esse email com
+                                        ninguém.</small>
+                                </div>
+
+                                <button type="submit" class="btn btn-success mx-auto">Enviar <i class="fas fa-envelope"></i></button>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                          
+                        </li>
+                      </ul>
+                      <form class="form-inline my-2 my-lg-0">
+                        
+                        <div class="border btn-outline-dark border-primary rounded my-2 my-sm-0 nav-link mr-3">
+
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                                <label class="custom-control-label fontSize 10px" for="darkSwitch">Modo escuro</label>
+                            </div>
+                            <script src="dark-mode-switch.min.js"></script>
+                    
+                    
+                        </div>
+
+                        <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html" onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
+                       
+                      </form>
+                    </div>
+                  </nav>
+    </div>
+    
+    </div>
+    <!-- container geral-->
+
+    <div class="container">
+        <!--<h2>Geral</h2>
+        <br>
+        <div class="row">
+
+            <div class="col ">
+                <div class=" row border rounded-lg shadow p-3 mb-5 bg-white rounded">
+                     ------primeira coluna da CPU----------
+                    <div class="col  ">
+                        <h3 class="d-flex justify-content-left">CPU</h3>
+                        <div>
+                            <canvas id="rosquinha"></canvas>
+                            <span style="position: absolute;bottom: 5%;left: 42%;font-size: 30px;">72%</span>
+                        </div>
+
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col  ">
+                        <h3 class="d-flex justify-content-left">Memória</h3>
+                        <canvas id="rosquinha_solo"></canvas>
+                        <span style="position: absolute;bottom: 5%;left: 42%;font-size: 30px;">37%</span>
+                    </div>
+
+
+                    <div class="col-1"></div>
+                    <div class="col  ">
+                        <div style="padding-right: 30%;">
+                            <h3 style="float: left;">Rede</h3>
+                            <br>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <span style="position: absolute;bottom: 5%;font-size: 35px;">0kb/s <i
+                                        class="fas fa-long-arrow-alt-up"
+                                        style="position: absolute;bottom: 5%;"></i></span>
+
+                            </div>
+
+                            <br>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <span style="font-size: 35px;">0kb/s <i class="fas fa-long-arrow-alt-down"
+                                        style="position: absolute; bottom: 50%"></i></span><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>-->
+        <br>
+        <br>
+        <h2>Individual</h2>
+        <br>
+        <br>
+        <div class="row ">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm shadow p-3 mb-5 bg-white rounded" >
+                    <div class="row ">
+                        <table id="tabela11" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Memória</th>
+                                    <th scope="col">CPU</th>
+                                    <th scope="col">Disco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="tab1lin1" style="background-color: #17a2b8; min-inline-size: 80px;"><i id="icone11" style="color: #343a40;"
+                                            class="fas fa-check"></i></td>
+                                    <td id="tab1lin2" style=" background-color: #FF6384; min-inline-size: 80px;"><i id="icone12" style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-exclamation-circle"></i></td>
+                                </tr>
+                                <!-- <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color: #FF6384; "><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td>20GB(10%)</td> 
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td style="background-color: #FFCE56;"><i style="color: #343a40;"
+                                            class="fas fa-exclamation-circle"></i></td>
+                                </tr> -->
+                            </tbody>
+                        
+                        <table id="tabela12" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%;display: none;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Componente</th>
+                                    <th scope="col">Usado (%)</th>
+                                    <th scope="col">Tamanho (GB/TB)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                    <td>40%</td>
+                                    <td>1TB</td>
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color:#FF6384;">90%</td>
+                                    <td style=" background-color:#FF6384;">200GB</td>
+                                    <!-- <td>20GB(10%)</td> -->
+                                </tr>
+                                <tr>
+                                    <th style=" background-color: #FFCE56;" scope="row">Disco</th>
+                                    <td>20%</td>
+                                    <td>500GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Nome Máquina</font><br>
+                                <font style="vertical-align: inherit;">Tipo de Máquina</font>
+                            </font>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" id="amplia1" onclick="ampliar(amplia1,tabela11,tabela12)"
+                                    class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ampliar</font>
+                                    </font>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><a href="DashMaquina.html"
+                                                style="text-decoration: none; color: #6c757d;"><a
+                                                    href="DashMaquina.html"
+                                                    style="text-decoration: none; color: #6c757d;">Analisar</a></a>
+                                        </font>
+                                    </font>
+                                </button> </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm shadow p-3 mb-5 bg-white rounded">
+                    <div class="row">
+                        <table id="tabela21" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Memória</th>
+                                    <th scope="col">CPU</th>
+                                    <th scope="col">Disco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #17a2b8; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-check"></i></td>
+                                    <td style=" background-color: #FF6384; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-exclamation-circle"></i></td>
+                                </tr>
+                                <!-- <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color: #FF6384; "><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td>20GB(10%)</td> 
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td style="background-color: #FFCE56;"><i style="color: #343a40;"
+                                            class="fas fa-exclamation-circle"></i></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <table id="tabela22" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%;display: none;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Componente</th>
+                                    <th scope="col">Usado (%)</th>
+                                    <th scope="col">Tamanho (GB/TB)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                    <td>40%</td>
+                                    <td>1TB</td>
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color:#FF6384;">90%</td>
+                                    <td style=" background-color:#FF6384;">200GB</td>
+                                    <!-- <td>20GB(10%)</td> -->
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td>20%</td>
+                                    <td>500GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Nome Máquina</font><br>
+                                <font style="vertical-align: inherit;">Tipo de Máquina</font>
+                            </font>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" id="amplia2" onclick="ampliar(amplia2,tabela21,tabela22)"
+                                    class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ampliar</font>
+                                    </font>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" href="DashMaquina.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><a href="DashMaquina.html"
+                                                style="text-decoration: none; color: #6c757d;">Analisar</a></font>
+                                    </font>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm shadow p-3 mb-5 bg-white rounded" >
+                    <div class="row">
+                        <table id="tabela31" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Memória</th>
+                                    <th scope="col">CPU</th>
+                                    <th scope="col">Disco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #17a2b8; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-check"></i></td>
+                                    <td style=" background-color: #FF6384; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-exclamation-circle"></i></td>
+                                </tr>
+                                <!-- <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color: #FF6384; "><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td>20GB(10%)</td> 
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td style="background-color: #FFCE56;"><i style="color: #343a40;"
+                                            class="fas fa-exclamation-circle"></i></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <table id="tabela32" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%;display: none;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Componente</th>
+                                    <th scope="col">Usado (%)</th>
+                                    <th scope="col">Tamanho (GB/TB)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                    <td>40%</td>
+                                    <td>1TB</td>
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color:#FF6384;">90%</td>
+                                    <td style=" background-color:#FF6384;">200GB</td>
+                                    <!-- <td>20GB(10%)</td> -->
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td>20%</td>
+                                    <td>500GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Nome Máquina</font><br>
+                                <font style="vertical-align: inherit;">Tipo de Máquina</font>
+                            </font>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" id="amplia3" onclick="ampliar(amplia3,tabela31,tabela32)"
+                                    class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ampliar</font>
+                                    </font>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><a href="DashMaquina.html"
+                                                style="text-decoration: none; color: #6c757d;">Analisar</a></font>
+                                    </font>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row ">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm shadow p-3 mb-5 bg-white rounded">
+                    <div class="row ">
+                        <table id="tabela41" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Memória</th>
+                                    <th scope="col">CPU</th>
+                                    <th scope="col">Disco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #17a2b8; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-check"></i></td>
+                                    <td style=" background-color: #FF6384; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-exclamation-circle"></i></td>
+                                </tr>
+                                <!-- <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color: #FF6384; "><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td>20GB(10%)</td> 
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td style="background-color: #FFCE56;"><i style="color: #343a40;"
+                                            class="fas fa-exclamation-circle"></i></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <table id="tabela42" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%;display: none;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Componente</th>
+                                    <th scope="col">Usado (%)</th>
+                                    <th scope="col">Tamanho (GB/TB)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                    <td>40%</td>
+                                    <td>1TB</td>
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color:#FF6384;">90%</td>
+                                    <td style=" background-color:#FF6384;">200GB</td>
+                                    <!-- <td>20GB(10%)</td> -->
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td>20%</td>
+                                    <td>500GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Nome Máquina</font><br>
+                                <font style="vertical-align: inherit;">Tipo de Máquina</font>
+                            </font>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" id="amplia1" onclick="ampliar(amplia1,tabela41,tabela42)"
+                                    class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ampliar</font>
+                                    </font>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><a href="DashMaquina.html"
+                                                style="text-decoration: none; color: #6c757d;"><a
+                                                    href="DashMaquina.html"
+                                                    style="text-decoration: none; color: #6c757d;">Analisar</a></a>
+                                        </font>
+                                    </font>
+                                </button> </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm shadow p-3 mb-5 bg-white rounded">
+                    <div class="row">
+                        <table id="tabela51" class="table table-striped table-dark"
+                        style="width: 80%;margin: auto;margin-top: 5%; text-align: center;">
+                        <thead>
+                            <tr>
+                                <th scope="col">Memória</th>
+                                <th scope="col">CPU</th>
+                                <th scope="col">Disco</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #17a2b8; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-check"></i></td>
+                                <td style=" background-color: #FF6384; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-skull"></i></td>
+                                <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
+                                    class="fas fa-exclamation-circle"></i></td>
+                            </tr>
+                            <!-- <tr>
+                                <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                <td style=" background-color: #FF6384; "><i style="color: #343a40;"
+                                        class="fas fa-skull"></i></td>
+                                <td>20GB(10%)</td> 
+                            </tr>
+                            <tr>
+                                <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                <td style="background-color: #FFCE56;"><i style="color: #343a40;"
+                                        class="fas fa-exclamation-circle"></i></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <table id="tabela52" class="table table-striped table-dark"
+                        style="width: 80%;margin: auto;margin-top: 5%;display: none;">
+                        <thead>
+                            <tr>
+                                <th scope="col">Componente</th>
+                                <th scope="col">Usado (%)</th>
+                                <th scope="col">Tamanho (GB/TB)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                <td>40%</td>
+                                <td>1TB</td>
+                            </tr>
+                            <tr>
+                                <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                <td style=" background-color:#FF6384;">90%</td>
+                                <td style=" background-color:#FF6384;">200GB</td>
+                                <!-- <td>20GB(10%)</td> -->
+                            </tr>
+                            <tr>
+                                <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                <td>20%</td>
+                                <td>500GB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Nome Máquina</font><br>
+                                <font style="vertical-align: inherit;">Tipo de Máquina</font>
+                            </font>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" id="amplia2" onclick="ampliar(amplia2,tabela51,tabela52)"
+                                    class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ampliar</font>
+                                    </font>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" href="DashMaquina.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><a href="DashMaquina.html"
+                                                style="text-decoration: none; color: #6c757d;">Analisar</a></font>
+                                    </font>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-2 shadow-sm shadow p-3 mb-5 bg-white rounded">
+                    <div class="row">
+                        <table id="tabela61" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Memória</th>
+                                    <th scope="col">CPU</th>
+                                    <th scope="col">Disco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #17a2b8; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-check"></i></td>
+                                    <td style=" background-color: #FF6384; min-inline-size: 80px;"><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
+                                        class="fas fa-exclamation-circle"></i></td>
+                                </tr>
+                                <!-- <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color: #FF6384; "><i style="color: #343a40;"
+                                            class="fas fa-skull"></i></td>
+                                    <td>20GB(10%)</td> 
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td style="background-color: #FFCE56;"><i style="color: #343a40;"
+                                            class="fas fa-exclamation-circle"></i></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <table id="tabela62" class="table table-striped table-dark"
+                            style="width: 80%;margin: auto;margin-top: 5%;display: none;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Componente</th>
+                                    <th scope="col">Usado (%)</th>
+                                    <th scope="col">Tamanho (GB/TB)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style=" background-color: #17a2b8;" scope="row">Memória</th>
+                                    <td>40%</td>
+                                    <td>1TB</td>
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
+                                    <td style=" background-color:#FF6384;">90%</td>
+                                    <td style=" background-color:#FF6384;">200GB</td>
+                                    <!-- <td>20GB(10%)</td> -->
+                                </tr>
+                                <tr>
+                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
+                                    <td>20%</td>
+                                    <td>500GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Nome Máquina</font><br>
+                                <font style="vertical-align: inherit;">Tipo de Máquina</font>
+                            </font>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" id="amplia3" onclick="ampliar(amplia3,tabela61,tabela62)"
+                                    class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ampliar</font>
+                                    </font>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><a href="DashMaquina.html"
+                                                style="text-decoration: none; color: #6c757d;">Analisar</a></font>
+                                    </font>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function ampliar(nomebot, tabel1, tabel2) {
+
+        if (tabel1.style.display == "inline-table") {
+            tabel1.style.display = "none";
+            tabel2.style.display = "inline-table";
+        }
+        else {
+            tabel1.style.display = "inline-table";
+            tabel2.style.display = "none";
+        }
+
+    }
+
+    //--------ESBOÇO PARA TROCAR OS ICONES E CORES---------------
+    var contadorzinho = 0;
+    setInterval(atualizarTable, 5000);
+    function atualizarTable() {
+        contadorzinho++;
+        if (contadorzinho == 1) {
+            tab1lin1.style.backgroundColor = "#FFCE56";
+            // tab1lin2.style.backgroundColor = "#FFCE56";
+            icone11.className = "fas fa-exclamation-circle";
+        }
+        else if (contadorzinho == 2) {
+            tab1lin1.style.backgroundColor = "#FF6384";
+            // tab1lin2.style.backgroundColor = "#FF6384";
+            icone11.className = "fas fa-skull";
+        }
+        else {
+            tab1lin1.style.backgroundColor = "#17a2b8";
+            // tab1lin2.style.backgroundColor = "#17a2b8";
+            icone11.className = "fas fa-check";
+            contadorzinho = 0;
+        }
+    }
+
+    //-----PISCAR EM CASO DE CAVEIRA-----------------------------
+    setInterval(Perigo, 1000);
+    function Perigo() {
+        icone12.style.display = "none";
+        setTimeout("icone12.style.display='inline-block'", 450);
+
+    }
+</script>
