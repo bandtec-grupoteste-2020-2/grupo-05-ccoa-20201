@@ -37,11 +37,16 @@ public class PieChart extends JFrame {
    }
    
    private static PieDataset createDataset( ) {
+      String series1 = "IPhone 5s"  ;
+      String series2 = "SamSung Grand";  
+      String series3 = "MotoG";
+      
       DefaultPieDataset dataset = new DefaultPieDataset( );
-      dataset.setValue( "IPhone 5s" , 20.0 );  
-      dataset.setValue( "SamSung Grand" , 20.0 );   
-      dataset.setValue( "MotoG" , 40.0 );    
-      dataset.setValue( "Nokia Lumia" , 10.0  );  
+      
+      dataset.setValue( series1 , 50.0 );  
+      dataset.setValue( series2 , 25.0 );   
+      dataset.setValue( series3 , 25.0 );    
+
       
       return dataset;         
    }

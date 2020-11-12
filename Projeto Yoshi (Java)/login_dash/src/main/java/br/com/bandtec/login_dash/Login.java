@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
  * @author SixMinds
  */
 public class Login extends javax.swing.JFrame {
+    Main teste;
     private JdbcTemplate jdbcTemplate;
     void conectar(){
         //Configurando a conexão com banco de dados
@@ -24,6 +25,9 @@ public class Login extends javax.swing.JFrame {
         dataSource.setPassword("urubu100");
         jdbcTemplate = new  JdbcTemplate(dataSource);
     }
+    
+    
+    
     public Login() {
         initComponents();
     }
@@ -143,7 +147,7 @@ public class Login extends javax.swing.JFrame {
         }
         else{
             if (profi.equals("Analista")) {
-                Dash tela2=new Dash();
+                Dashboard tela2=new Dashboard(jdbcTemplate);
                 tela2.show();
                 dispose();
             }

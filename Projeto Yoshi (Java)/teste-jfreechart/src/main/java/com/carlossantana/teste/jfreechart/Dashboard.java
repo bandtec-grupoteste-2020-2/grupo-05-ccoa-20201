@@ -129,7 +129,7 @@ public class Dashboard extends javax.swing.JFrame {
         AreaChart areaChartDisk = new AreaChart(jPanelDiskLoad, "Disco", "Eixo X", "Eixo Y");                                
         
         
-        LineChart lineChartCpuGeneral = new LineChart(jPanelCpuGeneral, "CPU", "Eixo X", "Eixo Y");
+        LineChart lineChartCpuGeneral = new LineChart(jPanelCpuGeneral, "CPU","Eixo X","Eixo Y");
         LineChart lineChartMemoryGeneral = new LineChart(jPanelMemoryGeneral, "Memória", "Eixo X", "Eixo Y");
         LineChart lineChartNetworkGeneral = new LineChart(jPanelNetworkGeneral, "Rede", "Eixo X", "Eixo Y");        
         AreaChart areaChartDiskGeneral = new AreaChart(jPanelDiskGeneral, "Disco", "Eixo X", "Eixo Y"); 
