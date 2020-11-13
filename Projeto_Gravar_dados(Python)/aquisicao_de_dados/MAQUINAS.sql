@@ -148,7 +148,7 @@ from Maquina, Leitura, Componente, MaquinaComponente
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=1 and descricao like "Core%" and metrica = '%'
 order by idLeitura ; 
 -- Leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia. Esse é o que usado para criar os CSV
-select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica, CAST(tempoLeitura AS DATE) as dataLeitura,minimo,maximo
+select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica, CAST(tempoLeitura AS DATE) as dataLeitura
 from Maquina, Leitura, Componente, MaquinaComponente, Clima
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente  and dia=CAST(tempoLeitura AS DATE)
 order by idLeitura ; 

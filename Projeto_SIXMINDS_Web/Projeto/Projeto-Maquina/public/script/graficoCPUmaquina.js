@@ -16,7 +16,7 @@ function plotarGrafico(porcentagem, tempo) {
         {
           label: "% uso",
           data: porcentagem,
-          fill: false,
+          fill: true,
           backgroundColor: "rgba(54, 162, 235, 0.2)",
           borderColor: "rgba(54, 162, 235, 0.2)",
           borderWidth: 1,
