@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
  * @author SixMinds
  */
 public class Login extends javax.swing.JFrame {
-    Main teste;
+    
     private JdbcTemplate jdbcTemplate;
     void conectar(){
         //Configurando a conexão com banco de dados

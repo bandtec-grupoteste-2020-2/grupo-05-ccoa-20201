@@ -14,28 +14,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class Dashboard extends javax.swing.JFrame {
     JdbcTemplate jdbcTemplate1;
+    Funcoes funcao=new Funcoes();
     
-    void capturarCPU(){
-    //pegando as 10 ultimos valores do CPU1
-        List<LeituraComponente> listaCPU1=jdbcTemplate1.query(
-            "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from usuario,maquina,maquinacomponente,componente,leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
-            " and idMaquina=fkMaquina and idComponente=fkComponente and idMaquinaComponente=fkMaquinaComponente order by idLeitura desc limit 10;",
-            new BeanPropertyRowMapper(LeituraComponente.class));
-
-        for (LeituraComponente leitura : listaCPU1) {
-            System.out.println(leitura.getValor());   
-        }
-    }
     
     public Dashboard(JdbcTemplate jdbcTemplate) {
         initComponents();
         jdbcTemplate1=jdbcTemplate;
-        LineChart lineChartCpu = new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");
-        LineChart lineChartMemoria = new LineChart(jPanelMemoria, "Memória", "Eixo X", "Eixo Y");
-        LineChart lineChartDisco = new LineChart(jPanelDisco, "Memória", "Eixo X", "Eixo Y");
-        LineChart lineChartRede = new LineChart(jPanelRede, "Rede", "Eixo X", "Eixo Y");                                     
-        capturarCPU();
-
+        LineChart lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");        
+        LineChart lineChartDisco = new LineChart(jPanelDisco, "Disco", "Eixo X", "Eixo Y");
+        LineChart lineChartMemoria = new LineChart(jPanelMemoria, "Memoria", "Eixo X", "Eixo Y");
+        LineChart lineChartRede = new LineChart(jPanelRede, "Rede", "Eixo X", "Eixo Y");
+        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,lineChartRede);
+        
         
 
 //        jPanel1.setBackground(Color.YELLOW);
@@ -123,16 +113,16 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(86, 86, 86)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(jPanelCpuLoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelCpuLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
