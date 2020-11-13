@@ -77,5 +77,15 @@ router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
    
 });
 
+router.get('/dadosCore', (request, response) => {
+    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura;  ';
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
 module.exports = router;
 
