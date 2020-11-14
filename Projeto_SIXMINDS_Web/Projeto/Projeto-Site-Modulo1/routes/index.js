@@ -1,39 +1,41 @@
 var express = require('express');
 var router = express.Router();
 
-const axios = require("axios");
-let url_bot = 'https://hooks.slack.com/services/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';
-
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
 router.post('/slack', function (req, res, next) {
+var sendSlack = require("../public/sendSlack.js");
+
   console.log(`Enviando menssagem slack`);
-  console.log("ola senhores");
 
   var subject = req.body.input_subject;
   var email = req.body.input_email;
   var description = req.body.textarea_description;
 
-  var message = `${subject} \n\n ${description} \n\n Enviado por: ${email}`;
-  send_message_slack(message);
+  sendSlack.send_message_slack(subject, email, description);
 
   res.redirect("/dashboard.html")
-  // res.location("http://pt.stackoverflow.com")
-  // res.json()
+});
 
-})
+router.post('/sendEmail', function(req, res, next){
+  var sendEmail = require("../public/sendEmail.js");
 
-function send_message_slack(message) {
-  axios.post(
-    url_bot,
-    { text: message }
-  )
+  console.log("Enviando Email de contato");
+  
+  var sender = req.body.first_name + req.body.last_name;  
+  var subject = req.body.subject;
+  var email = req.body.email;  
+  var message = req.body.message;
 
+  sendEmail.sendEmail(sender, email, subject, message);
+  // sendEmail.sendEmail();
 
-}
+  res.redirect("/index.html")
+});
+
 
 
 module.exports = router;

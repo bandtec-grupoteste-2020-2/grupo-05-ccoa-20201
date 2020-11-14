@@ -44,7 +44,9 @@ create table MaquinaComponente(
     foreign key (fkMaquina) references Maquina (idMaquina),
     fkComponente int,
     foreign key (fkComponente) references Componente (idComponente),
-    ativado bit
+    ativado bit,
+    minimo double(6,2),
+    maximo double(6,2)
 );
 
 create table Leitura(
@@ -53,7 +55,8 @@ create table Leitura(
     foreign key(fkMaquinaComponente) references MaquinaComponente (idMaquinaComponente),
     valor decimal(6,2),
     tempoLeitura datetime,
-    descricao varchar(45)
+    descricao varchar(45)-- ,
+  --  idchamado_jira varchar(7)
 );
 
 create table Clima (
@@ -91,31 +94,32 @@ insert into Maquina values
     (null,"8", "4","Usuário","16000","Windows",1),
     (null,"16", "8","Servidor","16000","Windows",1);
 
-insert into MaquinaComponente (fkMaquina,fkComponente, ativado) values
-(1,1,0),
-(1,2,0),
-(1,3,0),
-(1,4,1),
-(1,5,1),
-(1,6,1),
-(1,7,1),
-(1,8,1),
-(2,1,1),
-(2,2,1),
-(2,3,1),
-(2,4,0),
-(2,5,0),
-(2,6,1),
-(2,7,1),
-(2,8,1),
-(3,1,1),
-(3,2,1),
-(3,3,1),
-(3,4,1),
-(3,5,1),
-(3,6,0),
-(3,7,0),
-(3,8,0);
+
+insert into MaquinaComponente (fkMaquina,fkComponente, ativado,minimo,maximo) values
+(1,1,0,5,30),-- CPU uso 
+(1,2,0,35,50),-- CPU temperatura
+(1,3,0,2000,4000), -- CPU Clock
+(1,4,1,40,90),-- Disco %
+(1,5,1,30,40),-- Disco tempartura
+(1,6,1,20,60),-- Memoria uso %
+(1,7,1,2,8),-- Memoria uso em GB
+(1,8,1,2,8),-- Memoria livrem em GB
+(2,1,1,10,40),
+(2,2,1,35,50),
+(2,3,1,2000,4000),
+(2,4,0,30,80),
+(2,5,0,30,40),
+(2,6,1,20,60),
+(2,7,1,1,4),
+(2,8,1,1,4),
+(3,1,1,20,80),
+(3,2,1,35,80),
+(3,3,1,2000,6000),
+(3,4,1,50,95),
+(3,5,1,30,60),
+(3,6,0,30,80),
+(3,7,0,4,10),
+(3,8,0,4,10);
 
 select * from Empresa;
 select * from Usuario;
@@ -144,7 +148,7 @@ from Maquina, Leitura, Componente, MaquinaComponente
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=1 and descricao like "Core%" and metrica = '%'
 order by idLeitura ; 
 -- Leitura com a temperatura maximo e minima do dia, so pega as informações no qual pegou também as informações da temperatura do mesmo dia. Esse é o que usado para criar os CSV
-select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica, CAST(tempoLeitura AS DATE) as dataLeitura,minimo,maximo
+select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica, CAST(tempoLeitura AS DATE) as dataLeitura
 from Maquina, Leitura, Componente, MaquinaComponente, Clima
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente  and dia=CAST(tempoLeitura AS DATE)
 order by idLeitura ; 
@@ -160,3 +164,11 @@ order by idLeitura desc ;
 -- truncate Leitura;
 select * from  Clima;
 select * from Componente;
+
+
+select Leitura.idLeitura, Leitura.descricao, Leitura.valor as p,Leitura.valor as t, Componente.metrica, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
+and descricao = "Disco uso %" and metrica = "%" and metrica = "°C"  order by idLeitura desc limit 10;
+
+select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura desc limit 10; 
+select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Memoria uso %"and metrica = "%" order by idLeitura desc limit 10;

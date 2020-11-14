@@ -8,8 +8,10 @@ if ( Maquina.IOT >= 1) {
 {
   cpu_core1_uso_perc=subset(subset(nome_tabela,descricao=='Core 1'),metrica=='%')
   cpu_core2_uso_perc=subset(subset(nome_tabela,descricao=='Core 2'),metrica=='%') 
-  cpu_core3_uso_perc=subset(subset(nome_tabela,descricao=='Core 3'),metrica=='%')
+  cpu_core3_uso_perc=subset(subset(nome_tabela,descricao=='Core 3'),metrica=='°C')
+  cpu_core3.1_uso_perc=subset(subset(nome_tabela,descricao=='Core 3'),metrica=='%')
   cpu_core4_uso_perc=subset(subset(nome_tabela,descricao=='Core 4'),metrica=='%')
+  
   }
 
 #Criação de cada plot (dias da semana)
@@ -17,7 +19,7 @@ if ( Maquina.IOT >= 1) {
   par(mfrow=c(2,2), mar=c(4,4,3.5,0.5))
   plot(as.Date(cpu_core1_uso_perc$dataleitura),cpu_core1_uso_perc$valor,main = 'Uso da core 1 %/tempo',xlab ="Tempo",ylab = "%" ,ylim=c(0,100))
   plot(as.Date(cpu_core2_uso_perc$dataleitura),cpu_core2_uso_perc$valor,main = 'Uso da core 2 %/tempo',xlab ="Tempo",ylab = "%" ,ylim=c(0,100)) 
-  plot(as.Date(cpu_core3_uso_perc$dataleitura),cpu_core3_uso_perc$valor,main = 'Uso da core 3 %/tempo',xlab ="Tempo",ylab = "%" ,ylim=c(0,100))
+  plot(cpu_core3.1_uso_perc$valor,cpu_core3_uso_perc$valor,main = 'Uso da core 3 %/clock',xlab ="Clock",ylab = "%" ,ylim=c(0,100))
   plot(as.Date(cpu_core4_uso_perc$dataleitura),cpu_core4_uso_perc$valor,main = 'Uso da core 4 %/tempo',xlab ="Tempo",ylab = "%" ,ylim=c(0,100))
 }
 
