@@ -78,7 +78,37 @@ router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
 });
 
 router.get('/dadosCore', (request, response) => {
-    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura;  ';
+    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura desc limit 10;  ';
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
+router.get('/dadosDiscoTemp', (request, response) => {
+    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Disco temperatura"and metrica = "°C" order by idLeitura desc limit 10;';
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
+router.get('/dadosDiscoPerc', (request, response) => {
+    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Disco uso %"and metrica = "%" order by idLeitura desc limit 10;';
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
+router.get('/dadosMemoriaLivreGB', (request, response) => {
+    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Memoria livre GB"and metrica = "°C" order by idLeitura limit 10;';
     
     db.query(sql,function(err, result) {
         if (err) throw err;

@@ -3,10 +3,10 @@ atualizarGrafico();
 
 var teste10 = 0;
 function plotarGrafico(porcentagem, tempo) {
-//   if (teste10 <= 1) {
-//     myChart.destroy();
-//     teste10 = 0;
-//   }
+  if (teste10 >= 1) {
+    myChart.destroy();
+    teste10 = 0;
+  }
   var ctx = document.getElementById("cpu_use_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -52,7 +52,7 @@ function atualizarGrafico() {
           let porcentagem = [];
           let tempo = [];
 
-          for (n = 0; n < registro.length; n++) {
+          for (n = registro.length-1; n >= 0; n--) {
             porcentagem.push(registro[n].valor);
             tempo.push(registro[n].hora);
           }
@@ -68,8 +68,8 @@ function atualizarGrafico() {
     .catch(function (error) {
       console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-    setTimeout(() => {
-        atualizarGrafico();
-      }, 5000);
+  setTimeout(() => {
+    atualizarGrafico();
+  }, 5000);
 }
 
