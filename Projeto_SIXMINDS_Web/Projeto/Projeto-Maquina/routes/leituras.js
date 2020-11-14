@@ -107,8 +107,8 @@ router.get('/dadosDiscoPerc', (request, response) => {
    
 });
 
-router.get('/dadosMemoriaLivreGB', (request, response) => {
-    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Memoria livre GB"and metrica = "°C" order by idLeitura limit 10;';
+router.get('/dadosMemoriaUsoPerc', (request, response) => {
+    var sql = 'select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Memoria uso %"and metrica = "%" order by idLeitura limit 10;';
     
     db.query(sql,function(err, result) {
         if (err) throw err;
