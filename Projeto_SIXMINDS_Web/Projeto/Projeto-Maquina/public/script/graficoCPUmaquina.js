@@ -1,12 +1,12 @@
 
 atualizarGrafico();
 
-var teste10 = 0;
+// var teste10 = 0;
 function plotarGrafico(porcentagem, tempo) {
-  if (teste10 >= 1) {
-    myChart.destroy();
-    teste10 = 0;
-  }
+  // if (teste10 >= 1) {
+  //   myChart.destroy() ;
+  //   teste10 = 0;
+  // }
   var ctx = document.getElementById("cpu_use_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -36,7 +36,7 @@ function plotarGrafico(porcentagem, tempo) {
       },
     },
   });
-  teste10++;
+  // teste10++;
 }
 
 window.onload = atualizarGrafico();
@@ -70,6 +70,7 @@ function atualizarGrafico() {
     });
   setTimeout(() => {
     atualizarGrafico();
+    myChart.destroy();
   }, 5000);
 }
 

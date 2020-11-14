@@ -168,4 +168,7 @@ select * from Componente;
 
 select Leitura.idLeitura, Leitura.descricao, Leitura.valor as p,Leitura.valor as t, Componente.metrica, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente 
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
-and descricao.p = "Disco uso %" and p.metrica = "%" and metrica = "°C"  order by idLeitura desc limit 10;
+and descricao = "Disco uso %" and metrica = "%" and metrica = "°C"  order by idLeitura desc limit 10;
+
+select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura desc limit 10; 
+select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Memoria uso %"and metrica = "%" order by idLeitura desc limit 10;
