@@ -164,3 +164,8 @@ order by idLeitura desc ;
 -- truncate Leitura;
 select * from  Clima;
 select * from Componente;
+
+
+select Leitura.idLeitura, Leitura.descricao, Leitura.valor as p,Leitura.valor as t, Componente.metrica, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
+and descricao.p = "Disco uso %" and p.metrica = "%" and metrica = "°C"  order by idLeitura desc limit 10;

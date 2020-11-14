@@ -14,11 +14,11 @@ function plotarGrafico(porcentagem, tempo) {
       labels: tempo,
       datasets: [
         {
-          label: "% uso",
+          label: "% de utilização",
           data: porcentagem,
           fill: true,
-          backgroundColor: "rgba(54, 162, 235, 0.2)",
-          borderColor: "rgba(54, 162, 235, 0.2)",
+          backgroundColor: "rgba(17, 138, 178, 0.30)",
+          borderColor: "rgba(17, 138, 178, 1)",
           borderWidth: 1,
         },
       ],
