@@ -9,18 +9,26 @@ const transporter = nodemailer.createTransport({
     pass: "c3f75b"}
 });
 
-const mailOptions = {
-  from: "carlos.santana@bandtec.com.br",
-  to: "eduardomarquesdesantana@gmail.com",
-  subject: "Mais um teste para email automático",
-  text: "teste",
-  html: '<h1>Teste</h1><p>estou utilizando o nodemailer, um modulo js, para envio automático de emails</p>'
-};
+module.exports = {
+  
+  sendEmail : function(sender, email, subject, message){  
 
-transporter.sendMail(mailOptions, function(error, info){
-  if(error){
-    console.log(error);
-  }else {
-    console.log("Email enviado: " + info.response);
+    var mailOptions = {
+      from: email,
+      to: "eduardomarquesdesantana@gmail.com",
+      subject: subject,
+      html:`<h3>${sender}<h3> <p>${message}</p>`
+    }
+  
+    console.log(mailOptions);
+  
+    transporter.sendMail(mailOptions, function(error, info){
+      if(error){
+        console.log(error);
+      }else {
+        console.log("Email enviado: " + info.response);
+      }
+    });  
   }
-});
+
+}

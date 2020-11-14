@@ -9,31 +9,50 @@ import java.awt.Color;
 //import org.jfree.data.category.CategoryDataset;
 //import org.jfree.data.category.DefaultCategoryDataset;
 import java.util.List;
+import javafx.scene.control.RadioButton;
+import javax.swing.JRadioButton;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class Dashboard extends javax.swing.JFrame {
     JdbcTemplate jdbcTemplate1;
     Funcoes funcao=new Funcoes();
+    String cpuExportacao;
+       
     
+    LineChart lineChartCpu;        
+    LineChart lineChartDisco;
+    LineChart lineChartMemoria;
+    
+    void rbSelecionado(JRadioButton escolhido){
+        rbClock.setSelected(false);
+        rbTemperatura.setSelected(false);
+        rbUso.setSelected(false);
+        /**--------------------*/
+        escolhido.setSelected(true);
+        String selecionado=escolhido.getText();
+        pegaComp(selecionado);
+        System.out.println(selecionado);
+    }
+    
+    void pegaComp(String selecionado){
+        zerarLine();
+        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,selecionado);
+    }
+    
+    void zerarLine(){
+        lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y"); 
+    }
     
     public Dashboard(JdbcTemplate jdbcTemplate) {
         initComponents();
         jdbcTemplate1=jdbcTemplate;
-        LineChart lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");        
-        LineChart lineChartDisco = new LineChart(jPanelDisco, "Disco", "Eixo X", "Eixo Y");
-        LineChart lineChartMemoria = new LineChart(jPanelMemoria, "Memoria", "Eixo X", "Eixo Y");
-        LineChart lineChartRede = new LineChart(jPanelRede, "Rede", "Eixo X", "Eixo Y");
-        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,lineChartRede);
         
+        lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");        
+        lineChartDisco = new LineChart(jPanelDisco, "Disco", "Eixo X", "Eixo Y");
+        lineChartMemoria = new LineChart(jPanelMemoria, "Memoria", "Eixo X", "Eixo Y");
         
-
-//        jPanel1.setBackground(Color.YELLOW);
-             
-//        LineChartExample lineChartMemory = new LineChartExample(jPanel3);        
-//        LineChartExample lineChartDisk = new LineChartExample(jPanel4);        
-//        LineChartExample lineChartNetwork = new LineChartExample(jPanel5);        
-        
+        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,"nada");        
     }
 
     private Dashboard() {
@@ -51,15 +70,15 @@ public class Dashboard extends javax.swing.JFrame {
         jPanelCpuLoad = new javax.swing.JPanel();
         jPanelCPU = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        rbUso = new javax.swing.JRadioButton();
+        rbTemperatura = new javax.swing.JRadioButton();
+        rbClock = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jPanelMemoryLoad = new javax.swing.JPanel();
         jPanelMemoria = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanelDiskLoad = new javax.swing.JPanel();
         jPanelDisco = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanelNetwork = new javax.swing.JPanel();
-        jPanelRede = new javax.swing.JPanel();
 
         jLabel1.setText("cpu");
 
@@ -108,13 +127,43 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel6.setText("coisa ");
         jLabel6.setPreferredSize(new java.awt.Dimension(100, 45));
 
+        rbUso.setText("CPU_uso(%)");
+        rbUso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        rbUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbUsoActionPerformed(evt);
+            }
+        });
+
+        rbTemperatura.setText("Temperatura");
+        rbTemperatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbTemperaturaActionPerformed(evt);
+            }
+        });
+
+        rbClock.setText("Clock");
+        rbClock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbClockActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rbTemperatura, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbUso, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbClock, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(jPanelCpuLoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -124,7 +173,13 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rbUso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbTemperatura)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbClock)
+                .addGap(109, 109, 109))
         );
 
         jTabbedPane1.addTab("CPU", jPanel2);
@@ -221,52 +276,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Disco", jPanel4);
 
-        jPanelNetwork.setBackground(new java.awt.Color(100, 100, 100));
-        jPanelNetwork.setPreferredSize(new java.awt.Dimension(675, 650));
-
-        javax.swing.GroupLayout jPanelRedeLayout = new javax.swing.GroupLayout(jPanelRede);
-        jPanelRede.setLayout(jPanelRedeLayout);
-        jPanelRedeLayout.setHorizontalGroup(
-            jPanelRedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
-        jPanelRedeLayout.setVerticalGroup(
-            jPanelRedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanelNetworkLayout = new javax.swing.GroupLayout(jPanelNetwork);
-        jPanelNetwork.setLayout(jPanelNetworkLayout);
-        jPanelNetworkLayout.setHorizontalGroup(
-            jPanelNetworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNetworkLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jPanelRede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        jPanelNetworkLayout.setVerticalGroup(
-            jPanelNetworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNetworkLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jPanelRede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 287, Short.MAX_VALUE)
-                .addComponent(jPanelNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Rede", jPanel5);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -286,6 +295,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rbUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbUsoActionPerformed
+        rbSelecionado(rbUso);
+    }//GEN-LAST:event_rbUsoActionPerformed
+
+    private void rbTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTemperaturaActionPerformed
+        rbSelecionado(rbTemperatura);
+    }//GEN-LAST:event_rbTemperaturaActionPerformed
+
+    private void rbClockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbClockActionPerformed
+        rbSelecionado(rbClock);
+    }//GEN-LAST:event_rbClockActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,15 +328,15 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelCPU;
     private javax.swing.JPanel jPanelCpuLoad;
     private javax.swing.JPanel jPanelDisco;
     private javax.swing.JPanel jPanelDiskLoad;
     private javax.swing.JPanel jPanelMemoria;
     private javax.swing.JPanel jPanelMemoryLoad;
-    private javax.swing.JPanel jPanelNetwork;
-    private javax.swing.JPanel jPanelRede;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JRadioButton rbClock;
+    private javax.swing.JRadioButton rbTemperatura;
+    private javax.swing.JRadioButton rbUso;
     // End of variables declaration//GEN-END:variables
 }
