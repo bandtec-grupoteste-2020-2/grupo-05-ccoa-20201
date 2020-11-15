@@ -27,6 +27,16 @@
   color: rgb(9, 255, 0) !important;
 }
 
+[data-theme="dark"] input {
+  color: #fff !important;
+  background-color: #343434 !important;
+}
+
+[data-theme="dark"] textarea {
+  color:  #fff !important;
+  background-color: #343434 !important;
+}
+
 /* [data-theme="dark"] .active {
   color: rgb(255, 0, 234) !important;
 } */
