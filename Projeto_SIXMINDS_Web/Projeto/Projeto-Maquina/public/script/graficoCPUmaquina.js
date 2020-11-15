@@ -1,31 +1,29 @@
+core2();
+atualizarCPU();
 
-atualizarGrafico();
+let leituraUsoPorc2 = [];
 
-var destroi2 = 0;
-function plotarGrafico(porcentagem, tempo, leituraPorcentagem2) {
-  if (destroi2 >= 1) {
-    myChart.destroy() ;
-    destroi2 = 0;
-  }
+function plotarCPU(tempoLeitura, leituraUsoPorc, leituraUsoPorc2) {
   var ctx = document.getElementById("cpu_use_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
     data: {
-      labels: tempo,
+      labels: tempoLeitura,
       datasets: [
         {
           label: "% de utilização Core 1",
-          data: porcentagem,
+          data: leituraUsoPorc,
           fill: true,
-          backgroundColor: "rgba(17, 138, 178, 0.30)",
-          borderColor: "rgba(17, 138, 178, 1)",
+          backgroundColor: "rgba(239, 71, 111, 0.30)",
+          borderColor: "rgba(239, 71, 111, 0.69)",
           borderWidth: 1,
         },
+
         {
           label: "% de utilização Core 2",
-          data: leituraPorcentagem2,
+          data: leituraUsoPorc2,
           fill: true,
-          backgroundColor: "rgba(255, 209, 102, 0.69)",
+          backgroundColor: "rgba(255, 209, 102, 0.30)",
           borderColor: "rgba(255, 209, 102, 0.69)",
           borderWidth: 1,
         },
@@ -44,36 +42,10 @@ function plotarGrafico(porcentagem, tempo, leituraPorcentagem2) {
       },
     },
   });
-  // destroi1++;
 }
-function core2(){
+
+function core2() {
   fetch("http://localhost:3000/leituras/dadosCore2", { cache: "no-store" })
-  .then(function (response) {
-    if (response.ok) {
-      response.json().then(function (resposta) {
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-        let registro = resposta;
-        console.log(registro);
-        console.log(registro.length);
-        leituraPorcentagem2 = [];
-
-        for (n = registro.length - 1; n >= 0; n--) {
-          leituraPorcentagem2.push(registro[n].valorCore2);
-        }
-        console.log(leituraPorcentagem2);
-
-      });
-    } else {
-      console.error("Nenhum dado encontrado ou erro na leituras");
-    }
-  })
-  .catch(function (error) {
-    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-  });
-}
-window.onload = atualizarGrafico();
-function atualizarGrafico() {
-  fetch("http://localhost:3000/leituras/dadosCore", { cache: "no-store" })
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
@@ -81,18 +53,12 @@ function atualizarGrafico() {
           let registro = resposta;
           console.log(registro);
           console.log(registro.length);
-          let porcentagem = [];
-          let tempo = [];
+          leituraUsoPorc2 = [];
 
-          for (n = registro.length-1; n >= 0; n--) {
-            porcentagem.push(registro[n].valor);
-            tempo.push(registro[n].hora);
+          for (n = registro.length - 1; n >= 0; n--) {
+            leituraUsoPorc2.push(registro[n].valorCore2);
           }
-          console.log(registro[0].hora);
-          console.log(porcentagem);
-          core2()
-
-          plotarGrafico(porcentagem, tempo, leituraPorcentagem2);
+          console.log(leituraUsoPorc2);
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na leituras");
@@ -101,9 +67,41 @@ function atualizarGrafico() {
     .catch(function (error) {
       console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+}
+
+window.onload = atualizarCPU();
+function atualizarCPU() {
+  fetch("http://localhost:3000/leituras/dadosCore", { cache: "no-store" })
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          let registro = resposta;
+          console.log(registro);
+          console.log(registro.length);
+          let leituraUsoPorc = [];
+          let tempoLeitura = [];
+
+          for (n = registro.length - 1; n >= 0; n--) {
+            leituraUsoPorc.push(registro[n].valor);
+            tempoLeitura.push(registro[n].hora);
+          }
+          console.log(registro[0].hora);
+          console.log(leituraUsoPorc);
+          core2();
+
+          plotarCPU(tempoLeitura, leituraUsoPorc, leituraUsoPorc2);
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na leituras");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+    
   setTimeout(() => {
-    atualizarGrafico();
+    atualizarCPU();
     myChart.destroy();
   }, 5000);
 }
-

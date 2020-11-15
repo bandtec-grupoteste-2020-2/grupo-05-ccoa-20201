@@ -1,3 +1,5 @@
+gerarGrafico();
+function gerarGrafico(){
 var ctx = document.getElementById('network_use_chart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -29,3 +31,8 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+}
+setTimeout(() => {
+    gerarGrafico();
+    myChart.destroy();
+  }, 5000);
