@@ -35,49 +35,10 @@
 
   <!-- Estilos customizados para esse template -->
   <link href="./login_files/signin.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="CSS/login.css">
   <script type="text/javascript" src="funcoes.js"></script>
 
-  <style>
-    body {
-      background-image: url("img/soja.jpg");
-      background-repeat: round;
-      background-attachment: fixed;
-    }
-
-    .mb-3,
-    .my-3 {
-      color: white;
-    }
-
-    .central {
-      margin-left: 35%;
-      margin-right: 35%;
-      width: 30%;
-    }
-
-    #bt_cadastrar {
-      margin-left: 84.3%;
-      border-color: transparent;
-    }
-
-    #bt_login {
-      margin-right: -84.3%;
-      border: 1px solid #ffae2d;
-    }
-
-    h3 {
-      float: right;
-      margin: 0 0 0 1%;
-      padding: 0 0% 0 1%;
-      border-left: 1px solid #333333;
-      color: #ffae2d;
-    }
-
-    #icone {
-      padding: 0 0% 0 0;
-    }
-  </style>
+ 
 
 </head>
 
@@ -94,31 +55,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <!-- <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-success" href="index.html">Home<span class="sr-only">(atual)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#servicos">Serviços</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#sobre">Sobre nós</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contato">Contato</a>
-        </li>
-      </ul> -->
 
-      <!-- <<<<<<< HEAD -->
       <a id="bt_cadastrar" href="cadastro/cadastro.html" class=" btn btn-outline-success mr-1">Cadastrar</a>
-      <!-- ======= -->
 
-      <!-- >>>>>>> 25aa53f7c87b0c3bafc191449f9204d01a69c2c1 -->
-      <a id="bt_login" href="login.html" class="btn btn-light ml-1">Login</a>
-      <!-- <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success  my-2 my-sm-0" type="submit">Pesquisar</button>
-      </form> -->
+      <a id="bt_login" href="login.html" class="botao_login btn btn-light ml-1 ">Login</a>
+
     </div>
   </nav>
 </header>
@@ -126,7 +67,7 @@
 <body class="text-center">
   <div class="central">
     <form class="form-signin" id="form_login" method="POST" onsubmit="return entrar()">
-      <img id="img_logo" class="mb-4" src="img/logo.png" alt="" width="200" height="200">
+      <img id="img_logo" class="mb-4" src="img/logo.png" alt="" height="200">
       <h1 class="h3 mb-3 font-weight-normal">Faça seu login</h1>
       <label for="inputEmail" class="sr-only">Endereço de email</label>
       <input type="email" id="inputEmail" class="form-control mb-1" placeholder="Seu email" name='login' required=""

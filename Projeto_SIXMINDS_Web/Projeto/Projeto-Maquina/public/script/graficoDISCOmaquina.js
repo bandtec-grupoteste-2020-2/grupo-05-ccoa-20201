@@ -1,13 +1,9 @@
 discoPorcentagem();
 atualizarDisco();
 
-let leituraPorcentagem = [];
-var destroi = 0;
-function plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem) {
-  //   if (destroi <= 1) {
-  //     myChart.destroy();
-  //     destroi = 0;
-  //   }
+let leituraUsoPorc = [];
+
+function plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc) {
   var ctx = document.getElementById("disk_use_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
@@ -18,17 +14,17 @@ function plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem) {
           label: "Temperatura (°C)",
           data: leituraTemperatura,
           fill: true,
-          backgroundColor: "rgba(255, 209, 102, 0.69)",
+          backgroundColor: "rgba(255, 209, 102, 0.30)",
           borderColor: "rgba(255, 209, 102, 0.69)",
           borderWidth: 1,
         },
 
         {
           label: "Espaço ocupado (%)",
-          data: leituraPorcentagem,
+          data: leituraUsoPorc,
           fill: true,
-          backgroundColor: "rgba(6, 214, 160, 0.69)",
-          borderColor: "#0096889c",
+          backgroundColor: "rgba(6, 214, 160, 0.30)",
+          borderColor: "rgba(6, 214, 160, 0.69)",
           borderWidth: 1,
         },
       ],
@@ -36,7 +32,7 @@ function plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem) {
     options: {
       responsive: true,
       scales: {
-        yAxes:  [
+        yAxes: [
           {
             ticks: {
               beginAtZero: true,
@@ -46,11 +42,10 @@ function plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem) {
       },
     },
   });
-  destroi++;
 }
 
-function discoPorcentagem(){
-    fetch("http://localhost:3000/leituras/dadosDiscoPerc", { cache: "no-store" })
+function discoPorcentagem() {
+  fetch("http://localhost:3000/leituras/dadosDiscoPerc", { cache: "no-store" })
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
@@ -58,15 +53,13 @@ function discoPorcentagem(){
           let registro = resposta;
           console.log(registro);
           console.log(registro.length);
-          leituraPorcentagem = [];
+          leituraUsoPorc = [];
 
           for (n = registro.length - 1; n >= 0; n--) {
-            leituraPorcentagem.push(registro[n].valorDiscoUsoPorc);
+            leituraUsoPorc.push(registro[n].valorDiscoUsoPorc);
           }
           console.log(registro[0].hora);
-          console.log(leituraPorcentagem);
-
-          
+          console.log(leituraUsoPorc);
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na leituras");
@@ -76,7 +69,6 @@ function discoPorcentagem(){
       console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
 }
-
 
 window.onload = atualizarDisco();
 function atualizarDisco() {
@@ -99,7 +91,7 @@ function atualizarDisco() {
           console.log(leituraTemperatura);
           discoPorcentagem();
 
-          plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem);
+          plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc);
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na leituras");
@@ -108,7 +100,7 @@ function atualizarDisco() {
     .catch(function (error) {
       console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-    
+
   setTimeout(() => {
     atualizarDisco();
     myChart.destroy();
