@@ -1,6 +1,6 @@
 atualizarMemoria();
 var destroi = 0;
-function plotarMemoria(leituraUso, tempoLido) {
+function plotarMemoria(leituraUso, tempoLido, leituraUsoGB) {
     if (destroi >= 1) {
         myChart.destroy();
         destroi = 0;
@@ -13,10 +13,18 @@ function plotarMemoria(leituraUso, tempoLido) {
             datasets: [{
                 label: '% uso',
                 data: leituraUso,
+                backgroundColor: "rgba(17, 138, 178, 0.30)",
+                borderColor: "rgba(17, 138, 178, 1)",
+                borderWidth: 1
+            },
+            {
+                label: 'GB uso',
+                data: leituraUsoGB,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 0.2)',
                 borderWidth: 1
-            }]
+            },
+            ]
         },
         options: {
             responsive: true,
@@ -29,33 +37,33 @@ function plotarMemoria(leituraUso, tempoLido) {
             }
         }
     });
-    destroi ++
+    destroi++
 }
-function memoriaGB(){
-    fetch("http://localhost:3000/leituras/dadosmemoriaGB", { cache: "no-store" })
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          let registro = resposta;
-          console.log(registro);
-          console.log(registro.length);
-          leituraUsoGB = [];
-  
-          for (n = registro.length - 1; n >= 0; n--) {
-            leituraUsoGB.push(registro[n].valormemoriaGB);
-          }
-          console.log(leituraUsoGB);
-  
+function memoriaGB() {
+    fetch("http://localhost:3000/leituras/dadosMemoriaUsoGB", { cache: "no-store" })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    let registro = resposta;
+                    console.log(registro);
+                    console.log(registro.length);
+                    leituraUsoGB = [];
+
+                    for (n = registro.length - 1; n >= 0; n--) {
+                        leituraUsoGB.push(registro[n].valormemoriaGB);
+                    }
+                    console.log(leituraUsoGB);
+
+                });
+            } else {
+                console.error("Nenhum dado encontrado ou erro na leituras");
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-      } else {
-        console.error("Nenhum dado encontrado ou erro na leituras");
-      }
-    })
-    .catch(function (error) {
-      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-  }
+}
 window.onload = atualizarMemoria();
 function atualizarMemoria() {
     fetch("http://localhost:3000/leituras/dadosMemoriaUsoPerc", { cache: "no-store" })
@@ -75,9 +83,9 @@ function atualizarMemoria() {
                     }
                     console.log(registro[0].hora);
                     console.log(leituraUso);
-                    memoriaGB()
+                    memoriaGB();
 
-                    plotarMemoria(leituraUso, tempoLido);
+                    plotarMemoria(leituraUso, tempoLido, leituraUsoGB);
                 });
             } else {
                 console.error("Nenhum dado encontrado ou erro na leituras");

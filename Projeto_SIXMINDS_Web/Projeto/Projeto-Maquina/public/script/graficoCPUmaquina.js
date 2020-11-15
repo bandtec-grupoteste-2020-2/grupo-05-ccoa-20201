@@ -44,7 +44,7 @@ function plotarGrafico(porcentagem, tempo, leituraPorcentagem2) {
       },
     },
   });
-  destroi1++;
+  // destroi1++;
 }
 function core2(){
   fetch("http://localhost:3000/leituras/dadosCore2", { cache: "no-store" })
