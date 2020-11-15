@@ -165,10 +165,27 @@ order by idLeitura desc ;
 select * from  Clima;
 select * from Componente;
 
-
+-- Leitura do Dash Disco, Disco uso %
 select Leitura.idLeitura, Leitura.descricao, Leitura.valor as p,Leitura.valor as t, Componente.metrica, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente 
 where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
 and descricao = "Disco uso %" and metrica = "%" and metrica = "°C"  order by idLeitura desc limit 10;
 
-select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura desc limit 10; 
-select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Memoria uso %"and metrica = "%" order by idLeitura desc limit 10;
+-- Leitura do Dash CPU, CORE1
+select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where
+fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
+and descricao = "Core 1"and metrica = "%" order by idLeitura desc limit 10; 
+
+-- Leitura do Dash Memória, Memoria uso %
+select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where 
+fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
+and descricao = "Memoria uso %"and metrica = "%" order by idLeitura desc limit 10;
+
+-- Leitura do Dash Memória, memoria uso GB
+select Leitura.valor as valormemoriaGB, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where 
+fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
+and descricao = "Memoria uso GB"and metrica = "GB" order by idLeitura desc limit 10;
+
+-- Leitura do Dash CPU, Core%, trabalhando nessa parte ainda...
+select  Leitura.idLeitura, Leitura.descricao, Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente 
+where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 
+and descricao like "Core%"and metrica = "%" order by idLeitura desc limit  10;
