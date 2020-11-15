@@ -17,16 +17,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class Funcoes {
     
     void pegarComponente(JdbcTemplate jdbcTemplate1,LineChart plotCPU,LineChart plotMem,LineChart plotDisco,String ativadoCPU){
-        List<Componentes> listaComp=jdbcTemplate1.query("select idComponente,nomeComponente from componente,maquinacomponente,"
-                + "maquina where idComponente=fkComponente and idMaquina=fkMaquina and idMaquina=1 and ativado=1;",
+        List<Componentes> listaComp=jdbcTemplate1.query("select idComponente,nomeComponente from Componente, MaquinaComponente,"
+                + "Maquina where idComponente=fkComponente and idMaquina=fkMaquina and idMaquina=1 and ativado=1;",
                 new BeanPropertyRowMapper(Componentes.class));
         for(Componentes compon : listaComp){
             
             System.out.println(compon.getNomecomponente());
             
             List<LeituraComponente> listaCada=jdbcTemplate1.query(
-                "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from usuario,maquina,maquinacomponente,"
-                + "componente,leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
+                "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from Usuario,Maquina,MaquinaComponente,"
+                + "Componente,Leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
                 " and idMaquina=fkMaquina and nomeComponente=? and idComponente=fkComponente and idMaquinaComponente=fkMaquinaComponente limit 10;",
                 new BeanPropertyRowMapper(LeituraComponente.class),compon.getNomecomponente());
             for(LeituraComponente leitura : listaCada){

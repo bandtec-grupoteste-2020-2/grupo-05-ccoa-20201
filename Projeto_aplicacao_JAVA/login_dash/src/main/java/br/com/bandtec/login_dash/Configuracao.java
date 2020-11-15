@@ -235,9 +235,9 @@ public class Configuracao extends javax.swing.JFrame {
         }
         System.out.println("estado:");
         System.out.println(estado);
-        int update=jdbcTemplate1.update("update maquinacomponente set ativado = ? where fkmaquina = ? and fkcomponente= ?",estado,idMaquina,idComponente);
+        int update=jdbcTemplate1.update("update MaquinaComponente set ativado = ? where fkmaquina = ? and fkcomponente= ?",estado,idMaquina,idComponente);
         if(update==0){
-        int inserir=jdbcTemplate1.update("insert into maquinacomponente(fkMaquina,fkComponente,ativado) values (?,?,?)",idMaquina,idComponente,estado);
+        int inserir=jdbcTemplate1.update("insert into MaquinaComponente(fkMaquina,fkComponente,ativado) values (?,?,?)",idMaquina,idComponente,estado);
         
             if(inserir==0){
                 lbResultado.setText(String.format("Dado inserido não foi inserido com sucesso"));

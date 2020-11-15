@@ -19,7 +19,7 @@ public class Login extends javax.swing.JFrame {
         //Iniciando a classe do Driver de Banco
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         //Iniciando a url do banco
-        dataSource.setUrl("jdbc:mysql://localhost/maquinas?useTimezone=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://localhost/MAQUINAS?useTimezone=true&serverTimezone=UTC");
         //login e senha para entrar no banco
         dataSource.setUsername("urubu100");
         dataSource.setPassword("urubu100");

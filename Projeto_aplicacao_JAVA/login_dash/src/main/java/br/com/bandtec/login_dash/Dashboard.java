@@ -9,7 +9,7 @@ import java.awt.Color;
 //import org.jfree.data.category.CategoryDataset;
 //import org.jfree.data.category.DefaultCategoryDataset;
 import java.util.List;
-import javafx.scene.control.RadioButton;
+//import javafx.scene.control.RadioButton;
 import javax.swing.JRadioButton;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
