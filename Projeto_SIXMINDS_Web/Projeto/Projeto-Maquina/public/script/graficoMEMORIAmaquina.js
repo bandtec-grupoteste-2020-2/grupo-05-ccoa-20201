@@ -31,6 +31,31 @@ function plotarMemoria(leituraUso, tempoLido) {
     });
     destroi ++
 }
+function memoriaGB(){
+    fetch("http://localhost:3000/leituras/dadosmemoriaGB", { cache: "no-store" })
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          let registro = resposta;
+          console.log(registro);
+          console.log(registro.length);
+          leituraUsoGB = [];
+  
+          for (n = registro.length - 1; n >= 0; n--) {
+            leituraUsoGB.push(registro[n].valormemoriaGB);
+          }
+          console.log(leituraUsoGB);
+  
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na leituras");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+  }
 window.onload = atualizarMemoria();
 function atualizarMemoria() {
     fetch("http://localhost:3000/leituras/dadosMemoriaUsoPerc", { cache: "no-store" })
@@ -50,6 +75,7 @@ function atualizarMemoria() {
                     }
                     console.log(registro[0].hora);
                     console.log(leituraUso);
+                    memoriaGB()
 
                     plotarMemoria(leituraUso, tempoLido);
                 });

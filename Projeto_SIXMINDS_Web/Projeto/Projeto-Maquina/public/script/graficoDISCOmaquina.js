@@ -2,12 +2,12 @@ discoPorcentagem();
 atualizarDisco();
 
 let leituraPorcentagem = [];
-var destroi = 0;
+// var destroi1 = 0;
 function plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem) {
-  //   if (destroi <= 1) {
-  //     myChart.destroy();
-  //     destroi = 0;
-  //   }
+    // if (destroi1 <= 1) {
+    //   myChart.destroy();
+    //   destroi1 = 0;
+    // }
   var ctx = document.getElementById("disk_use_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
@@ -46,7 +46,7 @@ function plotardisco(tempoLeitura,leituraTemperatura, leituraPorcentagem) {
       },
     },
   });
-  destroi++;
+  // destroi1++;
 }
 
 function discoPorcentagem(){

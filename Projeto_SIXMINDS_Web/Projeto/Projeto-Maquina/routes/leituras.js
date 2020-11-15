@@ -87,6 +87,16 @@ router.get('/dadosCore', (request, response) => {
    
 });
 
+router.get('/dadosCore2', (request, response) => {
+    var sql = 'select Leitura.valor as valorCore2, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 2"and metrica = "%" order by idLeitura desc limit 10;  ';
+    
+    db.query(sql,function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+   
+});
+
 router.get('/dadosDiscoTemp', (request, response) => {
     var sql = 'select Leitura.valor as valorDiscoTemp, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Disco temperatura"and metrica = "°C" order by idLeitura desc limit 10;';
     
