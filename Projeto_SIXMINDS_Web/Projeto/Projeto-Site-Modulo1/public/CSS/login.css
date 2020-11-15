@@ -37,6 +37,8 @@ body {
     padding: 0 0% 0 0;
   }
   .botao_login{
-    border:none;
+    border:none !important;
 
   }
+
+  
