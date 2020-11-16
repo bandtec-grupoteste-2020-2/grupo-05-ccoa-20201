@@ -49,11 +49,13 @@ router.get('/pegarumaleituradetemperatura', (request, response) => {
 
 });
 
-router.post('/enviar/:maquina/:componente/:ativado', (request, response) => {
+router.post('/enviar/:maquina/:componente/:ativado/:minimo/:maximo', (request, response) => {
     let maquina = request.params.maquina;
     let componente = request.params.componente;
     let ativado = request.params.ativado;
-    var sql = `update maquinacomponente set ativado = ${ativado}
+    let minimo = request.params.minimo;
+    let maximo = request.params.maximo;
+    var sql = `update maquinacomponente set ativado = ${ativado},minimo=${minimo},maximo=${maximo}
 	where fkmaquina = ${maquina} and fkcomponente= '${componente}'; `;
 
     db.query(sql, function (err, result) {
@@ -62,13 +64,29 @@ router.post('/enviar/:maquina/:componente/:ativado', (request, response) => {
     });
 
 });
+router.get('/receber/:maquina/:componente', (request, response) => {
+    let maquina = request.params.maquina;
+    let componente = request.params.componente;
 
-router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
+    var sql = `select ativado,minimo,maximo,metrica
+     from maquinacomponente,componente 
+     where fkcomponente=idcomponente and fkmaquina=${maquina} and fkcomponente=${componente} ; `;
+
+    db.query(sql, function (err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+
+});
+
+router.post('/criar/:maquina/:componente/:ativado/:minimo/:maximo', (request, response) => {
     let maquina = request.params.maquina;
     let componente = request.params.componente;
     let ativado = request.params.ativado;
-    var sql = `insert into maquinacomponente(fkMaquina,fkComponente,ativado) values 
-    (${maquina},${componente},${ativado}); `;
+    let minimo = request.params.minimo;
+    let maximo = request.params.maximo;
+    var sql = `insert into maquinacomponente(fkMaquina,fkComponente,ativado,minimo,maximo) values 
+    (${maquina},${componente},${ativado},${minimo},${maximo}); `;
 
     db.query(sql, function (err, result) {
         if (err) throw err;

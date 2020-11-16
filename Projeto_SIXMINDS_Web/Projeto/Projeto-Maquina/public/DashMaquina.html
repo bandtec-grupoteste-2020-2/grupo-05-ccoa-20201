@@ -56,8 +56,9 @@
                     <li class="nav-item">
                         <ul class="nav justify-content-center my-2 my-sm-0">
                             <li class="nav-item">
-                                <a type="button" class="btn btn-danger mx-auto" data-toggle="modal" data-target="#exampleModal"
-                                    data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
+                                <a type="button" class="btn btn-danger mx-auto" data-toggle="modal"
+                                    data-target="#exampleModal" data-whatever="@mdo">Chamado de Emergência <i
+                                        class="fas fa-bell"></i></a>
                             </li>
                         </ul>
                     </li>
@@ -149,9 +150,10 @@
                 <div class="rounded-lg shadow p-3 bg-white rounded">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-geral-tab" data-toggle="pill" href="#v-pills-geral"
-                            role="tab" aria-controls="v-pills-geral" aria-selected="true" onclick="cancelar(), cancelar2(), cancelar3()">Geral</a>
-                        <a class="nav-link" id="v-pills-cpu-tab" data-toggle="pill" href="#v-pills-cpu"
-                            role="tab" aria-controls="v-pills-cpu" aria-selected="true" onclick="cancelar()">CPU</a>
+                            role="tab" aria-controls="v-pills-geral" aria-selected="true"
+                            onclick="cancelar(), cancelar2(), cancelar3()">Geral</a>
+                        <a class="nav-link" id="v-pills-cpu-tab" data-toggle="pill" href="#v-pills-cpu" role="tab"
+                            aria-controls="v-pills-cpu" aria-selected="true" onclick="cancelar()">CPU</a>
                         <a class="nav-link" id="v-pills-memory-tab" data-toggle="pill" href="#v-pills-memory" role="tab"
                             aria-controls="v-pills-memory" aria-selected="false" onclick="cancelar2()">Memória</a>
                         <a class="nav-link" id="v-pills-disk-tab" data-toggle="pill" href="#v-pills-disk" role="tab"
@@ -162,7 +164,7 @@
                     </div>
                 </div>
 
-                
+
                 <br>
                 <div class="rounded-lg shadow p-3 bg-white rounded">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -186,7 +188,7 @@
                                         data-parent="#accordionExample">
                                         <div class="card-body">
                                             <form
-                                                onsubmit="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value);return false"
+                                                onsubmit="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value,digitar_minimo.value,digitar_maximo.value);return false"
                                                 id="divselect">
                                                 <!-- Máquina -->
                                                 <div class="input-group mb-3">
@@ -201,7 +203,7 @@
                                                                     d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
                                                             </svg></span>
                                                     </div>
-                                                    <select name="" id="maquina_valor" class="form-control"
+                                                    <select onchange="receber_ativados(maquina_valor.value,componente_valor.value)" name="" id="maquina_valor" class="form-control"
                                                         aria-label="Username" aria-describedby="basic-addon1">
                                                     </select>
                                                 </div>
@@ -217,7 +219,7 @@
                                                                     d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z" />
                                                             </svg></span>
                                                     </div>
-                                                    <select id="componente_valor" class="form-control"
+                                                    <select onchange="receber_ativados(maquina_valor.value,componente_valor.value)" id="componente_valor" class="form-control"
                                                         aria-label="Username" aria-describedby="basic-addon1">
                                                     </select>
                                                 </div>
@@ -235,13 +237,24 @@
                                                                     d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z" />
                                                             </svg></span>
                                                     </div>
-                                                    <select id="ativado_valor" class="form-control"
+                                                    <select onchange="receber_ativados(maquina_valor.value,componente_valor.value)" id="ativado_valor" class="form-control"
                                                         aria-label="Username" aria-describedby="basic-addon1">
                                                         <option type="number" value="0">Desligar</option>
                                                         <option type="number" value="1">Ligar</option>
                                                     </select>
+                                                    
                                                 </div>
+                                                Atual:<span id="ativado_atualmente"></span>
                                                 <br>
+                                                <Button onclick="desesconder()" id="botao_editar_parametros">Editar Parametros</Button><br>
+                                        <div id="div_edicao_parametro" style="display: none;" class="card-body">
+                                         
+                                            Minimo <input onchange="comparar_parametros()" id="digitar_minimo" type="number" >
+                                            <br> Atual: <span id="atual_minimo"></span>
+                                            <br>
+                                            Máximo <input  onchange="comparar_parametros()"   id="digitar_maximo" type="number" > 
+                                            <br> Atual:<span id="atual_maximo"></span>
+                                        </div>
                                                 <button type="submit" class="btn btn-primary" data-toggle="button"
                                                     aria-pressed="false" style="width: 100%;">
                                                     Atualizar
@@ -253,7 +266,7 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -279,7 +292,7 @@
                                             <h3 class="d-flex justify-content-left">MEMORIA</h3>
                                             <!-- GRÁFICOS -->
                                             <canvas class="my-100" id="memory_geral_chart"></canvas>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +313,7 @@
                                             <h3 class="d-flex justify-content-left">TEMPO</h3>
                                             <!-- GRÁFICOS -->
                                             <canvas class="my-100" id=""></canvas>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -318,9 +331,9 @@
                                 <div class="col">
                                     <div class="container">
                                         <h3 class="d-flex justify-content-left">CPU</h3>
-                                        
+
                                         <canvas class="my-100" id="cpu_chart"></canvas>
-                                        
+
                                     </div>
                                 </div>
                             </div>
