@@ -77,25 +77,35 @@ router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
 
 });
 
-router.get('/dadosCore', (request, response) => {
-    var sql = `select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 1"and metrica = "%" order by idLeitura desc limit 10;  `;
+router.get('/numCore', (request, response) => {
+    var sql = `select count(distinct descricao like "Core%") as NumCore from Leitura;`;
+    db.query(sql, function (err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+
+
+
+router.get('/dadosCore/:numCore', (request, response) => {
+    var numCore = request.params.numCore;
+    var sql = `select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina= 3 and descricao like "Core ${numCore}" and metrica = "%" order by idLeitura desc limit 10;`;
 
     db.query(sql, function (err, result) {
         if (err) throw err;
         response.json(result);
     });
-
 });
 
-router.get('/dadosCore2', (request, response) => {
-    var sql = 'select Leitura.valor as valorCore2, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 2"and metrica = "%" order by idLeitura desc limit 10;  ';
+// router.get('/dadosCore2', (request, response) => {
+//     var sql = 'select Leitura.valor as valorCore2, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Core 2"and metrica = "%" order by idLeitura desc limit 10;  ';
 
-    db.query(sql, function (err, result) {
-        if (err) throw err;
-        response.json(result);
-    });
+//     db.query(sql, function (err, result) {
+//         if (err) throw err;
+//         response.json(result);
+//     });
 
-});
+// });
 
 router.get('/dadosDiscoTemp', (request, response) => {
     var sql = 'select Leitura.valor as valorDiscoTemp, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao = "Disco temperatura"and metrica = "°C" order by idLeitura desc limit 10;';
@@ -137,4 +147,3 @@ router.get('/dadosMemoriaUsoGB', (request, response) => {
 });
 
 module.exports = router;
-
