@@ -148,10 +148,12 @@
             <div class="col-3 mt-1">
                 <div class="rounded-lg shadow p-3 bg-white rounded">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-cpu-tab" data-toggle="pill" href="#v-pills-cpu"
+                        <a class="nav-link active" id="v-pills-geral-tab" data-toggle="pill" href="#v-pills-geral"
+                            role="tab" aria-controls="v-pills-geral" aria-selected="true" onclick="cancelar(), cancelar2()">Geral</a>
+                        <a class="nav-link" id="v-pills-cpu-tab" data-toggle="pill" href="#v-pills-cpu"
                             role="tab" aria-controls="v-pills-cpu" aria-selected="true">CPU</a>
                         <a class="nav-link" id="v-pills-memory-tab" data-toggle="pill" href="#v-pills-memory" role="tab"
-                            aria-controls="v-pills-memory" aria-selected="false">Memória</a>
+                            aria-controls="v-pills-memory" aria-selected="false" onclick="cancelar2()">Memória</a>
                         <a class="nav-link" id="v-pills-disk-tab" data-toggle="pill" href="#v-pills-disk" role="tab"
                             aria-controls="v-pills-disk" aria-selected="false">Disco</a>
                         <a class="nav-link" id="v-pills-network-tab" data-toggle="pill" href="#v-pills-network"
@@ -258,18 +260,67 @@
 
             <div class="col-9">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-cpu" role="tabpanel"
-                        aria-labelledby="v-pills-cpu-tab">
+                    <div class="tab-pane fade show active" id="v-pills-geral" role="tabpanel"
+                        aria-labelledby="v-pills-geral-tab">
+                        <div id="div_geral_section">
+                            <div class="rounded-lg shadow py-3 my-1 bg-white rounded">
+                                <!--GERAL-->
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="container">
+                                            <h3 class="d-flex justify-content-left">CORE</h3>
+                                            <!-- GRÁFICOS -->
+                                            <canvas class="my-100" id="cpu_geral_chart"></canvas>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="container">
+                                            <h3 class="d-flex justify-content-left">MEMORIA</h3>
+                                            <!-- GRÁFICOS -->
+                                            <canvas class="my-100" id="memory_geral_chart"></canvas>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-lg shadow p-3 my-2 bg-white rounded">
+
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="container">
+                                            <h3 class="d-flex justify-content-left">DISCO</h3>
+                                            <!-- GRÁFICOS -->
+                                            <canvas class="my-100" id="disk_geral_chart"></canvas>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="container">
+                                            <h3 class="d-flex justify-content-left">TEMPO</h3>
+                                            <!-- GRÁFICOS -->
+                                            <canvas class="my-100" id=""></canvas>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CPU -->
+                    <div class="tab-pane fade" id="v-pills-cpu" role="tabpanel" aria-labelledby="v-pills-cpu-tab">
                         <div id="div_cpu_section">
                             <div class="rounded-lg shadow py-3 my-1 bg-white rounded">
                                 <!--CPU-->
                                 <div class="col">
                                     <div class="container">
                                         <h3 class="d-flex justify-content-left">CPU</h3>
-                                        <!-- <div class="px-5"> -->
-                                        <canvas class="my-100" id="cpu_use_chart"></canvas>
-                                        <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
-                                        <!-- </div> -->
+                                        
+                                        <canvas class="my-100" id="cpu_chart"></canvas>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -284,12 +335,14 @@
                                     <h5>Clock:</h5>
                                     <div class="progress">
                                         <div class="progress-bar w-100" role="progressbar" style="width: 3000%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="3000">3000MHz</div>
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="3000">3000MHz
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="tab-pane fade" id="v-pills-memory" role="tabpanel" aria-labelledby="v-pills-memory-tab">
                         <div id="div_memory_section">
                             <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
@@ -298,7 +351,7 @@
                                 <div class="col">
                                     <div class="container">
                                         <h3 class="d-flex justify-content-left">Memória</h3>
-                                        <canvas id="memory_use_chart"></canvas>
+                                        <canvas id="memory_chart"></canvas>
                                     </div>
 
                                     <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
@@ -321,14 +374,14 @@
                                     <div class="container">
                                         <h3 class="d-flex justify-content-left">Disco</h3>
                                         <!-- <canvas id="rosquinha"></canvas> -->
-                                        <canvas id="disk_use_chart"></canvas>
+                                        <canvas id="disk_geral_chart"></canvas>
                                         <!-- <span style="position: absolute;bottom: 5%;left: 37%;font-size: 70px;">75%</span> -->
                                     </div>
                                 </div>
 
 
                             </div>
-                            <!-- <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                            <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
                                 <table class="table table-striped table-dark">
                                     <thead>
                                         <tr>
@@ -337,9 +390,9 @@
                                             <th scope="col">Usado (%)</th>
                                             <th scope="col">Usado (GB)</th>
                                             <th scope="col">Tamanho (GB/TB)</th>
-                                            <th scope="col">Temperatura (°C)</th> -->
+                                            <th scope="col">Temperatura (°C)</th>
                                             <!-- <th scope="col">Disponível</th> -->
-                                        <!-- </tr>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -348,30 +401,30 @@
                                             <td>40%</td>
                                             <td>400GB</td>
                                             <td>1TB</td>
-                                            <td>43°C</td> -->
+                                            <td>43°C</td>
                                             <!-- <td>600GB(60%)</td> -->
-                                        <!-- </tr>
+                                        </tr>
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>F:</td>
                                             <td style=" background-color: brown;">90%</td>
                                             <td>180GB</td>
                                             <td>200GB</td>
-                                            <td>80°C</td> -->
+                                            <td>80°C</td>
                                             <!-- <td>20GB(10%)</td> -->
-                                        <!-- </tr>
+                                        </tr>
                                         <tr>
                                             <th scope="row">3</th>
                                             <td>E:</td>
                                             <td>20%</td>
                                             <td>100GB</td>
                                             <td>500GB</td>
-                                            <td>30°C</td> -->
+                                            <td>30°C</td>
                                             <!-- <td>400GB(80%)</td> -->
-                                        <!-- </tr>
+                                        </tr>
                                     </tbody>
                                 </table>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-network" role="tabpanel"
@@ -446,8 +499,11 @@
 </html>
 <!-- <script src="./script/grafico_grande.js"></script> -->
 <script src="funcoes.js"></script>
+<script src="./script/graficoCPUgeral.js"></script>
 <script src="./script/graficoCPUmaquina.js"></script>
+<script src="./script/graficoMEMORIAgeral.js"></script>
 <script src="./script/graficoMEMORIAmaquina.js"></script>
 <script src="./script/graficoDISCOmaquina.js"></script>
+<script src="./script/graficoDISCOgeral.js"></script>
 <script src="./script/graficoREDEmaquina.js"></script>
 <script src="./script/graficoTEMPmaquina.js"></script>

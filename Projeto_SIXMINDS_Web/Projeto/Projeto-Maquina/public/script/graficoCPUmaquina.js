@@ -4,7 +4,7 @@ atualizarCPU();
 let leituraUsoPorc2 = [];
 
 function plotarCPU(tempoLeitura, leituraUsoPorc, leituraUsoPorc2) {
-  var ctx = document.getElementById("cpu_use_chart").getContext("2d");
+  var ctx = document.getElementById("cpu_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
     data: {

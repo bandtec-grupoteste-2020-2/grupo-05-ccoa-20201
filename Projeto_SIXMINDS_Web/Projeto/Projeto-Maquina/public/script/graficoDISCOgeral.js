@@ -1,10 +1,20 @@
+function cancelar3() {
+  var tchaubj = 0;
+  if (tchaubj = 0) {
+    console.log = "Matei a Disco GERAL"
+  }
+  else{
+
+  }
+}
+
 discoPorcentagem();
 atualizarDisco();
 
 let leituraUsoPorc = [];
 
 function plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc) {
-  var ctx = document.getElementById("disk_chart").getContext("2d");
+  var ctx = document.getElementById("disk_geral_chart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
     data: {
