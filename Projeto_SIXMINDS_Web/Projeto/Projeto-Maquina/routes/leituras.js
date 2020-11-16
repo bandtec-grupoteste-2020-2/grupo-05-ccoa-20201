@@ -78,7 +78,7 @@ router.post('/criar/:maquina/:componente/:ativado', (request, response) => {
 });
 
 router.get('/numCore', (request, response) => {
-    var sql = `select count(distinct descricao like "Core%") as NumCore from Leitura;`;
+    var sql = `select count(distinct descricao) as NumCore from Leitura where descricao like "Core%" ;`;
     db.query(sql, function (err, result) {
         if (err) throw err;
         response.json(result);
