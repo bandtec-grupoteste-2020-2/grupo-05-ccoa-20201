@@ -66,6 +66,8 @@ public class LeituraComponente {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+
     
     
 }
