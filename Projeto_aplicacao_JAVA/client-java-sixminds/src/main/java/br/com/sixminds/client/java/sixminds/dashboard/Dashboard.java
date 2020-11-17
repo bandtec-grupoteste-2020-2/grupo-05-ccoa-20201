@@ -59,7 +59,9 @@ public class Dashboard extends javax.swing.JFrame {
     
     void zerarLine(){
         System.out.println("ZERADO");
-        lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");         
+        lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");        
+        lineChartDisco = new LineChart(jPanelDisco, "Disco", "Eixo X", "Eixo Y");
+        lineChartMemoria = new LineChart(jPanelMemoria, "Memoria", "Eixo X", "Eixo Y");        
     }
     
     public Dashboard(JdbcTemplate jdbcTemplate) {

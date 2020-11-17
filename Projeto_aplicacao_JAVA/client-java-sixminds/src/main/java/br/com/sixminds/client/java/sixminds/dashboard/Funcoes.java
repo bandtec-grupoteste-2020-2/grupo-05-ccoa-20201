@@ -20,7 +20,7 @@ public class Funcoes {
                 new BeanPropertyRowMapper(Componentes.class));
         for(Componentes compon : listaComp){
 //            System.out.println(compon.getNomeComponente());
-            Integer numero=0;
+            Integer numero=10;
             if (compon.getNomecomponente().equals("CPU_uso")) {
                 funcaoCPU(jdbcTemplate1,plotCPU,plotMem,plotDisco,ativadoCPU,compon);
             }
@@ -28,13 +28,14 @@ public class Funcoes {
                 List<LeituraComponente> listaCada=jdbcTemplate1.query(
                     "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from Usuario,Maquina,MaquinaComponente,"
                     + "Componente,Leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
-                    " and idMaquina=fkMaquina and nomeComponente=? and idComponente=fkComponente and idMaquinaComponente=fkMaquinaComponente limit 10;",
+                    " and idMaquina=fkMaquina and nomeComponente=? and idComponente=fkComponente and idMaquinaComponente=fkMaquinaComponente order by idLeitura desc limit 10;",
                     new BeanPropertyRowMapper(LeituraComponente.class),compon.getNomecomponente());
 
                 for(LeituraComponente leitura : listaCada){
                     separar(plotCPU,plotDisco,plotMem,leitura,ativadoCPU,numero);
-//                    System.out.println(leitura.getValor());
-                    numero++;
+                    System.out.println(leitura.getNomeComponente());
+                    System.out.println(leitura.getValor());
+                    numero--;
                 }
             }
         }
@@ -49,7 +50,7 @@ public class Funcoes {
                     + "and idMaquinaComponente=fkMaquinaComponente and fkMaquina=idMaquina;",new BeanPropertyRowMapper(Cores.class));
 
         for (Cores core : listaQnt) {
-            Integer numero=0;
+            Integer numero=10;
             List<LeituraComponente> listaCada=jdbcTemplate1.query(
                     "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from usuario,Maquina,MaquinaComponente,"
                             + "Componente, Leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
@@ -57,8 +58,8 @@ public class Funcoes {
                     new BeanPropertyRowMapper(LeituraComponente.class),compon.getNomecomponente(),core.getDescricao());
             for(LeituraComponente leitura : listaCada){
                 separar(plotCPU,plotDisco,plotMem,leitura,ativadoCPU,numero);
-                numero++;
-                System.out.println(leitura.getValor());
+                numero--;
+//                System.out.println(leitura.getValor());
             }
         }
     }
@@ -84,11 +85,13 @@ public class Funcoes {
                 }
                 else if(ativadoCPU.equals("Temperatura")){
                     if (leitura.getNomeComponente().equals("CPU_temperatura")) {
+                        System.out.println("TEORICAMENTE FOI-----------");
                         jPanelCPU.inserir(leitura.getValor(),leitura.getNomeComponente(),numero);
                     }
                 }
                 else{
                     if (leitura.getNomeComponente().equals("CPU_clock")) {
+                        System.out.println("TEORICAMENTE FOI-----------");
                         jPanelCPU.inserir(leitura.getValor(),leitura.getNomeComponente(),numero);
                     }
                 }
