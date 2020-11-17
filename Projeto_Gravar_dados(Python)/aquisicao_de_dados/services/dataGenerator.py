@@ -27,7 +27,7 @@ def get_data_cpu():
     dict_per_cpu = {}
 
     for cpu in range(psutil.cpu_count()):
-        dict_per_cpu["CPU_{}".format(cpu)] = per_cpu[cpu] 
+        dict_per_cpu[f"Core {cpu+1}"] = per_cpu[cpu] 
                 
     data_cpu = (dict_per_cpu, datetime_now)
     return data_cpu
