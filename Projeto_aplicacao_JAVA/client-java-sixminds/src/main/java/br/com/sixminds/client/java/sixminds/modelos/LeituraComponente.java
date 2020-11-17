@@ -11,7 +11,10 @@ public class LeituraComponente {
     private Integer ativado;
     private Double valor;
 
-    public Integer getIdLeitura() {
+    
+    
+    
+    public Integer geiIdLeitura() {
         return idLeitura;
     }
 
@@ -66,6 +69,8 @@ public class LeituraComponente {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+
     
     
 }

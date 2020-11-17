@@ -40,7 +40,7 @@ DefaultCategoryDataset dataset;
   }  
   
   public void inserir(Double valor, String nomeComponente, Integer idLeitura){
-      dataset.addValue(valor,nomeComponente,idLeitura);  
+      dataset.addValue(valor,nomeComponente,idLeitura); 
   }
  
   public DefaultCategoryDataset createDataset() {  
