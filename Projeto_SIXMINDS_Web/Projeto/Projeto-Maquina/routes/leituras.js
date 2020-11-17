@@ -40,7 +40,7 @@ router.get('/recebercomponentes', (request, response) => {
 });
 
 router.get('/pegarumaleituradetemperatura', (request, response) => {
-    var sql = 'select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao like "core%" and metrica="°C" order by idLeitura  limit 1; ';
+    var sql = 'select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao like "Core %" and metrica="°C" order by idLeitura  limit 1; ';
 
     db.query(sql, function (err, result) {
         if (err) throw err;
@@ -55,8 +55,8 @@ router.post('/enviar/:maquina/:componente/:ativado/:minimo/:maximo', (request, r
     let ativado = request.params.ativado;
     let minimo = request.params.minimo;
     let maximo = request.params.maximo;
-    var sql = `update maquinacomponente set ativado = ${ativado},minimo=${minimo},maximo=${maximo}
-	where fkmaquina = ${maquina} and fkcomponente= '${componente}'; `;
+    var sql = `update MaquinaComponente set ativado = ${ativado},minimo=${minimo},maximo=${maximo}
+	where fkMaquina = ${maquina} and fkComponente= '${componente}'; `;
 
     db.query(sql, function (err, result) {
         if (err) throw err;
@@ -69,8 +69,8 @@ router.get('/receber/:maquina/:componente', (request, response) => {
     let componente = request.params.componente;
 
     var sql = `select ativado,minimo,maximo,metrica
-     from maquinacomponente,componente 
-     where fkcomponente=idcomponente and fkmaquina=${maquina} and fkcomponente=${componente} ; `;
+     from MaquinaComponente,Componente 
+     where fkComponente=idComponente and fkMaquina=${maquina} and fkComponente=${componente} ; `;
 
     db.query(sql, function (err, result) {
         if (err) throw err;
@@ -85,7 +85,7 @@ router.post('/criar/:maquina/:componente/:ativado/:minimo/:maximo', (request, re
     let ativado = request.params.ativado;
     let minimo = request.params.minimo;
     let maximo = request.params.maximo;
-    var sql = `insert into maquinacomponente(fkMaquina,fkComponente,ativado,minimo,maximo) values 
+    var sql = `insert into MaquinaComponente(fkMaquina,fkComponente,ativado,minimo,maximo) values 
     (${maquina},${componente},${ativado},${minimo},${maximo}); `;
 
     db.query(sql, function (err, result) {
@@ -96,7 +96,7 @@ router.post('/criar/:maquina/:componente/:ativado/:minimo/:maximo', (request, re
 });
 
 router.get('/numCore', (request, response) => {
-    var sql = `select count(distinct descricao) as NumCore from Leitura where descricao like "Core%" ;`;
+    var sql = `select count(distinct descricao) as NumCore from Leitura where descricao like "Core %" ;`;
     db.query(sql, function (err, result) {
         if (err) throw err;
         response.json(result);
@@ -108,7 +108,7 @@ router.get('/numCore', (request, response) => {
 router.get('/dadosCore/:numCore/:maquina_atual', (request, response) => {
     var numCore = request.params.numCore;
     var maquina_atual = request.params.maquina_atual;
-    var sql = `select Leitura.valor, CAST(tempoLeitura AS TIME) as hora,MaquinaComponente.minimo,MaquinaComponente.maximo,componente.metrica  from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina= ${maquina_atual} and descricao like "Core ${numCore}" and metrica = "%" order by idLeitura desc limit 10;`;
+    var sql = `select Leitura.valor, CAST(tempoLeitura AS TIME) as hora,MaquinaComponente.minimo,MaquinaComponente.maximo,Componente.metrica  from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina= ${maquina_atual} and descricao like "Core ${numCore}" and metrica = "%" order by idLeitura desc limit 10;`;
 
     db.query(sql, function (err, result) {
         if (err) throw err;
