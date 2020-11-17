@@ -107,7 +107,7 @@ router.get('/numCore', (request, response) => {
 
 router.get('/dadosCore/:numCore', (request, response) => {
     var numCore = request.params.numCore;
-    var sql = `select Leitura.valor, CAST(tempoLeitura AS TIME) as hora from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina= 3 and descricao like "Core ${numCore}" and metrica = "%" order by idLeitura desc limit 10;`;
+    var sql = `select Leitura.valor, CAST(tempoLeitura AS TIME) as hora,MaquinaComponente.minimo,MaquinaComponente.maximo  from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina= 3 and descricao like "Core ${numCore}" and metrica = "%" order by idLeitura desc limit 10;`;
 
     db.query(sql, function (err, result) {
         if (err) throw err;
