@@ -53,3 +53,20 @@
 [data-theme="dark"] #close{
   color: #fff !important;
 }
+
+[data-theme="dark"] select {
+  color: #fff !important;
+  background-color: #343434 !important;
+}
+
+[data-theme="dark"] option {
+  color:  #fff !important;
+  background-color: #343434 !important;
+}
+
+[data-theme="dark"] .input-group-text{
+  color:  #fff !important;
+  background-color: #343434 !important;
+  /* border-color: #ff6384; */
+}
+

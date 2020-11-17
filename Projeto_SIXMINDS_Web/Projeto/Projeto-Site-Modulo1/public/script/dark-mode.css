@@ -41,9 +41,9 @@
   color: rgb(255, 0, 234) !important;
 } */
 
-[data-theme="dark"] input .bg-light {
+/* [data-theme="dark"] input .bg-light {
   background-color: #eee;
-}
+} */
 
 [data-theme="dark"] #close {
   color: #343434 !important;
