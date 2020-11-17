@@ -52,7 +52,7 @@ public class Dashboard extends javax.swing.JFrame {
     
     void pegaComp(String selecionado){
         zerarLine();
-        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,selecionado1);
+        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,selecionado1,lbCPUativado,lbMinimo,lbMaximo);
     }
     
    
@@ -73,7 +73,7 @@ public class Dashboard extends javax.swing.JFrame {
         lineChartDisco = new LineChart(jPanelDisco, "Disco", "Eixo X", "Eixo Y");
         lineChartMemoria = new LineChart(jPanelMemoria, "Memoria", "Eixo X", "Eixo Y");
         
-        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,"nada");        
+        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,"nada",lbCPUativado,lbMinimo,lbMaximo);        
     }
 
     private Dashboard() {
@@ -94,6 +94,12 @@ public class Dashboard extends javax.swing.JFrame {
         rbUso = new javax.swing.JRadioButton();
         rbTemperatura = new javax.swing.JRadioButton();
         rbClock = new javax.swing.JRadioButton();
+        lbCPUativado = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lbMaximo = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        lbMinimo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanelMemoryLoad = new javax.swing.JPanel();
         jPanelMemoria = new javax.swing.JPanel();
@@ -155,7 +161,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanelCpuLoadLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jPanelCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
@@ -188,27 +194,68 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        lbCPUativado.setText("jLabel9");
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel9.setText("COMPONENTES ATIVADOS:");
+
+        lbMaximo.setText("MAXIMO");
+
+        jLabel11.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel11.setText("Máximo:");
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel13.setText("Mínimo:");
+
+        lbMinimo.setText("MINIMO");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbTemperatura)
-                    .addComponent(rbUso)
-                    .addComponent(rbClock)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(lbCPUativado))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbUso)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbMaximo))
+                            .addComponent(rbTemperatura)
+                            .addComponent(rbClock)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbMinimo)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jPanelCpuLoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCpuLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jPanelCpuLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbCPUativado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(lbMaximo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(lbMinimo))
+                .addGap(25, 25, 25)
                 .addComponent(rbUso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbTemperatura)
@@ -267,7 +314,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMemoryLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jPanelMemoryLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,7 +371,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelDiskLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jPanelDiskLoad, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -544,7 +591,9 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAbrirChamado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -552,6 +601,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -566,6 +616,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMemoryLoad;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lbCPUativado;
+    private javax.swing.JLabel lbMaximo;
+    private javax.swing.JLabel lbMinimo;
     private javax.swing.JRadioButton rbClock;
     private javax.swing.JRadioButton rbTemperatura;
     private javax.swing.JRadioButton rbUso;
