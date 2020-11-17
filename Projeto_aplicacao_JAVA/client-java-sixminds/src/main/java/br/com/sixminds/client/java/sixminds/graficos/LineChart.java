@@ -49,17 +49,6 @@ DefaultCategoryDataset dataset;
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
  
     return dataset;  
-  }  
-  
-// public static void main(String[] args) {  
-//    SwingUtilities.invokeLater(() -> {  
-//      LineChartExample example = new LineChartExample("Line Chart Example");  
-//      example.setAlwaysOnTop(true);  
-//      example.pack();  
-//      example.setSize(600, 400);  
-////      example.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
-//      example.setVisible(true);
-//    });  
-//  }  
+  }   
 }  
 
