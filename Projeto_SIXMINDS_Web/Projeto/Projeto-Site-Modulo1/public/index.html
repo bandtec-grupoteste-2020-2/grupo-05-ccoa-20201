@@ -12,6 +12,8 @@
 
   <!-- Principal CSS do Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <!-- Estilos customizados para esse template -->
   <link href="carousel.css" rel="stylesheet">
@@ -34,8 +36,20 @@
   <!-- Icone na aba do navegador -->
   <link rel="shortcut icon" href="img/arvore.png">
   <link rel="stylesheet" href="CSS/index.css">
+  <style>
+    .nav-pills .nav-link.active {
+      background-color: #28a745;
+    }
 
+    .nav-link {
+      color: #28a745;
+    }
 
+    .custom-control-input:checked~.custom-control-label::before {
+      background-color: #28a745;
+      border-color: #0d7525;
+    }
+  </style>
 
 </head>
 
@@ -72,30 +86,25 @@
 
         <ul class="nav">
           <li class="nav-item">
-
-            <div class="custom-control custom-switch " style="margin-right: 5%;">
-              <div class="custom-control custom-switch dark_mode_margem ">
-                <input type="checkbox" class="custom-control-input" id="darkSwitch">
-                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+            <div class="border btn-outline-success border-success rounded nav-link mx-2 ">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input text-success" id="darkSwitch">
+                <label class="custom-control-label btn-outline-success" for="darkSwitch">Modo Escuro</label>
               </div>
               <script src="./script/dark-mode-switch.min.js"></script>
             </div>
           </li>
           <li class="nav-item">
-            <a href="cadastro/cadastro.html" class="btn btn-outline-success mr-1">Cadastrar</a>
+            <a href="cadastro/cadastro.html" class="btn btn-outline-success mr-1" style="padding: 8px;">Cadastrar</a>
           </li>
           <li class="nav-item">
-            <a href="login.html" class="btn btn-light ml-1">Login</a>
+            <a href="login.html" class="btn btn-light mx-1 border-success btn-outline-success"
+              style="padding: 8px;">Login</a>
           </li>
         </ul>
 
     </nav>
   </header>
-
-
-
-
-
 
   <main role="main">
 
@@ -145,12 +154,11 @@
       </ul>
     </div>
 
-
+    <!-- Projeto Plantio -->
     <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active bg-danger" id="pills-planta" role="tabpanel"
-        aria-labelledby="pills-planta-tab">
+      <div class="tab-pane fade show active" id="pills-planta" role="tabpanel" aria-labelledby="pills-planta-tab">
         <div class="container marketing" id="servicos">
-          <!-- Três colunas de texto, abaixo do carousel -->
+
           <div class="row">
             <div class="col-lg-4">
               <img class=" mx-auto" src="https://image.flaticon.com/icons/svg/639/639365.svg" width="140" height="140">
@@ -191,8 +199,7 @@
             </div>
           </div>
 
-
-          <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
+          <!-- Cards -->
 
           <hr class="featurette-divider">
 
@@ -243,19 +250,18 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
-      <div class="tab-pane fade bg-primary" id="pills-maquina" role="tabpanel" aria-labelledby="pills-maquina-tab">
+
+      <!-- Projeto Máquina -->
+      <div class="tab-pane fade" id="pills-maquina" role="tabpanel" aria-labelledby="pills-maquina-tab">
         <div class="container marketing" id="servicos">
 
-          <!-- Três colunas de texto, abaixo do carousel -->
           <div class="row">
             <div class="col-lg-4">
-              <img class=" mx-auto" src="https://www.flaticon.com/svg/static/icons/svg/3089/3089808.svg" width="140" height="140">
+              <img class=" mx-auto" src="https://www.flaticon.com/svg/static/icons/svg/3089/3089808.svg" width="140"
+                height="140">
 
-              <h2>Financeiro</h2>
+              <h2>Indicadores</h2>
               <p>Possuímos um controle financeiro capaz de cobrir todo seu plantio, nossos cálculos são baseados nos
                 dados
                 fornecidos por nossos clientes e por meio de levantamentos estatísticos realizados por nossa
@@ -264,12 +270,12 @@
               <p><a class="btn btn-success" href="#" role="button">Leia mais &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4 mx-auto">
-              
+
               <img class=" mx-auto" src="https://www.flaticon.com/svg/static/icons/svg/3617/3617073.svg" width="140"
                 height="140">
 
 
-              <h2>Plantio</h2>
+              <h2>Disponiblidade</h2>
               <p>Graças aos nossos sensores somos capazes de estabelecer um monitoramento preciso da plantação de nossos
                 clientes e por meio dos dados coletados, é criado um Dashboard onde nossos usuários têm acesso a
                 informações constantes e dinâmicas de seu plantio, 24h por dia e 7 dias da semana.
@@ -281,7 +287,7 @@
               <img class=" mx-auto " src="https://www.flaticon.com/svg/static/icons/svg/977/977506.svg" width="140"
                 height="140">
 
-              <h2>Determinismo Climático</h2>
+              <h2>Controle de gastos</h2>
               <p>Com base em nossas API's, dados são coletados referentes a previsões climáticas, sendo exibidas e
                 notificadas em nossa aplicação, mantendo sempre nossos clientes atualizados e alertando sobre possíveis
                 prevenções ou aconselhando em algumas práticas.
@@ -292,20 +298,19 @@
           </div>
 
 
-          <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
+          <!-- Cards -->
 
           <hr class="featurette-divider">
 
           <div class="row featurette">
             <div class="col-md-7">
-              <h2 class="featurette-heading">Controle <span class="text-success"> Sistemático</span></h2>
+              <h2 class="featurette-heading">Parâmetros <span class="text-success"> Personalizados</span></h2>
               <p class="lead">Trazendo um sistema que irá coletar os dados da área do seu plantio, contamos com o sensor
                 DHT11 para coletar os dados de temperatura e umidade, assim disponibilizando uma vasta base de dados
-                para
-                auxiliá-lo há tomar as melhores soluções para o seu empreendimento.</p>
+                para auxiliá-lo há tomar as melhores soluções para o seu empreendimento.</p>
             </div>
             <div class="col-md-5">
-              <img class="featurette-image img-fluid mx-auto" src="img/germinando.jpg">
+              <img class="featurette-image img-fluid mx-auto" src="img/trafdados.png">
             </div>
           </div>
 
@@ -313,7 +318,7 @@
 
           <div class="row featurette">
             <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">Calculadora <span class="text-success">Financeira</span></h2>
+              <h2 class="featurette-heading">Controle de <span class="text-success">Tráfego</span></h2>
               <p class="lead">Pensando na praticidade que o nosso cliente busca, trazemos uma calculadora financeira que
                 irá
                 ajudá-lo na hora de fazer as contas do cultivo, trazendo sempre uma alternativa para aprimorar ainda
@@ -321,17 +326,15 @@
                 negócio e baixar o custo de produção.</p>
             </div>
             <div class="col-md-5 order-md-1">
-              <img class="featurette-image img-fluid mx-auto" src="img/calculo.jpg">
+              <img class="featurette-image img-fluid mx-auto" src="img/dataCenter.png">
             </div>
           </div>
 
-
           <hr class="featurette-divider">
-
 
           <div class="row featurette">
             <div class="col-md-7">
-              <h2 class="featurette-heading">Previsão<span class="text-success"> Metereológica</span></h2>
+              <h2 class="featurette-heading">Billing<span class="text-success"> Dinâmico</span></h2>
               <p class="lead">Com um olhar crítico e sempre afinado com o mercado disponibilizamos junto a plataforma,
                 um
                 sistema de previsão do tempo, do qual junto as previsões trazemos possíveis ações que ao somar com sua
@@ -339,7 +342,7 @@
             </div>
             <div class="col-md-5">
               <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"> -->
-              <img src="img/previsao.jpg" alt="" width="450px">
+              <img src="img/controleGasto.png" alt="" width="450px">
             </div>
           </div>
         </div>
