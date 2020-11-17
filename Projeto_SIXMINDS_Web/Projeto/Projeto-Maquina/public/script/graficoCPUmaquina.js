@@ -1,10 +1,11 @@
 window.onload = quantidadeNucleos();
 
 let leituraUsoPorc = [];
-var arroz = [];
-var fejao = {};
+var conjunto_dataset = [];
+var dataset_completo = {};
 var tempoLeitura = [];
 var conta = 0;
+var myChart=undefined;
 function separar(arroz) {
   let valor = [];
   for (let i = 0; i < arroz.length; i++) {
@@ -15,21 +16,32 @@ function separar(arroz) {
   return valor;
 }
 
-function plotarCPU(arroz, tempoLeitura,nucleos,numCore) {
-  if(conta==1){
+function plotarCPU(arroz, tempoLeitura) {
+  if(myChart!=undefined){
+    debugger
   myChart.destroy();
-  conta++
+  conta=0;
   }
-  if(nucleos==numCore){
+conta++
   var ctx = document.getElementById("cpu_chart").getContext("2d");
-  var myChart = new Chart(ctx, {
+   myChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: tempoLeitura,
       datasets: separar(arroz),
-    },
-  });
+      
+    },options: {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  suggestedMin: 0,
+                  suggestedMax: 100
+              }
+          }]
+      }
   }
+  });
+  
 }
 
 function quantidadeNucleos() {
@@ -58,7 +70,7 @@ function quantidadeNucleos() {
 }
 
 function atualizarCPU(numCore) {
-  arroz = [];
+  conjunto_dataset = [];
   for (let x = 1; numCore >= x; x++) {
     fetch(`http://localhost:3000/leituras/dadosCore/${x}`, {
       cache: "no-store",
@@ -87,18 +99,18 @@ function atualizarCPU(numCore) {
               
             }
 
-            fejao = {
+            dataset_completo = {
               label: `% de utilização Core ${x}`,
               data: leituraUsoPorc,
               fill: true,
               backgroundColor: cores,
           
             };
-
      
-            arroz.push(fejao);
-            plotarCPU(arroz, tempoLeitura,x,numCore);
-      
+            conjunto_dataset.push(dataset_completo);
+            if(conjunto_dataset.length%numCore==0){
+            plotarCPU(conjunto_dataset, tempoLeitura);
+        }
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na leituras");
@@ -112,6 +124,6 @@ function atualizarCPU(numCore) {
   }
   setTimeout(() => {
     quantidadeNucleos();
-    myChart.destroy();
+
   }, 5000);
 }
