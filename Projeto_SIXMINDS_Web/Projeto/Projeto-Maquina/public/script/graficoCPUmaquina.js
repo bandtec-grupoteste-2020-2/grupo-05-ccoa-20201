@@ -18,7 +18,7 @@ function separar(arroz) {
 
 function plotarCPU(arroz, tempoLeitura) {
   if(myChart!=undefined){
-    debugger
+
   myChart.destroy();
   conta=0;
   }
@@ -84,6 +84,7 @@ function atualizarCPU(numCore) {
             tempoLeitura = [];
             leituraUsoPorc = [];
             cores=[];
+            metrica_do_valor = registro[0].metrica
             for (n = registro.length - 1; n >= 0; n--) {
       
               leituraUsoPorc.push(registro[n].valor);
@@ -96,7 +97,8 @@ function atualizarCPU(numCore) {
               }else{
                 cores.push('#17a2b8')
               }
-              
+              parametro_minimo.innerHTML=`${registro[0].minimo} ${metrica_do_valor}`
+              parametro_maximo.innerHTML=`${registro[0].maximo} ${metrica_do_valor}`
             }
 
             dataset_completo = {
