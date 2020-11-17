@@ -10,8 +10,8 @@ public class LeituraComponente {
     private Integer idMaquinaComponente;
     private Integer ativado;
     private Double valor;
-
-    
+    private Double minimo;
+    private Double maximo;
     
     
     public Integer geiIdLeitura() {
@@ -68,6 +68,22 @@ public class LeituraComponente {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public Double getMinimo() {
+        return minimo;
+    }
+
+    public void setMinimo(Double minimo) {
+        this.minimo = minimo;
+    }
+
+    public Double getMaximo() {
+        return maximo;
+    }
+
+    public void setMaximo(Double maximo) {
+        this.maximo = maximo;
     }
 
 
