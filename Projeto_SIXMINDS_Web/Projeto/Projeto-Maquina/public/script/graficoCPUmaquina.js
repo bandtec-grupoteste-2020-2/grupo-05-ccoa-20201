@@ -72,7 +72,7 @@ function quantidadeNucleos() {
 function atualizarCPU(numCore) {
   conjunto_dataset = [];
   for (let x = 1; numCore >= x; x++) {
-    fetch(`http://localhost:3000/leituras/dadosCore/${x}`, {
+    fetch(`http://localhost:3000/leituras/dadosCore/${x}/${maquina_atual.value}`, {
       cache: "no-store",
     })
       .then(function (response) {

@@ -1,3 +1,36 @@
+maquina_atual_no_site();
+function maquina_atual_no_site() {
+
+    fetch('http://localhost:3000/leituras/recebermaquinas', { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+
+            response.json().then(function (resposta) {
+
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                for (i = 0; i < resposta.length; i++) {
+
+
+                    var registro = resposta[i];
+                    const tipodaMaquina = registro.tipoMaquina;
+                    const iddaMaquina = registro.idMaquina;
+
+                    var option = new Option(tipodaMaquina, iddaMaquina);
+                    var select = document.getElementById("maquina_atual");
+                    select.add(option);
+
+
+                }
+            })
+        } else {
+            console.error('Nenhum dado encontrado ou erro na leituras');
+        }
+    }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+//
 atualizar_Maquinas();
 function atualizar_Maquinas() {
 
