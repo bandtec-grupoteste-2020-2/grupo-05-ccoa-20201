@@ -24,7 +24,7 @@ public class Funcoes {
                 + "Maquina where idComponente=fkComponente and idMaquina=fkMaquina and idMaquina=1 and ativado=1;",
                 new BeanPropertyRowMapper(Componentes.class));
         for(Componentes compon : listaComp){
-            System.out.println(compon.getNomecomponente());
+//            System.out.println(compon.getNomecomponente());
             Integer numero=0;
             if (compon.getNomecomponente().equals("CPU_uso")) {
                 funcaoCPU(jdbcTemplate1,plotCPU,plotMem,plotDisco,ativadoCPU,compon);
@@ -38,7 +38,7 @@ public class Funcoes {
 
                 for(LeituraComponente leitura : listaCada){
                     separar(plotCPU,plotDisco,plotMem,leitura,ativadoCPU,numero);
-                    System.out.println(leitura.getValor());
+//                    System.out.println(leitura.getValor());
                     numero++;
                 }
             }
@@ -56,13 +56,14 @@ public class Funcoes {
         for (Cores core : listaQnt) {
             Integer numero=0;
             List<LeituraComponente> listaCada=jdbcTemplate1.query(
-                    "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from Usuario,Maquina,MaquinaComponente,"
-                    + "Componente,Leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
-                    " and idMaquina=fkMaquina and nomeComponente=? and descricao=? and idComponente=fkComponente and idMaquinaComponente=fkMaquinaComponente limit 10;",
+                    "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from usuario,maquina,maquinacomponente,"
+                            + "componente,leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
+" and idMaquina=fkMaquina and idComponente=fkComponente and nomeComponente=? and descricao=? and idMaquinaComponente=fkMaquinaComponente order by idLeitura desc limit 10;",
                     new BeanPropertyRowMapper(LeituraComponente.class),compon.getNomecomponente(),core.getDescricao());
             for(LeituraComponente leitura : listaCada){
                 separar(plotCPU,plotDisco,plotMem,leitura,ativadoCPU,numero);
                 numero++;
+                System.out.println(leitura.getValor());
             }
         }
     }
@@ -77,8 +78,7 @@ public class Funcoes {
             if (ativadoCPU.equals("nada")) {
                 if (leitura.getNomeComponente().equals("CPU_uso")) {
                     jPanelCPU.inserir(leitura.getValor(),leitura.getDescricao(),numero);
-                    System.out.println("--------------------------------------------");
-                    System.out.println(numero);
+                   
                 }
             }
             else{

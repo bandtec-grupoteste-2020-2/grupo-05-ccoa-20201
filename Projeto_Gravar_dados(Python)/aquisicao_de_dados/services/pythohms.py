@@ -6,7 +6,7 @@ from random import randint
 
 class CrawlerOpenHardwareMonitor:
     def __init__(self):
-        self.url = 'http://192.168.15.6:8085/data.json'
+        self.url = 'http://192.168.1.46:8085/data.json'
         self.data = None
     
     def getJsonData(self):

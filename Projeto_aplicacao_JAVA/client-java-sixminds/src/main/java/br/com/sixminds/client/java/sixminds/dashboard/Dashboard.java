@@ -2,6 +2,7 @@ package br.com.sixminds.client.java.sixminds.dashboard;
 
 import br.com.sixminds.client.java.sixminds.graficos.LineChart;
 
+
 //import org.jfree.chart.ChartFactory;
 
 import java.awt.Color;
@@ -11,8 +12,13 @@ import java.awt.Color;
 //import org.jfree.data.category.CategoryDataset;
 //import org.jfree.data.category.DefaultCategoryDataset;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
 //import javafx.scene.control.RadioButton;
 import javax.swing.JRadioButton;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -26,6 +32,18 @@ public class Dashboard extends javax.swing.JFrame {
     LineChart lineChartDisco;
     LineChart lineChartMemoria;
     
+    String selecionado1="nada";
+    
+    //TIMERZAO
+    Timer timer=new Timer();
+    TimerTask tarefa=new TimerTask() {
+        @Override
+        public void run() {
+            pegaComp(selecionado1);
+        }
+    };
+    
+    
     void rbSelecionado(JRadioButton escolhido){
         rbClock.setSelected(false);
         rbTemperatura.setSelected(false);
@@ -33,20 +51,24 @@ public class Dashboard extends javax.swing.JFrame {
         /**--------------------*/
         escolhido.setSelected(true);
         String selecionado=escolhido.getText();
+        selecionado1=selecionado;
         pegaComp(selecionado);
-        System.out.println(selecionado);
     }
     
     void pegaComp(String selecionado){
         zerarLine();
-        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,selecionado);
+        funcao.pegarComponente(jdbcTemplate1,lineChartCpu,lineChartDisco,lineChartMemoria,selecionado1);
     }
     
+   
+    
     void zerarLine(){
-        lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y"); 
+        System.out.println("ZERADO");
+        lineChartCpu= new LineChart(jPanelCPU, "CPU", "Eixo X", "Eixo Y");         
     }
     
     public Dashboard(JdbcTemplate jdbcTemplate) {
+        timer.scheduleAtFixedRate(tarefa, 5000, 5000);
         initComponents();
         jdbcTemplate1=jdbcTemplate;
         
