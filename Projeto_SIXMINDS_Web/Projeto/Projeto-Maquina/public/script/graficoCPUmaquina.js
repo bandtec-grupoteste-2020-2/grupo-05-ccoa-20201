@@ -84,7 +84,8 @@ function atualizarCPU(numCore) {
             tempoLeitura = [];
             leituraUsoPorc = [];
             cores=[];
-            metrica_do_valor = registro[0].metrica
+            metrica_do_valor = registro[0].metrica_do_valor;
+            
             for (n = registro.length - 1; n >= 0; n--) {
       
               leituraUsoPorc.push(registro[n].valor);
