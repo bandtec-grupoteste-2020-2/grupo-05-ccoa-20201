@@ -19,8 +19,8 @@ public class DemoDeUsoClienteApi {
                 "dGYq8LbV5ElKaOqSdjLR39AF"
         );
 
-        Issue issue = clienteJiraApi.getIssue("PSM-14");
-        System.out.println("Issue recuperada: "+gson.toJson(issue));
+//        Issue issue = clienteJiraApi.getIssue("PSM-14");
+//        System.out.println("Issue recuperada: "+gson.toJson(issue));;
 
 //         Exemplo de objeto para novo chamado (Issue)
         Issue novaIssue = new Issue();

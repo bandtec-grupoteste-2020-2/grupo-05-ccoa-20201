@@ -19,7 +19,7 @@ public class Funcoes {
                 + "Maquina where idComponente=fkComponente and idMaquina=fkMaquina and idMaquina=1 and ativado=1;",
                 new BeanPropertyRowMapper(Componentes.class));
         for(Componentes compon : listaComp){
-//            System.out.println(compon.getNomecomponente());
+//            System.out.println(compon.getNomeComponente());
             Integer numero=0;
             if (compon.getNomecomponente().equals("CPU_uso")) {
                 funcaoCPU(jdbcTemplate1,plotCPU,plotMem,plotDisco,ativadoCPU,compon);
@@ -44,15 +44,15 @@ public class Funcoes {
     void funcaoCPU(JdbcTemplate jdbcTemplate1,LineChart plotCPU,LineChart plotMem,LineChart plotDisco,String ativadoCPU,Componentes compon){
         /*-CONTA QUANTOS NUCLEOS TEM NO PCZAO-*/
         List<Cores> listaQnt=jdbcTemplate1.query(
-                    " select distinct(descricao) from maquina,componente,maquinacomponente,leitura where "
+                    " select distinct(descricao) from Maquina,Componente,MaquinaComponente,Leitura where "
                     + "nomeComponente=\"CPU_uso\" and fkComponente=idComponente and descricao like \"Core%\" "
                     + "and idMaquinaComponente=fkMaquinaComponente and fkMaquina=idMaquina;",new BeanPropertyRowMapper(Cores.class));
 
         for (Cores core : listaQnt) {
             Integer numero=0;
             List<LeituraComponente> listaCada=jdbcTemplate1.query(
-                    "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from usuario,maquina,maquinacomponente,"
-                            + "componente,leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
+                    "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor from usuario,Maquina,MaquinaComponente,"
+                            + "Componente, Leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
 " and idMaquina=fkMaquina and idComponente=fkComponente and nomeComponente=? and descricao=? and idMaquinaComponente=fkMaquinaComponente order by idLeitura desc limit 10;",
                     new BeanPropertyRowMapper(LeituraComponente.class),compon.getNomecomponente(),core.getDescricao());
             for(LeituraComponente leitura : listaCada){
