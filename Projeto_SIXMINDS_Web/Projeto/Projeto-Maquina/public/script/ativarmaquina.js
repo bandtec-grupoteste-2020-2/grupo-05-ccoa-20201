@@ -75,7 +75,7 @@ function atualizar_banco(maquina, componente, ativado,minimo,maximo) {
     console.log(maquina)
     console.log(componente)
     console.log(ativado)
-
+    
     fetch(`http://localhost:3000/leituras/enviar/${maquina}/${componente}/${ativado}/${minimo}/${maximo}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
@@ -104,6 +104,7 @@ function atualizar_banco(maquina, componente, ativado,minimo,maximo) {
         }
         return false;
     });
+    receber_ativados(maquina, componente)
 }
 
 function receber_ativados(maquina, componente) {
