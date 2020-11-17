@@ -11,8 +11,8 @@
   <link rel="icon" href="logo.png">
   <script type="text/javascript" src="funcoes.js"></script>
   <!-- Linha referêncial boostrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <!-- Linhas refrentes ao JS do boostrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -43,24 +43,28 @@
 </head>
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-light  bg-light mb-0">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light mb-5">
     <a class="navbar-brand" href="index.html">
-      <img id="icone" src="https://image.flaticon.com/icons/svg/789/789394.svg" width="40" height="40" alt="">
-    </a>
-    <a href="index.html">
-      <h3>SixMinds</h3>
+      <img src="https://image.flaticon.com/icons/svg/789/789394.svg" width="40" height="40" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+      </ul>
 
-      <a id="bt_cadastrar" href="cadastro/cadastro.html" class=" btn btn-outline-success mr-1">Cadastrar</a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="cadastro.html" class="btn btn-outline-success mr-1" style="padding: 8px;">Cadastrar</a>
+        </li>
+        <li class="nav-item">
+          <a href="login.html" class="btn btn-light mx-1 border-success btn-outline-success"
+            style="padding: 8px;">Login</a>
+        </li>
+      </ul>
 
-      <a id="bt_login" href="login.html" class="botao_login btn btn-light ml-1 ">Login</a>
-
-    </div>
   </nav>
 </header>
 
