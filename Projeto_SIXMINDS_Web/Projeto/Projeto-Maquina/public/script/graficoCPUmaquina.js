@@ -84,7 +84,7 @@ function atualizarCPU(numCore) {
             tempoLeitura = [];
             leituraUsoPorc = [];
             cores=[];
-            metrica_do_valor = registro[0].metrica_do_valor;
+            metrica = registro[0].metrica;
             
             for (n = registro.length - 1; n >= 0; n--) {
       
@@ -98,8 +98,8 @@ function atualizarCPU(numCore) {
               }else{
                 cores.push('#17a2b8')
               }
-              parametro_minimo.innerHTML=`${registro[0].minimo} ${metrica_do_valor}`
-              parametro_maximo.innerHTML=`${registro[0].maximo} ${metrica_do_valor}`
+              parametro_minimo.innerHTML=`${registro[0].minimo} ${metrica}`
+              parametro_maximo.innerHTML=`${registro[0].maximo} ${metrica}`
             }
 
             dataset_completo = {
