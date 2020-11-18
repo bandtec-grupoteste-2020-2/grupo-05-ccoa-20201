@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="dark-mode.css">
     <!-- Icone na aba do navegador -->
     <link rel="shortcut icon" href="img/arvore.png">
-    <script src="script/gerenteValores.js"></script>
+    
 </head>
 
 <style>
@@ -263,17 +263,6 @@
                                     <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
                                         class="fas fa-exclamation-circle"></i></td>
                                 </tr>
-                                <!-- <tr>
-                                    <th style=" background-color:#FF6384;" scope="row">CPU</th>
-                                    <td style=" background-color: #FF6384; "><i style="color: #343a40;"
-                                            class="fas fa-skull"></i></td>
-                                    <td>20GB(10%)</td> 
-                                </tr>
-                                <tr>
-                                    <th style=" background-color:#FFCE56;" scope="row">Disco</th>
-                                    <td style="background-color: #FFCE56;"><i style="color: #343a40;"
-                                            class="fas fa-exclamation-circle"></i></td>
-                                </tr> -->
                             </tbody>
                         
                         <table id="tabela12" class="table table-striped table-dark"
@@ -282,25 +271,29 @@
                                 <tr>
                                     <th scope="col">Componente</th>
                                     <th scope="col">Usado (%)</th>
-                                    <th scope="col">Tamanho (GB/TB)</th>
+                                    <th scope="col">Mínimo</th>
+                                    <th scope="col">Máximo</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th style=" background-color: #17a2b8;" scope="row">Memória</th>
-                                    <td>40%</td>
-                                    <td>1TB</td>
+                                    <td id="memUsed1"></td>
+                                    <td id="memMin1" ></td>
+                                    <td id="memMax1" ></td>
                                 </tr>
                                 <tr>
                                     <th style=" background-color:#FF6384;" scope="row">CPU</th>
-                                    <td style=" background-color:#FF6384;">90%</td>
-                                    <td style=" background-color:#FF6384;">200GB</td>
-                                    <!-- <td>20GB(10%)</td> -->
+                                    <td id="cpuUsed1">90%</td>
+                                    <td id="cpuMin1">200GB</td>
+                                    <td id="cpuMax1">200GB</td>
+                                
                                 </tr>
                                 <tr>
                                     <th style=" background-color: #FFCE56;" scope="row">Disco</th>
-                                    <td>20%</td>
-                                    <td>500GB</td>
+                                    <td id="discUsed1">20%</td>
+                                    <td id="discMin1">500GB</td>
+                                    <td id="discMax1">500GB</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -518,7 +511,7 @@
             
         </div>
 
-        <div class="row ">
+        <!-- <div class="row ">
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm shadow p-3 mb-5 bg-white rounded">
                     <div class="row ">
@@ -540,7 +533,7 @@
                                     <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
                                         class="fas fa-exclamation-circle"></i></td>
                                 </tr>
-                                <!-- <tr>
+                                <tr>
                                     <th style=" background-color:#FF6384;" scope="row">CPU</th>
                                     <td style=" background-color: #FF6384; "><i style="color: #343a40;"
                                             class="fas fa-skull"></i></td>
@@ -551,7 +544,7 @@
                                     <td style="background-color: #FFCE56;"><i style="color: #343a40;"
                                             class="fas fa-exclamation-circle"></i></td>
                                 </tr> -->
-                            </tbody>
+                            <!-- </tbody>
                         </table>
                         <table id="tabela42" class="table table-striped table-dark"
                             style="width: 80%;margin: auto;margin-top: 5%;display: none;">
@@ -572,7 +565,7 @@
                                     <th style=" background-color:#FF6384;" scope="row">CPU</th>
                                     <td style=" background-color:#FF6384;">90%</td>
                                     <td style=" background-color:#FF6384;">200GB</td>
-                                    <!-- <td>20GB(10%)</td> -->
+                                     <td>20GB(10%)</td> 
                                 </tr>
                                 <tr>
                                     <th style=" background-color:#FFCE56;" scope="row">Disco</th>
@@ -633,7 +626,7 @@
                                 <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
                                     class="fas fa-exclamation-circle"></i></td>
                             </tr>
-                            <!-- <tr>
+                            <tr>
                                 <th style=" background-color:#FF6384;" scope="row">CPU</th>
                                 <td style=" background-color: #FF6384; "><i style="color: #343a40;"
                                         class="fas fa-skull"></i></td>
@@ -643,7 +636,7 @@
                                 <th style=" background-color:#FFCE56;" scope="row">Disco</th>
                                 <td style="background-color: #FFCE56;"><i style="color: #343a40;"
                                         class="fas fa-exclamation-circle"></i></td>
-                            </tr> -->
+                            </tr> 
                         </tbody>
                     </table>
                     <table id="tabela52" class="table table-striped table-dark"
@@ -665,7 +658,7 @@
                                 <th style=" background-color:#FF6384;" scope="row">CPU</th>
                                 <td style=" background-color:#FF6384;">90%</td>
                                 <td style=" background-color:#FF6384;">200GB</td>
-                                <!-- <td>20GB(10%)</td> -->
+                                <td>20GB(10%)</td> 
                             </tr>
                             <tr>
                                 <th style=" background-color:#FFCE56;" scope="row">Disco</th>
@@ -723,7 +716,7 @@
                                     <td style="background-color: #FFCE56; min-inline-size: 80px;"><i style="color: #343a40;"
                                         class="fas fa-exclamation-circle"></i></td>
                                 </tr>
-                                <!-- <tr>
+                                 <tr>
                                     <th style=" background-color:#FF6384;" scope="row">CPU</th>
                                     <td style=" background-color: #FF6384; "><i style="color: #343a40;"
                                             class="fas fa-skull"></i></td>
@@ -733,7 +726,7 @@
                                     <th style=" background-color:#FFCE56;" scope="row">Disco</th>
                                     <td style="background-color: #FFCE56;"><i style="color: #343a40;"
                                             class="fas fa-exclamation-circle"></i></td>
-                                </tr> -->
+                                </tr> 
                             </tbody>
                         </table>
                         <table id="tabela62" class="table table-striped table-dark"
@@ -755,7 +748,7 @@
                                     <th style=" background-color:#FF6384;" scope="row">CPU</th>
                                     <td style=" background-color:#FF6384;">90%</td>
                                     <td style=" background-color:#FF6384;">200GB</td>
-                                    <!-- <td>20GB(10%)</td> -->
+                                     <td>20GB(10%)</td> 
                                 </tr>
                                 <tr>
                                     <th style=" background-color:#FFCE56;" scope="row">Disco</th>
@@ -793,7 +786,7 @@
                 </div>
             </div>
             
-        </div>
+        </div>  -->
     </div>
 </body>
 
@@ -843,4 +836,6 @@
         setTimeout("icone12.style.display='inline-block'", 450);
 
     }
+    
 </script>
+<script src="script/gerenteValores.js"></script>

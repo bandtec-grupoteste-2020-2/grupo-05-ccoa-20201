@@ -1,4 +1,3 @@
-
 numeroMaquina();
 function numeroMaquina() {
     var globalTipo=[];
@@ -72,6 +71,15 @@ function leituraCadaComp(globalTipo,globalId,numCoreVariavel) {
                 var mediaFinal;
                 var disc;
                 var memo;
+                var minCpu;
+                var maxCpu;
+                var minDisc;
+                var maxDisc;
+                var maxMemo;
+                var minMemo;
+                var totalCpu=[];
+                var totalDisc=[];
+                var totalMemo=[];
 
                 console.log(resposta);
                 for(let x=0; x<qntRegistro; x++){
@@ -79,19 +87,32 @@ function leituraCadaComp(globalTipo,globalId,numCoreVariavel) {
                     if(resposta[x].nomeComponente=="CPU_uso"){
                         atual=parseFloat(resposta[x].valor);
                         soma=soma+atual;
-                        mediaFinal=soma/numCoreVariavel[0]; 
+                        mediaFinal=soma/numCoreVariavel[0];
+                        minCpu=resposta[x].minimo;
+                        maxCpu=resposta[x].maximo; 
                     }
                     else if(resposta[x].nomeComponente=="Disco_uso"){
                         disc=resposta[x].valor;
+                        minDisc=resposta[x].minimo;
+                        maxDisc=resposta[x].maximo;
                     }
                     else if(resposta[x].nomeComponente=="Memória_uso"){
                         memo=resposta[x].valor;
+                        minMemo=resposta[x].minimo;
+                        maxMemo=resposta[x].maximo;
                     }
                 }
+                totalCpu.push(minCpu,maxCpu);
+                totalDisc.push(minDisc,maxDisc);
+                totalMemo.push(minMemo,maxMemo);
                 console.log(mediaFinal);
                 console.log(disc);
                 console.log(memo);
-                atribuirDados(memo,mediaFinal,disc,i);
+                console.log("----------------")
+                console.log(totalCpu);
+                console.log(totalDisc);
+                console.log(totalMemo);
+                atribuirDados(memo,totalMemo,mediaFinal,totalCpu,disc,totalDisc,i);
             });
             } else {
             console.error("Nenhum dado encontrado ou erro na leituras");
@@ -104,6 +125,17 @@ function leituraCadaComp(globalTipo,globalId,numCoreVariavel) {
       
   }
 
-function atribuirDados(memoria, cpu, disco, numMaqui){
-    
+function atribuirDados(memoria, totalMemo ,cpu,totalCpu, disco,totalDisc, numMaqui){
+    console.log(memoria);
+    memUsed1.innerHTML=memoria;
+    memMin1.innerHTML=totalMemo[0];
+    memMax1.innerHTML=totalMemo[1];
+
+    cpuUsed1.innerHTML=cpu;
+    cpuMin1.innerHTML=totalCpu[0];
+    cpuMax1.innerHTML=totalCpu[1];
+
+    discUsed1.innerHTML=disco;
+    discMin1.innerHTML=totalDisc[0];
+    discMax1.innerHTML=totalDisc[1];
 }
