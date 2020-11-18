@@ -54,7 +54,7 @@ public class Funcoes {
         for (Cores core : listaQnt) {
             Integer numero=10;
             List<LeituraComponente> listaCada=jdbcTemplate1.query(
-                    "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor,minimo,maximo from usuario,Maquina,MaquinaComponente,"
+                    "select idLeitura,idComponente,nomeComponente,descricao,idMaquinaComponente,ativado,valor,minimo,maximo from Usuario,Maquina,MaquinaComponente,"
                             + "Componente, Leitura where nomeUsuario=\"João\" and idMaquina=1 and idUsuario=Usuario_idUsuario\n" +
 " and idMaquina=fkMaquina and idComponente=fkComponente and nomeComponente=? and descricao=? and idMaquinaComponente=fkMaquinaComponente order by idLeitura desc limit 10;",
                     new BeanPropertyRowMapper(LeituraComponente.class),compon.getNomecomponente(),core.getDescricao());
