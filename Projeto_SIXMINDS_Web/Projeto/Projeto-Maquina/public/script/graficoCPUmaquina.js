@@ -5,7 +5,7 @@ var conjunto_dataset = [];
 var dataset_completo = {};
 var tempoLeitura = [];
 
-var myChart=undefined;
+var myChart = undefined;
 function separar(conjunto_dataset) {
   let valor = [];
   for (let i = 0; i < conjunto_dataset.length; i++) {
@@ -14,72 +14,87 @@ function separar(conjunto_dataset) {
 
   return valor;
 }
-var maquina_atualmente=NaN;
-var vezes =0;
+var maquina_atualmente = NaN;
+var vezes = 0;
 var mudanca;
 function plotarCPU(conjunto_dataset, tempoLeitura) {
-  if(vezes!=0){
-  if(maquina_atual.value!=maquina_atualmente ){
-    myChart.destroy();
-    vezes=0;
+  if (vezes != 0) {
+    if (maquina_atual.value != maquina_atualmente) {
+      myChart.destroy();
+      vezes = 0;
     }
   }
 
-  if(myChart!=undefined && vezes!=0){
-    if(!mudanca.includes(tempoLeitura[tempoLeitura.length - 1])){
-    mudanca=tempoLeitura
-    let conta=separar(conjunto_dataset);
-    myChart.data.labels.shift();
-    myChart.data.labels.push(tempoLeitura[tempoLeitura.length-1])
-    myChart.data.datasets.forEach(dataset => {
-      dataset.data.shift();
-      dataset.backgroundColor.shift();
-    });
-    myChart.data.datasets.forEach((dataset,n) => {
-      dataset.data.push(conta[n].data[conta[n].data.length-1])
-      dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length-1])
-    });
-    myChart.update();
-    }
+  if (myChart != undefined && vezes != 0) {
+
+    atualizarGrafico(tempoLeitura)
   }
-  
-  else{
-    mudanca=tempoLeitura
-    vezes ++
-    maquina_atualmente=maquina_atual.value;
-  var ctx = document.getElementById("cpu_chart").getContext("2d");
-   myChart = new Chart(ctx, {
+
+  else {
+    mudanca = tempoLeitura
+    vezes++
+    maquina_atualmente = maquina_atual.value;
+
+    myChart = criarGrafico('cpu_chart', conjunto_dataset, tempoLeitura)
+
+  }
+}
+var numero_nucleos = 0;
+
+function criarGrafico(idCanvas, conjunto_dataset, tempoLeitura) {
+  let ctx = document.getElementById(idCanvas).getContext("2d");
+  return new Chart(ctx, {
     type: "bar",
     data: {
       labels: tempoLeitura,
       datasets: separar(conjunto_dataset),
-      
-    },options: {
+
+    }, options: {
       scales: {
-          yAxes: [{
-              ticks: {
-                  suggestedMin: 0,
-                  suggestedMax: 100
-              }
-          }]
+        yAxes: [{
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 100
+          }
+        }]
       }
-  }
+    }
   });
+}
+
+function atualizarGrafico(tempoLeitura) {
+  if (!mudanca.includes(tempoLeitura[tempoLeitura.length - 1])) {
+
+    mudanca = tempoLeitura
+    let conta = separar(conjunto_dataset);
+    myChart.data.labels.shift();
+    myChart.data.labels.push(tempoLeitura[tempoLeitura.length - 1])
+    myChart.data.datasets.forEach(dataset => {
+      dataset.data.shift();
+      dataset.backgroundColor.shift();
+    });
+    myChart.data.datasets.forEach((dataset, n) => {
+      dataset.data.push(conta[n].data[conta[n].data.length - 1])
+      dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length - 1])
+    });
+    myChart.update();
+
+
   }
 }
-var numero_nucleos=0;
+
 function quantidadeNucleos() {
   let numCore = [];
   fetch("http://localhost:3000/leituras/numCore", { cache: "no-store" })
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-  
+
           let registro = resposta;
           numCore.push(registro[0].NumCore);
 
           let valor = parseInt(registro[0].NumCore);
-          numero_nucleos=valor
+          numero_nucleos = valor
           atualizarCPU(valor);
         });
       } else {
@@ -91,11 +106,11 @@ function quantidadeNucleos() {
     });
 
 
- 
+
 }
 
 function atualizarCPU(numCore) {
-  numCore=numero_nucleos;
+  numCore = numero_nucleos;
   conjunto_dataset = [];
   for (let x = 1; numCore >= x; x++) {
     fetch(`http://localhost:3000/leituras/dadosCore/${x}/${maquina_atual.value}`, {
@@ -104,28 +119,28 @@ function atualizarCPU(numCore) {
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
-       
+
             let registro = resposta;
 
             tempoLeitura = [];
             leituraUsoPorc = [];
-            cores=[];
+            cores = [];
             metrica = registro[0].metrica;
-            
+
             for (n = registro.length - 1; n >= 0; n--) {
-      
+
               leituraUsoPorc.push(registro[n].valor);
 
               tempoLeitura.push(registro[n].hora);
-              if(parseFloat(registro[n].valor)>parseFloat(registro[n].maximo)){
+              if (parseFloat(registro[n].valor) > parseFloat(registro[n].maximo)) {
                 cores.push('#ff6384')
-              }else if(parseFloat(registro[n].valor)<parseFloat(registro[n].minimo)){
+              } else if (parseFloat(registro[n].valor) < parseFloat(registro[n].minimo)) {
                 cores.push('#ffce56')
-              }else{
+              } else {
                 cores.push('#17a2b8')
               }
-              parametro_minimo.innerHTML=`${registro[0].minimo} ${metrica}`
-              parametro_maximo.innerHTML=`${registro[0].maximo} ${metrica}`
+              parametro_minimo.innerHTML = `${registro[0].minimo} ${metrica}`
+              parametro_maximo.innerHTML = `${registro[0].maximo} ${metrica}`
             }
 
             dataset_completo = {
@@ -133,13 +148,13 @@ function atualizarCPU(numCore) {
               data: leituraUsoPorc,
               fill: true,
               backgroundColor: cores,
-          
+
             };
-     
+
             conjunto_dataset.push(dataset_completo);
-            if(conjunto_dataset.length%numCore==0){
-            plotarCPU(conjunto_dataset, tempoLeitura);
-        }
+            if (conjunto_dataset.length % numCore == 0) {
+              plotarCPU(conjunto_dataset, tempoLeitura);
+            }
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na leituras");
