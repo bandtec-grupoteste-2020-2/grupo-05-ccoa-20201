@@ -110,7 +110,7 @@ function cancelar3() {
     
       setTimeout(() => {
         atualizarDisco();
-        myChart.destroy();
+      //  myChart.destroy();
       }, 5000);
     }
     

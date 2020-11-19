@@ -4,31 +4,40 @@ let leituraUsoPorc = [];
 var conjunto_dataset = [];
 var dataset_completo = {};
 var tempoLeitura = [];
-var conta = 0;
+
 var myChart=undefined;
-function separar(arroz) {
+function separar(conjunto_dataset) {
   let valor = [];
-  for (let i = 0; i < arroz.length; i++) {
-    valor.push(arroz[i]);
+  for (let i = 0; i < conjunto_dataset.length; i++) {
+    valor.push(conjunto_dataset[i]);
   }
-  // debugger
 
   return valor;
 }
 
-function plotarCPU(arroz, tempoLeitura) {
+function plotarCPU(conjunto_dataset, tempoLeitura) {
   if(myChart!=undefined){
+    let conta=separar(conjunto_dataset);
+    myChart.data.labels.shift();
+    myChart.data.labels.push(tempoLeitura[tempoLeitura.length-1])
+    myChart.data.datasets.forEach(dataset => {
+      dataset.data.shift();
+      dataset.backgroundColor.shift();
+    });
+    myChart.data.datasets.forEach((dataset,n) => {
+      dataset.data.push(conta[n].data[conta[n].data.length-1])
+      dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length-1])
+    });
+    myChart.update();
 
-  myChart.destroy();
-  conta=0;
-  }
-conta++
+  }else{
+
   var ctx = document.getElementById("cpu_chart").getContext("2d");
    myChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: tempoLeitura,
-      datasets: separar(arroz),
+      datasets: separar(conjunto_dataset),
       
     },options: {
       scales: {
@@ -41,9 +50,9 @@ conta++
       }
   }
   });
-  
+  }
 }
-
+var numero_nucleos=0;
 function quantidadeNucleos() {
   let numCore = [];
   fetch("http://localhost:3000/leituras/numCore", { cache: "no-store" })
@@ -55,6 +64,7 @@ function quantidadeNucleos() {
           numCore.push(registro[0].NumCore);
 
           let valor = parseInt(registro[0].NumCore);
+          numero_nucleos=valor
           atualizarCPU(valor);
         });
       } else {
@@ -70,6 +80,7 @@ function quantidadeNucleos() {
 }
 
 function atualizarCPU(numCore) {
+  numCore=numero_nucleos;
   conjunto_dataset = [];
   for (let x = 1; numCore >= x; x++) {
     fetch(`http://localhost:3000/leituras/dadosCore/${x}/${maquina_atual.value}`, {
@@ -126,7 +137,7 @@ function atualizarCPU(numCore) {
       });
   }
   setTimeout(() => {
-    quantidadeNucleos();
+    atualizarCPU(numCore);
 
   }, 5000);
 }

@@ -103,6 +103,6 @@ function atualizarDisco() {
 
   setTimeout(() => {
     atualizarDisco();
-    myChart.destroy();
+   // myChart.destroy();
   }, 5000);
 }
