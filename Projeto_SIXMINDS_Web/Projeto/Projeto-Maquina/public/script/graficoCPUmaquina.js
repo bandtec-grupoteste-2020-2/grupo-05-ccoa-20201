@@ -14,9 +14,17 @@ function separar(conjunto_dataset) {
 
   return valor;
 }
-
+var maquina_atualmente=NaN;
+var vezes =0;
 function plotarCPU(conjunto_dataset, tempoLeitura) {
-  if(myChart!=undefined){
+  if(vezes!=0){
+  if(maquina_atual.value!=maquina_atualmente ){
+    myChart.destroy();
+    vezes=0;
+    }
+  }
+
+  if(myChart!=undefined && vezes!=0){
     let conta=separar(conjunto_dataset);
     myChart.data.labels.shift();
     myChart.data.labels.push(tempoLeitura[tempoLeitura.length-1])
@@ -30,8 +38,10 @@ function plotarCPU(conjunto_dataset, tempoLeitura) {
     });
     myChart.update();
 
-  }else{
-
+  }
+  else{
+    vezes ++
+    maquina_atualmente=maquina_atual.value;
   var ctx = document.getElementById("cpu_chart").getContext("2d");
    myChart = new Chart(ctx, {
     type: "bar",
