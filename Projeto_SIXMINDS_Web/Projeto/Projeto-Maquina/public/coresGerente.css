@@ -1,0 +1,9 @@
+.alerta{
+    background-color: yellow;
+}
+.normal{
+    background-color: blue;
+}
+.critico{
+    background-color: red;
+}
