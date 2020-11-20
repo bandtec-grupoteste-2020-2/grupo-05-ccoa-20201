@@ -85,7 +85,7 @@ insert into Empresa values
 	(null,'SixMinds','09505050','45646494161');
  
 insert into Usuario values
-    (null,'João','joão@joão.com','123','Analista','50xxxxxx','1'),
+    (null,'João','joao@joao.com','123','Analista','50xxxxxx','1'),
     (null,'Joana','joana@ig.com','123','Analista','50xxxxxx','1'),
     (null,'Yuiti','thiago@japao.com','123','Gerente','50xxxxxx','1');
     
