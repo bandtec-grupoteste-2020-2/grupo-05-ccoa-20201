@@ -21,6 +21,7 @@ function plotarCPU(conjunto_dataset, tempoLeitura) {
   if (vezes != 0) {
     if (maquina_atual.value != maquina_atualmente) {
       myChart.destroy();
+      myChart_cpu_geral.destroy();
       vezes = 0;
     }
   }
