@@ -21,6 +21,7 @@ function maquina_atual_no_site() {
 
 
                 }
+               plotar_tudo();
             })
         } else {
             console.error('Nenhum dado encontrado ou erro na leituras');

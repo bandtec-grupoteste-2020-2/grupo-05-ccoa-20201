@@ -1,5 +1,4 @@
-    discoPorcentagem_geral();
-    atualizarDisco_geral(1);
+
     var myChart_disk_geral;
     let leituraUsoPorc_disco_geral = [];
     var conjunto_2_dataset_disco_geral=[];
@@ -74,7 +73,7 @@
     }
   }
     function discoPorcentagem_geral() {
-      fetch("http://localhost:3000/leituras/dadosDiscoPerc", { cache: "no-store" })
+      fetch(`http://localhost:3000/leituras/dadosDiscoPerc/${maquina_atual.value}`, { cache: "no-store" })
         .then(function (response) {
           if (response.ok) {
             response.json().then(function (resposta) {
@@ -99,7 +98,7 @@
     
     let leituraTemperatura = [];
     function atualizarDisco_geral(vez) {
-      fetch("http://localhost:3000/leituras/dadosDiscoTemp", { cache: "no-store" })
+      fetch(`http://localhost:3000/leituras/dadosDiscoTemp/${maquina_atual.value}`, { cache: "no-store" })
         .then(function (response) {
           if (response.ok) {
             response.json().then(function (resposta) {
@@ -119,14 +118,15 @@
               plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc_disco_geral,vez);
             });
           } else {
-            console.error("Nenhum dado encontrado ou erro na leituras");
+            //console.error("Nenhum dado encontrado ou erro na leituras");
+           
           }
         })
         .catch(function (error) {
           console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
     
-      setInterval(() => {
+      setTimeout(() => {
        // atualizarDisco_geral();
       //  myChart.destroy();
       // eliminar_disco();

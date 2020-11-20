@@ -20,8 +20,9 @@ var mudanca;
 function plotarCPU(conjunto_dataset, tempoLeitura) {
   if (vezes != 0) {
     if (maquina_atual.value != maquina_atualmente) {
-      myChart.destroy();
-      myChart_cpu_geral.destroy();
+      // myChart.destroy();
+      // myChart_cpu_geral.destroy();
+      destruir_tudo()
       vezes = 0;
     }
   }
@@ -66,28 +67,48 @@ function criarGrafico(idCanvas, conjunto_dataset, tempoLeitura) {
 
 function atualizarGrafico(tempoLeitura) {
   if (!mudanca.includes(tempoLeitura[tempoLeitura.length - 1])) {
-    atualizarDisco_geral(0);
-    atualizarMemoriaGeral(0)
-    eliminar_disco();
-    eliminar_memoria();
-    mudanca = tempoLeitura
-    let conta = separar(conjunto_dataset_CPU);
-    myChart.data.labels.shift();
-    myChart.data.labels.push(tempoLeitura[tempoLeitura.length - 1])
-    myChart.data.datasets.forEach(dataset => {
-      dataset.data.shift();
-      dataset.backgroundColor.shift();
-    });
-    myChart.data.datasets.forEach((dataset, n) => {
-      dataset.data.push(conta[n].data[conta[n].data.length - 1])
-      dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length - 1])
-    });
-    myChart.update();
-    myChart_cpu_geral.update();
+    adicionar_eliminar_novos_valores(tempoLeitura);
+    // atualizarDisco_geral(0);
+    // atualizarMemoriaGeral(0)
+    // eliminar_disco();
+    // eliminar_memoria();
+    // eliminar_cpu(tempoLeitura)
+    // mudanca = tempoLeitura
+    // let conta = separar(conjunto_dataset_CPU);
+    // myChart.data.labels.shift();
+    // myChart.data.labels.push(tempoLeitura[tempoLeitura.length - 1])
+    // myChart.data.datasets.forEach(dataset => {
+    //   dataset.data.shift();
+    //   dataset.backgroundColor.shift();
+    // });
+    // myChart.data.datasets.forEach((dataset, n) => {
+    //   dataset.data.push(conta[n].data[conta[n].data.length - 1])
+    //   dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length - 1])
+    // });
+    // myChart.update();
+    // myChart_cpu_geral.update();
 
 
   }
 }
+function eliminar_cpu(tempoLeitura){
+  mudanca = tempoLeitura
+  let conta = separar(conjunto_dataset_CPU);
+  myChart.data.labels.shift();
+  myChart.data.labels.push(tempoLeitura[tempoLeitura.length - 1])
+  myChart.data.datasets.forEach(dataset => {
+    dataset.data.shift();
+    dataset.backgroundColor.shift();
+  });
+  myChart.data.datasets.forEach((dataset, n) => {
+    dataset.data.push(conta[n].data[conta[n].data.length - 1])
+    dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length - 1])
+  });
+  myChart.update();
+  myChart_cpu_geral.update();
+  
+}
+
 
 function quantidadeNucleos() {
   let numCore = [];
@@ -118,6 +139,7 @@ function quantidadeNucleos() {
 function atualizarCPU(numCore) {
   numCore = numero_nucleos;
   conjunto_dataset_CPU = [];
+  
   for (let x = 1; numCore >= x; x++) {
     fetch(`http://localhost:3000/leituras/dadosCore/${x}/${maquina_atual.value}`, {
       cache: "no-store",

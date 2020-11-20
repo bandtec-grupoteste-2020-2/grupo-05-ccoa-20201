@@ -1,5 +1,5 @@
 
-    atualizarMemoriaGeral(1);
+
     var myChart_memoria_geral 
     var myChart_memoria 
   var conjunto_2_dataset_memoria_geral=[]
@@ -64,7 +64,7 @@ conjunto_2_dataset_memoria_geral=[
   }
 
     function atualizarMemoriaGeral(vez) {
-      fetch("http://localhost:3000/leituras/dadosMemoriaUsoPerc", { cache: "no-store" })
+      fetch(`http://localhost:3000/leituras/dadosMemoriaUsoPerc/${maquina_atual.value}`, { cache: "no-store" })
         .then(function (response) {
           if (response.ok) {
             response.json().then(function (resposta) {
