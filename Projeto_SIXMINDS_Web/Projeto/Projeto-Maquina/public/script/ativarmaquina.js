@@ -14,8 +14,8 @@ function maquina_atual_no_site() {
                     var registro = resposta[i];
                     const tipodaMaquina = registro.tipoMaquina;
                     const iddaMaquina = registro.idMaquina;
-
-                    var option = new Option(tipodaMaquina, iddaMaquina);
+                    const concatenar = `ID: ${iddaMaquina} - Tipo Máquina: ${tipodaMaquina}`
+                    var option = new Option(concatenar, iddaMaquina);
                     var select = document.getElementById("maquina_atual");
                     select.add(option);
 
