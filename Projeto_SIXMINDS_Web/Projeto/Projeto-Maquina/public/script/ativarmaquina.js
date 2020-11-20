@@ -6,7 +6,7 @@ function maquina_atual_no_site() {
 
             response.json().then(function (resposta) {
 
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+             
 
                 for (i = 0; i < resposta.length; i++) {
 
@@ -39,7 +39,7 @@ function atualizar_Maquinas() {
 
             response.json().then(function (resposta) {
 
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+           
 
                 for (i = 0; i < resposta.length; i++) {
 
@@ -72,7 +72,7 @@ function atualizar_Componentes() {
 
             response.json().then(function (resposta) {
 
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            
 
                 for (i = 0; i < resposta.length; i++) {
 
@@ -105,15 +105,12 @@ function atualizar_banco(maquina, componente, ativado,minimo,maximo) {
     ativado = parseInt(ativado)
     minimo = parseFloat(minimo)
     maximo = parseFloat(maximo)
-    console.log(maquina)
-    console.log(componente)
-    console.log(ativado)
-    
+ 
     fetch(`http://localhost:3000/leituras/enviar/${maquina}/${componente}/${ativado}/${minimo}/${maximo}`, { method: "POST" }, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+               
 
 
                 var linhasalteradas = resposta.affectedRows;

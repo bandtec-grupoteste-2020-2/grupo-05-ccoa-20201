@@ -1,8 +1,8 @@
 window.onload = quantidadeNucleos();
 
-let leituraUsoPorc = [];
-var conjunto_dataset = [];
-var dataset_completo = {};
+let leituraUsoPorc_CPU = [];
+var conjunto_dataset_CPU = [];
+var dataset_completo_CPU = {};
 var tempoLeitura = [];
 
 var myChart = undefined;
@@ -36,6 +36,7 @@ function plotarCPU(conjunto_dataset, tempoLeitura) {
     maquina_atualmente = maquina_atual.value;
 
     myChart = criarGrafico('cpu_chart', conjunto_dataset, tempoLeitura)
+    myChart_cpu_geral = criarGrafico('cpu_geral_chart', conjunto_dataset, tempoLeitura)
 
   }
 }
@@ -64,9 +65,9 @@ function criarGrafico(idCanvas, conjunto_dataset, tempoLeitura) {
 
 function atualizarGrafico(tempoLeitura) {
   if (!mudanca.includes(tempoLeitura[tempoLeitura.length - 1])) {
-
+    eliminar_disco();
     mudanca = tempoLeitura
-    let conta = separar(conjunto_dataset);
+    let conta = separar(conjunto_dataset_CPU);
     myChart.data.labels.shift();
     myChart.data.labels.push(tempoLeitura[tempoLeitura.length - 1])
     myChart.data.datasets.forEach(dataset => {
@@ -78,6 +79,7 @@ function atualizarGrafico(tempoLeitura) {
       dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length - 1])
     });
     myChart.update();
+    myChart_cpu_geral.update();
 
 
   }
@@ -111,7 +113,7 @@ function quantidadeNucleos() {
 
 function atualizarCPU(numCore) {
   numCore = numero_nucleos;
-  conjunto_dataset = [];
+  conjunto_dataset_CPU = [];
   for (let x = 1; numCore >= x; x++) {
     fetch(`http://localhost:3000/leituras/dadosCore/${x}/${maquina_atual.value}`, {
       cache: "no-store",
@@ -123,13 +125,13 @@ function atualizarCPU(numCore) {
             let registro = resposta;
 
             tempoLeitura = [];
-            leituraUsoPorc = [];
+            leituraUsoPorc_CPU = [];
             cores = [];
             metrica = registro[0].metrica;
 
             for (n = registro.length - 1; n >= 0; n--) {
 
-              leituraUsoPorc.push(registro[n].valor);
+              leituraUsoPorc_CPU.push(registro[n].valor);
 
               tempoLeitura.push(registro[n].hora);
               if (parseFloat(registro[n].valor) > parseFloat(registro[n].maximo)) {
@@ -143,17 +145,17 @@ function atualizarCPU(numCore) {
               parametro_maximo.innerHTML = `${registro[0].maximo} ${metrica}`
             }
 
-            dataset_completo = {
+            dataset_completo_CPU = {
               label: `% de utilização Core ${x}`,
-              data: leituraUsoPorc,
+              data: leituraUsoPorc_CPU,
               fill: true,
               backgroundColor: cores,
 
             };
 
-            conjunto_dataset.push(dataset_completo);
-            if (conjunto_dataset.length % numCore == 0) {
-              plotarCPU(conjunto_dataset, tempoLeitura);
+            conjunto_dataset_CPU.push(dataset_completo_CPU);
+            if (conjunto_dataset_CPU.length % numCore == 0) {
+              plotarCPU(conjunto_dataset_CPU, tempoLeitura);
             }
           });
         } else {

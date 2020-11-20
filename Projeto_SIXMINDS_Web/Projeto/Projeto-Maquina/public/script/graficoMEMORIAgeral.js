@@ -1,9 +1,4 @@
-function cancelar2() {
-  var tchaus2 = 0;
-  if (tchaus2 = 0) {
-    console.log = "Matei a Memória GERAL"
-  }
-  else {
+
     atualizarMemoriaGeral();
 
     function plotarMemoriaGeral(tempoLeituraGeral, leituraUsoPorcGeral) {
@@ -44,10 +39,9 @@ function cancelar2() {
         .then(function (response) {
           if (response.ok) {
             response.json().then(function (resposta) {
-              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+     
               let registro = resposta;
-              console.log(registro);
-              console.log(registro.length);
+         
               let leituraUsoPorcGeral = [];
               let tempoLeituraGeral = [];
 
@@ -55,7 +49,7 @@ function cancelar2() {
                 leituraUsoPorcGeral.push(registro[n].valor);
                 tempoLeituraGeral.push(registro[n].hora);
               }
-              console.log(leituraUsoPorcGeral);
+
 
               plotarMemoriaGeral(tempoLeituraGeral, leituraUsoPorcGeral);
             });
@@ -68,8 +62,7 @@ function cancelar2() {
         });
 
       setTimeout(() => {
-        atualizarMemoriaGeral();
+     //   atualizarMemoriaGeral();
       }, 5000);
     }
-  }
-}
+ 
