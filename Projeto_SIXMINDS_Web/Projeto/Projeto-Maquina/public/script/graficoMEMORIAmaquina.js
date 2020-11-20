@@ -62,6 +62,6 @@ function atualizarMemoria() {
     });
 
   setTimeout(() => {
-    atualizarMemoria();
+ //   atualizarMemoria();
   }, 5000);
 }
