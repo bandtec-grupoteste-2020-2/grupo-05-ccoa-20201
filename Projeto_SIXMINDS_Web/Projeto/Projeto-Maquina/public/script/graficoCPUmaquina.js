@@ -36,6 +36,7 @@ function plotarCPU(conjunto_dataset, tempoLeitura) {
     maquina_atualmente = maquina_atual.value;
 
     myChart = criarGrafico('cpu_chart', conjunto_dataset, tempoLeitura)
+    myChart_cpu_geral = criarGrafico('cpu_geral_chart', conjunto_dataset, tempoLeitura)
 
   }
 }
@@ -78,6 +79,7 @@ function atualizarGrafico(tempoLeitura) {
       dataset.backgroundColor.push(conta[n].backgroundColor[conta[n].backgroundColor.length - 1])
     });
     myChart.update();
+    myChart_cpu_geral.update();
 
 
   }
