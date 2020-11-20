@@ -39,62 +39,10 @@
         <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-dark p-4">
-                    <!-- Chamado de Emergência -->
-                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever="@mdo">Chamado de Emergência</button>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-danger" id="exampleModalLabel">Chamado de Emergência</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span id="close" aria-hidden="true" class="text-dark">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-success">
-                                <form id="myForm" method="POST" action="/slack">
-
-                                    <div class="form-group">
-                                        <label for="input_subject">Assunto</label>
-                                        <input type="text" class="form-control" id="input_subject" name="input_subject">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="textarea_description">Descrição</label>
-                                        <textarea class="form-control" id="textarea_description"
-                                            name="textarea_description" rows="3"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="input_email">E-mail de Contato</label>
-                                        <input type="email" class="form-control" id="input_email" name="input_email"
-                                            aria-describedby="emailHelp">
-                                        <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar
-                                            esse email com
-                                            ninguém.</small>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-success mx-auto">Enviar</button>
-
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
+                    
                 </div>
             </div>
-            <!-- <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav> -->
+ 
             <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
                     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,52 +52,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <!-- <li class="nav-item active">
-                          <a class="nav-link" href="#">CPU <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Memoria</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Disco</a>
-                          </li> -->
+                        
                         <li class="nav-item">
                             <!-- Chamado de Emergência -->
                             <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#chamadoEmerg"
                                 data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
                         </li>
-
-
-
-
-
-
-
-
-
-                        <!-- <div class="modal fade" id="ampli${}" tabindex="-1" aria-labelledby="ampli${}Label"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="ampli${}Label">Chamado de Emergência
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span id="close" aria-hidden="true" class="text-dark">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body text-success">
-                                    
-
-                                    TABELA
-
-
-                                </div>
-                                <div class="modal-footer">
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
 
                         </li>
@@ -227,6 +135,14 @@
  
     //-----PISCAR EM CASO DE CAVEIRA-----------------------------
     //setInterval(Perigo, 1000);
+    
+    setInterval(function(){
+        // console.log("zika");
+
+        caixa_maquinas.innerHTML = "";
+        numeroMaquina();
+    }, 5000);
+    
     
 
 

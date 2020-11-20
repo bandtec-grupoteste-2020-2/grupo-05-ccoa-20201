@@ -1,13 +1,25 @@
-numeroMaquina();
-var globalTipo = [];
-var globalId = [];
+numeroMaquina()
+  
+
+// setInterval(function(){
+//   // console.log("zika");
+
+//   caixa_maquinas.innerHTML = "";
+//   numeroMaquina();
+// }, 5000);
+
+
+
+
 function numeroMaquina() {
+  var globalTipo = [];
+  var globalId = [];
   fetch('http://localhost:3000/leituras/recebermaquinas', { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
 
       response.json().then(function (resposta) {
 
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
         for (i = 0; i < resposta.length; i++) {
 
@@ -19,7 +31,7 @@ function numeroMaquina() {
           globalTipo.push(tipodaMaquina);
           globalId.push(iddaMaquina);
 
-        }
+        } 
         numeroNucleos(globalTipo, globalId);
       })
     } else {
@@ -82,7 +94,7 @@ function leituraCadaComp(globalTipo, globalId, numCoreVariavel) {
             var totalDisc = [];
             var totalMemo = [];
 
-            console.log(resposta);
+            // console.log(resposta);
             for (let x = 0; x < qntRegistro; x++) {
 
               if (resposta[x].nomeComponente == "CPU_uso") {
@@ -114,9 +126,19 @@ function leituraCadaComp(globalTipo, globalId, numCoreVariavel) {
             // console.log(totalDisc);
             // console.log(totalMemo);
 
-            // console.log(globalId.length);
-            atribuirDados(totalMemo, totalCpu, totalDisc, i, globalTipo, globalId);
-            igualarClass(totalMemo, totalCpu, totalDisc, i);
+            // console.log(globalId.length);                     
+              // setInterval(function(){                
+                // caixa_maquinas.setAtributte("style", "transition: width 2s;");                
+                // caixa_maquinas.style.opacity = "1%";
+                // caixa_maquinas.style.transition = "opacity 3s";                
+                // caixa_maquinas.style.opacity = "100%";
+                atribuirDados(totalMemo, totalCpu, totalDisc, i, globalTipo, globalId);     
+                igualarClass(totalMemo, totalCpu, totalDisc, i);
+              // }, 5000);
+           
+
+
+          
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na leituras");
@@ -168,12 +190,12 @@ function atribuirDados(totalMemo, totalCpu, totalDisc, numMaqui, globalTipo, glo
     id_maquina.innerHTML = "ID Máquina: " + globalId[m - 1];
 
   }
-
+   
 }
 // setInterval(atualizarTable, 5000);
 function piscar_icone(icone) {
   
-  console.log("piscando");
+  // console.log("piscando");
 
   if(icone.style.display = "none"){
     icone.style.display = "block";
@@ -301,7 +323,7 @@ function igualarClass(totalMemo, totalCpu, totalDisc, num_maqui) {
           // piscar_icone(icone);
 
 
-        setInterval(piscar_icone(icone), 500);
+    
           
         }
         else if (totalMemo[0] > totalMemo[1] && totalMemo[0] < totalMemo[2]) {
@@ -319,8 +341,7 @@ function igualarClass(totalMemo, totalCpu, totalDisc, num_maqui) {
         if (totalCpu[0] > totalCpu[2]) {
           caixa_icone.className = "critico";
           icone.className = "fas fa-skull";
-          setInterval(piscar_icone(icone), 500);
-
+          
 
         }
         else if (totalCpu[0] > totalCpu[1] && totalCpu[0] < totalCpu[2]) {
@@ -337,7 +358,7 @@ function igualarClass(totalMemo, totalCpu, totalDisc, num_maqui) {
         if (totalDisc[0] > totalDisc[2]) {
           caixa_icone.className = "critico";
           icone.className = "fas fa-skull";
-          setInterval(piscar_icone(icone), 500);
+          
 
         }
         else if (totalDisc[0] > totalDisc[1] && totalDisc[0] < totalDisc[2]) {
@@ -355,7 +376,7 @@ function igualarClass(totalMemo, totalCpu, totalDisc, num_maqui) {
 
 
   for (c in comp) {
-    console.log(maquina);
+    // console.log(maquina);
     for (let w = 1; w <= 3; w++) {
 
       let componente = document.getElementById(`${comp[c]}${maquina}_${w}`);
