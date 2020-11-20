@@ -1,10 +1,10 @@
     discoPorcentagem_geral();
-    atualizarDisco_geral();
+    atualizarDisco_geral(1);
     var myChart_disk_geral;
     let leituraUsoPorc_disco_geral = [];
     var conjunto_2_dataset_disco_geral=[];
     var myChart_disk;
-    function plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc) {
+    function atualizar_conjunto_disco( leituraTemperatura, leituraUsoPorc){
       conjunto_2_dataset_disco_geral=[
         {
           label: "Temperatura (°C)",
@@ -24,6 +24,14 @@
           borderWidth: 1,
         },
       ];
+
+    }
+    function plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc,vez) {
+      
+      if(vez==0){
+        atualizar_conjunto_disco( leituraTemperatura, leituraUsoPorc)
+      }else{
+        atualizar_conjunto_disco( leituraTemperatura, leituraUsoPorc)
       var ctx = document.getElementById("disk_geral_chart").getContext("2d");
        myChart_disk_geral = new Chart(ctx, {
         type: "bar",
@@ -64,7 +72,7 @@
         },
       });
     }
-    
+  }
     function discoPorcentagem_geral() {
       fetch("http://localhost:3000/leituras/dadosDiscoPerc", { cache: "no-store" })
         .then(function (response) {
@@ -90,7 +98,7 @@
     }
     
     let leituraTemperatura = [];
-    function atualizarDisco_geral() {
+    function atualizarDisco_geral(vez) {
       fetch("http://localhost:3000/leituras/dadosDiscoTemp", { cache: "no-store" })
         .then(function (response) {
           if (response.ok) {
@@ -108,7 +116,7 @@
 
               discoPorcentagem_geral();
     
-              plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc_disco_geral);
+              plotarDisco(tempoLeitura, leituraTemperatura, leituraUsoPorc_disco_geral,vez);
             });
           } else {
             console.error("Nenhum dado encontrado ou erro na leituras");
@@ -127,7 +135,10 @@
    function eliminar_disco(){
 
     myChart_disk_geral.data.labels.shift();
-
+    myChart_disk_geral.data.datasets.forEach(dataset => {
+      dataset.data.shift();
+ 
+    });
       myChart_disk_geral.data.labels.push(tempoLeitura[tempoLeitura.length - 1])
       myChart_disk_geral.data.datasets.forEach((dataset, n) => {
         dataset.data.push(conjunto_2_dataset_disco_geral[n].data[conjunto_2_dataset_disco_geral[n].data.length - 1])
