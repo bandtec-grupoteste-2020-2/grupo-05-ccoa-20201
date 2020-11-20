@@ -40,7 +40,7 @@ router.get('/recebercomponentes', (request, response) => {
 });
 
 router.get('/pegarumaleituradetemperatura', (request, response) => {
-    var sql = 'select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao like "Core %" and metrica="°C" order by idLeitura  limit 1; ';
+    var sql = 'select Leitura.idLeitura, Maquina.tipoMaquina, Leitura.descricao, Leitura.valor, Componente.metrica from Maquina, Leitura, Componente, MaquinaComponente where fkComponente = idComponente and idMaquina = fkMaquina and fkMaquinaComponente = idMaquinaComponente and idMaquina=3 and descricao like "Core %" and metrica="°C" order by idLeitura desc  limit 1; ';
 
     db.query(sql, function (err, result) {
         if (err) throw err;
