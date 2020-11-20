@@ -66,7 +66,10 @@ function criarGrafico(idCanvas, conjunto_dataset, tempoLeitura) {
 
 function atualizarGrafico(tempoLeitura) {
   if (!mudanca.includes(tempoLeitura[tempoLeitura.length - 1])) {
+    atualizarDisco_geral(0);
+    atualizarMemoriaGeral(0)
     eliminar_disco();
+    eliminar_memoria();
     mudanca = tempoLeitura
     let conta = separar(conjunto_dataset_CPU);
     myChart.data.labels.shift();
