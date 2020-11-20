@@ -31,8 +31,8 @@ while True:
     # print(values_disco)
     fk_maquina = randint(0, 2)*8
     dataset_componentes = [
-        [6 + fk_maquina, values_ram[0], values_ram[-1], 'ram_por'],
-        [7 + fk_maquina, values_ram[1], values_ram[-1], 'ram_gb']
+        [6 + fk_maquina, values_ram[0], values_ram[-1], 'Memoria uso %'],
+        [7 + fk_maquina, values_ram[1], values_ram[-1], 'Memoria uso GB']
     ]
     
     for cpu in values_cpu[0]:
