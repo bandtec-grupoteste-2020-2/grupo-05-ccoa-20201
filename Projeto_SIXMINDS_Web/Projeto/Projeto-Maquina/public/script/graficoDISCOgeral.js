@@ -133,9 +133,6 @@
         dataset.data.push(conjunto_2_dataset_disco_geral[n].data[conjunto_2_dataset_disco_geral[n].data.length - 1])
      
       });
-    
-
-
     myChart_disk.update();
     myChart_disk_geral.update();
    }
