@@ -1,9 +1,9 @@
 .alerta{
-    background-color: yellow;
+    background-color: #FFCE56;
 }
 .normal{
-    background-color: blue;
+    background-color: #17a2b8;
 }
 .critico{
-    background-color: red;
+    background-color: #FF6384;
 }

@@ -32,14 +32,14 @@
 
 
 
-<body style="background-color: #f7f7f7;">
+    <body style="background-color: #f7f7f7;">
 
 
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <!-- Chamado de Emergência -->
-                <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <!-- Chamado de Emergência -->
+                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
                     data-whatever="@mdo">Chamado de Emergência</button>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -85,25 +85,25 @@
                     </div>
                 </div> -->
 
+                </div>
             </div>
-        </div>
-        <!-- <nav class="navbar navbar-dark bg-dark">
+            <!-- <nav class="navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                 aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav> -->
-        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand text-warning" href="#">SixMinds</a>
+            <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand text-warning" href="#">SixMinds</a>
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <!-- <li class="nav-item active">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <!-- <li class="nav-item active">
                           <a class="nav-link" href="#">CPU <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
@@ -112,13 +112,11 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Disco</a>
                           </li> -->
-                    <li class="nav-item">
-                        <!-- Chamado de Emergência -->
-                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#chamadoEmerg"
-                            data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
-                    </li>
-
-            
+                        <li class="nav-item">
+                            <!-- Chamado de Emergência -->
+                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#chamadoEmerg"
+                                data-whatever="@mdo">Chamado de Emergência <i class="fas fa-bell"></i></a>
+                        </li>
 
 
 
@@ -126,7 +124,9 @@
 
 
 
-                    <!-- <div class="modal fade" id="ampli${}" tabindex="-1" aria-labelledby="ampli${}Label"
+
+
+                        <!-- <div class="modal fade" id="ampli${}" tabindex="-1" aria-labelledby="ampli${}Label"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -151,60 +151,60 @@
                     </div> -->
 
 
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
 
-                    <div class="border btn-outline-dark border-primary rounded my-2 my-sm-0 nav-link mr-3">
+                        <div class="border btn-outline-dark border-primary rounded my-2 my-sm-0 nav-link mr-3">
 
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="darkSwitch">
-                            <label class="custom-control-label fontSize 10px" for="darkSwitch">Modo escuro</label>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                                <label class="custom-control-label fontSize 10px" for="darkSwitch">Modo escuro</label>
+                            </div>
+                            <script src="dark-mode-switch.min.js"></script>
+
+
                         </div>
-                        <script src="dark-mode-switch.min.js"></script>
+
+                        <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html"
+                            onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
+
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        </div>
+        <!-- container geral-->
 
 
-                    </div>
 
-                    <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html"
-                        onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
 
-                </form>
+
+
+
+
+
+
+
+        <div class="container">
+            <br>
+            <br>
+            <h2>Todas as suas Máquinas</h2>
+            <br>
+            <br>
+
+            <div id="caixa_maquinas" class="row">
+
+
             </div>
-        </nav>
-    </div>
-
-    </div>
-    <!-- container geral-->
 
 
-
-
-
-
-
-
-
-
-
-    <div class="container">
-        <br>
-        <br>
-        <h2>Todas as suas Máquinas</h2>
-        <br>
-        <br>
-
-        <div id="caixa_maquinas" class="row">
 
 
         </div>
 
-
-
-
-    </div>
-
-</body>
+    </body>
 
 </html>
 
@@ -223,35 +223,12 @@
     // }
 
     //--------ESBOÇO PARA TROCAR OS ICONES E CORES---------------
-    var contadorzinho = 0;
-    //setInterval(atualizarTable, 5000);
-    function atualizarTable() {
-        contadorzinho++;
-        if (contadorzinho == 1) {
-            tab1lin1.style.backgroundColor = "#FFCE56";
-            // tab1lin2.style.backgroundColor = "#FFCE56";
-            icone11.className = "fas fa-exclamation-circle";
-        }
-        else if (contadorzinho == 2) {
-            tab1lin1.style.backgroundColor = "#FF6384";
-            // tab1lin2.style.backgroundColor = "#FF6384";
-            icone11.className = "fas fa-skull";
-        }
-        else {
-            tab1lin1.style.backgroundColor = "#17a2b8";
-            // tab1lin2.style.backgroundColor = "#17a2b8";
-            icone11.className = "fas fa-check";
-            contadorzinho = 0;
-        }
-    }
-
+ 
     //-----PISCAR EM CASO DE CAVEIRA-----------------------------
     //setInterval(Perigo, 1000);
-    function Perigo() {
-        icone12.style.display = "none";
-        setTimeout("icone12.style.display='inline-block'", 450);
+    
 
-    }
+
 
 </script>
 <script src="script/gerenteValores.js"></script>
