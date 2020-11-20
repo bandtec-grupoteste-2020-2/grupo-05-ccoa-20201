@@ -169,7 +169,7 @@ router.get('/dadosdeCadaComp/:idMaquina/:numCore', (request, response) => {
     let idMaquina = request.params.idMaquina;
     let numCore = request.params.numCore;
 
-    var sql = `select idMaquina,tipoMaquina,nomeComponente,metrica,valor,minimo,maximo from maquina,maquinaComponente,componente,leitura where idMaquina=fkMaquina and idComponente=fkComponente
+    var sql = `select idMaquina,tipoMaquina,nomeComponente,metrica,valor,minimo,maximo from Maquina, MaquinaComponente,Componente,Leitura where idMaquina=fkMaquina and idComponente=fkComponente
 	and metrica="%" and idMaquina=${idMaquina} and idMaquinaComponente=fkMaquinaComponente order by idLeitura desc limit ${numCore}; `;
 
     db.query(sql, function (err, result) {

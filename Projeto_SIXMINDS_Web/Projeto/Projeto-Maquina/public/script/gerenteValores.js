@@ -1,4 +1,4 @@
-// numeroMaquina();
+numeroMaquina();
 var globalTipo = [];
 var globalId = [];
 function numeroMaquina() {
